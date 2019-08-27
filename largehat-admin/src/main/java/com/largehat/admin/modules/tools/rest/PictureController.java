@@ -1,7 +1,7 @@
 package com.largehat.admin.modules.tools.rest;
 
-import com.largehat.web.utils.SecurityUtils;
-import com.largehat.web.annotation.Log;
+import com.largehat.common.core.utils.SecurityUtils;
+import com.largehat.common.core.annotation.Log;
 import com.largehat.admin.modules.tools.domain.Picture;
 import com.largehat.admin.modules.tools.service.PictureService;
 import com.largehat.admin.modules.tools.service.dto.PictureQueryCriteria;

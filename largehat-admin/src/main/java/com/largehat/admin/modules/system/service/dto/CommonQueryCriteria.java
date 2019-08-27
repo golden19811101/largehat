@@ -1,6 +1,6 @@
 package com.largehat.admin.modules.system.service.dto;
 
-import com.largehat.web.annotation.Query;
+import com.largehat.common.core.annotation.Query;
 import lombok.Data;
 
 /**

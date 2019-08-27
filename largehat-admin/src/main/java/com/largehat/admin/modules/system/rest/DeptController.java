@@ -1,8 +1,8 @@
 package com.largehat.admin.modules.system.rest;
 
-import com.largehat.web.annotation.Log;
+import com.largehat.common.core.annotation.Log;
 import com.largehat.admin.config.DataScope;
-import com.largehat.web.exception.BadRequestException;
+import com.largehat.common.core.exception.BadRequestException;
 import com.largehat.admin.modules.system.domain.Dept;
 import com.largehat.admin.modules.system.service.DeptService;
 import com.largehat.admin.modules.system.service.dto.DeptDTO;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
-* @author Zheng Jie
+* @author Lion
 * @date 2019-03-25
 */
 @RestController

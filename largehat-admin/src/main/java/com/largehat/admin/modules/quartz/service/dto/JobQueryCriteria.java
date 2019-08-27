@@ -1,10 +1,10 @@
 package com.largehat.admin.modules.quartz.service.dto;
 
-import com.largehat.web.annotation.Query;
+import com.largehat.common.core.annotation.Query;
 import lombok.Data;
 
 /**
- * @author Zheng Jie
+ * @author Lion
  * @date 2019-6-4 10:33:02
  */
 @Data

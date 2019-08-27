@@ -21,7 +21,7 @@
     <dependencies>
         <dependency>
             <groupId>com.largehat</groupId>
-            <artifactId>largehat-common-web</artifactId>
+            <artifactId>largehat-common-core</artifactId>
             <version>1.0.0</version>
         </dependency>
 

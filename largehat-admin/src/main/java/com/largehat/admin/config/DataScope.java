@@ -6,7 +6,7 @@ import com.largehat.admin.modules.system.service.RoleService;
 import com.largehat.admin.modules.system.service.UserService;
 import com.largehat.admin.modules.system.service.dto.RoleSmallDTO;
 import com.largehat.admin.modules.system.service.dto.UserDTO;
-import com.largehat.web.utils.SecurityUtils;
+import com.largehat.common.core.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.util.ArrayList;

@@ -1,7 +1,7 @@
 package com.largehat.admin.modules.monitor.rest;
 
 import com.largehat.admin.modules.monitor.service.VisitsService;
-import com.largehat.web.utils.RequestHolder;
+import com.largehat.common.core.utils.RequestHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @author Zheng Jie
+ * @author Lion
  * @date 2018-12-13
  */
 @RestController

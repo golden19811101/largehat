@@ -2,8 +2,8 @@ package com.largehat.admin.modules.tools.service.impl;
 
 import cn.hutool.extra.mail.Mail;
 import cn.hutool.extra.mail.MailAccount;
-import com.largehat.web.exception.BadRequestException;
-import com.largehat.web.utils.EncryptUtils;
+import com.largehat.common.core.exception.BadRequestException;
+import com.largehat.common.core.utils.EncryptUtils;
 import com.largehat.admin.modules.tools.domain.EmailConfig;
 import com.largehat.admin.modules.tools.domain.vo.EmailVo;
 import com.largehat.admin.modules.tools.repository.EmailRepository;
@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 /**
- * @author Zheng Jie
+ * @author Lion
  * @date 2018-12-26
  */
 @Service

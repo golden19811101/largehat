@@ -1,6 +1,6 @@
 package com.largehat.admin.modules.tools.utils;
 
-import com.largehat.web.utils.FileUtil;
+import com.largehat.common.core.utils.FileUtil;
 import com.qiniu.common.Zone;
 import com.qiniu.storage.Configuration;
 
@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  * 七牛云存储工具类
- * @author Zheng Jie
+ * @author Lion
  * @date 2018-12-31
  */
 public class QiNiuUtil {

@@ -1,6 +1,6 @@
 package com.largehat.admin.modules.monitor.rest;
 
-import com.largehat.web.annotation.Log;
+import com.largehat.common.core.annotation.Log;
 import com.largehat.admin.modules.monitor.domain.vo.RedisVo;
 import com.largehat.admin.modules.monitor.service.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * @author Zheng Jie
+ * @author Lion
  * @date 2018-12-10
  */
 @RestController

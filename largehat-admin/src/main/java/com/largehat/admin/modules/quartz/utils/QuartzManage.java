@@ -1,7 +1,7 @@
 package com.largehat.admin.modules.quartz.utils;
 
 import lombok.extern.slf4j.Slf4j;
-import com.largehat.web.exception.BadRequestException;
+import com.largehat.common.core.exception.BadRequestException;
 import com.largehat.admin.modules.quartz.domain.QuartzJob;
 import org.quartz.*;
 import org.quartz.impl.triggers.CronTriggerImpl;
@@ -11,7 +11,7 @@ import java.util.Date;
 import static org.quartz.TriggerBuilder.newTrigger;
 
 /**
- * @author Zheng Jie
+ * @author Lion
  * @date 2019-01-07
  */
 @Slf4j

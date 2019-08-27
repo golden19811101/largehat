@@ -1,7 +1,7 @@
 package com.largehat.admin.modules.log.service.mapper;
 
 
-import com.largehat.web.mapper.EntityMapper;
+import com.largehat.common.core.mapper.EntityMapper;
 
 import com.largehat.admin.modules.log.domain.Log;
 import com.largehat.admin.modules.log.service.dto.LogSmallDTO;

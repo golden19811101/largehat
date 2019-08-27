@@ -1,7 +1,7 @@
 package com.largehat.admin.modules.log.rest;
 
 
-import com.largehat.web.utils.SecurityUtils;
+import com.largehat.common.core.utils.SecurityUtils;
 import com.largehat.admin.modules.log.service.LogService;
 import com.largehat.admin.modules.log.service.dto.LogQueryCriteria;
 import org.springframework.beans.factory.annotation.Autowired;

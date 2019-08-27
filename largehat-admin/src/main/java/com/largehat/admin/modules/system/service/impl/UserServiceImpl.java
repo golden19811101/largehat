@@ -1,12 +1,12 @@
 package com.largehat.admin.modules.system.service.impl;
 
-import com.largehat.web.exception.EntityExistException;
-import com.largehat.web.exception.EntityNotFoundException;
+import com.largehat.common.core.exception.EntityExistException;
+import com.largehat.common.core.exception.EntityNotFoundException;
 import com.largehat.admin.modules.monitor.service.RedisService;
 import com.largehat.admin.modules.system.service.mapper.UserMapper;
-import com.largehat.web.utils.PageUtil;
-import com.largehat.web.utils.QueryHelp;
-import com.largehat.web.utils.ValidationUtil;
+import com.largehat.common.core.utils.PageUtil;
+import com.largehat.common.core.utils.QueryHelp;
+import com.largehat.common.core.utils.ValidationUtil;
 import com.largehat.admin.modules.system.domain.User;
 import com.largehat.admin.modules.system.repository.UserRepository;
 import com.largehat.admin.modules.system.service.UserService;
@@ -22,7 +22,7 @@ import java.util.Date;
 import java.util.Optional;
 
 /**
- * @author Zheng Jie
+ * @author Lion
  * @date 2018-11-23
  */
 @Service

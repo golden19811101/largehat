@@ -6,7 +6,7 @@ import cn.hutool.extra.template.Template;
 import cn.hutool.extra.template.TemplateConfig;
 import cn.hutool.extra.template.TemplateEngine;
 import cn.hutool.extra.template.TemplateUtil;
-import com.largehat.web.exception.BadRequestException;
+import com.largehat.common.core.exception.BadRequestException;
 import com.largehat.admin.modules.tools.domain.VerificationCode;
 import com.largehat.admin.modules.tools.domain.vo.EmailVo;
 import com.largehat.admin.modules.tools.repository.VerificationCodeRepository;
@@ -23,7 +23,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author Zheng Jie
+ * @author Lion
  * @date 2018-12-26
  */
 @Service

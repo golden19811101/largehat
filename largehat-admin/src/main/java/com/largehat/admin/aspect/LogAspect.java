@@ -2,10 +2,10 @@ package com.largehat.admin.aspect;
 
 import com.largehat.admin.modules.log.domain.Log;
 import com.largehat.admin.modules.log.service.LogService;
-import com.largehat.web.utils.RequestHolder;
-import com.largehat.web.utils.SecurityUtils;
-import com.largehat.web.utils.StringUtils;
-import com.largehat.web.utils.ThrowableUtil;
+import com.largehat.common.core.utils.RequestHolder;
+import com.largehat.common.core.utils.SecurityUtils;
+import com.largehat.common.core.utils.StringUtils;
+import com.largehat.common.core.utils.ThrowableUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -33,7 +33,7 @@ public class LogAspect {
     /**
      * 配置切入点
      */
-    @Pointcut("@annotation(com.largehat.web.annotation.Log)")
+    @Pointcut("@annotation(com.largehat.common.core.annotation.Log)")
     public void logPointcut() {
         // 该方法无方法体,主要为了让同类中其他方法使用此切入点
     }

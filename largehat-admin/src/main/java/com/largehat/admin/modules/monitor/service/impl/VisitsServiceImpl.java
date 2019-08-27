@@ -2,7 +2,7 @@ package com.largehat.admin.modules.monitor.service.impl;
 
 import com.largehat.admin.modules.log.repository.LogRepository;
 import com.largehat.admin.modules.monitor.repository.VisitsRepository;
-import com.largehat.web.utils.StringUtils;
+import com.largehat.common.core.utils.StringUtils;
 import lombok.extern.slf4j.Slf4j;
 import com.largehat.admin.modules.monitor.domain.Visits;
 import com.largehat.admin.modules.monitor.service.VisitsService;
@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * @author Zheng Jie
+ * @author Lion
  * @date 2018-12-13
  */
 @Slf4j

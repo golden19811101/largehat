@@ -4,7 +4,7 @@ import com.alipay.api.AlipayClient;
 import com.alipay.api.DefaultAlipayClient;
 import com.alipay.api.request.AlipayTradePagePayRequest;
 import com.alipay.api.request.AlipayTradeWapPayRequest;
-import com.largehat.web.exception.BadRequestException;
+import com.largehat.common.core.exception.BadRequestException;
 import com.largehat.admin.modules.tools.domain.AlipayConfig;
 import com.largehat.admin.modules.tools.domain.vo.TradeVo;
 import com.largehat.admin.modules.tools.repository.AlipayRepository;
@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 /**
- * @author Zheng Jie
+ * @author Lion
  * @date 2018-12-31
  */
 @Service

@@ -1,7 +1,7 @@
 package com.largehat.admin.modules.system.rest;
 
-import com.largehat.web.annotation.Log;
-import com.largehat.web.exception.BadRequestException;
+import com.largehat.common.core.annotation.Log;
+import com.largehat.common.core.exception.BadRequestException;
 import com.largehat.admin.modules.system.domain.Permission;
 import com.largehat.admin.modules.system.service.PermissionService;
 import com.largehat.admin.modules.system.service.dto.CommonQueryCriteria;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * @author Zheng Jie
+ * @author Lion
  * @date 2018-12-03
  */
 @RestController

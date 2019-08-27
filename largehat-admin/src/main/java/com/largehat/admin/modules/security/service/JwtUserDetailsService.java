@@ -1,12 +1,11 @@
 package com.largehat.admin.modules.security.service;
 
-import com.largehat.web.exception.BadRequestException;
+import com.largehat.common.core.exception.BadRequestException;
 import com.largehat.admin.modules.security.security.JwtUser;
 import com.largehat.admin.modules.system.service.UserService;
 import com.largehat.admin.modules.system.service.dto.DeptSmallDTO;
 import com.largehat.admin.modules.system.service.dto.JobSmallDTO;
 import com.largehat.admin.modules.system.service.dto.UserDTO;
-import com.largehat.admin.modules.system.service.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -16,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 /**
- * @author Zheng Jie
+ * @author Lion
  * @date 2018-11-22
  */
 @Service

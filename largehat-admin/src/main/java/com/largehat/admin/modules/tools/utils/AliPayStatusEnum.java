@@ -2,7 +2,7 @@ package com.largehat.admin.modules.tools.utils;
 
 /**
  * 支付状态
- * @author zhengjie
+ * @author Lion
  * @date 2018/08/01 16:45:43
  */
 public enum  AliPayStatusEnum {

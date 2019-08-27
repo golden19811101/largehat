@@ -1,7 +1,7 @@
 package com.largehat.admin.modules.system.rest;
 
-import com.largehat.web.annotation.Log;
-import com.largehat.web.exception.BadRequestException;
+import com.largehat.common.core.annotation.Log;
+import com.largehat.common.core.exception.BadRequestException;
 import com.largehat.admin.modules.system.domain.DictDetail;
 import com.largehat.admin.modules.system.service.DictDetailService;
 import com.largehat.admin.modules.system.service.dto.DictDetailQueryCriteria;
@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
-* @author Zheng Jie
+* @author Lion
 * @date 2019-04-10
 */
 @RestController

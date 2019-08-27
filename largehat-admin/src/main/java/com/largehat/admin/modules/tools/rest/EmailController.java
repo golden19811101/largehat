@@ -1,7 +1,7 @@
 package com.largehat.admin.modules.tools.rest;
 
 import lombok.extern.slf4j.Slf4j;
-import com.largehat.web.annotation.Log;
+import com.largehat.common.core.annotation.Log;
 import com.largehat.admin.modules.tools.domain.EmailConfig;
 import com.largehat.admin.modules.tools.domain.vo.EmailVo;
 import com.largehat.admin.modules.tools.service.EmailService;

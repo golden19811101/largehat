@@ -1,12 +1,12 @@
 package com.largehat.admin.modules.tools.service.impl;
 
 import com.google.gson.Gson;
-import com.largehat.web.exception.BadRequestException;
+import com.largehat.common.core.exception.BadRequestException;
 import com.largehat.admin.modules.tools.service.dto.QiniuQueryCriteria;
-import com.largehat.web.utils.FileUtil;
-import com.largehat.web.utils.PageUtil;
-import com.largehat.web.utils.QueryHelp;
-import com.largehat.web.utils.ValidationUtil;
+import com.largehat.common.core.utils.FileUtil;
+import com.largehat.common.core.utils.PageUtil;
+import com.largehat.common.core.utils.QueryHelp;
+import com.largehat.common.core.utils.ValidationUtil;
 import com.qiniu.common.QiniuException;
 import com.qiniu.http.Response;
 import com.qiniu.storage.BucketManager;
@@ -32,7 +32,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.Optional;
 
 /**
- * @author Zheng Jie
+ * @author Lion
  * @date 2018-12-31
  */
 @Service

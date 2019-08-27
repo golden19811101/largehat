@@ -1,7 +1,7 @@
 package com.largehat.admin.modules.system.rest;
 
-import com.largehat.web.annotation.Log;
-import com.largehat.web.exception.BadRequestException;
+import com.largehat.common.core.annotation.Log;
+import com.largehat.common.core.exception.BadRequestException;
 import com.largehat.admin.modules.system.domain.Menu;
 import com.largehat.admin.modules.system.service.MenuService;
 import com.largehat.admin.modules.system.service.RoleService;
@@ -9,7 +9,7 @@ import com.largehat.admin.modules.system.service.UserService;
 import com.largehat.admin.modules.system.service.dto.CommonQueryCriteria;
 import com.largehat.admin.modules.system.service.dto.MenuDTO;
 import com.largehat.admin.modules.system.service.dto.UserDTO;
-import com.largehat.web.utils.SecurityUtils;
+import com.largehat.common.core.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * @author Zheng Jie
+ * @author Lion
  * @date 2018-12-03
  */
 @RestController

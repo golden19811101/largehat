@@ -1,6 +1,6 @@
 package com.largehat.admin.modules.monitor.service.impl;
 
-import com.largehat.web.utils.PageUtil;
+import com.largehat.common.core.utils.PageUtil;
 import com.largehat.admin.modules.monitor.domain.vo.RedisVo;
 import com.largehat.admin.modules.monitor.service.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author Zheng Jie
+ * @author Lion
  * @date 2018-12-10
  */
 @Service

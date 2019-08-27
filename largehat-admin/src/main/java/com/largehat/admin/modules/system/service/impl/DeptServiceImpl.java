@@ -1,11 +1,11 @@
 package com.largehat.admin.modules.system.service.impl;
 
-import com.largehat.web.exception.BadRequestException;
+import com.largehat.common.core.exception.BadRequestException;
 import com.largehat.admin.modules.system.repository.DeptRepository;
 import com.largehat.admin.modules.system.service.DeptService;
 import com.largehat.admin.modules.system.service.mapper.DeptMapper;
-import com.largehat.web.utils.QueryHelp;
-import com.largehat.web.utils.ValidationUtil;
+import com.largehat.common.core.utils.QueryHelp;
+import com.largehat.common.core.utils.ValidationUtil;
 import com.largehat.admin.modules.system.domain.Dept;
 import com.largehat.admin.modules.system.service.dto.DeptQueryCriteria;
 import com.largehat.admin.modules.system.service.dto.DeptDTO;
@@ -18,7 +18,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
-* @author Zheng Jie
+* @author Lion
 * @date 2019-03-25
 */
 @Service

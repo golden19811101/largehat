@@ -1,9 +1,9 @@
 package com.largehat.admin.modules.system.service.impl;
 
 import com.largehat.admin.modules.system.service.mapper.DictMapper;
-import com.largehat.web.utils.PageUtil;
-import com.largehat.web.utils.QueryHelp;
-import com.largehat.web.utils.ValidationUtil;
+import com.largehat.common.core.utils.PageUtil;
+import com.largehat.common.core.utils.QueryHelp;
+import com.largehat.common.core.utils.ValidationUtil;
 import com.largehat.admin.modules.system.domain.Dict;
 import com.largehat.admin.modules.system.repository.DictRepository;
 import com.largehat.admin.modules.system.service.DictService;
@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 /**
-* @author Zheng Jie
+* @author Lion
 * @date 2019-04-10
 */
 @Service

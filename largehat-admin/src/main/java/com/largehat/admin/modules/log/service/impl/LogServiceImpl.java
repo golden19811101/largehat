@@ -5,8 +5,8 @@ import cn.hutool.json.JSONObject;
 
 import com.largehat.admin.modules.log.domain.Log;
 import com.largehat.admin.modules.log.repository.LogRepository;
-import com.largehat.web.utils.PageUtil;
-import com.largehat.web.utils.QueryHelp;
+import com.largehat.common.core.utils.PageUtil;
+import com.largehat.common.core.utils.QueryHelp;
 import com.largehat.admin.modules.log.service.LogService;
 import com.largehat.admin.modules.log.service.dto.LogQueryCriteria;
 import com.largehat.admin.modules.log.service.mapper.LogErrorMapper;
@@ -62,7 +62,7 @@ public class LogServiceImpl implements LogService {
 
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method method = signature.getMethod();
-        com.largehat.web.annotation.Log aopLog = method.getAnnotation(com.largehat.web.annotation.Log.class);
+        com.largehat.common.core.annotation.Log aopLog = method.getAnnotation(com.largehat.common.core.annotation.Log.class);
 
         // 描述
         if (log != null) {

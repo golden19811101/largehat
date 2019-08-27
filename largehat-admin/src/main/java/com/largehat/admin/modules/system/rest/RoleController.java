@@ -1,13 +1,13 @@
 package com.largehat.admin.modules.system.rest;
 
 import cn.hutool.core.lang.Dict;
-import com.largehat.web.annotation.Log;
-import com.largehat.web.exception.BadRequestException;
+import com.largehat.common.core.annotation.Log;
+import com.largehat.common.core.exception.BadRequestException;
 import com.largehat.admin.modules.system.domain.Role;
 import com.largehat.admin.modules.system.service.RoleService;
 import com.largehat.admin.modules.system.service.dto.CommonQueryCriteria;
 import com.largehat.admin.modules.system.service.dto.RoleSmallDTO;
-import com.largehat.web.utils.SecurityUtils;
+import com.largehat.common.core.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @author Zheng Jie
+ * @author Lion
  * @date 2018-12-03
  */
 @RestController

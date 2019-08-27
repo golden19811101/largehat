@@ -1,12 +1,12 @@
 package com.largehat.admin.modules.system.service.dto;
 
-import com.largehat.web.annotation.Query;
+import com.largehat.common.core.annotation.Query;
 import lombok.Data;
 
 import java.io.Serializable;
 
 /**
-* @author Zheng Jie
+* @author Lion
 * @date 2019-04-10
 */
 @Data

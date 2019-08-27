@@ -1,13 +1,13 @@
 package com.largehat.admin.modules.system.service.dto;
 
-import com.largehat.web.annotation.Query;
+import com.largehat.common.core.annotation.Query;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Set;
 
 /**
-* @author Zheng Jie
+* @author Lion
 * @date 2019-6-4 14:49:34
 */
 @Data

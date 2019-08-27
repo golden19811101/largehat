@@ -1,7 +1,7 @@
 package com.largehat.admin.modules.tools.rest;
 
 
-import com.largehat.web.constant.LargehatConstant;
+import com.largehat.common.core.constant.LargehatConstant;
 import com.largehat.admin.modules.tools.domain.VerificationCode;
 import com.largehat.admin.modules.tools.domain.vo.EmailVo;
 import com.largehat.admin.modules.tools.service.EmailService;

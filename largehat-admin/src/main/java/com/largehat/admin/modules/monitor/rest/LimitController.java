@@ -1,6 +1,6 @@
 package com.largehat.admin.modules.monitor.rest;
 
-import com.largehat.web.annotation.Limit;
+import com.largehat.common.core.annotation.Limit;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

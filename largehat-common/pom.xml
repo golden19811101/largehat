@@ -12,7 +12,8 @@
     <artifactId>largehat-common</artifactId>
 
     <modules>
-        <module>largehat-common-web</module>
+        <module>largehat-common-core</module>
         <module>largehat-common-im</module>
+        <module>largehat-common-db</module>
     </modules>
 </project>

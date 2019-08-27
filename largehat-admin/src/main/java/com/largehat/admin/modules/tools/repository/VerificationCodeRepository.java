@@ -5,7 +5,7 @@ import com.largehat.admin.modules.tools.domain.VerificationCode;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
- * @author Zheng Jie
+ * @author Lion
  * @date 2018-12-26
  */
 public interface VerificationCodeRepository extends JpaRepository<VerificationCode, Long> {

@@ -1,9 +1,9 @@
 package com.largehat.admin.modules.system.service.impl;
 
 import com.largehat.admin.modules.system.service.mapper.DictDetailMapper;
-import com.largehat.web.utils.PageUtil;
-import com.largehat.web.utils.QueryHelp;
-import com.largehat.web.utils.ValidationUtil;
+import com.largehat.common.core.utils.PageUtil;
+import com.largehat.common.core.utils.QueryHelp;
+import com.largehat.common.core.utils.ValidationUtil;
 import com.largehat.admin.modules.system.domain.DictDetail;
 import com.largehat.admin.modules.system.service.dto.DictDetailQueryCriteria;
 import com.largehat.admin.modules.system.repository.DictDetailRepository;
@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
-* @author Zheng Jie
+* @author Lion
 * @date 2019-04-10
 */
 @Service

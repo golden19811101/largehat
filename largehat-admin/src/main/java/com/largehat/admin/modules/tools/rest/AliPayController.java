@@ -2,7 +2,7 @@ package com.largehat.admin.modules.tools.rest;
 
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import com.largehat.web.annotation.Log;
+import com.largehat.common.core.annotation.Log;
 import com.largehat.admin.modules.tools.domain.AlipayConfig;
 import com.largehat.admin.modules.tools.domain.vo.TradeVo;
 import com.largehat.admin.modules.tools.service.AlipayService;
@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 /**
- * @author Zheng Jie
+ * @author Lion
  * @date 2018-12-31
  */
 @Slf4j

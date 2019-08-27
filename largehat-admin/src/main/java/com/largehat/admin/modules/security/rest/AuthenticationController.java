@@ -2,8 +2,8 @@ package com.largehat.admin.modules.security.rest;
 
 import cn.hutool.core.codec.Base64;
 import cn.hutool.core.util.IdUtil;
-import com.largehat.web.annotation.Log;
-import com.largehat.web.exception.BadRequestException;
+import com.largehat.common.core.annotation.Log;
+import com.largehat.common.core.exception.BadRequestException;
 import com.largehat.admin.modules.monitor.service.RedisService;
 import com.largehat.admin.modules.security.security.AuthenticationInfo;
 import com.largehat.admin.modules.security.security.AuthorizationUser;
@@ -11,9 +11,9 @@ import com.largehat.admin.modules.security.security.ImgResult;
 import com.largehat.admin.modules.security.security.JwtUser;
 import com.largehat.admin.modules.security.utils.JwtTokenUtil;
 import com.largehat.admin.modules.security.utils.VerifyCodeUtils;
-import com.largehat.web.utils.EncryptUtils;
-import com.largehat.web.utils.SecurityUtils;
-import com.largehat.web.utils.StringUtils;
+import com.largehat.common.core.utils.EncryptUtils;
+import com.largehat.common.core.utils.SecurityUtils;
+import com.largehat.common.core.utils.StringUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -28,7 +28,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 /**
- * @author Zheng Jie
+ * @author Lion
  * @date 2018-11-23
  * 授权、根据token获取用户详细信息
  */

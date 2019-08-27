@@ -1,10 +1,10 @@
 package com.largehat.admin.modules.system.service.impl;
 
-import com.largehat.web.exception.BadRequestException;
-import com.largehat.web.exception.EntityExistException;
+import com.largehat.common.core.exception.BadRequestException;
+import com.largehat.common.core.exception.EntityExistException;
 import com.largehat.admin.modules.system.service.mapper.PermissionMapper;
-import com.largehat.web.utils.QueryHelp;
-import com.largehat.web.utils.ValidationUtil;
+import com.largehat.common.core.utils.QueryHelp;
+import com.largehat.common.core.utils.ValidationUtil;
 import com.largehat.admin.modules.system.domain.Permission;
 import com.largehat.admin.modules.system.repository.PermissionRepository;
 import com.largehat.admin.modules.system.service.PermissionService;
@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.*;
 
 /**
- * @author Zheng Jie
+ * @author Lion
  * @date 2018-12-03
  */
 @Service

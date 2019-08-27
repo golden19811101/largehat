@@ -1,6 +1,6 @@
 package com.largehat.admin.modules.quartz.utils;
 
-import com.largehat.web.utils.SpringContextHolder;
+import com.largehat.common.core.utils.SpringContextHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.ReflectionUtils;

@@ -1,12 +1,12 @@
 package com.largehat.admin.modules.quartz.service.impl;
 
-import com.largehat.web.exception.BadRequestException;
+import com.largehat.common.core.exception.BadRequestException;
 import com.largehat.admin.modules.quartz.repository.QuartzJobRepository;
 import com.largehat.admin.modules.quartz.repository.QuartzLogRepository;
 import com.largehat.admin.modules.quartz.utils.QuartzManage;
-import com.largehat.web.utils.PageUtil;
-import com.largehat.web.utils.QueryHelp;
-import com.largehat.web.utils.ValidationUtil;
+import com.largehat.common.core.utils.PageUtil;
+import com.largehat.common.core.utils.QueryHelp;
+import com.largehat.common.core.utils.ValidationUtil;
 import com.largehat.admin.modules.quartz.domain.QuartzJob;
 import com.largehat.admin.modules.quartz.service.QuartzJobService;
 import com.largehat.admin.modules.quartz.service.dto.JobQueryCriteria;
@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 /**
- * @author Zheng Jie
+ * @author Lion
  * @date 2019-01-07
  */
 @Service(value = "quartzJobService")

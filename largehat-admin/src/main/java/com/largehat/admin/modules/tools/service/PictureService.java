@@ -10,7 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
- * @author Zheng Jie
+ * @author Lion
  * @date 2018-12-27
  */
 @CacheConfig(cacheNames = "picture")

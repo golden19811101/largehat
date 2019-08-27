@@ -1,9 +1,9 @@
 package com.largehat.admin.modules.system.service.impl;
 
 import com.largehat.admin.modules.system.service.mapper.JobMapper;
-import com.largehat.web.utils.PageUtil;
-import com.largehat.web.utils.QueryHelp;
-import com.largehat.web.utils.ValidationUtil;
+import com.largehat.common.core.utils.PageUtil;
+import com.largehat.common.core.utils.QueryHelp;
+import com.largehat.common.core.utils.ValidationUtil;
 import com.largehat.admin.modules.system.domain.Job;
 import com.largehat.admin.modules.system.repository.DeptRepository;
 import com.largehat.admin.modules.system.service.dto.JobQueryCriteria;
@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
-* @author Zheng Jie
+* @author Lion
 * @date 2019-03-29
 */
 @Service

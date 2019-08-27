@@ -1,11 +1,11 @@
 package com.largehat.admin.modules.system.service.impl;
 
 import cn.hutool.core.util.StrUtil;
-import com.largehat.web.exception.BadRequestException;
-import com.largehat.web.exception.EntityExistException;
+import com.largehat.common.core.exception.BadRequestException;
+import com.largehat.common.core.exception.EntityExistException;
 import com.largehat.admin.modules.system.service.mapper.MenuMapper;
-import com.largehat.web.utils.QueryHelp;
-import com.largehat.web.utils.ValidationUtil;
+import com.largehat.common.core.utils.QueryHelp;
+import com.largehat.common.core.utils.ValidationUtil;
 import com.largehat.admin.modules.system.domain.Menu;
 import com.largehat.admin.modules.system.domain.vo.MenuMetaVo;
 import com.largehat.admin.modules.system.domain.vo.MenuVo;
