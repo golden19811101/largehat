@@ -15,5 +15,6 @@
         <module>largehat-common-core</module>
         <module>largehat-common-im</module>
         <module>largehat-common-db</module>
+        <module>largehat-common-executor</module>
     </modules>
 </project>

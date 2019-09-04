@@ -1,6 +1,6 @@
 package com.largehat.common.core.aspect;
 
-import com.google.common.collect.ImmutableList;
+
 import com.largehat.common.core.annotation.Limit;
 import com.largehat.common.core.exception.BadRequestException;
 import com.largehat.common.core.utils.StringUtils;
@@ -50,17 +50,18 @@ public class LimitAspect {
             }
         }
 
-        ImmutableList keys = ImmutableList.of(StringUtils.join(limit.prefix(), "_", key, "_", request.getRequestURI().replaceAll("/","_")));
-
-        String luaScript = buildLuaScript();
-        RedisScript<Number> redisScript = new DefaultRedisScript<>(luaScript, Number.class);
-        Number count = (Number) redisTemplate.execute(redisScript, keys, limit.count(), limit.period());
-        if (null != count && count.intValue() <= limit.count()) {
-            logger.info("第{}次访问key为 {}，描述为 [{}] 的接口", count, keys, limit.name());
-            return joinPoint.proceed();
-        } else {
-            throw new BadRequestException("访问次数受限制");
-        }
+//        ImmutableList keys = ImmutableList.of(StringUtils.join(limit.prefix(), "_", key, "_", request.getRequestURI().replaceAll("/","_")));
+//
+//        String luaScript = buildLuaScript();
+//        RedisScript<Number> redisScript = new DefaultRedisScript<>(luaScript, Number.class);
+//        Number count = (Number) redisTemplate.execute(redisScript, keys, limit.count(), limit.period());
+//        if (null != count && count.intValue() <= limit.count()) {
+//            logger.info("第{}次访问key为 {}，描述为 [{}] 的接口", count, keys, limit.name());
+//            return joinPoint.proceed();
+//        } else {
+//            throw new BadRequestException("访问次数受限制");
+//        }
+        return null;
     }
 
     /**

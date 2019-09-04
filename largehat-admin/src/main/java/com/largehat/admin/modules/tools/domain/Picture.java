@@ -8,8 +8,6 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
- * sm.ms图床
- *
  * @author Lion
  * @date 2018-12-27
  */

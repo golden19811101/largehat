@@ -1,6 +1,5 @@
 package com.largehat.admin.modules.tools.rest;
 
-import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import com.largehat.common.core.annotation.Log;
 import com.largehat.admin.modules.tools.domain.AlipayConfig;
@@ -13,7 +12,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -48,7 +46,6 @@ public class AliPayController {
     }
 
     @Log("支付宝PC网页支付")
-    @ApiOperation(value = "PC网页支付")
     @PostMapping(value = "/aliPay/toPayAsPC")
     public ResponseEntity<String> toPayAsPC(@Validated@RequestBody TradeVo trade) throws Exception{
         AlipayConfig alipay = alipayService.find();
@@ -58,7 +55,6 @@ public class AliPayController {
     }
 
     @Log("支付宝手机网页支付")
-    @ApiOperation(value = "手机网页支付")
     @PostMapping(value = "/aliPay/toPayAsWeb")
     public ResponseEntity<String> toPayAsWeb(@Validated @RequestBody TradeVo trade) throws Exception{
         AlipayConfig alipay = alipayService.find();
@@ -67,9 +63,8 @@ public class AliPayController {
         return ResponseEntity.ok(payUrl);
     }
 
-    @ApiIgnore
+
     @GetMapping("/aliPay/return")
-    @ApiOperation(value = "支付之后跳转的链接")
     public ResponseEntity<String> returnPage(HttpServletRequest request, HttpServletResponse response) throws Exception {
         AlipayConfig alipay = alipayService.find();
         response.setContentType("text/html;charset=" + alipay.getCharset());
@@ -93,9 +88,8 @@ public class AliPayController {
         }
     }
 
-    @ApiIgnore
+
     @RequestMapping("/aliPay/notify")
-    @ApiOperation(value = "支付异步通知(要公网访问)，接收异步通知，检查通知内容app_id、out_trade_no、total_amount是否与请求中的一致，根据trade_status进行后续业务处理")
     public ResponseEntity notify(HttpServletRequest request) throws Exception{
         AlipayConfig alipay = alipayService.find();
         Map<String, String[]> parameterMap = request.getParameterMap();

@@ -1,7 +1,6 @@
 package com.largehat.admin.modules.system.service.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -15,7 +14,6 @@ import java.util.Set;
 @Data
 public class UserDTO implements Serializable {
 
-    @ApiModelProperty(hidden = true)
     private Long id;
 
     private String username;
@@ -35,10 +33,8 @@ public class UserDTO implements Serializable {
 
     private Date lastPasswordResetTime;
 
-    @ApiModelProperty(hidden = true)
     private Set<RoleSmallDTO> roles;
 
-    @ApiModelProperty(hidden = true)
     private JobSmallDTO job;
 
     private DeptSmallDTO dept;
