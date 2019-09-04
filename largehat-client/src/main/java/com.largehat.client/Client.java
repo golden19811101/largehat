@@ -10,7 +10,6 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 
 import java.util.Date;
-import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -23,7 +22,7 @@ public class Client {
 
     private static final int MAX_RETRY = 5;
     private static final String HOST = "127.0.0.1";
-    private static final int PORT = 8888;
+    private static final int PORT = 11111;
 
     public void start() {
         NioEventLoopGroup workerGroup = new NioEventLoopGroup();
