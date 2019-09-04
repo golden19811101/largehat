@@ -17,7 +17,6 @@ public class ImServer {
 
     private static final int PORT = 11111;
 
-
     /**
      * <B>启动服务器</B>
      */
@@ -66,6 +65,9 @@ public class ImServer {
                         channel.pipeline().addLast(GroupMembersReqHandler.getInstance());
                         // 群消息
                         channel.pipeline().addLast(GroupMessageReqHandler.getInstance());
+                        // 离线消息
+
+
                     }
                 });
         serverBootstrap.bind(PORT).addListener((ChannelFutureListener) future -> {
