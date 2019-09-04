@@ -30,7 +30,6 @@ public class MessageReqHandler extends SimpleChannelInboundHandler<MessageReqPac
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, MessageReqPacket msg) throws Exception {
-
         // 拿到消息发送方的会话信息
         Session session = SessionUtil.getSession(ctx.channel());
 
@@ -38,8 +37,8 @@ public class MessageReqHandler extends SimpleChannelInboundHandler<MessageReqPac
         MessageRepPacket messageRepPacket = new MessageRepPacket();
         messageRepPacket.setFromUserId(session.getUserId());
         messageRepPacket.setFromUserName(session.getUserName());
-        messageRepPacket.setMessage(msg.getMessage());
 
+        messageRepPacket.setMessage(msg.getMessage());
         // 拿到消息接收方的 Channel
         Channel toUserChannel = SessionUtil.getChannel(msg.getToUserId());
 
@@ -47,6 +46,7 @@ public class MessageReqHandler extends SimpleChannelInboundHandler<MessageReqPac
         if (toUserChannel != null && SessionUtil.hasLogin(toUserChannel)) {
             toUserChannel.writeAndFlush(messageRepPacket);
         } else {
+
             System.out.println("[" + msg.getToUserId() + "]不在线，发送失败!");
         }
     }
