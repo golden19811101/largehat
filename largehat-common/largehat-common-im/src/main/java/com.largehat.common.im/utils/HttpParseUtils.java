@@ -96,7 +96,6 @@ public class HttpParseUtils {
 
 	/**
 	 *
-	 * @author wchao
 	 */
 	public HttpParseUtils() {
 	}

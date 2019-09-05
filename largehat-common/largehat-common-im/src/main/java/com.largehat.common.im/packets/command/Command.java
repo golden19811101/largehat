@@ -6,6 +6,10 @@ package com.largehat.common.im.packets.command;
 import com.largehat.common.im.packets.Chat;
 
 /**
+ * <pre>
+ *通信命令
+ * </pre>
+ *
  * Protobuf enum {@code Command}
  */
 public enum Command
@@ -158,6 +162,22 @@ public enum Command
    * <code>COMMAND_GET_USER_RESP = 18;</code>
    */
   COMMAND_GET_USER_RESP(18),
+  /**
+   * <pre>
+   *获取离线信息;
+   * </pre>
+   *
+   * <code>COMMAND_OFFLINE_MESSAGE_REQ = 19;</code>
+   */
+  COMMAND_OFFLINE_MESSAGE_REQ(19),
+  /**
+   * <pre>
+   *获取离线信息响应;
+   * </pre>
+   *
+   * <code>COMMAND_OFFLINE_MESSAGE_RESP = 20;</code>
+   */
+  COMMAND_OFFLINE_MESSAGE_RESP(20),
   UNRECOGNIZED(-1),
   ;
 
@@ -309,6 +329,22 @@ public enum Command
    * <code>COMMAND_GET_USER_RESP = 18;</code>
    */
   public static final int COMMAND_GET_USER_RESP_VALUE = 18;
+  /**
+   * <pre>
+   *获取离线信息;
+   * </pre>
+   *
+   * <code>COMMAND_OFFLINE_MESSAGE_REQ = 19;</code>
+   */
+  public static final int COMMAND_OFFLINE_MESSAGE_REQ_VALUE = 19;
+  /**
+   * <pre>
+   *获取离线信息响应;
+   * </pre>
+   *
+   * <code>COMMAND_OFFLINE_MESSAGE_RESP = 20;</code>
+   */
+  public static final int COMMAND_OFFLINE_MESSAGE_RESP_VALUE = 20;
 
 
   public final int getNumber() {
@@ -348,6 +384,8 @@ public enum Command
       case 16: return COMMAND_CANCEL_MSG_RESP;
       case 17: return COMMAND_GET_USER_REQ;
       case 18: return COMMAND_GET_USER_RESP;
+      case 19: return COMMAND_OFFLINE_MESSAGE_REQ;
+      case 20: return COMMAND_OFFLINE_MESSAGE_RESP;
       default: return null;
     }
   }
@@ -375,7 +413,7 @@ public enum Command
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
     return Chat.getDescriptor()
-        .getEnumTypes().get(1);
+        .getEnumTypes().get(2);
   }
 
   private static final Command[] VALUES = values();

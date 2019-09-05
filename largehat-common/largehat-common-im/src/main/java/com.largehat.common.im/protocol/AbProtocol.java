@@ -1,6 +1,8 @@
 package com.largehat.common.im.protocol;
 
 
+import io.netty.channel.ChannelHandlerContext;
+
 import java.nio.ByteBuffer;
 
 /**
@@ -21,15 +23,15 @@ public abstract class AbProtocol implements IProtocol {
 	 * @return
 	 * @throws Throwable
 	 */
-	//public abstract boolean isProtocolByBuffer(ByteBuffer buffer,ChannelContext channelContext) throws Throwable;
+	public abstract boolean isProtocolByBuffer(ByteBuffer buffer, ChannelHandlerContext channelContext) throws Throwable;
 
-//	public boolean isProtocol(ByteBuffer buffer,ChannelContext channelContext) throws Throwable {
-//		ByteBuffer copyByteBuffer = null;
-//		if(buffer != null && channelContext.getAttribute() == null){
+	public boolean isProtocol(ByteBuffer buffer, ChannelHandlerContext channelContext) throws Throwable {
+		ByteBuffer copyByteBuffer = null;
+//		if (buffer != null && channelContext.getAttribute() == null) {
 //			copyByteBuffer = ByteBuffer.wrap(buffer.array());
 //		}
-//		return isProtocolByBuffer(copyByteBuffer, channelContext);
-//	}
+		return isProtocolByBuffer(copyByteBuffer, channelContext);
+	}
 
 	public IConvertProtocolPacket getConverter() {
 		return converter;

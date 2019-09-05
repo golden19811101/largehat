@@ -4,6 +4,10 @@
 package com.largehat.common.im.packets;
 
 /**
+ * <pre>
+ *消息类型
+ * </pre>
+ *
  * Protobuf enum {@code MsgType}
  */
 public enum MsgType
@@ -159,8 +163,8 @@ public enum MsgType
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return com.largehat.common.im.packets.Chat.getDescriptor()
-        .getEnumTypes().get(4);
+    return Chat.getDescriptor()
+        .getEnumTypes().get(5);
   }
 
   private static final MsgType[] VALUES = values();

@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
  * @author
  * @date 2019-04-20
  */
-public class Client {
+public class ImClient {
 
     private static final int MAX_RETRY = 5;
     private static final String HOST = "127.0.0.1";
@@ -83,7 +83,7 @@ public class Client {
     }
 
     public static void main(String[] args) {
-        new Client().start();
+        new ImClient().start();
     }
 
 }

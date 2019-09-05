@@ -5,8 +5,7 @@ package com.largehat.common.im.packets;
 
 /**
  * <pre>
- **
- * 聊天类型
+ *聊天类型
  * </pre>
  *
  * Protobuf enum {@code ChatType}
@@ -114,7 +113,7 @@ public enum ChatType
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
     return Chat.getDescriptor()
-        .getEnumTypes().get(3);
+        .getEnumTypes().get(4);
   }
 
   private static final ChatType[] VALUES = values();

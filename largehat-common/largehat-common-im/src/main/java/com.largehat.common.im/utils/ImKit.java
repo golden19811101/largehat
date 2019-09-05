@@ -32,7 +32,6 @@ public class ImKit {
 
 	/**
 	 * 功能描述：[转换不同协议响应包]
-	 * @author：WChao 创建时间: 2017年9月21日 下午3:21:54
 	 * @param respBody
 	 * @param channelContext
 	 * @return
@@ -55,7 +54,6 @@ public class ImKit {
 
 	/**
 	 * 功能描述：[转换不同协议响应包]
-	 * @author：WChao 创建时间: 2017年9月21日 下午3:21:54
 	 * @param body
 	 * @param channelContext
 	 * @return

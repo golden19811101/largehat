@@ -1,6 +1,7 @@
 package com.largehat.common.im.listener;
 
 
+import io.netty.channel.ChannelHandlerContext;
 
 /**
  * IM绑定用户及群组监听器;
@@ -14,7 +15,7 @@ public interface ImBindListener {
 	 * @param group
 	 * @throws Exception
 	 */
-	//void onAfterGroupBind(ChannelContext channelContext, String group) throws Exception;
+	void onAfterGroupBind(ChannelHandlerContext channelContext, String group) throws Exception;
 
 	/**
 	 * 解绑群组后回调该方法
@@ -22,14 +23,14 @@ public interface ImBindListener {
 	 * @param group
 	 * @throws Exception
 	 */
-	//void onAfterGroupUnbind(ChannelContext channelContext, String group) throws Exception;
+	void onAfterGroupUnbind(ChannelHandlerContext channelContext, String group) throws Exception;
 	/**
 	 * 绑定用户后回调该方法
 	 * @param channelContext
 	 * @param userId
 	 * @throws Exception
 	 */
-	//void onAfterUserBind(ChannelContext channelContext, String userId) throws Exception;
+	void onAfterUserBind(ChannelHandlerContext channelContext, String userId) throws Exception;
 
 	/**
 	 * 解绑用户后回调该方法
@@ -37,12 +38,12 @@ public interface ImBindListener {
 	 * @param userId
 	 * @throws Exception
 	 */
-	//void onAfterUserUnbind(ChannelContext channelContext, String userId) throws Exception;
+	void onAfterUserUnbind(ChannelHandlerContext channelContext, String userId) throws Exception;
 	/**
 	 * 更新用户终端协议类型及在线状态;
 	 * @param channelContext
 	 * @param terminal(ws、tcp、http、android、ios等)
 	 * @param status(online、offline)
 	 */
-    //void initUserTerminal(ChannelContext channelContext, String terminal, String status);
+    void initUserTerminal(ChannelHandlerContext channelContext, String terminal, String status);
 }

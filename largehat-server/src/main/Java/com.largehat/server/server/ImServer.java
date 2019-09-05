@@ -9,13 +9,20 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 
 /**
  * <B>服务器启动</B>
  */
+@Slf4j
 public class ImServer {
 
-    private static final int PORT = 11111;
+    @Value("${netty.tcp.port}")
+    private int nettyPort;
+
+    @Value("${netty.tcp.serverIp}")
+    private String serverIp;
 
     /**
      * <B>启动服务器</B>
@@ -70,11 +77,11 @@ public class ImServer {
 
                     }
                 });
-        serverBootstrap.bind(PORT).addListener((ChannelFutureListener) future -> {
+        serverBootstrap.bind(nettyPort).addListener((ChannelFutureListener) future -> {
             if (future.isSuccess()) {
-                System.out.println("端口绑定成功 port = " + PORT);
+                log.info("端口绑定成功 port = " + nettyPort);
             } else {
-                System.out.println("端口绑定失败");
+                log.info("端口绑定失败");
             }
         });
     }

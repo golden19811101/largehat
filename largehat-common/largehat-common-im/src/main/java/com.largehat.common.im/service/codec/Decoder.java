@@ -1,4 +1,4 @@
-package com.largehat.common.im.service.message.decoder;
+package com.largehat.common.im.service.codec;
 
 /**
  * 版本: [1.0]

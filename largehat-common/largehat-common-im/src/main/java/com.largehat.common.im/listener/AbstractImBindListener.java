@@ -1,6 +1,7 @@
 package com.largehat.common.im.listener;
 
 
+import com.largehat.common.im.config.ImConfig;
 import com.largehat.common.im.entity.ImConst;
 
 /**
@@ -8,13 +9,13 @@ import com.largehat.common.im.entity.ImConst;
  */
 public abstract class AbstractImBindListener implements ImBindListener, ImConst {
 	
-	//protected ImConfig imConfig;
+	protected ImConfig imConfig;
 
-	//public ImConfig getImConfig() {
-	//	return imConfig;
-	//}
+	public ImConfig getImConfig() {
+		return imConfig;
+	}
 
-	//public void setImConfig(ImConfig imConfig) {
-	//	this.imConfig = imConfig;
-	//}
+	public void setImConfig(ImConfig imConfig) {
+		this.imConfig = imConfig;
+	}
 }

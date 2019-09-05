@@ -144,9 +144,6 @@ public class BufferUtil
 	 * @param charset
 	 * @return
 	 *
-	 * @author: wchao
-	 * 2017年1月25日 下午12:12:07
-	 *
 	 */
 	public static String readString(ByteBuffer buffer, int length, String charset) {
 		int bytelength = length;
