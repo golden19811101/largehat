@@ -4,7 +4,6 @@ import com.largehat.common.im.entity.Status;
 import com.largehat.common.im.packets.command.Command;
 import com.largehat.common.im.utils.JsonKit;
 
-
 import java.io.Serializable;
 
 /**

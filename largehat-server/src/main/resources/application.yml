@@ -9,6 +9,11 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
+  data:
+    redis:
+      repositories:
+        enabled: false
+
   redis:
     database: 1
     host: localhost
@@ -16,8 +21,20 @@ spring:
     password:      # 密码（默认为空）
     timeout: 6000ms  # 连接超时时长（毫秒）
 
-#定义
-netty:
-  tcp:
-    serverIp: 127.0.0.1
-    port: 11111
+  #配置 Jpa
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    open-in-view: true
+
+#定义服务器启动信息
+im:
+  config:
+    bindIp: 127.0.0.1
+    bindPort: 11111
+    heartbeatTimeout: 60
+    isStore: true
+    isCluster: true
+    readBufferSize: 2048
+

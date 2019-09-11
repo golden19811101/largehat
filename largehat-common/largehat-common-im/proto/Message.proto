@@ -1,0 +1,91 @@
+syntax = "proto3";
+package com.largehat.common.im.packets;
+import "Chat.proto";
+import "User.proto";
+option optimize_for = SPEED;
+option java_package="com.largehat.common.im.packets";
+option java_outer_classname = "MessageProto";
+
+//注册模型
+message Message {
+    int32 version = 1; //协议版本号
+    Command command = 2; //命令号
+
+    oneof pack {
+        AuthReq authReq = 3;
+        LoginReq loginReq = 4;
+        MessageReq messageReq = 5;
+        JoinGroupReq joinGroupReq = 6;
+        ExitGroupReq exitGroupReq = 7;
+        CancelMsgReq cancelMsgReq = 8;
+        RespBody cancelMsgRes = 9;
+        AuthRes authRes = 10;
+        LoginRes loginRes = 11;
+    }
+}
+
+//鉴权请求
+message AuthReq {
+    string authcode = 1; //鉴权码
+    string userid = 2; //用户ID
+    string passwd = 3; //用户密码
+    int32 orgid = 4; //组织机构代码
+}
+
+//登录请求
+message LoginReq {
+    string tonken = 1; //令牌
+    string userid = 2; //用户ID
+    DeviceType deviceType = 3; //设备类型
+    string deviceId = 4; //设备唯一标志
+}
+
+//消息请求
+message MessageReq {
+    string messageId = 1; //消息编号
+    User from = 2; //发送者
+    string to = 3; //接受着
+    int64 groupId = 4; //接受群组
+
+    MsgType msgType = 5; //消息类型
+    ChatType chatType = 6; //公聊、私聊
+    string content = 7; //消息内容
+    int64 sendTime = 8; //发送时间
+}
+
+//加入群组请求
+message JoinGroupReq {
+    string userId = 1; //加入群组用户
+    string groupId = 2; //加入群组编号
+    string note = 3; //备注
+}
+
+//退出群组请求
+message ExitGroupReq {
+    string userId = 1; //退出群组用户
+    string groupId = 2; //退出群组编号
+    string note = 3; //备注
+}
+
+//消息撤回请求
+message CancelMsgReq {
+    string userId = 1;    //用户
+    string groupId = 2;   //撤销群组
+    string messageId = 3; //消息编码
+}
+
+//返回
+message RespBody {
+    uint32 code = 1; //返回信息 0成功1失败
+    string msg = 2; //消息
+}
+
+//鉴权返回
+message AuthRes {
+    string tonken = 1; //令牌
+}
+
+message LoginRes {
+    string tonken = 1; //令牌
+    User user = 2; //用户信息
+}

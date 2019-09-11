@@ -1,93 +1,70 @@
 package com.largehat.server.server;
 
 
-import com.largehat.server.handler.*;
+import com.largehat.server.config.ImConfiguration;
+import com.largehat.server.filter.ImServerFilter;
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.ChannelFutureListener;
-import io.netty.channel.ChannelInitializer;
+import io.netty.channel.Channel;
+import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.logging.LogLevel;
+import io.netty.handler.logging.LoggingHandler;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 /**
  * <B>服务器启动</B>
  */
 @Slf4j
+@Component
 public class ImServer {
 
-    @Value("${netty.tcp.port}")
-    private int nettyPort;
 
-    @Value("${netty.tcp.serverIp}")
-    private String serverIp;
+    //主线程池, EventLoopGroup 包含一个或者多个 EventLoop
+//    private EventLoopGroup bossGroup = new NioEventLoopGroup();
+//    //备线程池, EventLoopGroup 包含一个或者多个 EventLoop
+//    private EventLoopGroup workerGroup = new NioEventLoopGroup();
+
 
     /**
      * <B>启动服务器</B>
      */
-    public void startServer() {
+    public static void startServer(ImConfiguration configuration) {
         //主线程池, EventLoopGroup 包含一个或者多个 EventLoop
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         //备线程池, EventLoopGroup 包含一个或者多个 EventLoop
         EventLoopGroup workerGroup = new NioEventLoopGroup();
+        //过滤器
+        ImServerFilter filter = new ImServerFilter();
 
-        ServerBootstrap serverBootstrap = new ServerBootstrap();
-        serverBootstrap
-                // 指定线程模型，这里是主从线程模型
-                .group(bossGroup, workerGroup)
-                // 指定服务端的 Channel 的 I/O 模型
-                .channel(NioServerSocketChannel.class)
-                .childHandler(new ChannelInitializer<NioSocketChannel>() {
-                    @Override
-                    protected void initChannel(NioSocketChannel channel) throws Exception {
-                        // 空闲检测
-                        channel.pipeline().addLast(new ImIdleStateHandler());
-                        // 鉴权
-                        channel.pipeline().addLast(new ImIdleStateHandler());
-                        // 处理粘包半包
+        try {
+            ServerBootstrap b = new ServerBootstrap();
+            b.group(bossGroup, workerGroup);
+            b.channel(NioServerSocketChannel.class)
+            .option(ChannelOption.SO_BACKLOG, 1024)
+            // 连接超时
+            .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 2000)
+            .handler(new LoggingHandler(LogLevel.TRACE));
+            b.childHandler(filter);
+            Channel ch = b.bind(configuration.getBindPort()).sync().channel();
+            ch.closeFuture().sync();
 
-                        // 数据包编解码器
-
-                        //注册
-
-                        // 登录
-                        channel.pipeline().addLast(LoginReqHandler.getInstance());
-                        // 退出登录
-                        channel.pipeline().addLast(LogoutReqHandler.getInstance());
-                        // 心跳检测
-                        channel.pipeline().addLast(HeartBeatReqHandler.getInstance());
-                        // 身份校验
-
-                        // 单聊消息
-                        channel.pipeline().addLast(MessageReqHandler.getInstance());
-                        // 创建群聊
-                        channel.pipeline().addLast(CreateGroupReqHandler.getInstance());
-                        // 加入群组
-                        channel.pipeline().addLast(JoinGroupReqHandler.getInstance());
-                        // 退出群组
-                        channel.pipeline().addLast(QuitGroupReqHandler.getInstance());
-                        // 获取群成员
-                        channel.pipeline().addLast(GroupMembersReqHandler.getInstance());
-                        // 群消息
-                        channel.pipeline().addLast(GroupMessageReqHandler.getInstance());
-                        // 离线消息
-
-
-                    }
-                });
-        serverBootstrap.bind(nettyPort).addListener((ChannelFutureListener) future -> {
-            if (future.isSuccess()) {
-                log.info("端口绑定成功 port = " + nettyPort);
-            } else {
-                log.info("端口绑定失败");
-            }
-        });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            //优雅的退出程序
+            bossGroup.shutdownGracefully();
+            workerGroup.shutdownGracefully();
+        }
     }
 
 
-    public static void main(String[] args) {
-        new ImServer().startServer();
+
+    public void stopServer() throws Exception {
+        //bossGroup.shutdownGracefully();
+        //workerGroup.shutdownGracefully();;
     }
+
 }

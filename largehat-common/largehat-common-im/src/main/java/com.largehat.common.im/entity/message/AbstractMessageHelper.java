@@ -9,6 +9,7 @@ import com.largehat.common.im.entity.ImConst;
  *
  */
 public abstract class AbstractMessageHelper implements MessageHelper, ImConst {
+
 	protected ImConfig imConfig;
 
 	public ImConfig getImConfig() {

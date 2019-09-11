@@ -1,8 +1,7 @@
 package com.largehat.common.im.utils;
 
 
-import com.largehat.common.im.service.attribute.Attributes;
-import com.largehat.common.im.service.session.Session;
+
 import io.netty.channel.Channel;
 import io.netty.channel.group.ChannelGroup;
 
@@ -30,22 +29,22 @@ public class SessionUtil {
      * @param session 会话信息
      * @param channel 连接
      */
-    public static void bindSession(Session session, Channel channel) {
-        userIdChannelMap.put(session.getUserId(), channel);
-        channel.attr(Attributes.SESSION).set(session);
-    }
+//    public static void bindSession(Session session, Channel channel) {
+////        userIdChannelMap.put(session.getUserId(), channel);
+////        channel.attr(Attributes.SESSION).set(session);
+//    }
 
     /**
      * 退出登录或断开连接后清除【用户 -> 用户连接】的映射关系
      *
      * @param channel 连接
      */
-    public static void unBindSession(Channel channel) {
-        if (hasLogin(channel)) {
-            userIdChannelMap.remove(getSession(channel).getUserId());
-            channel.attr(Attributes.SESSION).set(null);
-        }
-    }
+//    public static void unBindSession(Channel channel) {
+//        if (hasLogin(channel)) {
+//            userIdChannelMap.remove(getSession(channel).getUserId());
+//            channel.attr(Attributes.SESSION).set(null);
+//        }
+//    }
 
     /**
      * 根据连接判断用户是否已经登录
@@ -53,9 +52,9 @@ public class SessionUtil {
      * @param channel 连接
      * @return true 则表示已登录
      */
-    public static boolean hasLogin(Channel channel) {
-        return channel.hasAttr(Attributes.SESSION);
-    }
+//    public static boolean hasLogin(Channel channel) {
+//        return channel.hasAttr(Attributes.SESSION);
+//    }
 
     /**
      * 根据连接获取用户会话信息
@@ -63,9 +62,9 @@ public class SessionUtil {
      * @param channel 连接
      * @return 用户会话信息
      */
-    public static Session getSession(Channel channel) {
-        return channel.attr(Attributes.SESSION).get();
-    }
+//    public static Session getSession(Channel channel) {
+//        return channel.attr(Attributes.SESSION).get();
+//    }
 
     /**
      * 根据用户ID获取用户连接

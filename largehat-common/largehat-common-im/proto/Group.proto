@@ -1,0 +1,16 @@
+syntax = "proto3";
+package com.largehat.common.im.packets;
+import "Chat.proto";
+option optimize_for = SPEED;
+option java_package="com.largehat.common.im.packets";
+option java_outer_classname = "GroupProto";
+
+message Group {
+    int32 groupId = 1; //群ID
+    string groupName = 2; //群组名称
+    string avatar = 3; //群头像
+    GroupType groupType = 4;  //群类型
+    string orgId = 5; //归属组织机构
+    int64 maxNum = 6; //最大人数
+}
+ 

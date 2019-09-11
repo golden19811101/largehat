@@ -1,0 +1,13 @@
+syntax = "proto3";
+package com.largehat.common.im.packets;
+option optimize_for = SPEED;
+option java_package="com.largehat.common.im.packets";
+option java_outer_classname = "UserProto";
+
+message User {
+    int32 userid = 1; //用户ID
+    string nickname = 2; //用户昵称
+    string avatar = 3; //头像
+    string orgId = 5; //归属组织机构
+}
+ 

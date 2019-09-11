@@ -57,7 +57,8 @@ public class RedisMessageHelper extends AbstractMessageHelper {
 
     @Override
     public ImBindListener getBindListener() {
-        return new RedisImBindListener(imConfig);
+        //return new RedisImBindListener(imConfig);
+        return null;
     }
 
     @Override

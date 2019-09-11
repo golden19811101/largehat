@@ -3,7 +3,6 @@ package com.largehat.common.im.packets;
 import com.alibaba.fastjson.JSONObject;
 import com.largehat.common.im.utils.JsonKit;
 
-
 import java.io.Serializable;
 
 /**

@@ -2,12 +2,10 @@ package com.largehat.client;
 
 
 import io.netty.bootstrap.Bootstrap;
-import io.netty.channel.Channel;
-import io.netty.channel.ChannelFutureListener;
-import io.netty.channel.ChannelInitializer;
+import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
-import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -18,30 +16,57 @@ import java.util.concurrent.TimeUnit;
  * @author
  * @date 2019-04-20
  */
+@Slf4j
 public class ImClient {
 
-    private static final int MAX_RETRY = 5;
-    private static final String HOST = "127.0.0.1";
+    private static final int MAX_RETRY = 10000;
+    private static final String HOST = "localhost";
     private static final int PORT = 11111;
 
     public void start() {
-        NioEventLoopGroup workerGroup = new NioEventLoopGroup();
-        Bootstrap bootstrap = new Bootstrap();
-        bootstrap
-                // 指定线程模型
-                .group(workerGroup)
-                // 指定 I/O 类型为 NIO
-                .channel(NioSocketChannel.class)
-                // I/O 处理逻辑
-                .handler(new ChannelInitializer<SocketChannel>() {
-                    @Override
-                    protected void initChannel(SocketChannel ch) throws Exception {
+        try {
+            NioEventLoopGroup workerGroup = new NioEventLoopGroup();
+            Bootstrap bootstrap = new Bootstrap();
 
+            ImClientFilter clientFilter = new ImClientFilter();
+            bootstrap
+                    // 指定线程模型
+                    .group(workerGroup)
+                    // 指定 I/O 类型为 NIO
+                    .channel(NioSocketChannel.class)
+                    .option(ChannelOption.TCP_NODELAY, true)
+                    // I/O 处理逻辑
+                    .handler(clientFilter);
+
+            ChannelFuture future = bootstrap.connect("localhost", 11111).sync();
+            future.channel().closeFuture().sync();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+//        startConnection(bootstrap, 0);
+
+//        for(int i = 1; i <= 10000; i++) {
+//            //startConnection(bootstrap, i);
+//        }
+    }
+
+    private static void startConnection(Bootstrap b, int index) {
+        b.connect(HOST, PORT)
+                .addListener(new ChannelFutureListener() {
+                    @Override
+                    public void operationComplete(ChannelFuture future) throws Exception {
+                        if (future.isSuccess()) {
+                            //init registry
+                            //ParseRegistryMap.initRegistry();
+                            log.info("Client[{}] connected Gate Successed...", index);
+                        } else {
+                            log.error("Client[{}] connected Gate Failed", index);
+                        }
                     }
                 });
-
-        this.connect(bootstrap, MAX_RETRY);
     }
+
 
     /**
      * 连接远程节点
@@ -50,9 +75,7 @@ public class ImClient {
      * @param retry     剩余重试次数
      */
     private void connect(Bootstrap bootstrap, int retry) {
-        bootstrap
-                .connect(HOST, PORT)
-                .addListener((ChannelFutureListener) future -> {
+        bootstrap.connect(HOST, PORT).addListener((ChannelFutureListener) future -> {
                     if (future.isSuccess()) {
                         System.out.println("连接成功");
                         startConsoleThread(future.channel());
