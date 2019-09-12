@@ -23,27 +23,27 @@ public final class UserProto {
      *用户ID
      * </pre>
      *
-     * <code>optional int32 userid = 1;</code>
+     * <code>optional int32 userId = 1;</code>
      */
-    int getUserid();
+    int getUserId();
 
     /**
      * <pre>
      *用户昵称
      * </pre>
      *
-     * <code>optional string nickname = 2;</code>
+     * <code>optional string nickName = 2;</code>
      */
-    String getNickname();
+    String getNickName();
     /**
      * <pre>
      *用户昵称
      * </pre>
      *
-     * <code>optional string nickname = 2;</code>
+     * <code>optional string nickName = 2;</code>
      */
     com.google.protobuf.ByteString
-        getNicknameBytes();
+        getNickNameBytes();
 
     /**
      * <pre>
@@ -68,18 +68,9 @@ public final class UserProto {
      *归属组织机构
      * </pre>
      *
-     * <code>optional string orgId = 5;</code>
+     * <code>optional int32 orgId = 5;</code>
      */
-    String getOrgId();
-    /**
-     * <pre>
-     *归属组织机构
-     * </pre>
-     *
-     * <code>optional string orgId = 5;</code>
-     */
-    com.google.protobuf.ByteString
-        getOrgIdBytes();
+    int getOrgId();
   }
   /**
    * Protobuf type {@code com.largehat.common.im.packets.User}
@@ -93,10 +84,10 @@ public final class UserProto {
       super(builder);
     }
     private User() {
-      userid_ = 0;
-      nickname_ = "";
+      userId_ = 0;
+      nickName_ = "";
       avatar_ = "";
-      orgId_ = "";
+      orgId_ = 0;
     }
 
     @Override
@@ -126,13 +117,13 @@ public final class UserProto {
             }
             case 8: {
 
-              userid_ = input.readInt32();
+              userId_ = input.readInt32();
               break;
             }
             case 18: {
               String s = input.readStringRequireUtf8();
 
-              nickname_ = s;
+              nickName_ = s;
               break;
             }
             case 26: {
@@ -141,10 +132,9 @@ public final class UserProto {
               avatar_ = s;
               break;
             }
-            case 42: {
-              String s = input.readStringRequireUtf8();
+            case 40: {
 
-              orgId_ = s;
+              orgId_ = input.readInt32();
               break;
             }
           }
@@ -171,36 +161,36 @@ public final class UserProto {
     }
 
     public static final int USERID_FIELD_NUMBER = 1;
-    private int userid_;
+    private int userId_;
     /**
      * <pre>
      *用户ID
      * </pre>
      *
-     * <code>optional int32 userid = 1;</code>
+     * <code>optional int32 userId = 1;</code>
      */
-    public int getUserid() {
-      return userid_;
+    public int getUserId() {
+      return userId_;
     }
 
     public static final int NICKNAME_FIELD_NUMBER = 2;
-    private volatile Object nickname_;
+    private volatile Object nickName_;
     /**
      * <pre>
      *用户昵称
      * </pre>
      *
-     * <code>optional string nickname = 2;</code>
+     * <code>optional string nickName = 2;</code>
      */
-    public String getNickname() {
-      Object ref = nickname_;
+    public String getNickName() {
+      Object ref = nickName_;
       if (ref instanceof String) {
         return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         String s = bs.toStringUtf8();
-        nickname_ = s;
+        nickName_ = s;
         return s;
       }
     }
@@ -209,16 +199,16 @@ public final class UserProto {
      *用户昵称
      * </pre>
      *
-     * <code>optional string nickname = 2;</code>
+     * <code>optional string nickName = 2;</code>
      */
     public com.google.protobuf.ByteString
-        getNicknameBytes() {
-      Object ref = nickname_;
+        getNickNameBytes() {
+      Object ref = nickName_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
-        nickname_ = b;
+        nickName_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -268,45 +258,16 @@ public final class UserProto {
     }
 
     public static final int ORGID_FIELD_NUMBER = 5;
-    private volatile Object orgId_;
+    private int orgId_;
     /**
      * <pre>
      *归属组织机构
      * </pre>
      *
-     * <code>optional string orgId = 5;</code>
+     * <code>optional int32 orgId = 5;</code>
      */
-    public String getOrgId() {
-      Object ref = orgId_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        orgId_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     *归属组织机构
-     * </pre>
-     *
-     * <code>optional string orgId = 5;</code>
-     */
-    public com.google.protobuf.ByteString
-        getOrgIdBytes() {
-      Object ref = orgId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        orgId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public int getOrgId() {
+      return orgId_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -321,17 +282,17 @@ public final class UserProto {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (userid_ != 0) {
-        output.writeInt32(1, userid_);
+      if (userId_ != 0) {
+        output.writeInt32(1, userId_);
       }
-      if (!getNicknameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, nickname_);
+      if (!getNickNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, nickName_);
       }
       if (!getAvatarBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, avatar_);
       }
-      if (!getOrgIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, orgId_);
+      if (orgId_ != 0) {
+        output.writeInt32(5, orgId_);
       }
     }
 
@@ -340,18 +301,19 @@ public final class UserProto {
       if (size != -1) return size;
 
       size = 0;
-      if (userid_ != 0) {
+      if (userId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, userid_);
+          .computeInt32Size(1, userId_);
       }
-      if (!getNicknameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, nickname_);
+      if (!getNickNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, nickName_);
       }
       if (!getAvatarBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, avatar_);
       }
-      if (!getOrgIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, orgId_);
+      if (orgId_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, orgId_);
       }
       memoizedSize = size;
       return size;
@@ -369,14 +331,14 @@ public final class UserProto {
       User other = (User) obj;
 
       boolean result = true;
-      result = result && (getUserid()
-          == other.getUserid());
-      result = result && getNickname()
-          .equals(other.getNickname());
+      result = result && (getUserId()
+          == other.getUserId());
+      result = result && getNickName()
+          .equals(other.getNickName());
       result = result && getAvatar()
           .equals(other.getAvatar());
-      result = result && getOrgId()
-          .equals(other.getOrgId());
+      result = result && (getOrgId()
+          == other.getOrgId());
       return result;
     }
 
@@ -388,13 +350,13 @@ public final class UserProto {
       int hash = 41;
       hash = (19 * hash) + getDescriptorForType().hashCode();
       hash = (37 * hash) + USERID_FIELD_NUMBER;
-      hash = (53 * hash) + getUserid();
+      hash = (53 * hash) + getUserId();
       hash = (37 * hash) + NICKNAME_FIELD_NUMBER;
-      hash = (53 * hash) + getNickname().hashCode();
+      hash = (53 * hash) + getNickName().hashCode();
       hash = (37 * hash) + AVATAR_FIELD_NUMBER;
       hash = (53 * hash) + getAvatar().hashCode();
       hash = (37 * hash) + ORGID_FIELD_NUMBER;
-      hash = (53 * hash) + getOrgId().hashCode();
+      hash = (53 * hash) + getOrgId();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -513,13 +475,13 @@ public final class UserProto {
       }
       public Builder clear() {
         super.clear();
-        userid_ = 0;
+        userId_ = 0;
 
-        nickname_ = "";
+        nickName_ = "";
 
         avatar_ = "";
 
-        orgId_ = "";
+        orgId_ = 0;
 
         return this;
       }
@@ -543,8 +505,8 @@ public final class UserProto {
 
       public User buildPartial() {
         User result = new User(this);
-        result.userid_ = userid_;
-        result.nickname_ = nickname_;
+        result.userId_ = userId_;
+        result.nickName_ = nickName_;
         result.avatar_ = avatar_;
         result.orgId_ = orgId_;
         onBuilt();
@@ -588,20 +550,19 @@ public final class UserProto {
 
       public Builder mergeFrom(User other) {
         if (other == User.getDefaultInstance()) return this;
-        if (other.getUserid() != 0) {
-          setUserid(other.getUserid());
+        if (other.getUserId() != 0) {
+          setUserId(other.getUserId());
         }
-        if (!other.getNickname().isEmpty()) {
-          nickname_ = other.nickname_;
+        if (!other.getNickName().isEmpty()) {
+          nickName_ = other.nickName_;
           onChanged();
         }
         if (!other.getAvatar().isEmpty()) {
           avatar_ = other.avatar_;
           onChanged();
         }
-        if (!other.getOrgId().isEmpty()) {
-          orgId_ = other.orgId_;
-          onChanged();
+        if (other.getOrgId() != 0) {
+          setOrgId(other.getOrgId());
         }
         onChanged();
         return this;
@@ -629,27 +590,27 @@ public final class UserProto {
         return this;
       }
 
-      private int userid_ ;
+      private int userId_ ;
       /**
        * <pre>
        *用户ID
        * </pre>
        *
-       * <code>optional int32 userid = 1;</code>
+       * <code>optional int32 userId = 1;</code>
        */
-      public int getUserid() {
-        return userid_;
+      public int getUserId() {
+        return userId_;
       }
       /**
        * <pre>
        *用户ID
        * </pre>
        *
-       * <code>optional int32 userid = 1;</code>
+       * <code>optional int32 userId = 1;</code>
        */
-      public Builder setUserid(int value) {
+      public Builder setUserId(int value) {
         
-        userid_ = value;
+        userId_ = value;
         onChanged();
         return this;
       }
@@ -658,30 +619,30 @@ public final class UserProto {
        *用户ID
        * </pre>
        *
-       * <code>optional int32 userid = 1;</code>
+       * <code>optional int32 userId = 1;</code>
        */
-      public Builder clearUserid() {
+      public Builder clearUserId() {
         
-        userid_ = 0;
+        userId_ = 0;
         onChanged();
         return this;
       }
 
-      private Object nickname_ = "";
+      private Object nickName_ = "";
       /**
        * <pre>
        *用户昵称
        * </pre>
        *
-       * <code>optional string nickname = 2;</code>
+       * <code>optional string nickName = 2;</code>
        */
-      public String getNickname() {
-        Object ref = nickname_;
+      public String getNickName() {
+        Object ref = nickName_;
         if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           String s = bs.toStringUtf8();
-          nickname_ = s;
+          nickName_ = s;
           return s;
         } else {
           return (String) ref;
@@ -692,16 +653,16 @@ public final class UserProto {
        *用户昵称
        * </pre>
        *
-       * <code>optional string nickname = 2;</code>
+       * <code>optional string nickName = 2;</code>
        */
       public com.google.protobuf.ByteString
-          getNicknameBytes() {
-        Object ref = nickname_;
+          getNickNameBytes() {
+        Object ref = nickName_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (String) ref);
-          nickname_ = b;
+          nickName_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -712,15 +673,15 @@ public final class UserProto {
        *用户昵称
        * </pre>
        *
-       * <code>optional string nickname = 2;</code>
+       * <code>optional string nickName = 2;</code>
        */
-      public Builder setNickname(
+      public Builder setNickName(
           String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        nickname_ = value;
+        nickName_ = value;
         onChanged();
         return this;
       }
@@ -729,11 +690,11 @@ public final class UserProto {
        *用户昵称
        * </pre>
        *
-       * <code>optional string nickname = 2;</code>
+       * <code>optional string nickName = 2;</code>
        */
-      public Builder clearNickname() {
+      public Builder clearNickName() {
         
-        nickname_ = getDefaultInstance().getNickname();
+        nickName_ = getDefaultInstance().getNickName();
         onChanged();
         return this;
       }
@@ -742,16 +703,16 @@ public final class UserProto {
        *用户昵称
        * </pre>
        *
-       * <code>optional string nickname = 2;</code>
+       * <code>optional string nickName = 2;</code>
        */
-      public Builder setNicknameBytes(
+      public Builder setNickNameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        nickname_ = value;
+        nickName_ = value;
         onChanged();
         return this;
       }
@@ -845,59 +806,26 @@ public final class UserProto {
         return this;
       }
 
-      private Object orgId_ = "";
+      private int orgId_ ;
       /**
        * <pre>
        *归属组织机构
        * </pre>
        *
-       * <code>optional string orgId = 5;</code>
+       * <code>optional int32 orgId = 5;</code>
        */
-      public String getOrgId() {
-        Object ref = orgId_;
-        if (!(ref instanceof String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
-          orgId_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
+      public int getOrgId() {
+        return orgId_;
       }
       /**
        * <pre>
        *归属组织机构
        * </pre>
        *
-       * <code>optional string orgId = 5;</code>
+       * <code>optional int32 orgId = 5;</code>
        */
-      public com.google.protobuf.ByteString
-          getOrgIdBytes() {
-        Object ref = orgId_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
-          orgId_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       *归属组织机构
-       * </pre>
-       *
-       * <code>optional string orgId = 5;</code>
-       */
-      public Builder setOrgId(
-          String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setOrgId(int value) {
+        
         orgId_ = value;
         onChanged();
         return this;
@@ -907,29 +835,11 @@ public final class UserProto {
        *归属组织机构
        * </pre>
        *
-       * <code>optional string orgId = 5;</code>
+       * <code>optional int32 orgId = 5;</code>
        */
       public Builder clearOrgId() {
         
-        orgId_ = getDefaultInstance().getOrgId();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *归属组织机构
-       * </pre>
-       *
-       * <code>optional string orgId = 5;</code>
-       */
-      public Builder setOrgIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        orgId_ = value;
+        orgId_ = 0;
         onChanged();
         return this;
       }
@@ -997,8 +907,8 @@ public final class UserProto {
   static {
     String[] descriptorData = {
       "\n\nUser.proto\022\036com.largehat.common.im.pac" +
-      "kets\"G\n\004User\022\016\n\006userid\030\001 \001(\005\022\020\n\010nickname" +
-      "\030\002 \001(\t\022\016\n\006avatar\030\003 \001(\t\022\r\n\005orgId\030\005 \001(\tB-\n" +
+      "kets\"G\n\004User\022\016\n\006userId\030\001 \001(\005\022\020\n\010nickName" +
+      "\030\002 \001(\t\022\016\n\006avatar\030\003 \001(\t\022\r\n\005orgId\030\005 \001(\005B-\n" +
       "\036com.largehat.common.im.packetsB\tUserPro" +
       "toH\001b\006proto3"
     };
@@ -1019,7 +929,7 @@ public final class UserProto {
     internal_static_com_largehat_common_im_packets_User_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_largehat_common_im_packets_User_descriptor,
-        new String[] { "Userid", "Nickname", "Avatar", "OrgId", });
+        new String[] { "UserId", "NickName", "Avatar", "OrgId", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

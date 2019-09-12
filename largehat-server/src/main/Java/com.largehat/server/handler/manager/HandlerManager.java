@@ -1,11 +1,11 @@
 package com.largehat.server.handler.manager;
 
-import com.google.protobuf.Message;
+import com.largehat.common.im.packets.MessageProto;
+import com.largehat.common.im.packets.command.Command;
 import com.largehat.common.im.service.handler.IMHandler;
+import com.largehat.server.handler.*;
 import io.netty.channel.ChannelHandlerContext;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -13,38 +13,44 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-
 @Slf4j
 public class HandlerManager {
-    private static final Logger logger = LoggerFactory.getLogger(HandlerManager.class);
-
     private static final Map<Integer, Constructor<? extends IMHandler>> _handlers = new HashMap<>();
 
-    public static void register(Class<? extends Message> msg, Class<? extends IMHandler> handler) {
-//        BaseReqProto.BaseReq req = ( BaseReqProto.BaseReq)msg;
-//
-//        int command = ((BaseReqProto.BaseReq)msg).getCommand().getNumber();
-//        try {
-//            Constructor<? extends IMHandler> constructor = handler.getConstructor(String.class, long.class, Message.class, ChannelHandlerContext.class);
-//            _handlers.put(command, constructor);
-//        } catch (NoSuchMethodException e) {
-//            throw new RuntimeException(e);
-//        }
+    public static void register(Command cmd, Class<? extends IMHandler> handler) {
+        try {
+            Constructor<? extends IMHandler> constructor = handler.getConstructor(Command.class, MessageProto.Message.class, ChannelHandlerContext.class);
+            //Constructor<? extends IMHandler> constructor =  handler.newInstance(cmd, msg, ctx);
+            _handlers.put(cmd.getNumber(), constructor);
+        } catch (NoSuchMethodException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    public static IMHandler getHandler(int msgNum, String userId, long netId, Message msg, ChannelHandlerContext ctx) throws IllegalAccessException, InvocationTargetException, InstantiationException {
-        Constructor<? extends IMHandler> constructor = _handlers.get(msgNum);
+    public static IMHandler getHandler(Command cmd,  MessageProto.Message msg, ChannelHandlerContext ctx) throws IllegalAccessException, InvocationTargetException, InstantiationException {
+        Constructor<? extends IMHandler> constructor = _handlers.get(cmd.getNumber());
         if(constructor == null) {
-            logger.error("handler not exist, Message Number: {}", msgNum);
+            log.error("handler not exist, Message Number: {}", cmd.getNumber());
             return null;
         }
-        return constructor.newInstance(userId, netId, msg, ctx);
+        return constructor.newInstance(cmd, msg, ctx);
     }
 
+    /**
+     * <B>注册处理器</B>
+     */
     public static void initHandlers() {
-        //HandlerManager.register(Internal.Greet.class, GreetHandler.class);
-        //HandlerManager.register(Chat.CPrivateChat.class, CPrivateChatHandler.class);
-
-
+        //鉴权处理器
+        HandlerManager.register(Command.COMMAND_AUTH_REQ,  ImAuthHandler.class);
+        //登录处理器
+        HandlerManager.register(Command.COMMAND_LOGIN_REQ, ImLoginHandler.class);
+        //消息处理器
+        HandlerManager.register(Command.COMMAND_CHAT_REQ, ImMessageHandler.class);
+        //加入群组处理器
+        HandlerManager.register(Command.COMMAND_JOIN_GROUP_REQ, ImJoinGroupHandler.class);
+        //退出群组处理器
+        HandlerManager.register(Command.COMMAND_EXIT_GROUP_NOTIFY_RESP, ImExitGroupHandler.class);
+        //撤销消息处理器
+        HandlerManager.register(Command.COMMAND_CANCEL_MSG_REQ, ImJoinGroupHandler.class);
     }
 }

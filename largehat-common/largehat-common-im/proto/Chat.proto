@@ -45,19 +45,22 @@ enum Command {
 
 	COMMAND_HEARTBEAT_REQ = 13; //心跳请求
 	COMMAND_CLOSE_REQ = 14;  //关闭请求
-	COMMAND_CANCEL_MSG_REQ = 15; //发出撤消消息指令(管理员可以撤消所有人的消息，自己可以撤消自己的消息)
+	COMMAND_CANCEL_MSG_REQ = 15; //发出撤消消息指令
 
 	COMMAND_CANCEL_MSG_RESP = 16; //收到撤消消息指令
-	COMMAND_GET_USER_REQ = 17;//获取用户信息;
-	COMMAND_GET_USER_RESP = 18;//获取用户信息响应;
+	COMMAND_USER_ONLINE_NOTIFY_RESP = 17; //用户上线通知
+	COMMAND_USER_OFFLINE_NOTIFY_RESP = 18; //用户下线通知
 
-	COMMAND_OFFLINE_MESSAGE_REQ = 19;//获取离线信息;
-	COMMAND_OFFLINE_MESSAGE_RESP = 20;//获取离线信息响应;
+	COMMAND_GET_USER_REQ = 19;//获取用户信息; 暂不实现
+	COMMAND_GET_USER_RESP = 20;//获取用户信息响应; 暂不实现
+
+	COMMAND_OFFLINE_MESSAGE_REQ = 21;//获取离线信息; 暂不实现
+	COMMAND_OFFLINE_MESSAGE_RESP = 22;//获取离线信息响应; 暂不实现
 }
 //加入群组申请的结果
 enum JoinGroupResult {
-	JOIN_GROUP_RESULT_UNKNOW = 0; //不允许进入，原因为其它
-	JOIN_GROUP_RESULT_OK = 1; //允许进入
+	JOIN_GROUP_RESULT_OK = 0; //允许进入
+	JOIN_GROUP_RESULT_UNKNOW = 1; //不允许进入，原因为其它
 	JOIN_GROUP_RESULT_NOT_EXIST = 2; //组不存在
 	JOIN_GROUP_RESULT_GROUP_FULL = 3; //组满
 	JOIN_GROUP_RESULT_IN_BACKLIST = 4; //在黑名单中
@@ -65,8 +68,8 @@ enum JoinGroupResult {
 }
 //退出群组的结果
 enum ExitGroupResult {
-    Exit_GROUP_RESULT_UNKNOW = 0; //退出群组失败，原因为其它
-    Exit_GROUP_RESULT_OK = 1; //退出群组成功
+    EXIT_GROUP_RESULT_OK = 0; //退出群组成功
+	EXIT_GROUP_RESULT_UNKNOW = 1; //退出群组失败，原因为其它
 }
 //聊天类型
 enum ChatType {
@@ -87,4 +90,14 @@ enum MsgType {
 	MSG_TYPE_VIDEO = 3;//视频
 	MSG_TYPE_MUSIC = 4;//音乐
 	MSG_TYPE_NEWS = 5;//图文
+}
+//群通知类型
+enum GroupNoticeType {
+	GROUP_NOTICE_TYPE_JOIN = 0; //进入
+	GROUP_NOTICE_TYPE_EXIT = 1; //退出
+}
+//用户通知类型
+enum UserNoticeType {
+	USER_NOTICE_TYPE_ONLINE = 0; //上线
+	USER_NOTICE_TYPE_OFFLINE = 1; //下线
 }

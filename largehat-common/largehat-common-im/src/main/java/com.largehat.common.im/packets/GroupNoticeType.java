@@ -5,48 +5,48 @@ package com.largehat.common.im.packets;
 
 /**
  * <pre>
- *退出群组的结果
+ *群通知类型
  * </pre>
  *
- * Protobuf enum {@code ExitGroupResult}
+ * Protobuf enum {@code GroupNoticeType}
  */
-public enum ExitGroupResult
+public enum GroupNoticeType
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
    * <pre>
-   *退出群组成功
+   *进入
    * </pre>
    *
-   * <code>EXIT_GROUP_RESULT_OK = 0;</code>
+   * <code>GROUP_NOTICE_TYPE_JOIN = 0;</code>
    */
-  EXIT_GROUP_RESULT_OK(0),
+  GROUP_NOTICE_TYPE_JOIN(0),
   /**
    * <pre>
-   *退出群组失败，原因为其它
+   *退出
    * </pre>
    *
-   * <code>EXIT_GROUP_RESULT_UNKNOW = 1;</code>
+   * <code>GROUP_NOTICE_TYPE_EXIT = 1;</code>
    */
-  EXIT_GROUP_RESULT_UNKNOW(1),
+  GROUP_NOTICE_TYPE_EXIT(1),
   UNRECOGNIZED(-1),
   ;
 
   /**
    * <pre>
-   *退出群组成功
+   *进入
    * </pre>
    *
-   * <code>EXIT_GROUP_RESULT_OK = 0;</code>
+   * <code>GROUP_NOTICE_TYPE_JOIN = 0;</code>
    */
-  public static final int EXIT_GROUP_RESULT_OK_VALUE = 0;
+  public static final int GROUP_NOTICE_TYPE_JOIN_VALUE = 0;
   /**
    * <pre>
-   *退出群组失败，原因为其它
+   *退出
    * </pre>
    *
-   * <code>EXIT_GROUP_RESULT_UNKNOW = 1;</code>
+   * <code>GROUP_NOTICE_TYPE_EXIT = 1;</code>
    */
-  public static final int EXIT_GROUP_RESULT_UNKNOW_VALUE = 1;
+  public static final int GROUP_NOTICE_TYPE_EXIT_VALUE = 1;
 
 
   public final int getNumber() {
@@ -61,27 +61,27 @@ public enum ExitGroupResult
    * @deprecated Use {@link #forNumber(int)} instead.
    */
   @Deprecated
-  public static ExitGroupResult valueOf(int value) {
+  public static GroupNoticeType valueOf(int value) {
     return forNumber(value);
   }
 
-  public static ExitGroupResult forNumber(int value) {
+  public static GroupNoticeType forNumber(int value) {
     switch (value) {
-      case 0: return EXIT_GROUP_RESULT_OK;
-      case 1: return EXIT_GROUP_RESULT_UNKNOW;
+      case 0: return GROUP_NOTICE_TYPE_JOIN;
+      case 1: return GROUP_NOTICE_TYPE_EXIT;
       default: return null;
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<ExitGroupResult>
+  public static com.google.protobuf.Internal.EnumLiteMap<GroupNoticeType>
       internalGetValueMap() {
     return internalValueMap;
   }
   private static final com.google.protobuf.Internal.EnumLiteMap<
-      ExitGroupResult> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<ExitGroupResult>() {
-          public ExitGroupResult findValueByNumber(int number) {
-            return ExitGroupResult.forNumber(number);
+      GroupNoticeType> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<GroupNoticeType>() {
+          public GroupNoticeType findValueByNumber(int number) {
+            return GroupNoticeType.forNumber(number);
           }
         };
 
@@ -96,12 +96,12 @@ public enum ExitGroupResult
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
     return Chat.getDescriptor()
-        .getEnumTypes().get(4);
+        .getEnumTypes().get(8);
   }
 
-  private static final ExitGroupResult[] VALUES = values();
+  private static final GroupNoticeType[] VALUES = values();
 
-  public static ExitGroupResult valueOf(
+  public static GroupNoticeType valueOf(
       com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
     if (desc.getType() != getDescriptor()) {
       throw new IllegalArgumentException(
@@ -115,10 +115,10 @@ public enum ExitGroupResult
 
   private final int value;
 
-  private ExitGroupResult(int value) {
+  private GroupNoticeType(int value) {
     this.value = value;
   }
 
-  // @@protoc_insertion_point(enum_scope:ExitGroupResult)
+  // @@protoc_insertion_point(enum_scope:GroupNoticeType)
 }
 

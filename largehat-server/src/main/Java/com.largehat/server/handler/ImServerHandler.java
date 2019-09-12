@@ -1,7 +1,12 @@
 package com.largehat.server.handler;
 
 
+import com.largehat.common.im.entity.ImStatus;
+import com.largehat.common.im.entity.Protocol;
+import com.largehat.common.im.exception.ImException;
 import com.largehat.common.im.packets.MessageProto;
+import com.largehat.common.im.service.handler.IMHandler;
+import com.largehat.server.handler.manager.HandlerManager;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
@@ -25,31 +30,21 @@ public class ImServerHandler extends SimpleChannelInboundHandler<MessageProto.Me
      * @param ctx
      */
     @Override
-    protected void channelRead0(ChannelHandlerContext ctx, MessageProto.Message message) {
+    protected void channelRead0(ChannelHandlerContext ctx, MessageProto.Message message) throws Exception {
+        log.info("============接收到数据包大小============>" + message.toByteArray().length + "个字节");
         //判断协议是否正确
-//        switch (taskProtocol.getPackType()) {
-//            case LOGIN:
-//                log.info("接收到一个登录类型的pack:[{}]", taskProtocol.getLoginPack().getUsername() + " : " + taskProtocol.getLoginPack().getPassword());
-//                break;
-//            case CREATE_TASK:
-//                log.info("接收到一个创建任务类型的pack:[{}]", taskProtocol.getCreateTaskPack().getTaskId() + " : " + taskProtocol.getCreateTaskPack().getTaskName());
-//                break;
-//            case DELETE_TASK:
-//                log.info("接收到一个删除任务类型的pack:[{}]", Arrays.toString(taskProtocol.getDeleteTaskPack().getTaskIdList().toArray()));
-//                break;
-//            default:
-//                log.error("接收到一个未知类型的pack:[{}]", taskProtocol.getPackType());
-//                break;
-//        }
-
-//        if(taskProtocol.getVersion() != Protocol.VERSION){
-//            throw new ImException(ImStatus.C10013.getText());
-//        } else {
-//            UserProto.User user  = UserProto.User.newBuilder().setUserid(1231313213).setSex(1).setOrgId("1111111").setAvatar("1232132131").build();
-//            BaseResProto.AuthRes authRes = BaseResProto.AuthRes.newBuilder().setTonken("1232131321321313213213213").setUser(user).build();
-//            ctx.writeAndFlush(authRes);
-//        }
-        //获取不同的服务来处理
+        IMHandler handler;
+        if(message.getVersion() != Protocol.VERSION){
+            throw new ImException(ImStatus.C10013.getText());
+        } else {
+            if (message.getCommand() == null) {
+                throw new ImException(ImStatus.C10014.getText());
+            } else {
+                handler = HandlerManager.getHandler(message.getCommand(), message, ctx);
+            }
+            log.info("============handler============>" + handler.toString());
+            //新开一个线程去处理
+        }
     }
 
 

@@ -132,7 +132,7 @@ public enum Command
   COMMAND_CLOSE_REQ(14),
   /**
    * <pre>
-   *发出撤消消息指令(管理员可以撤消所有人的消息，自己可以撤消自己的消息)
+   *发出撤消消息指令
    * </pre>
    *
    * <code>COMMAND_CANCEL_MSG_REQ = 15;</code>
@@ -148,36 +148,52 @@ public enum Command
   COMMAND_CANCEL_MSG_RESP(16),
   /**
    * <pre>
-   *获取用户信息;
+   *用户上线通知
    * </pre>
    *
-   * <code>COMMAND_GET_USER_REQ = 17;</code>
+   * <code>COMMAND_USER_ONLINE_NOTIFY_RESP = 17;</code>
    */
-  COMMAND_GET_USER_REQ(17),
+  COMMAND_USER_ONLINE_NOTIFY_RESP(17),
   /**
    * <pre>
-   *获取用户信息响应;
+   *用户下线通知
    * </pre>
    *
-   * <code>COMMAND_GET_USER_RESP = 18;</code>
+   * <code>COMMAND_USER_OFFLINE_NOTIFY_RESP = 18;</code>
    */
-  COMMAND_GET_USER_RESP(18),
+  COMMAND_USER_OFFLINE_NOTIFY_RESP(18),
   /**
    * <pre>
-   *获取离线信息;
+   *获取用户信息; 暂不实现
    * </pre>
    *
-   * <code>COMMAND_OFFLINE_MESSAGE_REQ = 19;</code>
+   * <code>COMMAND_GET_USER_REQ = 19;</code>
    */
-  COMMAND_OFFLINE_MESSAGE_REQ(19),
+  COMMAND_GET_USER_REQ(19),
   /**
    * <pre>
-   *获取离线信息响应;
+   *获取用户信息响应; 暂不实现
    * </pre>
    *
-   * <code>COMMAND_OFFLINE_MESSAGE_RESP = 20;</code>
+   * <code>COMMAND_GET_USER_RESP = 20;</code>
    */
-  COMMAND_OFFLINE_MESSAGE_RESP(20),
+  COMMAND_GET_USER_RESP(20),
+  /**
+   * <pre>
+   *获取离线信息; 暂不实现
+   * </pre>
+   *
+   * <code>COMMAND_OFFLINE_MESSAGE_REQ = 21;</code>
+   */
+  COMMAND_OFFLINE_MESSAGE_REQ(21),
+  /**
+   * <pre>
+   *获取离线信息响应; 暂不实现
+   * </pre>
+   *
+   * <code>COMMAND_OFFLINE_MESSAGE_RESP = 22;</code>
+   */
+  COMMAND_OFFLINE_MESSAGE_RESP(22),
   UNRECOGNIZED(-1),
   ;
 
@@ -299,7 +315,7 @@ public enum Command
   public static final int COMMAND_CLOSE_REQ_VALUE = 14;
   /**
    * <pre>
-   *发出撤消消息指令(管理员可以撤消所有人的消息，自己可以撤消自己的消息)
+   *发出撤消消息指令
    * </pre>
    *
    * <code>COMMAND_CANCEL_MSG_REQ = 15;</code>
@@ -315,36 +331,52 @@ public enum Command
   public static final int COMMAND_CANCEL_MSG_RESP_VALUE = 16;
   /**
    * <pre>
-   *获取用户信息;
+   *用户上线通知
    * </pre>
    *
-   * <code>COMMAND_GET_USER_REQ = 17;</code>
+   * <code>COMMAND_USER_ONLINE_NOTIFY_RESP = 17;</code>
    */
-  public static final int COMMAND_GET_USER_REQ_VALUE = 17;
+  public static final int COMMAND_USER_ONLINE_NOTIFY_RESP_VALUE = 17;
   /**
    * <pre>
-   *获取用户信息响应;
+   *用户下线通知
    * </pre>
    *
-   * <code>COMMAND_GET_USER_RESP = 18;</code>
+   * <code>COMMAND_USER_OFFLINE_NOTIFY_RESP = 18;</code>
    */
-  public static final int COMMAND_GET_USER_RESP_VALUE = 18;
+  public static final int COMMAND_USER_OFFLINE_NOTIFY_RESP_VALUE = 18;
   /**
    * <pre>
-   *获取离线信息;
+   *获取用户信息; 暂不实现
    * </pre>
    *
-   * <code>COMMAND_OFFLINE_MESSAGE_REQ = 19;</code>
+   * <code>COMMAND_GET_USER_REQ = 19;</code>
    */
-  public static final int COMMAND_OFFLINE_MESSAGE_REQ_VALUE = 19;
+  public static final int COMMAND_GET_USER_REQ_VALUE = 19;
   /**
    * <pre>
-   *获取离线信息响应;
+   *获取用户信息响应; 暂不实现
    * </pre>
    *
-   * <code>COMMAND_OFFLINE_MESSAGE_RESP = 20;</code>
+   * <code>COMMAND_GET_USER_RESP = 20;</code>
    */
-  public static final int COMMAND_OFFLINE_MESSAGE_RESP_VALUE = 20;
+  public static final int COMMAND_GET_USER_RESP_VALUE = 20;
+  /**
+   * <pre>
+   *获取离线信息; 暂不实现
+   * </pre>
+   *
+   * <code>COMMAND_OFFLINE_MESSAGE_REQ = 21;</code>
+   */
+  public static final int COMMAND_OFFLINE_MESSAGE_REQ_VALUE = 21;
+  /**
+   * <pre>
+   *获取离线信息响应; 暂不实现
+   * </pre>
+   *
+   * <code>COMMAND_OFFLINE_MESSAGE_RESP = 22;</code>
+   */
+  public static final int COMMAND_OFFLINE_MESSAGE_RESP_VALUE = 22;
 
 
   public final int getNumber() {
@@ -382,10 +414,12 @@ public enum Command
       case 14: return COMMAND_CLOSE_REQ;
       case 15: return COMMAND_CANCEL_MSG_REQ;
       case 16: return COMMAND_CANCEL_MSG_RESP;
-      case 17: return COMMAND_GET_USER_REQ;
-      case 18: return COMMAND_GET_USER_RESP;
-      case 19: return COMMAND_OFFLINE_MESSAGE_REQ;
-      case 20: return COMMAND_OFFLINE_MESSAGE_RESP;
+      case 17: return COMMAND_USER_ONLINE_NOTIFY_RESP;
+      case 18: return COMMAND_USER_OFFLINE_NOTIFY_RESP;
+      case 19: return COMMAND_GET_USER_REQ;
+      case 20: return COMMAND_GET_USER_RESP;
+      case 21: return COMMAND_OFFLINE_MESSAGE_REQ;
+      case 22: return COMMAND_OFFLINE_MESSAGE_RESP;
       default: return null;
     }
   }

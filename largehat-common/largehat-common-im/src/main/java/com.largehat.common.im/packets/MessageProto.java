@@ -101,29 +101,47 @@ public final class MessageProto {
     CancelMsgReqOrBuilder getCancelMsgReqOrBuilder();
 
     /**
-     * <code>optional .com.largehat.common.im.packets.RespBody cancelMsgRes = 9;</code>
+     * <code>optional .com.largehat.common.im.packets.GroupNotice groupNotice = 9;</code>
+     */
+    GroupNotice getGroupNotice();
+    /**
+     * <code>optional .com.largehat.common.im.packets.GroupNotice groupNotice = 9;</code>
+     */
+    GroupNoticeOrBuilder getGroupNoticeOrBuilder();
+
+    /**
+     * <code>optional .com.largehat.common.im.packets.UserNotice UserNotice = 10;</code>
+     */
+    UserNotice getUserNotice();
+    /**
+     * <code>optional .com.largehat.common.im.packets.UserNotice UserNotice = 10;</code>
+     */
+    UserNoticeOrBuilder getUserNoticeOrBuilder();
+
+    /**
+     * <code>optional .com.largehat.common.im.packets.RespBody cancelMsgRes = 11;</code>
      */
     RespBody getCancelMsgRes();
     /**
-     * <code>optional .com.largehat.common.im.packets.RespBody cancelMsgRes = 9;</code>
+     * <code>optional .com.largehat.common.im.packets.RespBody cancelMsgRes = 11;</code>
      */
     RespBodyOrBuilder getCancelMsgResOrBuilder();
 
     /**
-     * <code>optional .com.largehat.common.im.packets.AuthRes authRes = 10;</code>
+     * <code>optional .com.largehat.common.im.packets.AuthRes authRes = 12;</code>
      */
     AuthRes getAuthRes();
     /**
-     * <code>optional .com.largehat.common.im.packets.AuthRes authRes = 10;</code>
+     * <code>optional .com.largehat.common.im.packets.AuthRes authRes = 12;</code>
      */
     AuthResOrBuilder getAuthResOrBuilder();
 
     /**
-     * <code>optional .com.largehat.common.im.packets.LoginRes loginRes = 11;</code>
+     * <code>optional .com.largehat.common.im.packets.LoginRes loginRes = 13;</code>
      */
     LoginRes getLoginRes();
     /**
-     * <code>optional .com.largehat.common.im.packets.LoginRes loginRes = 11;</code>
+     * <code>optional .com.largehat.common.im.packets.LoginRes loginRes = 13;</code>
      */
     LoginResOrBuilder getLoginResOrBuilder();
 
@@ -270,8 +288,36 @@ public final class MessageProto {
               break;
             }
             case 74: {
-              RespBody.Builder subBuilder = null;
+              GroupNotice.Builder subBuilder = null;
               if (packCase_ == 9) {
+                subBuilder = ((GroupNotice) pack_).toBuilder();
+              }
+              pack_ =
+                  input.readMessage(GroupNotice.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((GroupNotice) pack_);
+                pack_ = subBuilder.buildPartial();
+              }
+              packCase_ = 9;
+              break;
+            }
+            case 82: {
+              UserNotice.Builder subBuilder = null;
+              if (packCase_ == 10) {
+                subBuilder = ((UserNotice) pack_).toBuilder();
+              }
+              pack_ =
+                  input.readMessage(UserNotice.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((UserNotice) pack_);
+                pack_ = subBuilder.buildPartial();
+              }
+              packCase_ = 10;
+              break;
+            }
+            case 90: {
+              RespBody.Builder subBuilder = null;
+              if (packCase_ == 11) {
                 subBuilder = ((RespBody) pack_).toBuilder();
               }
               pack_ =
@@ -280,12 +326,12 @@ public final class MessageProto {
                 subBuilder.mergeFrom((RespBody) pack_);
                 pack_ = subBuilder.buildPartial();
               }
-              packCase_ = 9;
+              packCase_ = 11;
               break;
             }
-            case 82: {
+            case 98: {
               AuthRes.Builder subBuilder = null;
-              if (packCase_ == 10) {
+              if (packCase_ == 12) {
                 subBuilder = ((AuthRes) pack_).toBuilder();
               }
               pack_ =
@@ -294,12 +340,12 @@ public final class MessageProto {
                 subBuilder.mergeFrom((AuthRes) pack_);
                 pack_ = subBuilder.buildPartial();
               }
-              packCase_ = 10;
+              packCase_ = 12;
               break;
             }
-            case 90: {
+            case 106: {
               LoginRes.Builder subBuilder = null;
-              if (packCase_ == 11) {
+              if (packCase_ == 13) {
                 subBuilder = ((LoginRes) pack_).toBuilder();
               }
               pack_ =
@@ -308,7 +354,7 @@ public final class MessageProto {
                 subBuilder.mergeFrom((LoginRes) pack_);
                 pack_ = subBuilder.buildPartial();
               }
-              packCase_ = 11;
+              packCase_ = 13;
               break;
             }
           }
@@ -344,9 +390,11 @@ public final class MessageProto {
       JOINGROUPREQ(6),
       EXITGROUPREQ(7),
       CANCELMSGREQ(8),
-      CANCELMSGRES(9),
-      AUTHRES(10),
-      LOGINRES(11),
+      GROUPNOTICE(9),
+      USERNOTICE(10),
+      CANCELMSGRES(11),
+      AUTHRES(12),
+      LOGINRES(13),
       PACK_NOT_SET(0);
       private final int value;
       private PackCase(int value) {
@@ -368,9 +416,11 @@ public final class MessageProto {
           case 6: return JOINGROUPREQ;
           case 7: return EXITGROUPREQ;
           case 8: return CANCELMSGREQ;
-          case 9: return CANCELMSGRES;
-          case 10: return AUTHRES;
-          case 11: return LOGINRES;
+          case 9: return GROUPNOTICE;
+          case 10: return USERNOTICE;
+          case 11: return CANCELMSGRES;
+          case 12: return AUTHRES;
+          case 13: return LOGINRES;
           case 0: return PACK_NOT_SET;
           default: return null;
         }
@@ -543,61 +593,101 @@ public final class MessageProto {
       return CancelMsgReq.getDefaultInstance();
     }
 
-    public static final int CANCELMSGRES_FIELD_NUMBER = 9;
+    public static final int GROUPNOTICE_FIELD_NUMBER = 9;
     /**
-     * <code>optional .com.largehat.common.im.packets.RespBody cancelMsgRes = 9;</code>
+     * <code>optional .com.largehat.common.im.packets.GroupNotice groupNotice = 9;</code>
+     */
+    public GroupNotice getGroupNotice() {
+      if (packCase_ == 9) {
+         return (GroupNotice) pack_;
+      }
+      return GroupNotice.getDefaultInstance();
+    }
+    /**
+     * <code>optional .com.largehat.common.im.packets.GroupNotice groupNotice = 9;</code>
+     */
+    public GroupNoticeOrBuilder getGroupNoticeOrBuilder() {
+      if (packCase_ == 9) {
+         return (GroupNotice) pack_;
+      }
+      return GroupNotice.getDefaultInstance();
+    }
+
+    public static final int USERNOTICE_FIELD_NUMBER = 10;
+    /**
+     * <code>optional .com.largehat.common.im.packets.UserNotice UserNotice = 10;</code>
+     */
+    public UserNotice getUserNotice() {
+      if (packCase_ == 10) {
+         return (UserNotice) pack_;
+      }
+      return UserNotice.getDefaultInstance();
+    }
+    /**
+     * <code>optional .com.largehat.common.im.packets.UserNotice UserNotice = 10;</code>
+     */
+    public UserNoticeOrBuilder getUserNoticeOrBuilder() {
+      if (packCase_ == 10) {
+         return (UserNotice) pack_;
+      }
+      return UserNotice.getDefaultInstance();
+    }
+
+    public static final int CANCELMSGRES_FIELD_NUMBER = 11;
+    /**
+     * <code>optional .com.largehat.common.im.packets.RespBody cancelMsgRes = 11;</code>
      */
     public RespBody getCancelMsgRes() {
-      if (packCase_ == 9) {
+      if (packCase_ == 11) {
          return (RespBody) pack_;
       }
       return RespBody.getDefaultInstance();
     }
     /**
-     * <code>optional .com.largehat.common.im.packets.RespBody cancelMsgRes = 9;</code>
+     * <code>optional .com.largehat.common.im.packets.RespBody cancelMsgRes = 11;</code>
      */
     public RespBodyOrBuilder getCancelMsgResOrBuilder() {
-      if (packCase_ == 9) {
+      if (packCase_ == 11) {
          return (RespBody) pack_;
       }
       return RespBody.getDefaultInstance();
     }
 
-    public static final int AUTHRES_FIELD_NUMBER = 10;
+    public static final int AUTHRES_FIELD_NUMBER = 12;
     /**
-     * <code>optional .com.largehat.common.im.packets.AuthRes authRes = 10;</code>
+     * <code>optional .com.largehat.common.im.packets.AuthRes authRes = 12;</code>
      */
     public AuthRes getAuthRes() {
-      if (packCase_ == 10) {
+      if (packCase_ == 12) {
          return (AuthRes) pack_;
       }
       return AuthRes.getDefaultInstance();
     }
     /**
-     * <code>optional .com.largehat.common.im.packets.AuthRes authRes = 10;</code>
+     * <code>optional .com.largehat.common.im.packets.AuthRes authRes = 12;</code>
      */
     public AuthResOrBuilder getAuthResOrBuilder() {
-      if (packCase_ == 10) {
+      if (packCase_ == 12) {
          return (AuthRes) pack_;
       }
       return AuthRes.getDefaultInstance();
     }
 
-    public static final int LOGINRES_FIELD_NUMBER = 11;
+    public static final int LOGINRES_FIELD_NUMBER = 13;
     /**
-     * <code>optional .com.largehat.common.im.packets.LoginRes loginRes = 11;</code>
+     * <code>optional .com.largehat.common.im.packets.LoginRes loginRes = 13;</code>
      */
     public LoginRes getLoginRes() {
-      if (packCase_ == 11) {
+      if (packCase_ == 13) {
          return (LoginRes) pack_;
       }
       return LoginRes.getDefaultInstance();
     }
     /**
-     * <code>optional .com.largehat.common.im.packets.LoginRes loginRes = 11;</code>
+     * <code>optional .com.largehat.common.im.packets.LoginRes loginRes = 13;</code>
      */
     public LoginResOrBuilder getLoginResOrBuilder() {
-      if (packCase_ == 11) {
+      if (packCase_ == 13) {
          return (LoginRes) pack_;
       }
       return LoginRes.getDefaultInstance();
@@ -640,13 +730,19 @@ public final class MessageProto {
         output.writeMessage(8, (CancelMsgReq) pack_);
       }
       if (packCase_ == 9) {
-        output.writeMessage(9, (RespBody) pack_);
+        output.writeMessage(9, (GroupNotice) pack_);
       }
       if (packCase_ == 10) {
-        output.writeMessage(10, (AuthRes) pack_);
+        output.writeMessage(10, (UserNotice) pack_);
       }
       if (packCase_ == 11) {
-        output.writeMessage(11, (LoginRes) pack_);
+        output.writeMessage(11, (RespBody) pack_);
+      }
+      if (packCase_ == 12) {
+        output.writeMessage(12, (AuthRes) pack_);
+      }
+      if (packCase_ == 13) {
+        output.writeMessage(13, (LoginRes) pack_);
       }
     }
 
@@ -689,15 +785,23 @@ public final class MessageProto {
       }
       if (packCase_ == 9) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(9, (RespBody) pack_);
+          .computeMessageSize(9, (GroupNotice) pack_);
       }
       if (packCase_ == 10) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(10, (AuthRes) pack_);
+          .computeMessageSize(10, (UserNotice) pack_);
       }
       if (packCase_ == 11) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(11, (LoginRes) pack_);
+          .computeMessageSize(11, (RespBody) pack_);
+      }
+      if (packCase_ == 12) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(12, (AuthRes) pack_);
+      }
+      if (packCase_ == 13) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(13, (LoginRes) pack_);
       }
       memoizedSize = size;
       return size;
@@ -747,14 +851,22 @@ public final class MessageProto {
               .equals(other.getCancelMsgReq());
           break;
         case 9:
+          result = result && getGroupNotice()
+              .equals(other.getGroupNotice());
+          break;
+        case 10:
+          result = result && getUserNotice()
+              .equals(other.getUserNotice());
+          break;
+        case 11:
           result = result && getCancelMsgRes()
               .equals(other.getCancelMsgRes());
           break;
-        case 10:
+        case 12:
           result = result && getAuthRes()
               .equals(other.getAuthRes());
           break;
-        case 11:
+        case 13:
           result = result && getLoginRes()
               .equals(other.getLoginRes());
           break;
@@ -801,14 +913,22 @@ public final class MessageProto {
           hash = (53 * hash) + getCancelMsgReq().hashCode();
           break;
         case 9:
+          hash = (37 * hash) + GROUPNOTICE_FIELD_NUMBER;
+          hash = (53 * hash) + getGroupNotice().hashCode();
+          break;
+        case 10:
+          hash = (37 * hash) + USERNOTICE_FIELD_NUMBER;
+          hash = (53 * hash) + getUserNotice().hashCode();
+          break;
+        case 11:
           hash = (37 * hash) + CANCELMSGRES_FIELD_NUMBER;
           hash = (53 * hash) + getCancelMsgRes().hashCode();
           break;
-        case 10:
+        case 12:
           hash = (37 * hash) + AUTHRES_FIELD_NUMBER;
           hash = (53 * hash) + getAuthRes().hashCode();
           break;
-        case 11:
+        case 13:
           hash = (37 * hash) + LOGINRES_FIELD_NUMBER;
           hash = (53 * hash) + getLoginRes().hashCode();
           break;
@@ -1010,20 +1130,34 @@ public final class MessageProto {
           }
         }
         if (packCase_ == 9) {
+          if (groupNoticeBuilder_ == null) {
+            result.pack_ = pack_;
+          } else {
+            result.pack_ = groupNoticeBuilder_.build();
+          }
+        }
+        if (packCase_ == 10) {
+          if (userNoticeBuilder_ == null) {
+            result.pack_ = pack_;
+          } else {
+            result.pack_ = userNoticeBuilder_.build();
+          }
+        }
+        if (packCase_ == 11) {
           if (cancelMsgResBuilder_ == null) {
             result.pack_ = pack_;
           } else {
             result.pack_ = cancelMsgResBuilder_.build();
           }
         }
-        if (packCase_ == 10) {
+        if (packCase_ == 12) {
           if (authResBuilder_ == null) {
             result.pack_ = pack_;
           } else {
             result.pack_ = authResBuilder_.build();
           }
         }
-        if (packCase_ == 11) {
+        if (packCase_ == 13) {
           if (loginResBuilder_ == null) {
             result.pack_ = pack_;
           } else {
@@ -1101,6 +1235,14 @@ public final class MessageProto {
           }
           case CANCELMSGREQ: {
             mergeCancelMsgReq(other.getCancelMsgReq());
+            break;
+          }
+          case GROUPNOTICE: {
+            mergeGroupNotice(other.getGroupNotice());
+            break;
+          }
+          case USERNOTICE: {
+            mergeUserNotice(other.getUserNotice());
             break;
           }
           case CANCELMSGRES: {
@@ -2043,25 +2185,285 @@ public final class MessageProto {
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
+          GroupNotice, GroupNotice.Builder, GroupNoticeOrBuilder> groupNoticeBuilder_;
+      /**
+       * <code>optional .com.largehat.common.im.packets.GroupNotice groupNotice = 9;</code>
+       */
+      public GroupNotice getGroupNotice() {
+        if (groupNoticeBuilder_ == null) {
+          if (packCase_ == 9) {
+            return (GroupNotice) pack_;
+          }
+          return GroupNotice.getDefaultInstance();
+        } else {
+          if (packCase_ == 9) {
+            return groupNoticeBuilder_.getMessage();
+          }
+          return GroupNotice.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>optional .com.largehat.common.im.packets.GroupNotice groupNotice = 9;</code>
+       */
+      public Builder setGroupNotice(GroupNotice value) {
+        if (groupNoticeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          pack_ = value;
+          onChanged();
+        } else {
+          groupNoticeBuilder_.setMessage(value);
+        }
+        packCase_ = 9;
+        return this;
+      }
+      /**
+       * <code>optional .com.largehat.common.im.packets.GroupNotice groupNotice = 9;</code>
+       */
+      public Builder setGroupNotice(
+          GroupNotice.Builder builderForValue) {
+        if (groupNoticeBuilder_ == null) {
+          pack_ = builderForValue.build();
+          onChanged();
+        } else {
+          groupNoticeBuilder_.setMessage(builderForValue.build());
+        }
+        packCase_ = 9;
+        return this;
+      }
+      /**
+       * <code>optional .com.largehat.common.im.packets.GroupNotice groupNotice = 9;</code>
+       */
+      public Builder mergeGroupNotice(GroupNotice value) {
+        if (groupNoticeBuilder_ == null) {
+          if (packCase_ == 9 &&
+              pack_ != GroupNotice.getDefaultInstance()) {
+            pack_ = GroupNotice.newBuilder((GroupNotice) pack_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            pack_ = value;
+          }
+          onChanged();
+        } else {
+          if (packCase_ == 9) {
+            groupNoticeBuilder_.mergeFrom(value);
+          }
+          groupNoticeBuilder_.setMessage(value);
+        }
+        packCase_ = 9;
+        return this;
+      }
+      /**
+       * <code>optional .com.largehat.common.im.packets.GroupNotice groupNotice = 9;</code>
+       */
+      public Builder clearGroupNotice() {
+        if (groupNoticeBuilder_ == null) {
+          if (packCase_ == 9) {
+            packCase_ = 0;
+            pack_ = null;
+            onChanged();
+          }
+        } else {
+          if (packCase_ == 9) {
+            packCase_ = 0;
+            pack_ = null;
+          }
+          groupNoticeBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>optional .com.largehat.common.im.packets.GroupNotice groupNotice = 9;</code>
+       */
+      public GroupNotice.Builder getGroupNoticeBuilder() {
+        return getGroupNoticeFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .com.largehat.common.im.packets.GroupNotice groupNotice = 9;</code>
+       */
+      public GroupNoticeOrBuilder getGroupNoticeOrBuilder() {
+        if ((packCase_ == 9) && (groupNoticeBuilder_ != null)) {
+          return groupNoticeBuilder_.getMessageOrBuilder();
+        } else {
+          if (packCase_ == 9) {
+            return (GroupNotice) pack_;
+          }
+          return GroupNotice.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>optional .com.largehat.common.im.packets.GroupNotice groupNotice = 9;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          GroupNotice, GroupNotice.Builder, GroupNoticeOrBuilder>
+          getGroupNoticeFieldBuilder() {
+        if (groupNoticeBuilder_ == null) {
+          if (!(packCase_ == 9)) {
+            pack_ = GroupNotice.getDefaultInstance();
+          }
+          groupNoticeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              GroupNotice, GroupNotice.Builder, GroupNoticeOrBuilder>(
+                  (GroupNotice) pack_,
+                  getParentForChildren(),
+                  isClean());
+          pack_ = null;
+        }
+        packCase_ = 9;
+        onChanged();;
+        return groupNoticeBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          UserNotice, UserNotice.Builder, UserNoticeOrBuilder> userNoticeBuilder_;
+      /**
+       * <code>optional .com.largehat.common.im.packets.UserNotice UserNotice = 10;</code>
+       */
+      public UserNotice getUserNotice() {
+        if (userNoticeBuilder_ == null) {
+          if (packCase_ == 10) {
+            return (UserNotice) pack_;
+          }
+          return UserNotice.getDefaultInstance();
+        } else {
+          if (packCase_ == 10) {
+            return userNoticeBuilder_.getMessage();
+          }
+          return UserNotice.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>optional .com.largehat.common.im.packets.UserNotice UserNotice = 10;</code>
+       */
+      public Builder setUserNotice(UserNotice value) {
+        if (userNoticeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          pack_ = value;
+          onChanged();
+        } else {
+          userNoticeBuilder_.setMessage(value);
+        }
+        packCase_ = 10;
+        return this;
+      }
+      /**
+       * <code>optional .com.largehat.common.im.packets.UserNotice UserNotice = 10;</code>
+       */
+      public Builder setUserNotice(
+          UserNotice.Builder builderForValue) {
+        if (userNoticeBuilder_ == null) {
+          pack_ = builderForValue.build();
+          onChanged();
+        } else {
+          userNoticeBuilder_.setMessage(builderForValue.build());
+        }
+        packCase_ = 10;
+        return this;
+      }
+      /**
+       * <code>optional .com.largehat.common.im.packets.UserNotice UserNotice = 10;</code>
+       */
+      public Builder mergeUserNotice(UserNotice value) {
+        if (userNoticeBuilder_ == null) {
+          if (packCase_ == 10 &&
+              pack_ != UserNotice.getDefaultInstance()) {
+            pack_ = UserNotice.newBuilder((UserNotice) pack_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            pack_ = value;
+          }
+          onChanged();
+        } else {
+          if (packCase_ == 10) {
+            userNoticeBuilder_.mergeFrom(value);
+          }
+          userNoticeBuilder_.setMessage(value);
+        }
+        packCase_ = 10;
+        return this;
+      }
+      /**
+       * <code>optional .com.largehat.common.im.packets.UserNotice UserNotice = 10;</code>
+       */
+      public Builder clearUserNotice() {
+        if (userNoticeBuilder_ == null) {
+          if (packCase_ == 10) {
+            packCase_ = 0;
+            pack_ = null;
+            onChanged();
+          }
+        } else {
+          if (packCase_ == 10) {
+            packCase_ = 0;
+            pack_ = null;
+          }
+          userNoticeBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>optional .com.largehat.common.im.packets.UserNotice UserNotice = 10;</code>
+       */
+      public UserNotice.Builder getUserNoticeBuilder() {
+        return getUserNoticeFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .com.largehat.common.im.packets.UserNotice UserNotice = 10;</code>
+       */
+      public UserNoticeOrBuilder getUserNoticeOrBuilder() {
+        if ((packCase_ == 10) && (userNoticeBuilder_ != null)) {
+          return userNoticeBuilder_.getMessageOrBuilder();
+        } else {
+          if (packCase_ == 10) {
+            return (UserNotice) pack_;
+          }
+          return UserNotice.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>optional .com.largehat.common.im.packets.UserNotice UserNotice = 10;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          UserNotice, UserNotice.Builder, UserNoticeOrBuilder>
+          getUserNoticeFieldBuilder() {
+        if (userNoticeBuilder_ == null) {
+          if (!(packCase_ == 10)) {
+            pack_ = UserNotice.getDefaultInstance();
+          }
+          userNoticeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              UserNotice, UserNotice.Builder, UserNoticeOrBuilder>(
+                  (UserNotice) pack_,
+                  getParentForChildren(),
+                  isClean());
+          pack_ = null;
+        }
+        packCase_ = 10;
+        onChanged();;
+        return userNoticeBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
           RespBody, RespBody.Builder, RespBodyOrBuilder> cancelMsgResBuilder_;
       /**
-       * <code>optional .com.largehat.common.im.packets.RespBody cancelMsgRes = 9;</code>
+       * <code>optional .com.largehat.common.im.packets.RespBody cancelMsgRes = 11;</code>
        */
       public RespBody getCancelMsgRes() {
         if (cancelMsgResBuilder_ == null) {
-          if (packCase_ == 9) {
+          if (packCase_ == 11) {
             return (RespBody) pack_;
           }
           return RespBody.getDefaultInstance();
         } else {
-          if (packCase_ == 9) {
+          if (packCase_ == 11) {
             return cancelMsgResBuilder_.getMessage();
           }
           return RespBody.getDefaultInstance();
         }
       }
       /**
-       * <code>optional .com.largehat.common.im.packets.RespBody cancelMsgRes = 9;</code>
+       * <code>optional .com.largehat.common.im.packets.RespBody cancelMsgRes = 11;</code>
        */
       public Builder setCancelMsgRes(RespBody value) {
         if (cancelMsgResBuilder_ == null) {
@@ -2073,11 +2475,11 @@ public final class MessageProto {
         } else {
           cancelMsgResBuilder_.setMessage(value);
         }
-        packCase_ = 9;
+        packCase_ = 11;
         return this;
       }
       /**
-       * <code>optional .com.largehat.common.im.packets.RespBody cancelMsgRes = 9;</code>
+       * <code>optional .com.largehat.common.im.packets.RespBody cancelMsgRes = 11;</code>
        */
       public Builder setCancelMsgRes(
           RespBody.Builder builderForValue) {
@@ -2087,15 +2489,15 @@ public final class MessageProto {
         } else {
           cancelMsgResBuilder_.setMessage(builderForValue.build());
         }
-        packCase_ = 9;
+        packCase_ = 11;
         return this;
       }
       /**
-       * <code>optional .com.largehat.common.im.packets.RespBody cancelMsgRes = 9;</code>
+       * <code>optional .com.largehat.common.im.packets.RespBody cancelMsgRes = 11;</code>
        */
       public Builder mergeCancelMsgRes(RespBody value) {
         if (cancelMsgResBuilder_ == null) {
-          if (packCase_ == 9 &&
+          if (packCase_ == 11 &&
               pack_ != RespBody.getDefaultInstance()) {
             pack_ = RespBody.newBuilder((RespBody) pack_)
                 .mergeFrom(value).buildPartial();
@@ -2104,26 +2506,26 @@ public final class MessageProto {
           }
           onChanged();
         } else {
-          if (packCase_ == 9) {
+          if (packCase_ == 11) {
             cancelMsgResBuilder_.mergeFrom(value);
           }
           cancelMsgResBuilder_.setMessage(value);
         }
-        packCase_ = 9;
+        packCase_ = 11;
         return this;
       }
       /**
-       * <code>optional .com.largehat.common.im.packets.RespBody cancelMsgRes = 9;</code>
+       * <code>optional .com.largehat.common.im.packets.RespBody cancelMsgRes = 11;</code>
        */
       public Builder clearCancelMsgRes() {
         if (cancelMsgResBuilder_ == null) {
-          if (packCase_ == 9) {
+          if (packCase_ == 11) {
             packCase_ = 0;
             pack_ = null;
             onChanged();
           }
         } else {
-          if (packCase_ == 9) {
+          if (packCase_ == 11) {
             packCase_ = 0;
             pack_ = null;
           }
@@ -2132,32 +2534,32 @@ public final class MessageProto {
         return this;
       }
       /**
-       * <code>optional .com.largehat.common.im.packets.RespBody cancelMsgRes = 9;</code>
+       * <code>optional .com.largehat.common.im.packets.RespBody cancelMsgRes = 11;</code>
        */
       public RespBody.Builder getCancelMsgResBuilder() {
         return getCancelMsgResFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .com.largehat.common.im.packets.RespBody cancelMsgRes = 9;</code>
+       * <code>optional .com.largehat.common.im.packets.RespBody cancelMsgRes = 11;</code>
        */
       public RespBodyOrBuilder getCancelMsgResOrBuilder() {
-        if ((packCase_ == 9) && (cancelMsgResBuilder_ != null)) {
+        if ((packCase_ == 11) && (cancelMsgResBuilder_ != null)) {
           return cancelMsgResBuilder_.getMessageOrBuilder();
         } else {
-          if (packCase_ == 9) {
+          if (packCase_ == 11) {
             return (RespBody) pack_;
           }
           return RespBody.getDefaultInstance();
         }
       }
       /**
-       * <code>optional .com.largehat.common.im.packets.RespBody cancelMsgRes = 9;</code>
+       * <code>optional .com.largehat.common.im.packets.RespBody cancelMsgRes = 11;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           RespBody, RespBody.Builder, RespBodyOrBuilder>
           getCancelMsgResFieldBuilder() {
         if (cancelMsgResBuilder_ == null) {
-          if (!(packCase_ == 9)) {
+          if (!(packCase_ == 11)) {
             pack_ = RespBody.getDefaultInstance();
           }
           cancelMsgResBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -2167,7 +2569,7 @@ public final class MessageProto {
                   isClean());
           pack_ = null;
         }
-        packCase_ = 9;
+        packCase_ = 11;
         onChanged();;
         return cancelMsgResBuilder_;
       }
@@ -2175,23 +2577,23 @@ public final class MessageProto {
       private com.google.protobuf.SingleFieldBuilderV3<
           AuthRes, AuthRes.Builder, AuthResOrBuilder> authResBuilder_;
       /**
-       * <code>optional .com.largehat.common.im.packets.AuthRes authRes = 10;</code>
+       * <code>optional .com.largehat.common.im.packets.AuthRes authRes = 12;</code>
        */
       public AuthRes getAuthRes() {
         if (authResBuilder_ == null) {
-          if (packCase_ == 10) {
+          if (packCase_ == 12) {
             return (AuthRes) pack_;
           }
           return AuthRes.getDefaultInstance();
         } else {
-          if (packCase_ == 10) {
+          if (packCase_ == 12) {
             return authResBuilder_.getMessage();
           }
           return AuthRes.getDefaultInstance();
         }
       }
       /**
-       * <code>optional .com.largehat.common.im.packets.AuthRes authRes = 10;</code>
+       * <code>optional .com.largehat.common.im.packets.AuthRes authRes = 12;</code>
        */
       public Builder setAuthRes(AuthRes value) {
         if (authResBuilder_ == null) {
@@ -2203,11 +2605,11 @@ public final class MessageProto {
         } else {
           authResBuilder_.setMessage(value);
         }
-        packCase_ = 10;
+        packCase_ = 12;
         return this;
       }
       /**
-       * <code>optional .com.largehat.common.im.packets.AuthRes authRes = 10;</code>
+       * <code>optional .com.largehat.common.im.packets.AuthRes authRes = 12;</code>
        */
       public Builder setAuthRes(
           AuthRes.Builder builderForValue) {
@@ -2217,15 +2619,15 @@ public final class MessageProto {
         } else {
           authResBuilder_.setMessage(builderForValue.build());
         }
-        packCase_ = 10;
+        packCase_ = 12;
         return this;
       }
       /**
-       * <code>optional .com.largehat.common.im.packets.AuthRes authRes = 10;</code>
+       * <code>optional .com.largehat.common.im.packets.AuthRes authRes = 12;</code>
        */
       public Builder mergeAuthRes(AuthRes value) {
         if (authResBuilder_ == null) {
-          if (packCase_ == 10 &&
+          if (packCase_ == 12 &&
               pack_ != AuthRes.getDefaultInstance()) {
             pack_ = AuthRes.newBuilder((AuthRes) pack_)
                 .mergeFrom(value).buildPartial();
@@ -2234,26 +2636,26 @@ public final class MessageProto {
           }
           onChanged();
         } else {
-          if (packCase_ == 10) {
+          if (packCase_ == 12) {
             authResBuilder_.mergeFrom(value);
           }
           authResBuilder_.setMessage(value);
         }
-        packCase_ = 10;
+        packCase_ = 12;
         return this;
       }
       /**
-       * <code>optional .com.largehat.common.im.packets.AuthRes authRes = 10;</code>
+       * <code>optional .com.largehat.common.im.packets.AuthRes authRes = 12;</code>
        */
       public Builder clearAuthRes() {
         if (authResBuilder_ == null) {
-          if (packCase_ == 10) {
+          if (packCase_ == 12) {
             packCase_ = 0;
             pack_ = null;
             onChanged();
           }
         } else {
-          if (packCase_ == 10) {
+          if (packCase_ == 12) {
             packCase_ = 0;
             pack_ = null;
           }
@@ -2262,32 +2664,32 @@ public final class MessageProto {
         return this;
       }
       /**
-       * <code>optional .com.largehat.common.im.packets.AuthRes authRes = 10;</code>
+       * <code>optional .com.largehat.common.im.packets.AuthRes authRes = 12;</code>
        */
       public AuthRes.Builder getAuthResBuilder() {
         return getAuthResFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .com.largehat.common.im.packets.AuthRes authRes = 10;</code>
+       * <code>optional .com.largehat.common.im.packets.AuthRes authRes = 12;</code>
        */
       public AuthResOrBuilder getAuthResOrBuilder() {
-        if ((packCase_ == 10) && (authResBuilder_ != null)) {
+        if ((packCase_ == 12) && (authResBuilder_ != null)) {
           return authResBuilder_.getMessageOrBuilder();
         } else {
-          if (packCase_ == 10) {
+          if (packCase_ == 12) {
             return (AuthRes) pack_;
           }
           return AuthRes.getDefaultInstance();
         }
       }
       /**
-       * <code>optional .com.largehat.common.im.packets.AuthRes authRes = 10;</code>
+       * <code>optional .com.largehat.common.im.packets.AuthRes authRes = 12;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           AuthRes, AuthRes.Builder, AuthResOrBuilder>
           getAuthResFieldBuilder() {
         if (authResBuilder_ == null) {
-          if (!(packCase_ == 10)) {
+          if (!(packCase_ == 12)) {
             pack_ = AuthRes.getDefaultInstance();
           }
           authResBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -2297,7 +2699,7 @@ public final class MessageProto {
                   isClean());
           pack_ = null;
         }
-        packCase_ = 10;
+        packCase_ = 12;
         onChanged();;
         return authResBuilder_;
       }
@@ -2305,23 +2707,23 @@ public final class MessageProto {
       private com.google.protobuf.SingleFieldBuilderV3<
           LoginRes, LoginRes.Builder, LoginResOrBuilder> loginResBuilder_;
       /**
-       * <code>optional .com.largehat.common.im.packets.LoginRes loginRes = 11;</code>
+       * <code>optional .com.largehat.common.im.packets.LoginRes loginRes = 13;</code>
        */
       public LoginRes getLoginRes() {
         if (loginResBuilder_ == null) {
-          if (packCase_ == 11) {
+          if (packCase_ == 13) {
             return (LoginRes) pack_;
           }
           return LoginRes.getDefaultInstance();
         } else {
-          if (packCase_ == 11) {
+          if (packCase_ == 13) {
             return loginResBuilder_.getMessage();
           }
           return LoginRes.getDefaultInstance();
         }
       }
       /**
-       * <code>optional .com.largehat.common.im.packets.LoginRes loginRes = 11;</code>
+       * <code>optional .com.largehat.common.im.packets.LoginRes loginRes = 13;</code>
        */
       public Builder setLoginRes(LoginRes value) {
         if (loginResBuilder_ == null) {
@@ -2333,11 +2735,11 @@ public final class MessageProto {
         } else {
           loginResBuilder_.setMessage(value);
         }
-        packCase_ = 11;
+        packCase_ = 13;
         return this;
       }
       /**
-       * <code>optional .com.largehat.common.im.packets.LoginRes loginRes = 11;</code>
+       * <code>optional .com.largehat.common.im.packets.LoginRes loginRes = 13;</code>
        */
       public Builder setLoginRes(
           LoginRes.Builder builderForValue) {
@@ -2347,15 +2749,15 @@ public final class MessageProto {
         } else {
           loginResBuilder_.setMessage(builderForValue.build());
         }
-        packCase_ = 11;
+        packCase_ = 13;
         return this;
       }
       /**
-       * <code>optional .com.largehat.common.im.packets.LoginRes loginRes = 11;</code>
+       * <code>optional .com.largehat.common.im.packets.LoginRes loginRes = 13;</code>
        */
       public Builder mergeLoginRes(LoginRes value) {
         if (loginResBuilder_ == null) {
-          if (packCase_ == 11 &&
+          if (packCase_ == 13 &&
               pack_ != LoginRes.getDefaultInstance()) {
             pack_ = LoginRes.newBuilder((LoginRes) pack_)
                 .mergeFrom(value).buildPartial();
@@ -2364,26 +2766,26 @@ public final class MessageProto {
           }
           onChanged();
         } else {
-          if (packCase_ == 11) {
+          if (packCase_ == 13) {
             loginResBuilder_.mergeFrom(value);
           }
           loginResBuilder_.setMessage(value);
         }
-        packCase_ = 11;
+        packCase_ = 13;
         return this;
       }
       /**
-       * <code>optional .com.largehat.common.im.packets.LoginRes loginRes = 11;</code>
+       * <code>optional .com.largehat.common.im.packets.LoginRes loginRes = 13;</code>
        */
       public Builder clearLoginRes() {
         if (loginResBuilder_ == null) {
-          if (packCase_ == 11) {
+          if (packCase_ == 13) {
             packCase_ = 0;
             pack_ = null;
             onChanged();
           }
         } else {
-          if (packCase_ == 11) {
+          if (packCase_ == 13) {
             packCase_ = 0;
             pack_ = null;
           }
@@ -2392,32 +2794,32 @@ public final class MessageProto {
         return this;
       }
       /**
-       * <code>optional .com.largehat.common.im.packets.LoginRes loginRes = 11;</code>
+       * <code>optional .com.largehat.common.im.packets.LoginRes loginRes = 13;</code>
        */
       public LoginRes.Builder getLoginResBuilder() {
         return getLoginResFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .com.largehat.common.im.packets.LoginRes loginRes = 11;</code>
+       * <code>optional .com.largehat.common.im.packets.LoginRes loginRes = 13;</code>
        */
       public LoginResOrBuilder getLoginResOrBuilder() {
-        if ((packCase_ == 11) && (loginResBuilder_ != null)) {
+        if ((packCase_ == 13) && (loginResBuilder_ != null)) {
           return loginResBuilder_.getMessageOrBuilder();
         } else {
-          if (packCase_ == 11) {
+          if (packCase_ == 13) {
             return (LoginRes) pack_;
           }
           return LoginRes.getDefaultInstance();
         }
       }
       /**
-       * <code>optional .com.largehat.common.im.packets.LoginRes loginRes = 11;</code>
+       * <code>optional .com.largehat.common.im.packets.LoginRes loginRes = 13;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           LoginRes, LoginRes.Builder, LoginResOrBuilder>
           getLoginResFieldBuilder() {
         if (loginResBuilder_ == null) {
-          if (!(packCase_ == 11)) {
+          if (!(packCase_ == 13)) {
             pack_ = LoginRes.getDefaultInstance();
           }
           loginResBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -2427,7 +2829,7 @@ public final class MessageProto {
                   isClean());
           pack_ = null;
         }
-        packCase_ = 11;
+        packCase_ = 13;
         onChanged();;
         return loginResBuilder_;
       }
@@ -2489,36 +2891,36 @@ public final class MessageProto {
      *鉴权码
      * </pre>
      *
-     * <code>optional string authcode = 1;</code>
+     * <code>optional string authCode = 1;</code>
      */
-    String getAuthcode();
+    String getAuthCode();
     /**
      * <pre>
      *鉴权码
      * </pre>
      *
-     * <code>optional string authcode = 1;</code>
+     * <code>optional string authCode = 1;</code>
      */
     com.google.protobuf.ByteString
-        getAuthcodeBytes();
+        getAuthCodeBytes();
 
     /**
      * <pre>
      *用户ID
      * </pre>
      *
-     * <code>optional string userid = 2;</code>
+     * <code>optional string userId = 2;</code>
      */
-    String getUserid();
+    String getUserId();
     /**
      * <pre>
      *用户ID
      * </pre>
      *
-     * <code>optional string userid = 2;</code>
+     * <code>optional string userId = 2;</code>
      */
     com.google.protobuf.ByteString
-        getUseridBytes();
+        getUserIdBytes();
 
     /**
      * <pre>
@@ -2543,9 +2945,9 @@ public final class MessageProto {
      *组织机构代码
      * </pre>
      *
-     * <code>optional int32 orgid = 4;</code>
+     * <code>optional int32 orgId = 4;</code>
      */
-    int getOrgid();
+    int getOrgId();
   }
   /**
    * <pre>
@@ -2563,10 +2965,10 @@ public final class MessageProto {
       super(builder);
     }
     private AuthReq() {
-      authcode_ = "";
-      userid_ = "";
+      authCode_ = "";
+      userId_ = "";
       passwd_ = "";
-      orgid_ = 0;
+      orgId_ = 0;
     }
 
     @Override
@@ -2597,13 +2999,13 @@ public final class MessageProto {
             case 10: {
               String s = input.readStringRequireUtf8();
 
-              authcode_ = s;
+              authCode_ = s;
               break;
             }
             case 18: {
               String s = input.readStringRequireUtf8();
 
-              userid_ = s;
+              userId_ = s;
               break;
             }
             case 26: {
@@ -2614,7 +3016,7 @@ public final class MessageProto {
             }
             case 32: {
 
-              orgid_ = input.readInt32();
+              orgId_ = input.readInt32();
               break;
             }
           }
@@ -2641,23 +3043,23 @@ public final class MessageProto {
     }
 
     public static final int AUTHCODE_FIELD_NUMBER = 1;
-    private volatile Object authcode_;
+    private volatile Object authCode_;
     /**
      * <pre>
      *鉴权码
      * </pre>
      *
-     * <code>optional string authcode = 1;</code>
+     * <code>optional string authCode = 1;</code>
      */
-    public String getAuthcode() {
-      Object ref = authcode_;
+    public String getAuthCode() {
+      Object ref = authCode_;
       if (ref instanceof String) {
         return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         String s = bs.toStringUtf8();
-        authcode_ = s;
+        authCode_ = s;
         return s;
       }
     }
@@ -2666,16 +3068,16 @@ public final class MessageProto {
      *鉴权码
      * </pre>
      *
-     * <code>optional string authcode = 1;</code>
+     * <code>optional string authCode = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getAuthcodeBytes() {
-      Object ref = authcode_;
+        getAuthCodeBytes() {
+      Object ref = authCode_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
-        authcode_ = b;
+        authCode_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -2683,23 +3085,23 @@ public final class MessageProto {
     }
 
     public static final int USERID_FIELD_NUMBER = 2;
-    private volatile Object userid_;
+    private volatile Object userId_;
     /**
      * <pre>
      *用户ID
      * </pre>
      *
-     * <code>optional string userid = 2;</code>
+     * <code>optional string userId = 2;</code>
      */
-    public String getUserid() {
-      Object ref = userid_;
+    public String getUserId() {
+      Object ref = userId_;
       if (ref instanceof String) {
         return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         String s = bs.toStringUtf8();
-        userid_ = s;
+        userId_ = s;
         return s;
       }
     }
@@ -2708,16 +3110,16 @@ public final class MessageProto {
      *用户ID
      * </pre>
      *
-     * <code>optional string userid = 2;</code>
+     * <code>optional string userId = 2;</code>
      */
     public com.google.protobuf.ByteString
-        getUseridBytes() {
-      Object ref = userid_;
+        getUserIdBytes() {
+      Object ref = userId_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
-        userid_ = b;
+        userId_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -2767,16 +3169,16 @@ public final class MessageProto {
     }
 
     public static final int ORGID_FIELD_NUMBER = 4;
-    private int orgid_;
+    private int orgId_;
     /**
      * <pre>
      *组织机构代码
      * </pre>
      *
-     * <code>optional int32 orgid = 4;</code>
+     * <code>optional int32 orgId = 4;</code>
      */
-    public int getOrgid() {
-      return orgid_;
+    public int getOrgId() {
+      return orgId_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2791,17 +3193,17 @@ public final class MessageProto {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getAuthcodeBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, authcode_);
+      if (!getAuthCodeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, authCode_);
       }
-      if (!getUseridBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, userid_);
+      if (!getUserIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, userId_);
       }
       if (!getPasswdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, passwd_);
       }
-      if (orgid_ != 0) {
-        output.writeInt32(4, orgid_);
+      if (orgId_ != 0) {
+        output.writeInt32(4, orgId_);
       }
     }
 
@@ -2810,18 +3212,18 @@ public final class MessageProto {
       if (size != -1) return size;
 
       size = 0;
-      if (!getAuthcodeBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, authcode_);
+      if (!getAuthCodeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, authCode_);
       }
-      if (!getUseridBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, userid_);
+      if (!getUserIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, userId_);
       }
       if (!getPasswdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, passwd_);
       }
-      if (orgid_ != 0) {
+      if (orgId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, orgid_);
+          .computeInt32Size(4, orgId_);
       }
       memoizedSize = size;
       return size;
@@ -2839,14 +3241,14 @@ public final class MessageProto {
       AuthReq other = (AuthReq) obj;
 
       boolean result = true;
-      result = result && getAuthcode()
-          .equals(other.getAuthcode());
-      result = result && getUserid()
-          .equals(other.getUserid());
+      result = result && getAuthCode()
+          .equals(other.getAuthCode());
+      result = result && getUserId()
+          .equals(other.getUserId());
       result = result && getPasswd()
           .equals(other.getPasswd());
-      result = result && (getOrgid()
-          == other.getOrgid());
+      result = result && (getOrgId()
+          == other.getOrgId());
       return result;
     }
 
@@ -2858,13 +3260,13 @@ public final class MessageProto {
       int hash = 41;
       hash = (19 * hash) + getDescriptorForType().hashCode();
       hash = (37 * hash) + AUTHCODE_FIELD_NUMBER;
-      hash = (53 * hash) + getAuthcode().hashCode();
+      hash = (53 * hash) + getAuthCode().hashCode();
       hash = (37 * hash) + USERID_FIELD_NUMBER;
-      hash = (53 * hash) + getUserid().hashCode();
+      hash = (53 * hash) + getUserId().hashCode();
       hash = (37 * hash) + PASSWD_FIELD_NUMBER;
       hash = (53 * hash) + getPasswd().hashCode();
       hash = (37 * hash) + ORGID_FIELD_NUMBER;
-      hash = (53 * hash) + getOrgid();
+      hash = (53 * hash) + getOrgId();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2987,13 +3389,13 @@ public final class MessageProto {
       }
       public Builder clear() {
         super.clear();
-        authcode_ = "";
+        authCode_ = "";
 
-        userid_ = "";
+        userId_ = "";
 
         passwd_ = "";
 
-        orgid_ = 0;
+        orgId_ = 0;
 
         return this;
       }
@@ -3017,10 +3419,10 @@ public final class MessageProto {
 
       public AuthReq buildPartial() {
         AuthReq result = new AuthReq(this);
-        result.authcode_ = authcode_;
-        result.userid_ = userid_;
+        result.authCode_ = authCode_;
+        result.userId_ = userId_;
         result.passwd_ = passwd_;
-        result.orgid_ = orgid_;
+        result.orgId_ = orgId_;
         onBuilt();
         return result;
       }
@@ -3062,20 +3464,20 @@ public final class MessageProto {
 
       public Builder mergeFrom(AuthReq other) {
         if (other == AuthReq.getDefaultInstance()) return this;
-        if (!other.getAuthcode().isEmpty()) {
-          authcode_ = other.authcode_;
+        if (!other.getAuthCode().isEmpty()) {
+          authCode_ = other.authCode_;
           onChanged();
         }
-        if (!other.getUserid().isEmpty()) {
-          userid_ = other.userid_;
+        if (!other.getUserId().isEmpty()) {
+          userId_ = other.userId_;
           onChanged();
         }
         if (!other.getPasswd().isEmpty()) {
           passwd_ = other.passwd_;
           onChanged();
         }
-        if (other.getOrgid() != 0) {
-          setOrgid(other.getOrgid());
+        if (other.getOrgId() != 0) {
+          setOrgId(other.getOrgId());
         }
         onChanged();
         return this;
@@ -3103,21 +3505,21 @@ public final class MessageProto {
         return this;
       }
 
-      private Object authcode_ = "";
+      private Object authCode_ = "";
       /**
        * <pre>
        *鉴权码
        * </pre>
        *
-       * <code>optional string authcode = 1;</code>
+       * <code>optional string authCode = 1;</code>
        */
-      public String getAuthcode() {
-        Object ref = authcode_;
+      public String getAuthCode() {
+        Object ref = authCode_;
         if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           String s = bs.toStringUtf8();
-          authcode_ = s;
+          authCode_ = s;
           return s;
         } else {
           return (String) ref;
@@ -3128,16 +3530,16 @@ public final class MessageProto {
        *鉴权码
        * </pre>
        *
-       * <code>optional string authcode = 1;</code>
+       * <code>optional string authCode = 1;</code>
        */
       public com.google.protobuf.ByteString
-          getAuthcodeBytes() {
-        Object ref = authcode_;
+          getAuthCodeBytes() {
+        Object ref = authCode_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (String) ref);
-          authcode_ = b;
+          authCode_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -3148,15 +3550,15 @@ public final class MessageProto {
        *鉴权码
        * </pre>
        *
-       * <code>optional string authcode = 1;</code>
+       * <code>optional string authCode = 1;</code>
        */
-      public Builder setAuthcode(
+      public Builder setAuthCode(
           String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        authcode_ = value;
+        authCode_ = value;
         onChanged();
         return this;
       }
@@ -3165,11 +3567,11 @@ public final class MessageProto {
        *鉴权码
        * </pre>
        *
-       * <code>optional string authcode = 1;</code>
+       * <code>optional string authCode = 1;</code>
        */
-      public Builder clearAuthcode() {
+      public Builder clearAuthCode() {
         
-        authcode_ = getDefaultInstance().getAuthcode();
+        authCode_ = getDefaultInstance().getAuthCode();
         onChanged();
         return this;
       }
@@ -3178,35 +3580,35 @@ public final class MessageProto {
        *鉴权码
        * </pre>
        *
-       * <code>optional string authcode = 1;</code>
+       * <code>optional string authCode = 1;</code>
        */
-      public Builder setAuthcodeBytes(
+      public Builder setAuthCodeBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        authcode_ = value;
+        authCode_ = value;
         onChanged();
         return this;
       }
 
-      private Object userid_ = "";
+      private Object userId_ = "";
       /**
        * <pre>
        *用户ID
        * </pre>
        *
-       * <code>optional string userid = 2;</code>
+       * <code>optional string userId = 2;</code>
        */
-      public String getUserid() {
-        Object ref = userid_;
+      public String getUserId() {
+        Object ref = userId_;
         if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           String s = bs.toStringUtf8();
-          userid_ = s;
+          userId_ = s;
           return s;
         } else {
           return (String) ref;
@@ -3217,16 +3619,16 @@ public final class MessageProto {
        *用户ID
        * </pre>
        *
-       * <code>optional string userid = 2;</code>
+       * <code>optional string userId = 2;</code>
        */
       public com.google.protobuf.ByteString
-          getUseridBytes() {
-        Object ref = userid_;
+          getUserIdBytes() {
+        Object ref = userId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (String) ref);
-          userid_ = b;
+          userId_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -3237,15 +3639,15 @@ public final class MessageProto {
        *用户ID
        * </pre>
        *
-       * <code>optional string userid = 2;</code>
+       * <code>optional string userId = 2;</code>
        */
-      public Builder setUserid(
+      public Builder setUserId(
           String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        userid_ = value;
+        userId_ = value;
         onChanged();
         return this;
       }
@@ -3254,11 +3656,11 @@ public final class MessageProto {
        *用户ID
        * </pre>
        *
-       * <code>optional string userid = 2;</code>
+       * <code>optional string userId = 2;</code>
        */
-      public Builder clearUserid() {
+      public Builder clearUserId() {
         
-        userid_ = getDefaultInstance().getUserid();
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -3267,16 +3669,16 @@ public final class MessageProto {
        *用户ID
        * </pre>
        *
-       * <code>optional string userid = 2;</code>
+       * <code>optional string userId = 2;</code>
        */
-      public Builder setUseridBytes(
+      public Builder setUserIdBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        userid_ = value;
+        userId_ = value;
         onChanged();
         return this;
       }
@@ -3370,27 +3772,27 @@ public final class MessageProto {
         return this;
       }
 
-      private int orgid_ ;
+      private int orgId_ ;
       /**
        * <pre>
        *组织机构代码
        * </pre>
        *
-       * <code>optional int32 orgid = 4;</code>
+       * <code>optional int32 orgId = 4;</code>
        */
-      public int getOrgid() {
-        return orgid_;
+      public int getOrgId() {
+        return orgId_;
       }
       /**
        * <pre>
        *组织机构代码
        * </pre>
        *
-       * <code>optional int32 orgid = 4;</code>
+       * <code>optional int32 orgId = 4;</code>
        */
-      public Builder setOrgid(int value) {
+      public Builder setOrgId(int value) {
         
-        orgid_ = value;
+        orgId_ = value;
         onChanged();
         return this;
       }
@@ -3399,11 +3801,11 @@ public final class MessageProto {
        *组织机构代码
        * </pre>
        *
-       * <code>optional int32 orgid = 4;</code>
+       * <code>optional int32 orgId = 4;</code>
        */
-      public Builder clearOrgid() {
+      public Builder clearOrgId() {
         
-        orgid_ = 0;
+        orgId_ = 0;
         onChanged();
         return this;
       }
@@ -3483,18 +3885,18 @@ public final class MessageProto {
      *用户ID
      * </pre>
      *
-     * <code>optional string userid = 2;</code>
+     * <code>optional string userId = 2;</code>
      */
-    String getUserid();
+    String getUserId();
     /**
      * <pre>
      *用户ID
      * </pre>
      *
-     * <code>optional string userid = 2;</code>
+     * <code>optional string userId = 2;</code>
      */
     com.google.protobuf.ByteString
-        getUseridBytes();
+        getUserIdBytes();
 
     /**
      * <pre>
@@ -3548,7 +3950,7 @@ public final class MessageProto {
     }
     private LoginReq() {
       tonken_ = "";
-      userid_ = "";
+      userId_ = "";
       deviceType_ = 0;
       deviceId_ = "";
     }
@@ -3587,7 +3989,7 @@ public final class MessageProto {
             case 18: {
               String s = input.readStringRequireUtf8();
 
-              userid_ = s;
+              userId_ = s;
               break;
             }
             case 24: {
@@ -3668,23 +4070,23 @@ public final class MessageProto {
     }
 
     public static final int USERID_FIELD_NUMBER = 2;
-    private volatile Object userid_;
+    private volatile Object userId_;
     /**
      * <pre>
      *用户ID
      * </pre>
      *
-     * <code>optional string userid = 2;</code>
+     * <code>optional string userId = 2;</code>
      */
-    public String getUserid() {
-      Object ref = userid_;
+    public String getUserId() {
+      Object ref = userId_;
       if (ref instanceof String) {
         return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         String s = bs.toStringUtf8();
-        userid_ = s;
+        userId_ = s;
         return s;
       }
     }
@@ -3693,16 +4095,16 @@ public final class MessageProto {
      *用户ID
      * </pre>
      *
-     * <code>optional string userid = 2;</code>
+     * <code>optional string userId = 2;</code>
      */
     public com.google.protobuf.ByteString
-        getUseridBytes() {
-      Object ref = userid_;
+        getUserIdBytes() {
+      Object ref = userId_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
-        userid_ = b;
+        userId_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -3790,8 +4192,8 @@ public final class MessageProto {
       if (!getTonkenBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, tonken_);
       }
-      if (!getUseridBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, userid_);
+      if (!getUserIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, userId_);
       }
       if (deviceType_ != DeviceType.DEVICE_TYPE_UNKNOW.getNumber()) {
         output.writeEnum(3, deviceType_);
@@ -3809,8 +4211,8 @@ public final class MessageProto {
       if (!getTonkenBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, tonken_);
       }
-      if (!getUseridBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, userid_);
+      if (!getUserIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, userId_);
       }
       if (deviceType_ != DeviceType.DEVICE_TYPE_UNKNOW.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
@@ -3837,8 +4239,8 @@ public final class MessageProto {
       boolean result = true;
       result = result && getTonken()
           .equals(other.getTonken());
-      result = result && getUserid()
-          .equals(other.getUserid());
+      result = result && getUserId()
+          .equals(other.getUserId());
       result = result && deviceType_ == other.deviceType_;
       result = result && getDeviceId()
           .equals(other.getDeviceId());
@@ -3855,7 +4257,7 @@ public final class MessageProto {
       hash = (37 * hash) + TONKEN_FIELD_NUMBER;
       hash = (53 * hash) + getTonken().hashCode();
       hash = (37 * hash) + USERID_FIELD_NUMBER;
-      hash = (53 * hash) + getUserid().hashCode();
+      hash = (53 * hash) + getUserId().hashCode();
       hash = (37 * hash) + DEVICETYPE_FIELD_NUMBER;
       hash = (53 * hash) + deviceType_;
       hash = (37 * hash) + DEVICEID_FIELD_NUMBER;
@@ -3984,7 +4386,7 @@ public final class MessageProto {
         super.clear();
         tonken_ = "";
 
-        userid_ = "";
+        userId_ = "";
 
         deviceType_ = 0;
 
@@ -4013,7 +4415,7 @@ public final class MessageProto {
       public LoginReq buildPartial() {
         LoginReq result = new LoginReq(this);
         result.tonken_ = tonken_;
-        result.userid_ = userid_;
+        result.userId_ = userId_;
         result.deviceType_ = deviceType_;
         result.deviceId_ = deviceId_;
         onBuilt();
@@ -4061,8 +4463,8 @@ public final class MessageProto {
           tonken_ = other.tonken_;
           onChanged();
         }
-        if (!other.getUserid().isEmpty()) {
-          userid_ = other.userid_;
+        if (!other.getUserId().isEmpty()) {
+          userId_ = other.userId_;
           onChanged();
         }
         if (other.deviceType_ != 0) {
@@ -4187,21 +4589,21 @@ public final class MessageProto {
         return this;
       }
 
-      private Object userid_ = "";
+      private Object userId_ = "";
       /**
        * <pre>
        *用户ID
        * </pre>
        *
-       * <code>optional string userid = 2;</code>
+       * <code>optional string userId = 2;</code>
        */
-      public String getUserid() {
-        Object ref = userid_;
+      public String getUserId() {
+        Object ref = userId_;
         if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           String s = bs.toStringUtf8();
-          userid_ = s;
+          userId_ = s;
           return s;
         } else {
           return (String) ref;
@@ -4212,16 +4614,16 @@ public final class MessageProto {
        *用户ID
        * </pre>
        *
-       * <code>optional string userid = 2;</code>
+       * <code>optional string userId = 2;</code>
        */
       public com.google.protobuf.ByteString
-          getUseridBytes() {
-        Object ref = userid_;
+          getUserIdBytes() {
+        Object ref = userId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (String) ref);
-          userid_ = b;
+          userId_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -4232,15 +4634,15 @@ public final class MessageProto {
        *用户ID
        * </pre>
        *
-       * <code>optional string userid = 2;</code>
+       * <code>optional string userId = 2;</code>
        */
-      public Builder setUserid(
+      public Builder setUserId(
           String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        userid_ = value;
+        userId_ = value;
         onChanged();
         return this;
       }
@@ -4249,11 +4651,11 @@ public final class MessageProto {
        *用户ID
        * </pre>
        *
-       * <code>optional string userid = 2;</code>
+       * <code>optional string userId = 2;</code>
        */
-      public Builder clearUserid() {
+      public Builder clearUserId() {
         
-        userid_ = getDefaultInstance().getUserid();
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -4262,16 +4664,16 @@ public final class MessageProto {
        *用户ID
        * </pre>
        *
-       * <code>optional string userid = 2;</code>
+       * <code>optional string userId = 2;</code>
        */
-      public Builder setUseridBytes(
+      public Builder setUserIdBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        userid_ = value;
+        userId_ = value;
         onChanged();
         return this;
       }
@@ -8727,6 +9129,1864 @@ public final class MessageProto {
 
   }
 
+  public interface GroupNoticeOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.largehat.common.im.packets.GroupNotice)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     *群组通知
+     * </pre>
+     *
+     * <code>optional .GroupNoticeType groupNoticeType = 1;</code>
+     */
+    int getGroupNoticeTypeValue();
+    /**
+     * <pre>
+     *群组通知
+     * </pre>
+     *
+     * <code>optional .GroupNoticeType groupNoticeType = 1;</code>
+     */
+    GroupNoticeType getGroupNoticeType();
+
+    /**
+     * <pre>
+     *通知的群组
+     * </pre>
+     *
+     * <code>optional string groupId = 2;</code>
+     */
+    String getGroupId();
+    /**
+     * <pre>
+     *通知的群组
+     * </pre>
+     *
+     * <code>optional string groupId = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getGroupIdBytes();
+
+    /**
+     * <pre>
+     *加入退出群组用户
+     * </pre>
+     *
+     * <code>optional .com.largehat.common.im.packets.User user = 3;</code>
+     */
+    boolean hasUser();
+    /**
+     * <pre>
+     *加入退出群组用户
+     * </pre>
+     *
+     * <code>optional .com.largehat.common.im.packets.User user = 3;</code>
+     */
+    UserProto.User getUser();
+    /**
+     * <pre>
+     *加入退出群组用户
+     * </pre>
+     *
+     * <code>optional .com.largehat.common.im.packets.User user = 3;</code>
+     */
+    UserProto.UserOrBuilder getUserOrBuilder();
+  }
+  /**
+   * <pre>
+   *群组通知
+   * </pre>
+   *
+   * Protobuf type {@code com.largehat.common.im.packets.GroupNotice}
+   */
+  public  static final class GroupNotice extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.largehat.common.im.packets.GroupNotice)
+      GroupNoticeOrBuilder {
+    // Use GroupNotice.newBuilder() to construct.
+    private GroupNotice(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GroupNotice() {
+      groupNoticeType_ = 0;
+      groupId_ = "";
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private GroupNotice(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              int rawValue = input.readEnum();
+
+              groupNoticeType_ = rawValue;
+              break;
+            }
+            case 18: {
+              String s = input.readStringRequireUtf8();
+
+              groupId_ = s;
+              break;
+            }
+            case 26: {
+              UserProto.User.Builder subBuilder = null;
+              if (user_ != null) {
+                subBuilder = user_.toBuilder();
+              }
+              user_ = input.readMessage(UserProto.User.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(user_);
+                user_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return MessageProto.internal_static_com_largehat_common_im_packets_GroupNotice_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return MessageProto.internal_static_com_largehat_common_im_packets_GroupNotice_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              GroupNotice.class, Builder.class);
+    }
+
+    public static final int GROUPNOTICETYPE_FIELD_NUMBER = 1;
+    private int groupNoticeType_;
+    /**
+     * <pre>
+     *群组通知
+     * </pre>
+     *
+     * <code>optional .GroupNoticeType groupNoticeType = 1;</code>
+     */
+    public int getGroupNoticeTypeValue() {
+      return groupNoticeType_;
+    }
+    /**
+     * <pre>
+     *群组通知
+     * </pre>
+     *
+     * <code>optional .GroupNoticeType groupNoticeType = 1;</code>
+     */
+    public GroupNoticeType getGroupNoticeType() {
+      GroupNoticeType result = GroupNoticeType.valueOf(groupNoticeType_);
+      return result == null ? GroupNoticeType.UNRECOGNIZED : result;
+    }
+
+    public static final int GROUPID_FIELD_NUMBER = 2;
+    private volatile Object groupId_;
+    /**
+     * <pre>
+     *通知的群组
+     * </pre>
+     *
+     * <code>optional string groupId = 2;</code>
+     */
+    public String getGroupId() {
+      Object ref = groupId_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        groupId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *通知的群组
+     * </pre>
+     *
+     * <code>optional string groupId = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getGroupIdBytes() {
+      Object ref = groupId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        groupId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int USER_FIELD_NUMBER = 3;
+    private UserProto.User user_;
+    /**
+     * <pre>
+     *加入退出群组用户
+     * </pre>
+     *
+     * <code>optional .com.largehat.common.im.packets.User user = 3;</code>
+     */
+    public boolean hasUser() {
+      return user_ != null;
+    }
+    /**
+     * <pre>
+     *加入退出群组用户
+     * </pre>
+     *
+     * <code>optional .com.largehat.common.im.packets.User user = 3;</code>
+     */
+    public UserProto.User getUser() {
+      return user_ == null ? UserProto.User.getDefaultInstance() : user_;
+    }
+    /**
+     * <pre>
+     *加入退出群组用户
+     * </pre>
+     *
+     * <code>optional .com.largehat.common.im.packets.User user = 3;</code>
+     */
+    public UserProto.UserOrBuilder getUserOrBuilder() {
+      return getUser();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (groupNoticeType_ != GroupNoticeType.GROUP_NOTICE_TYPE_JOIN.getNumber()) {
+        output.writeEnum(1, groupNoticeType_);
+      }
+      if (!getGroupIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, groupId_);
+      }
+      if (user_ != null) {
+        output.writeMessage(3, getUser());
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (groupNoticeType_ != GroupNoticeType.GROUP_NOTICE_TYPE_JOIN.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, groupNoticeType_);
+      }
+      if (!getGroupIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, groupId_);
+      }
+      if (user_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getUser());
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof GroupNotice)) {
+        return super.equals(obj);
+      }
+      GroupNotice other = (GroupNotice) obj;
+
+      boolean result = true;
+      result = result && groupNoticeType_ == other.groupNoticeType_;
+      result = result && getGroupId()
+          .equals(other.getGroupId());
+      result = result && (hasUser() == other.hasUser());
+      if (hasUser()) {
+        result = result && getUser()
+            .equals(other.getUser());
+      }
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (37 * hash) + GROUPNOTICETYPE_FIELD_NUMBER;
+      hash = (53 * hash) + groupNoticeType_;
+      hash = (37 * hash) + GROUPID_FIELD_NUMBER;
+      hash = (53 * hash) + getGroupId().hashCode();
+      if (hasUser()) {
+        hash = (37 * hash) + USER_FIELD_NUMBER;
+        hash = (53 * hash) + getUser().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static GroupNotice parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static GroupNotice parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static GroupNotice parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static GroupNotice parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static GroupNotice parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static GroupNotice parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static GroupNotice parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static GroupNotice parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static GroupNotice parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static GroupNotice parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(GroupNotice prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *群组通知
+     * </pre>
+     *
+     * Protobuf type {@code com.largehat.common.im.packets.GroupNotice}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.largehat.common.im.packets.GroupNotice)
+        GroupNoticeOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return MessageProto.internal_static_com_largehat_common_im_packets_GroupNotice_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return MessageProto.internal_static_com_largehat_common_im_packets_GroupNotice_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                GroupNotice.class, Builder.class);
+      }
+
+      // Construct using com.largehat.common.im.packets.MessageProto.GroupNotice.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        groupNoticeType_ = 0;
+
+        groupId_ = "";
+
+        if (userBuilder_ == null) {
+          user_ = null;
+        } else {
+          user_ = null;
+          userBuilder_ = null;
+        }
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return MessageProto.internal_static_com_largehat_common_im_packets_GroupNotice_descriptor;
+      }
+
+      public GroupNotice getDefaultInstanceForType() {
+        return GroupNotice.getDefaultInstance();
+      }
+
+      public GroupNotice build() {
+        GroupNotice result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public GroupNotice buildPartial() {
+        GroupNotice result = new GroupNotice(this);
+        result.groupNoticeType_ = groupNoticeType_;
+        result.groupId_ = groupId_;
+        if (userBuilder_ == null) {
+          result.user_ = user_;
+        } else {
+          result.user_ = userBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof GroupNotice) {
+          return mergeFrom((GroupNotice)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(GroupNotice other) {
+        if (other == GroupNotice.getDefaultInstance()) return this;
+        if (other.groupNoticeType_ != 0) {
+          setGroupNoticeTypeValue(other.getGroupNoticeTypeValue());
+        }
+        if (!other.getGroupId().isEmpty()) {
+          groupId_ = other.groupId_;
+          onChanged();
+        }
+        if (other.hasUser()) {
+          mergeUser(other.getUser());
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        GroupNotice parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (GroupNotice) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int groupNoticeType_ = 0;
+      /**
+       * <pre>
+       *群组通知
+       * </pre>
+       *
+       * <code>optional .GroupNoticeType groupNoticeType = 1;</code>
+       */
+      public int getGroupNoticeTypeValue() {
+        return groupNoticeType_;
+      }
+      /**
+       * <pre>
+       *群组通知
+       * </pre>
+       *
+       * <code>optional .GroupNoticeType groupNoticeType = 1;</code>
+       */
+      public Builder setGroupNoticeTypeValue(int value) {
+        groupNoticeType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *群组通知
+       * </pre>
+       *
+       * <code>optional .GroupNoticeType groupNoticeType = 1;</code>
+       */
+      public GroupNoticeType getGroupNoticeType() {
+        GroupNoticeType result = GroupNoticeType.valueOf(groupNoticeType_);
+        return result == null ? GroupNoticeType.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       *群组通知
+       * </pre>
+       *
+       * <code>optional .GroupNoticeType groupNoticeType = 1;</code>
+       */
+      public Builder setGroupNoticeType(GroupNoticeType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        groupNoticeType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *群组通知
+       * </pre>
+       *
+       * <code>optional .GroupNoticeType groupNoticeType = 1;</code>
+       */
+      public Builder clearGroupNoticeType() {
+        
+        groupNoticeType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private Object groupId_ = "";
+      /**
+       * <pre>
+       *通知的群组
+       * </pre>
+       *
+       * <code>optional string groupId = 2;</code>
+       */
+      public String getGroupId() {
+        Object ref = groupId_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          groupId_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *通知的群组
+       * </pre>
+       *
+       * <code>optional string groupId = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getGroupIdBytes() {
+        Object ref = groupId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          groupId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *通知的群组
+       * </pre>
+       *
+       * <code>optional string groupId = 2;</code>
+       */
+      public Builder setGroupId(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        groupId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *通知的群组
+       * </pre>
+       *
+       * <code>optional string groupId = 2;</code>
+       */
+      public Builder clearGroupId() {
+        
+        groupId_ = getDefaultInstance().getGroupId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *通知的群组
+       * </pre>
+       *
+       * <code>optional string groupId = 2;</code>
+       */
+      public Builder setGroupIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        groupId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private UserProto.User user_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          UserProto.User, UserProto.User.Builder, UserProto.UserOrBuilder> userBuilder_;
+      /**
+       * <pre>
+       *加入退出群组用户
+       * </pre>
+       *
+       * <code>optional .com.largehat.common.im.packets.User user = 3;</code>
+       */
+      public boolean hasUser() {
+        return userBuilder_ != null || user_ != null;
+      }
+      /**
+       * <pre>
+       *加入退出群组用户
+       * </pre>
+       *
+       * <code>optional .com.largehat.common.im.packets.User user = 3;</code>
+       */
+      public UserProto.User getUser() {
+        if (userBuilder_ == null) {
+          return user_ == null ? UserProto.User.getDefaultInstance() : user_;
+        } else {
+          return userBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       *加入退出群组用户
+       * </pre>
+       *
+       * <code>optional .com.largehat.common.im.packets.User user = 3;</code>
+       */
+      public Builder setUser(UserProto.User value) {
+        if (userBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          user_ = value;
+          onChanged();
+        } else {
+          userBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *加入退出群组用户
+       * </pre>
+       *
+       * <code>optional .com.largehat.common.im.packets.User user = 3;</code>
+       */
+      public Builder setUser(
+          UserProto.User.Builder builderForValue) {
+        if (userBuilder_ == null) {
+          user_ = builderForValue.build();
+          onChanged();
+        } else {
+          userBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *加入退出群组用户
+       * </pre>
+       *
+       * <code>optional .com.largehat.common.im.packets.User user = 3;</code>
+       */
+      public Builder mergeUser(UserProto.User value) {
+        if (userBuilder_ == null) {
+          if (user_ != null) {
+            user_ =
+              UserProto.User.newBuilder(user_).mergeFrom(value).buildPartial();
+          } else {
+            user_ = value;
+          }
+          onChanged();
+        } else {
+          userBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *加入退出群组用户
+       * </pre>
+       *
+       * <code>optional .com.largehat.common.im.packets.User user = 3;</code>
+       */
+      public Builder clearUser() {
+        if (userBuilder_ == null) {
+          user_ = null;
+          onChanged();
+        } else {
+          user_ = null;
+          userBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *加入退出群组用户
+       * </pre>
+       *
+       * <code>optional .com.largehat.common.im.packets.User user = 3;</code>
+       */
+      public UserProto.User.Builder getUserBuilder() {
+        
+        onChanged();
+        return getUserFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       *加入退出群组用户
+       * </pre>
+       *
+       * <code>optional .com.largehat.common.im.packets.User user = 3;</code>
+       */
+      public UserProto.UserOrBuilder getUserOrBuilder() {
+        if (userBuilder_ != null) {
+          return userBuilder_.getMessageOrBuilder();
+        } else {
+          return user_ == null ?
+              UserProto.User.getDefaultInstance() : user_;
+        }
+      }
+      /**
+       * <pre>
+       *加入退出群组用户
+       * </pre>
+       *
+       * <code>optional .com.largehat.common.im.packets.User user = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          UserProto.User, UserProto.User.Builder, UserProto.UserOrBuilder>
+          getUserFieldBuilder() {
+        if (userBuilder_ == null) {
+          userBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              UserProto.User, UserProto.User.Builder, UserProto.UserOrBuilder>(
+                  getUser(),
+                  getParentForChildren(),
+                  isClean());
+          user_ = null;
+        }
+        return userBuilder_;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.largehat.common.im.packets.GroupNotice)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.largehat.common.im.packets.GroupNotice)
+    private static final GroupNotice DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new GroupNotice();
+    }
+
+    public static GroupNotice getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GroupNotice>
+        PARSER = new com.google.protobuf.AbstractParser<GroupNotice>() {
+      public GroupNotice parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new GroupNotice(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GroupNotice> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<GroupNotice> getParserForType() {
+      return PARSER;
+    }
+
+    public GroupNotice getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface UserNoticeOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.largehat.common.im.packets.UserNotice)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     *群组通知
+     * </pre>
+     *
+     * <code>optional .UserNoticeType userNoticeType = 1;</code>
+     */
+    int getUserNoticeTypeValue();
+    /**
+     * <pre>
+     *群组通知
+     * </pre>
+     *
+     * <code>optional .UserNoticeType userNoticeType = 1;</code>
+     */
+    UserNoticeType getUserNoticeType();
+
+    /**
+     * <pre>
+     *通知用户
+     * </pre>
+     *
+     * <code>optional string noticeUserId = 2;</code>
+     */
+    String getNoticeUserId();
+    /**
+     * <pre>
+     *通知用户
+     * </pre>
+     *
+     * <code>optional string noticeUserId = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getNoticeUserIdBytes();
+
+    /**
+     * <pre>
+     *上线或下线的用户
+     * </pre>
+     *
+     * <code>optional .com.largehat.common.im.packets.User user = 3;</code>
+     */
+    boolean hasUser();
+    /**
+     * <pre>
+     *上线或下线的用户
+     * </pre>
+     *
+     * <code>optional .com.largehat.common.im.packets.User user = 3;</code>
+     */
+    UserProto.User getUser();
+    /**
+     * <pre>
+     *上线或下线的用户
+     * </pre>
+     *
+     * <code>optional .com.largehat.common.im.packets.User user = 3;</code>
+     */
+    UserProto.UserOrBuilder getUserOrBuilder();
+  }
+  /**
+   * <pre>
+   *用户通知
+   * </pre>
+   *
+   * Protobuf type {@code com.largehat.common.im.packets.UserNotice}
+   */
+  public  static final class UserNotice extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.largehat.common.im.packets.UserNotice)
+      UserNoticeOrBuilder {
+    // Use UserNotice.newBuilder() to construct.
+    private UserNotice(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private UserNotice() {
+      userNoticeType_ = 0;
+      noticeUserId_ = "";
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private UserNotice(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              int rawValue = input.readEnum();
+
+              userNoticeType_ = rawValue;
+              break;
+            }
+            case 18: {
+              String s = input.readStringRequireUtf8();
+
+              noticeUserId_ = s;
+              break;
+            }
+            case 26: {
+              UserProto.User.Builder subBuilder = null;
+              if (user_ != null) {
+                subBuilder = user_.toBuilder();
+              }
+              user_ = input.readMessage(UserProto.User.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(user_);
+                user_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return MessageProto.internal_static_com_largehat_common_im_packets_UserNotice_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return MessageProto.internal_static_com_largehat_common_im_packets_UserNotice_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              UserNotice.class, Builder.class);
+    }
+
+    public static final int USERNOTICETYPE_FIELD_NUMBER = 1;
+    private int userNoticeType_;
+    /**
+     * <pre>
+     *群组通知
+     * </pre>
+     *
+     * <code>optional .UserNoticeType userNoticeType = 1;</code>
+     */
+    public int getUserNoticeTypeValue() {
+      return userNoticeType_;
+    }
+    /**
+     * <pre>
+     *群组通知
+     * </pre>
+     *
+     * <code>optional .UserNoticeType userNoticeType = 1;</code>
+     */
+    public UserNoticeType getUserNoticeType() {
+      UserNoticeType result = UserNoticeType.valueOf(userNoticeType_);
+      return result == null ? UserNoticeType.UNRECOGNIZED : result;
+    }
+
+    public static final int NOTICEUSERID_FIELD_NUMBER = 2;
+    private volatile Object noticeUserId_;
+    /**
+     * <pre>
+     *通知用户
+     * </pre>
+     *
+     * <code>optional string noticeUserId = 2;</code>
+     */
+    public String getNoticeUserId() {
+      Object ref = noticeUserId_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        noticeUserId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *通知用户
+     * </pre>
+     *
+     * <code>optional string noticeUserId = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNoticeUserIdBytes() {
+      Object ref = noticeUserId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        noticeUserId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int USER_FIELD_NUMBER = 3;
+    private UserProto.User user_;
+    /**
+     * <pre>
+     *上线或下线的用户
+     * </pre>
+     *
+     * <code>optional .com.largehat.common.im.packets.User user = 3;</code>
+     */
+    public boolean hasUser() {
+      return user_ != null;
+    }
+    /**
+     * <pre>
+     *上线或下线的用户
+     * </pre>
+     *
+     * <code>optional .com.largehat.common.im.packets.User user = 3;</code>
+     */
+    public UserProto.User getUser() {
+      return user_ == null ? UserProto.User.getDefaultInstance() : user_;
+    }
+    /**
+     * <pre>
+     *上线或下线的用户
+     * </pre>
+     *
+     * <code>optional .com.largehat.common.im.packets.User user = 3;</code>
+     */
+    public UserProto.UserOrBuilder getUserOrBuilder() {
+      return getUser();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (userNoticeType_ != UserNoticeType.USER_NOTICE_TYPE_ONLINE.getNumber()) {
+        output.writeEnum(1, userNoticeType_);
+      }
+      if (!getNoticeUserIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, noticeUserId_);
+      }
+      if (user_ != null) {
+        output.writeMessage(3, getUser());
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (userNoticeType_ != UserNoticeType.USER_NOTICE_TYPE_ONLINE.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, userNoticeType_);
+      }
+      if (!getNoticeUserIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, noticeUserId_);
+      }
+      if (user_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getUser());
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof UserNotice)) {
+        return super.equals(obj);
+      }
+      UserNotice other = (UserNotice) obj;
+
+      boolean result = true;
+      result = result && userNoticeType_ == other.userNoticeType_;
+      result = result && getNoticeUserId()
+          .equals(other.getNoticeUserId());
+      result = result && (hasUser() == other.hasUser());
+      if (hasUser()) {
+        result = result && getUser()
+            .equals(other.getUser());
+      }
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (37 * hash) + USERNOTICETYPE_FIELD_NUMBER;
+      hash = (53 * hash) + userNoticeType_;
+      hash = (37 * hash) + NOTICEUSERID_FIELD_NUMBER;
+      hash = (53 * hash) + getNoticeUserId().hashCode();
+      if (hasUser()) {
+        hash = (37 * hash) + USER_FIELD_NUMBER;
+        hash = (53 * hash) + getUser().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static UserNotice parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static UserNotice parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static UserNotice parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static UserNotice parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static UserNotice parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static UserNotice parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static UserNotice parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static UserNotice parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static UserNotice parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static UserNotice parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(UserNotice prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *用户通知
+     * </pre>
+     *
+     * Protobuf type {@code com.largehat.common.im.packets.UserNotice}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.largehat.common.im.packets.UserNotice)
+        UserNoticeOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return MessageProto.internal_static_com_largehat_common_im_packets_UserNotice_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return MessageProto.internal_static_com_largehat_common_im_packets_UserNotice_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                UserNotice.class, Builder.class);
+      }
+
+      // Construct using com.largehat.common.im.packets.MessageProto.UserNotice.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        userNoticeType_ = 0;
+
+        noticeUserId_ = "";
+
+        if (userBuilder_ == null) {
+          user_ = null;
+        } else {
+          user_ = null;
+          userBuilder_ = null;
+        }
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return MessageProto.internal_static_com_largehat_common_im_packets_UserNotice_descriptor;
+      }
+
+      public UserNotice getDefaultInstanceForType() {
+        return UserNotice.getDefaultInstance();
+      }
+
+      public UserNotice build() {
+        UserNotice result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public UserNotice buildPartial() {
+        UserNotice result = new UserNotice(this);
+        result.userNoticeType_ = userNoticeType_;
+        result.noticeUserId_ = noticeUserId_;
+        if (userBuilder_ == null) {
+          result.user_ = user_;
+        } else {
+          result.user_ = userBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof UserNotice) {
+          return mergeFrom((UserNotice)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(UserNotice other) {
+        if (other == UserNotice.getDefaultInstance()) return this;
+        if (other.userNoticeType_ != 0) {
+          setUserNoticeTypeValue(other.getUserNoticeTypeValue());
+        }
+        if (!other.getNoticeUserId().isEmpty()) {
+          noticeUserId_ = other.noticeUserId_;
+          onChanged();
+        }
+        if (other.hasUser()) {
+          mergeUser(other.getUser());
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        UserNotice parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (UserNotice) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int userNoticeType_ = 0;
+      /**
+       * <pre>
+       *群组通知
+       * </pre>
+       *
+       * <code>optional .UserNoticeType userNoticeType = 1;</code>
+       */
+      public int getUserNoticeTypeValue() {
+        return userNoticeType_;
+      }
+      /**
+       * <pre>
+       *群组通知
+       * </pre>
+       *
+       * <code>optional .UserNoticeType userNoticeType = 1;</code>
+       */
+      public Builder setUserNoticeTypeValue(int value) {
+        userNoticeType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *群组通知
+       * </pre>
+       *
+       * <code>optional .UserNoticeType userNoticeType = 1;</code>
+       */
+      public UserNoticeType getUserNoticeType() {
+        UserNoticeType result = UserNoticeType.valueOf(userNoticeType_);
+        return result == null ? UserNoticeType.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       *群组通知
+       * </pre>
+       *
+       * <code>optional .UserNoticeType userNoticeType = 1;</code>
+       */
+      public Builder setUserNoticeType(UserNoticeType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        userNoticeType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *群组通知
+       * </pre>
+       *
+       * <code>optional .UserNoticeType userNoticeType = 1;</code>
+       */
+      public Builder clearUserNoticeType() {
+        
+        userNoticeType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private Object noticeUserId_ = "";
+      /**
+       * <pre>
+       *通知用户
+       * </pre>
+       *
+       * <code>optional string noticeUserId = 2;</code>
+       */
+      public String getNoticeUserId() {
+        Object ref = noticeUserId_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          noticeUserId_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *通知用户
+       * </pre>
+       *
+       * <code>optional string noticeUserId = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNoticeUserIdBytes() {
+        Object ref = noticeUserId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          noticeUserId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *通知用户
+       * </pre>
+       *
+       * <code>optional string noticeUserId = 2;</code>
+       */
+      public Builder setNoticeUserId(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        noticeUserId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *通知用户
+       * </pre>
+       *
+       * <code>optional string noticeUserId = 2;</code>
+       */
+      public Builder clearNoticeUserId() {
+        
+        noticeUserId_ = getDefaultInstance().getNoticeUserId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *通知用户
+       * </pre>
+       *
+       * <code>optional string noticeUserId = 2;</code>
+       */
+      public Builder setNoticeUserIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        noticeUserId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private UserProto.User user_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          UserProto.User, UserProto.User.Builder, UserProto.UserOrBuilder> userBuilder_;
+      /**
+       * <pre>
+       *上线或下线的用户
+       * </pre>
+       *
+       * <code>optional .com.largehat.common.im.packets.User user = 3;</code>
+       */
+      public boolean hasUser() {
+        return userBuilder_ != null || user_ != null;
+      }
+      /**
+       * <pre>
+       *上线或下线的用户
+       * </pre>
+       *
+       * <code>optional .com.largehat.common.im.packets.User user = 3;</code>
+       */
+      public UserProto.User getUser() {
+        if (userBuilder_ == null) {
+          return user_ == null ? UserProto.User.getDefaultInstance() : user_;
+        } else {
+          return userBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       *上线或下线的用户
+       * </pre>
+       *
+       * <code>optional .com.largehat.common.im.packets.User user = 3;</code>
+       */
+      public Builder setUser(UserProto.User value) {
+        if (userBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          user_ = value;
+          onChanged();
+        } else {
+          userBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *上线或下线的用户
+       * </pre>
+       *
+       * <code>optional .com.largehat.common.im.packets.User user = 3;</code>
+       */
+      public Builder setUser(
+          UserProto.User.Builder builderForValue) {
+        if (userBuilder_ == null) {
+          user_ = builderForValue.build();
+          onChanged();
+        } else {
+          userBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *上线或下线的用户
+       * </pre>
+       *
+       * <code>optional .com.largehat.common.im.packets.User user = 3;</code>
+       */
+      public Builder mergeUser(UserProto.User value) {
+        if (userBuilder_ == null) {
+          if (user_ != null) {
+            user_ =
+              UserProto.User.newBuilder(user_).mergeFrom(value).buildPartial();
+          } else {
+            user_ = value;
+          }
+          onChanged();
+        } else {
+          userBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *上线或下线的用户
+       * </pre>
+       *
+       * <code>optional .com.largehat.common.im.packets.User user = 3;</code>
+       */
+      public Builder clearUser() {
+        if (userBuilder_ == null) {
+          user_ = null;
+          onChanged();
+        } else {
+          user_ = null;
+          userBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *上线或下线的用户
+       * </pre>
+       *
+       * <code>optional .com.largehat.common.im.packets.User user = 3;</code>
+       */
+      public UserProto.User.Builder getUserBuilder() {
+        
+        onChanged();
+        return getUserFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       *上线或下线的用户
+       * </pre>
+       *
+       * <code>optional .com.largehat.common.im.packets.User user = 3;</code>
+       */
+      public UserProto.UserOrBuilder getUserOrBuilder() {
+        if (userBuilder_ != null) {
+          return userBuilder_.getMessageOrBuilder();
+        } else {
+          return user_ == null ?
+              UserProto.User.getDefaultInstance() : user_;
+        }
+      }
+      /**
+       * <pre>
+       *上线或下线的用户
+       * </pre>
+       *
+       * <code>optional .com.largehat.common.im.packets.User user = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          UserProto.User, UserProto.User.Builder, UserProto.UserOrBuilder>
+          getUserFieldBuilder() {
+        if (userBuilder_ == null) {
+          userBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              UserProto.User, UserProto.User.Builder, UserProto.UserOrBuilder>(
+                  getUser(),
+                  getParentForChildren(),
+                  isClean());
+          user_ = null;
+        }
+        return userBuilder_;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.largehat.common.im.packets.UserNotice)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.largehat.common.im.packets.UserNotice)
+    private static final UserNotice DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new UserNotice();
+    }
+
+    public static UserNotice getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<UserNotice>
+        PARSER = new com.google.protobuf.AbstractParser<UserNotice>() {
+      public UserNotice parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new UserNotice(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<UserNotice> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<UserNotice> getParserForType() {
+      return PARSER;
+    }
+
+    public UserNotice getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface RespBodyOrBuilder extends
       // @@protoc_insertion_point(interface_extends:com.largehat.common.im.packets.RespBody)
       com.google.protobuf.MessageOrBuilder {
@@ -8760,7 +11020,7 @@ public final class MessageProto {
   }
   /**
    * <pre>
-   *返回
+   *返回包
    * </pre>
    *
    * Protobuf type {@code com.largehat.common.im.packets.RespBody}
@@ -9042,7 +11302,7 @@ public final class MessageProto {
     }
     /**
      * <pre>
-     *返回
+     *返回包
      * </pre>
      *
      * Protobuf type {@code com.largehat.common.im.packets.RespBody}
@@ -9363,10 +11623,37 @@ public final class MessageProto {
 
     /**
      * <pre>
+     *返回信息 0成功1失败
+     * </pre>
+     *
+     * <code>optional uint32 code = 1;</code>
+     */
+    int getCode();
+
+    /**
+     * <pre>
+     *消息
+     * </pre>
+     *
+     * <code>optional string msg = 2;</code>
+     */
+    String getMsg();
+    /**
+     * <pre>
+     *消息
+     * </pre>
+     *
+     * <code>optional string msg = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getMsgBytes();
+
+    /**
+     * <pre>
      *令牌
      * </pre>
      *
-     * <code>optional string tonken = 1;</code>
+     * <code>optional string tonken = 3;</code>
      */
     String getTonken();
     /**
@@ -9374,7 +11661,7 @@ public final class MessageProto {
      *令牌
      * </pre>
      *
-     * <code>optional string tonken = 1;</code>
+     * <code>optional string tonken = 3;</code>
      */
     com.google.protobuf.ByteString
         getTonkenBytes();
@@ -9395,6 +11682,8 @@ public final class MessageProto {
       super(builder);
     }
     private AuthRes() {
+      code_ = 0;
+      msg_ = "";
       tonken_ = "";
     }
 
@@ -9423,7 +11712,18 @@ public final class MessageProto {
               }
               break;
             }
-            case 10: {
+            case 8: {
+
+              code_ = input.readUInt32();
+              break;
+            }
+            case 18: {
+              String s = input.readStringRequireUtf8();
+
+              msg_ = s;
+              break;
+            }
+            case 26: {
               String s = input.readStringRequireUtf8();
 
               tonken_ = s;
@@ -9452,14 +11752,69 @@ public final class MessageProto {
               AuthRes.class, Builder.class);
     }
 
-    public static final int TONKEN_FIELD_NUMBER = 1;
+    public static final int CODE_FIELD_NUMBER = 1;
+    private int code_;
+    /**
+     * <pre>
+     *返回信息 0成功1失败
+     * </pre>
+     *
+     * <code>optional uint32 code = 1;</code>
+     */
+    public int getCode() {
+      return code_;
+    }
+
+    public static final int MSG_FIELD_NUMBER = 2;
+    private volatile Object msg_;
+    /**
+     * <pre>
+     *消息
+     * </pre>
+     *
+     * <code>optional string msg = 2;</code>
+     */
+    public String getMsg() {
+      Object ref = msg_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        msg_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *消息
+     * </pre>
+     *
+     * <code>optional string msg = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMsgBytes() {
+      Object ref = msg_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        msg_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TONKEN_FIELD_NUMBER = 3;
     private volatile Object tonken_;
     /**
      * <pre>
      *令牌
      * </pre>
      *
-     * <code>optional string tonken = 1;</code>
+     * <code>optional string tonken = 3;</code>
      */
     public String getTonken() {
       Object ref = tonken_;
@@ -9478,7 +11833,7 @@ public final class MessageProto {
      *令牌
      * </pre>
      *
-     * <code>optional string tonken = 1;</code>
+     * <code>optional string tonken = 3;</code>
      */
     public com.google.protobuf.ByteString
         getTonkenBytes() {
@@ -9506,8 +11861,14 @@ public final class MessageProto {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (code_ != 0) {
+        output.writeUInt32(1, code_);
+      }
+      if (!getMsgBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, msg_);
+      }
       if (!getTonkenBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, tonken_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, tonken_);
       }
     }
 
@@ -9516,8 +11877,15 @@ public final class MessageProto {
       if (size != -1) return size;
 
       size = 0;
+      if (code_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(1, code_);
+      }
+      if (!getMsgBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, msg_);
+      }
       if (!getTonkenBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, tonken_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, tonken_);
       }
       memoizedSize = size;
       return size;
@@ -9535,6 +11903,10 @@ public final class MessageProto {
       AuthRes other = (AuthRes) obj;
 
       boolean result = true;
+      result = result && (getCode()
+          == other.getCode());
+      result = result && getMsg()
+          .equals(other.getMsg());
       result = result && getTonken()
           .equals(other.getTonken());
       return result;
@@ -9547,6 +11919,10 @@ public final class MessageProto {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (37 * hash) + CODE_FIELD_NUMBER;
+      hash = (53 * hash) + getCode();
+      hash = (37 * hash) + MSG_FIELD_NUMBER;
+      hash = (53 * hash) + getMsg().hashCode();
       hash = (37 * hash) + TONKEN_FIELD_NUMBER;
       hash = (53 * hash) + getTonken().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -9671,6 +12047,10 @@ public final class MessageProto {
       }
       public Builder clear() {
         super.clear();
+        code_ = 0;
+
+        msg_ = "";
+
         tonken_ = "";
 
         return this;
@@ -9695,6 +12075,8 @@ public final class MessageProto {
 
       public AuthRes buildPartial() {
         AuthRes result = new AuthRes(this);
+        result.code_ = code_;
+        result.msg_ = msg_;
         result.tonken_ = tonken_;
         onBuilt();
         return result;
@@ -9737,6 +12119,13 @@ public final class MessageProto {
 
       public Builder mergeFrom(AuthRes other) {
         if (other == AuthRes.getDefaultInstance()) return this;
+        if (other.getCode() != 0) {
+          setCode(other.getCode());
+        }
+        if (!other.getMsg().isEmpty()) {
+          msg_ = other.msg_;
+          onChanged();
+        }
         if (!other.getTonken().isEmpty()) {
           tonken_ = other.tonken_;
           onChanged();
@@ -9767,13 +12156,140 @@ public final class MessageProto {
         return this;
       }
 
+      private int code_ ;
+      /**
+       * <pre>
+       *返回信息 0成功1失败
+       * </pre>
+       *
+       * <code>optional uint32 code = 1;</code>
+       */
+      public int getCode() {
+        return code_;
+      }
+      /**
+       * <pre>
+       *返回信息 0成功1失败
+       * </pre>
+       *
+       * <code>optional uint32 code = 1;</code>
+       */
+      public Builder setCode(int value) {
+        
+        code_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *返回信息 0成功1失败
+       * </pre>
+       *
+       * <code>optional uint32 code = 1;</code>
+       */
+      public Builder clearCode() {
+        
+        code_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private Object msg_ = "";
+      /**
+       * <pre>
+       *消息
+       * </pre>
+       *
+       * <code>optional string msg = 2;</code>
+       */
+      public String getMsg() {
+        Object ref = msg_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          msg_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *消息
+       * </pre>
+       *
+       * <code>optional string msg = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getMsgBytes() {
+        Object ref = msg_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          msg_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *消息
+       * </pre>
+       *
+       * <code>optional string msg = 2;</code>
+       */
+      public Builder setMsg(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        msg_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *消息
+       * </pre>
+       *
+       * <code>optional string msg = 2;</code>
+       */
+      public Builder clearMsg() {
+        
+        msg_ = getDefaultInstance().getMsg();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *消息
+       * </pre>
+       *
+       * <code>optional string msg = 2;</code>
+       */
+      public Builder setMsgBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        msg_ = value;
+        onChanged();
+        return this;
+      }
+
       private Object tonken_ = "";
       /**
        * <pre>
        *令牌
        * </pre>
        *
-       * <code>optional string tonken = 1;</code>
+       * <code>optional string tonken = 3;</code>
        */
       public String getTonken() {
         Object ref = tonken_;
@@ -9792,7 +12308,7 @@ public final class MessageProto {
        *令牌
        * </pre>
        *
-       * <code>optional string tonken = 1;</code>
+       * <code>optional string tonken = 3;</code>
        */
       public com.google.protobuf.ByteString
           getTonkenBytes() {
@@ -9812,7 +12328,7 @@ public final class MessageProto {
        *令牌
        * </pre>
        *
-       * <code>optional string tonken = 1;</code>
+       * <code>optional string tonken = 3;</code>
        */
       public Builder setTonken(
           String value) {
@@ -9829,7 +12345,7 @@ public final class MessageProto {
        *令牌
        * </pre>
        *
-       * <code>optional string tonken = 1;</code>
+       * <code>optional string tonken = 3;</code>
        */
       public Builder clearTonken() {
         
@@ -9842,7 +12358,7 @@ public final class MessageProto {
        *令牌
        * </pre>
        *
-       * <code>optional string tonken = 1;</code>
+       * <code>optional string tonken = 3;</code>
        */
       public Builder setTonkenBytes(
           com.google.protobuf.ByteString value) {
@@ -9910,10 +12426,37 @@ public final class MessageProto {
 
     /**
      * <pre>
+     *返回信息 0成功1失败
+     * </pre>
+     *
+     * <code>optional uint32 code = 1;</code>
+     */
+    int getCode();
+
+    /**
+     * <pre>
+     *消息
+     * </pre>
+     *
+     * <code>optional string msg = 2;</code>
+     */
+    String getMsg();
+    /**
+     * <pre>
+     *消息
+     * </pre>
+     *
+     * <code>optional string msg = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getMsgBytes();
+
+    /**
+     * <pre>
      *令牌
      * </pre>
      *
-     * <code>optional string tonken = 1;</code>
+     * <code>optional string tonken = 3;</code>
      */
     String getTonken();
     /**
@@ -9921,7 +12464,7 @@ public final class MessageProto {
      *令牌
      * </pre>
      *
-     * <code>optional string tonken = 1;</code>
+     * <code>optional string tonken = 3;</code>
      */
     com.google.protobuf.ByteString
         getTonkenBytes();
@@ -9931,7 +12474,7 @@ public final class MessageProto {
      *用户信息
      * </pre>
      *
-     * <code>optional .com.largehat.common.im.packets.User user = 2;</code>
+     * <code>optional .com.largehat.common.im.packets.User user = 4;</code>
      */
     boolean hasUser();
     /**
@@ -9939,7 +12482,7 @@ public final class MessageProto {
      *用户信息
      * </pre>
      *
-     * <code>optional .com.largehat.common.im.packets.User user = 2;</code>
+     * <code>optional .com.largehat.common.im.packets.User user = 4;</code>
      */
     UserProto.User getUser();
     /**
@@ -9947,11 +12490,15 @@ public final class MessageProto {
      *用户信息
      * </pre>
      *
-     * <code>optional .com.largehat.common.im.packets.User user = 2;</code>
+     * <code>optional .com.largehat.common.im.packets.User user = 4;</code>
      */
     UserProto.UserOrBuilder getUserOrBuilder();
   }
   /**
+   * <pre>
+   *登录返回
+   * </pre>
+   *
    * Protobuf type {@code com.largehat.common.im.packets.LoginRes}
    */
   public  static final class LoginRes extends
@@ -9963,6 +12510,8 @@ public final class MessageProto {
       super(builder);
     }
     private LoginRes() {
+      code_ = 0;
+      msg_ = "";
       tonken_ = "";
     }
 
@@ -9991,13 +12540,24 @@ public final class MessageProto {
               }
               break;
             }
-            case 10: {
+            case 8: {
+
+              code_ = input.readUInt32();
+              break;
+            }
+            case 18: {
+              String s = input.readStringRequireUtf8();
+
+              msg_ = s;
+              break;
+            }
+            case 26: {
               String s = input.readStringRequireUtf8();
 
               tonken_ = s;
               break;
             }
-            case 18: {
+            case 34: {
               UserProto.User.Builder subBuilder = null;
               if (user_ != null) {
                 subBuilder = user_.toBuilder();
@@ -10033,14 +12593,69 @@ public final class MessageProto {
               LoginRes.class, Builder.class);
     }
 
-    public static final int TONKEN_FIELD_NUMBER = 1;
+    public static final int CODE_FIELD_NUMBER = 1;
+    private int code_;
+    /**
+     * <pre>
+     *返回信息 0成功1失败
+     * </pre>
+     *
+     * <code>optional uint32 code = 1;</code>
+     */
+    public int getCode() {
+      return code_;
+    }
+
+    public static final int MSG_FIELD_NUMBER = 2;
+    private volatile Object msg_;
+    /**
+     * <pre>
+     *消息
+     * </pre>
+     *
+     * <code>optional string msg = 2;</code>
+     */
+    public String getMsg() {
+      Object ref = msg_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        msg_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *消息
+     * </pre>
+     *
+     * <code>optional string msg = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMsgBytes() {
+      Object ref = msg_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        msg_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TONKEN_FIELD_NUMBER = 3;
     private volatile Object tonken_;
     /**
      * <pre>
      *令牌
      * </pre>
      *
-     * <code>optional string tonken = 1;</code>
+     * <code>optional string tonken = 3;</code>
      */
     public String getTonken() {
       Object ref = tonken_;
@@ -10059,7 +12674,7 @@ public final class MessageProto {
      *令牌
      * </pre>
      *
-     * <code>optional string tonken = 1;</code>
+     * <code>optional string tonken = 3;</code>
      */
     public com.google.protobuf.ByteString
         getTonkenBytes() {
@@ -10075,14 +12690,14 @@ public final class MessageProto {
       }
     }
 
-    public static final int USER_FIELD_NUMBER = 2;
+    public static final int USER_FIELD_NUMBER = 4;
     private UserProto.User user_;
     /**
      * <pre>
      *用户信息
      * </pre>
      *
-     * <code>optional .com.largehat.common.im.packets.User user = 2;</code>
+     * <code>optional .com.largehat.common.im.packets.User user = 4;</code>
      */
     public boolean hasUser() {
       return user_ != null;
@@ -10092,7 +12707,7 @@ public final class MessageProto {
      *用户信息
      * </pre>
      *
-     * <code>optional .com.largehat.common.im.packets.User user = 2;</code>
+     * <code>optional .com.largehat.common.im.packets.User user = 4;</code>
      */
     public UserProto.User getUser() {
       return user_ == null ? UserProto.User.getDefaultInstance() : user_;
@@ -10102,7 +12717,7 @@ public final class MessageProto {
      *用户信息
      * </pre>
      *
-     * <code>optional .com.largehat.common.im.packets.User user = 2;</code>
+     * <code>optional .com.largehat.common.im.packets.User user = 4;</code>
      */
     public UserProto.UserOrBuilder getUserOrBuilder() {
       return getUser();
@@ -10120,11 +12735,17 @@ public final class MessageProto {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (code_ != 0) {
+        output.writeUInt32(1, code_);
+      }
+      if (!getMsgBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, msg_);
+      }
       if (!getTonkenBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, tonken_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, tonken_);
       }
       if (user_ != null) {
-        output.writeMessage(2, getUser());
+        output.writeMessage(4, getUser());
       }
     }
 
@@ -10133,12 +12754,19 @@ public final class MessageProto {
       if (size != -1) return size;
 
       size = 0;
+      if (code_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(1, code_);
+      }
+      if (!getMsgBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, msg_);
+      }
       if (!getTonkenBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, tonken_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, tonken_);
       }
       if (user_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getUser());
+          .computeMessageSize(4, getUser());
       }
       memoizedSize = size;
       return size;
@@ -10156,6 +12784,10 @@ public final class MessageProto {
       LoginRes other = (LoginRes) obj;
 
       boolean result = true;
+      result = result && (getCode()
+          == other.getCode());
+      result = result && getMsg()
+          .equals(other.getMsg());
       result = result && getTonken()
           .equals(other.getTonken());
       result = result && (hasUser() == other.hasUser());
@@ -10173,6 +12805,10 @@ public final class MessageProto {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (37 * hash) + CODE_FIELD_NUMBER;
+      hash = (53 * hash) + getCode();
+      hash = (37 * hash) + MSG_FIELD_NUMBER;
+      hash = (53 * hash) + getMsg().hashCode();
       hash = (37 * hash) + TONKEN_FIELD_NUMBER;
       hash = (53 * hash) + getTonken().hashCode();
       if (hasUser()) {
@@ -10262,6 +12898,10 @@ public final class MessageProto {
       return builder;
     }
     /**
+     * <pre>
+     *登录返回
+     * </pre>
+     *
      * Protobuf type {@code com.largehat.common.im.packets.LoginRes}
      */
     public static final class Builder extends
@@ -10297,6 +12937,10 @@ public final class MessageProto {
       }
       public Builder clear() {
         super.clear();
+        code_ = 0;
+
+        msg_ = "";
+
         tonken_ = "";
 
         if (userBuilder_ == null) {
@@ -10327,6 +12971,8 @@ public final class MessageProto {
 
       public LoginRes buildPartial() {
         LoginRes result = new LoginRes(this);
+        result.code_ = code_;
+        result.msg_ = msg_;
         result.tonken_ = tonken_;
         if (userBuilder_ == null) {
           result.user_ = user_;
@@ -10374,6 +13020,13 @@ public final class MessageProto {
 
       public Builder mergeFrom(LoginRes other) {
         if (other == LoginRes.getDefaultInstance()) return this;
+        if (other.getCode() != 0) {
+          setCode(other.getCode());
+        }
+        if (!other.getMsg().isEmpty()) {
+          msg_ = other.msg_;
+          onChanged();
+        }
         if (!other.getTonken().isEmpty()) {
           tonken_ = other.tonken_;
           onChanged();
@@ -10407,13 +13060,140 @@ public final class MessageProto {
         return this;
       }
 
+      private int code_ ;
+      /**
+       * <pre>
+       *返回信息 0成功1失败
+       * </pre>
+       *
+       * <code>optional uint32 code = 1;</code>
+       */
+      public int getCode() {
+        return code_;
+      }
+      /**
+       * <pre>
+       *返回信息 0成功1失败
+       * </pre>
+       *
+       * <code>optional uint32 code = 1;</code>
+       */
+      public Builder setCode(int value) {
+        
+        code_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *返回信息 0成功1失败
+       * </pre>
+       *
+       * <code>optional uint32 code = 1;</code>
+       */
+      public Builder clearCode() {
+        
+        code_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private Object msg_ = "";
+      /**
+       * <pre>
+       *消息
+       * </pre>
+       *
+       * <code>optional string msg = 2;</code>
+       */
+      public String getMsg() {
+        Object ref = msg_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          msg_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *消息
+       * </pre>
+       *
+       * <code>optional string msg = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getMsgBytes() {
+        Object ref = msg_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          msg_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *消息
+       * </pre>
+       *
+       * <code>optional string msg = 2;</code>
+       */
+      public Builder setMsg(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        msg_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *消息
+       * </pre>
+       *
+       * <code>optional string msg = 2;</code>
+       */
+      public Builder clearMsg() {
+        
+        msg_ = getDefaultInstance().getMsg();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *消息
+       * </pre>
+       *
+       * <code>optional string msg = 2;</code>
+       */
+      public Builder setMsgBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        msg_ = value;
+        onChanged();
+        return this;
+      }
+
       private Object tonken_ = "";
       /**
        * <pre>
        *令牌
        * </pre>
        *
-       * <code>optional string tonken = 1;</code>
+       * <code>optional string tonken = 3;</code>
        */
       public String getTonken() {
         Object ref = tonken_;
@@ -10432,7 +13212,7 @@ public final class MessageProto {
        *令牌
        * </pre>
        *
-       * <code>optional string tonken = 1;</code>
+       * <code>optional string tonken = 3;</code>
        */
       public com.google.protobuf.ByteString
           getTonkenBytes() {
@@ -10452,7 +13232,7 @@ public final class MessageProto {
        *令牌
        * </pre>
        *
-       * <code>optional string tonken = 1;</code>
+       * <code>optional string tonken = 3;</code>
        */
       public Builder setTonken(
           String value) {
@@ -10469,7 +13249,7 @@ public final class MessageProto {
        *令牌
        * </pre>
        *
-       * <code>optional string tonken = 1;</code>
+       * <code>optional string tonken = 3;</code>
        */
       public Builder clearTonken() {
         
@@ -10482,7 +13262,7 @@ public final class MessageProto {
        *令牌
        * </pre>
        *
-       * <code>optional string tonken = 1;</code>
+       * <code>optional string tonken = 3;</code>
        */
       public Builder setTonkenBytes(
           com.google.protobuf.ByteString value) {
@@ -10504,7 +13284,7 @@ public final class MessageProto {
        *用户信息
        * </pre>
        *
-       * <code>optional .com.largehat.common.im.packets.User user = 2;</code>
+       * <code>optional .com.largehat.common.im.packets.User user = 4;</code>
        */
       public boolean hasUser() {
         return userBuilder_ != null || user_ != null;
@@ -10514,7 +13294,7 @@ public final class MessageProto {
        *用户信息
        * </pre>
        *
-       * <code>optional .com.largehat.common.im.packets.User user = 2;</code>
+       * <code>optional .com.largehat.common.im.packets.User user = 4;</code>
        */
       public UserProto.User getUser() {
         if (userBuilder_ == null) {
@@ -10528,7 +13308,7 @@ public final class MessageProto {
        *用户信息
        * </pre>
        *
-       * <code>optional .com.largehat.common.im.packets.User user = 2;</code>
+       * <code>optional .com.largehat.common.im.packets.User user = 4;</code>
        */
       public Builder setUser(UserProto.User value) {
         if (userBuilder_ == null) {
@@ -10548,7 +13328,7 @@ public final class MessageProto {
        *用户信息
        * </pre>
        *
-       * <code>optional .com.largehat.common.im.packets.User user = 2;</code>
+       * <code>optional .com.largehat.common.im.packets.User user = 4;</code>
        */
       public Builder setUser(
           UserProto.User.Builder builderForValue) {
@@ -10566,7 +13346,7 @@ public final class MessageProto {
        *用户信息
        * </pre>
        *
-       * <code>optional .com.largehat.common.im.packets.User user = 2;</code>
+       * <code>optional .com.largehat.common.im.packets.User user = 4;</code>
        */
       public Builder mergeUser(UserProto.User value) {
         if (userBuilder_ == null) {
@@ -10588,7 +13368,7 @@ public final class MessageProto {
        *用户信息
        * </pre>
        *
-       * <code>optional .com.largehat.common.im.packets.User user = 2;</code>
+       * <code>optional .com.largehat.common.im.packets.User user = 4;</code>
        */
       public Builder clearUser() {
         if (userBuilder_ == null) {
@@ -10606,7 +13386,7 @@ public final class MessageProto {
        *用户信息
        * </pre>
        *
-       * <code>optional .com.largehat.common.im.packets.User user = 2;</code>
+       * <code>optional .com.largehat.common.im.packets.User user = 4;</code>
        */
       public UserProto.User.Builder getUserBuilder() {
         
@@ -10618,7 +13398,7 @@ public final class MessageProto {
        *用户信息
        * </pre>
        *
-       * <code>optional .com.largehat.common.im.packets.User user = 2;</code>
+       * <code>optional .com.largehat.common.im.packets.User user = 4;</code>
        */
       public UserProto.UserOrBuilder getUserOrBuilder() {
         if (userBuilder_ != null) {
@@ -10633,7 +13413,7 @@ public final class MessageProto {
        *用户信息
        * </pre>
        *
-       * <code>optional .com.largehat.common.im.packets.User user = 2;</code>
+       * <code>optional .com.largehat.common.im.packets.User user = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           UserProto.User, UserProto.User.Builder, UserProto.UserOrBuilder>
@@ -10733,6 +13513,16 @@ public final class MessageProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_largehat_common_im_packets_CancelMsgReq_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_largehat_common_im_packets_GroupNotice_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_largehat_common_im_packets_GroupNotice_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_largehat_common_im_packets_UserNotice_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_largehat_common_im_packets_UserNotice_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_largehat_common_im_packets_RespBody_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -10757,7 +13547,7 @@ public final class MessageProto {
   static {
     String[] descriptorData = {
       "\n\rMessage.proto\022\036com.largehat.common.im." +
-      "packets\032\nChat.proto\032\nUser.proto\"\207\005\n\007Mess" +
+      "packets\032\nChat.proto\032\nUser.proto\"\215\006\n\007Mess" +
       "age\022\017\n\007version\030\001 \001(\005\022\031\n\007command\030\002 \001(\0162\010." +
       "Command\022:\n\007authReq\030\003 \001(\0132\'.com.largehat." +
       "common.im.packets.AuthReqH\000\022<\n\010loginReq\030" +
@@ -10769,31 +13559,42 @@ public final class MessageProto {
       "q\030\007 \001(\0132,.com.largehat.common.im.packets" +
       ".ExitGroupReqH\000\022D\n\014cancelMsgReq\030\010 \001(\0132,." +
       "com.largehat.common.im.packets.CancelMsg" +
-      "ReqH\000\022@\n\014cancelMsgRes\030\t \001(\0132(.com.largeh" +
-      "at.common.im.packets.RespBodyH\000\022:\n\007authR" +
-      "es\030\n \001(\0132\'.com.largehat.common.im.packet" +
-      "s.AuthResH\000\022<\n\010loginRes\030\013 \001(\0132(.com.larg" +
-      "ehat.common.im.packets.LoginResH\000B\006\n\004pac" +
-      "k\"J\n\007AuthReq\022\020\n\010authcode\030\001 \001(\t\022\016\n\006userid" +
-      "\030\002 \001(\t\022\016\n\006passwd\030\003 \001(\t\022\r\n\005orgid\030\004 \001(\005\"]\n",
-      "\010LoginReq\022\016\n\006tonken\030\001 \001(\t\022\016\n\006userid\030\002 \001(" +
-      "\t\022\037\n\ndeviceType\030\003 \001(\0162\013.DeviceType\022\020\n\010de" +
-      "viceId\030\004 \001(\t\"\313\001\n\nMessageReq\022\021\n\tmessageId" +
-      "\030\001 \001(\t\0222\n\004from\030\002 \001(\0132$.com.largehat.comm" +
-      "on.im.packets.User\022\n\n\002to\030\003 \001(\t\022\017\n\007groupI" +
-      "d\030\004 \001(\003\022\031\n\007msgType\030\005 \001(\0162\010.MsgType\022\033\n\010ch" +
-      "atType\030\006 \001(\0162\t.ChatType\022\017\n\007content\030\007 \001(\t" +
-      "\022\020\n\010sendTime\030\010 \001(\003\"=\n\014JoinGroupReq\022\016\n\006us" +
-      "erId\030\001 \001(\t\022\017\n\007groupId\030\002 \001(\t\022\014\n\004note\030\003 \001(" +
-      "\t\"=\n\014ExitGroupReq\022\016\n\006userId\030\001 \001(\t\022\017\n\007gro",
-      "upId\030\002 \001(\t\022\014\n\004note\030\003 \001(\t\"B\n\014CancelMsgReq" +
-      "\022\016\n\006userId\030\001 \001(\t\022\017\n\007groupId\030\002 \001(\t\022\021\n\tmes" +
-      "sageId\030\003 \001(\t\"%\n\010RespBody\022\014\n\004code\030\001 \001(\r\022\013" +
-      "\n\003msg\030\002 \001(\t\"\031\n\007AuthRes\022\016\n\006tonken\030\001 \001(\t\"N" +
-      "\n\010LoginRes\022\016\n\006tonken\030\001 \001(\t\0222\n\004user\030\002 \001(\013" +
-      "2$.com.largehat.common.im.packets.UserB0" +
-      "\n\036com.largehat.common.im.packetsB\014Messag" +
-      "eProtoH\001b\006proto3"
+      "ReqH\000\022B\n\013groupNotice\030\t \001(\0132+.com.largeha" +
+      "t.common.im.packets.GroupNoticeH\000\022@\n\nUse" +
+      "rNotice\030\n \001(\0132*.com.largehat.common.im.p" +
+      "ackets.UserNoticeH\000\022@\n\014cancelMsgRes\030\013 \001(" +
+      "\0132(.com.largehat.common.im.packets.RespB" +
+      "odyH\000\022:\n\007authRes\030\014 \001(\0132\'.com.largehat.co" +
+      "mmon.im.packets.AuthResH\000\022<\n\010loginRes\030\r ",
+      "\001(\0132(.com.largehat.common.im.packets.Log" +
+      "inResH\000B\006\n\004pack\"J\n\007AuthReq\022\020\n\010authCode\030\001" +
+      " \001(\t\022\016\n\006userId\030\002 \001(\t\022\016\n\006passwd\030\003 \001(\t\022\r\n\005" +
+      "orgId\030\004 \001(\005\"]\n\010LoginReq\022\016\n\006tonken\030\001 \001(\t\022" +
+      "\016\n\006userId\030\002 \001(\t\022\037\n\ndeviceType\030\003 \001(\0162\013.De" +
+      "viceType\022\020\n\010deviceId\030\004 \001(\t\"\313\001\n\nMessageRe" +
+      "q\022\021\n\tmessageId\030\001 \001(\t\0222\n\004from\030\002 \001(\0132$.com" +
+      ".largehat.common.im.packets.User\022\n\n\002to\030\003" +
+      " \001(\t\022\017\n\007groupId\030\004 \001(\003\022\031\n\007msgType\030\005 \001(\0162\010" +
+      ".MsgType\022\033\n\010chatType\030\006 \001(\0162\t.ChatType\022\017\n",
+      "\007content\030\007 \001(\t\022\020\n\010sendTime\030\010 \001(\003\"=\n\014Join" +
+      "GroupReq\022\016\n\006userId\030\001 \001(\t\022\017\n\007groupId\030\002 \001(" +
+      "\t\022\014\n\004note\030\003 \001(\t\"=\n\014ExitGroupReq\022\016\n\006userI" +
+      "d\030\001 \001(\t\022\017\n\007groupId\030\002 \001(\t\022\014\n\004note\030\003 \001(\t\"B" +
+      "\n\014CancelMsgReq\022\016\n\006userId\030\001 \001(\t\022\017\n\007groupI" +
+      "d\030\002 \001(\t\022\021\n\tmessageId\030\003 \001(\t\"}\n\013GroupNotic" +
+      "e\022)\n\017groupNoticeType\030\001 \001(\0162\020.GroupNotice" +
+      "Type\022\017\n\007groupId\030\002 \001(\t\0222\n\004user\030\003 \001(\0132$.co" +
+      "m.largehat.common.im.packets.User\"\177\n\nUse" +
+      "rNotice\022\'\n\016userNoticeType\030\001 \001(\0162\017.UserNo",
+      "ticeType\022\024\n\014noticeUserId\030\002 \001(\t\0222\n\004user\030\003" +
+      " \001(\0132$.com.largehat.common.im.packets.Us" +
+      "er\"%\n\010RespBody\022\014\n\004code\030\001 \001(\r\022\013\n\003msg\030\002 \001(" +
+      "\t\"4\n\007AuthRes\022\014\n\004code\030\001 \001(\r\022\013\n\003msg\030\002 \001(\t\022" +
+      "\016\n\006tonken\030\003 \001(\t\"i\n\010LoginRes\022\014\n\004code\030\001 \001(" +
+      "\r\022\013\n\003msg\030\002 \001(\t\022\016\n\006tonken\030\003 \001(\t\0222\n\004user\030\004" +
+      " \001(\0132$.com.largehat.common.im.packets.Us" +
+      "erB0\n\036com.largehat.common.im.packetsB\014Me" +
+      "ssageProtoH\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -10814,19 +13615,19 @@ public final class MessageProto {
     internal_static_com_largehat_common_im_packets_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_largehat_common_im_packets_Message_descriptor,
-        new String[] { "Version", "Command", "AuthReq", "LoginReq", "MessageReq", "JoinGroupReq", "ExitGroupReq", "CancelMsgReq", "CancelMsgRes", "AuthRes", "LoginRes", "Pack", });
+        new String[] { "Version", "Command", "AuthReq", "LoginReq", "MessageReq", "JoinGroupReq", "ExitGroupReq", "CancelMsgReq", "GroupNotice", "UserNotice", "CancelMsgRes", "AuthRes", "LoginRes", "Pack", });
     internal_static_com_largehat_common_im_packets_AuthReq_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_largehat_common_im_packets_AuthReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_largehat_common_im_packets_AuthReq_descriptor,
-        new String[] { "Authcode", "Userid", "Passwd", "Orgid", });
+        new String[] { "AuthCode", "UserId", "Passwd", "OrgId", });
     internal_static_com_largehat_common_im_packets_LoginReq_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_com_largehat_common_im_packets_LoginReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_largehat_common_im_packets_LoginReq_descriptor,
-        new String[] { "Tonken", "Userid", "DeviceType", "DeviceId", });
+        new String[] { "Tonken", "UserId", "DeviceType", "DeviceId", });
     internal_static_com_largehat_common_im_packets_MessageReq_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_com_largehat_common_im_packets_MessageReq_fieldAccessorTable = new
@@ -10851,24 +13652,36 @@ public final class MessageProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_largehat_common_im_packets_CancelMsgReq_descriptor,
         new String[] { "UserId", "GroupId", "MessageId", });
-    internal_static_com_largehat_common_im_packets_RespBody_descriptor =
+    internal_static_com_largehat_common_im_packets_GroupNotice_descriptor =
       getDescriptor().getMessageTypes().get(7);
+    internal_static_com_largehat_common_im_packets_GroupNotice_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_largehat_common_im_packets_GroupNotice_descriptor,
+        new String[] { "GroupNoticeType", "GroupId", "User", });
+    internal_static_com_largehat_common_im_packets_UserNotice_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_com_largehat_common_im_packets_UserNotice_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_largehat_common_im_packets_UserNotice_descriptor,
+        new String[] { "UserNoticeType", "NoticeUserId", "User", });
+    internal_static_com_largehat_common_im_packets_RespBody_descriptor =
+      getDescriptor().getMessageTypes().get(9);
     internal_static_com_largehat_common_im_packets_RespBody_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_largehat_common_im_packets_RespBody_descriptor,
         new String[] { "Code", "Msg", });
     internal_static_com_largehat_common_im_packets_AuthRes_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_com_largehat_common_im_packets_AuthRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_largehat_common_im_packets_AuthRes_descriptor,
-        new String[] { "Tonken", });
+        new String[] { "Code", "Msg", "Tonken", });
     internal_static_com_largehat_common_im_packets_LoginRes_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_com_largehat_common_im_packets_LoginRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_largehat_common_im_packets_LoginRes_descriptor,
-        new String[] { "Tonken", "User", });
+        new String[] { "Code", "Msg", "Tonken", "User", });
     Chat.getDescriptor();
     UserProto.getDescriptor();
   }

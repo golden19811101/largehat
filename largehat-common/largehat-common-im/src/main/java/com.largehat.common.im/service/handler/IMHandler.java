@@ -1,23 +1,21 @@
 package com.largehat.common.im.service.handler;
 
-import com.google.protobuf.Message;
+import com.largehat.common.im.packets.MessageProto;
+import com.largehat.common.im.packets.command.Command;
 import com.largehat.common.im.utils.Worker;
 import io.netty.channel.ChannelHandlerContext;
-import redis.clients.jedis.Jedis;
 
 
 /**
+ * <B>所有处理的基类</B>
  */
 public abstract class IMHandler {
-    protected final String _userid;
-    protected final long  _netid;
-    protected final Message _msg;
+    protected Command _cmd;
+    protected MessageProto.Message _msg;
     protected ChannelHandlerContext _ctx;
-    protected Jedis _jedis;
 
-    protected IMHandler(String userid, long netid, Message msg, ChannelHandlerContext ctx) {
-        _userid = userid;
-        _netid = netid;
+    protected IMHandler( Command cmd, MessageProto.Message msg, ChannelHandlerContext ctx) {
+        _cmd = cmd;
         _msg = msg;
         _ctx = ctx;
     }

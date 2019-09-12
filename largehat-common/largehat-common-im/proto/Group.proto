@@ -10,7 +10,7 @@ message Group {
     string groupName = 2; //群组名称
     string avatar = 3; //群头像
     GroupType groupType = 4;  //群类型
-    string orgId = 5; //归属组织机构
+    int32 orgId = 5; //归属组织机构
     int64 maxNum = 6; //最大人数
 }
  

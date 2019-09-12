@@ -10,13 +10,13 @@ import lombok.extern.slf4j.Slf4j;
 
 
 /**
- * <B>处理鉴权请求</B>
+ * <B>处理登录请求</B>
  */
 @Slf4j
-public class ImAuthHandler extends IMHandler {
+public class ImLoginHandler extends IMHandler {
 
 
-    protected ImAuthHandler(Command cmd, MessageProto.Message msg, ChannelHandlerContext ctx) {
+    protected ImLoginHandler(Command cmd, MessageProto.Message msg, ChannelHandlerContext ctx) {
         super(cmd, msg, ctx);
     }
 

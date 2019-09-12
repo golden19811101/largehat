@@ -85,18 +85,9 @@ public final class GroupProto {
      *归属组织机构
      * </pre>
      *
-     * <code>optional string orgId = 5;</code>
+     * <code>optional int32 orgId = 5;</code>
      */
-    String getOrgId();
-    /**
-     * <pre>
-     *归属组织机构
-     * </pre>
-     *
-     * <code>optional string orgId = 5;</code>
-     */
-    com.google.protobuf.ByteString
-        getOrgIdBytes();
+    int getOrgId();
 
     /**
      * <pre>
@@ -123,7 +114,7 @@ public final class GroupProto {
       groupName_ = "";
       avatar_ = "";
       groupType_ = 0;
-      orgId_ = "";
+      orgId_ = 0;
       maxNum_ = 0L;
     }
 
@@ -175,10 +166,9 @@ public final class GroupProto {
               groupType_ = rawValue;
               break;
             }
-            case 42: {
-              String s = input.readStringRequireUtf8();
+            case 40: {
 
-              orgId_ = s;
+              orgId_ = input.readInt32();
               break;
             }
             case 48: {
@@ -331,45 +321,16 @@ public final class GroupProto {
     }
 
     public static final int ORGID_FIELD_NUMBER = 5;
-    private volatile Object orgId_;
+    private int orgId_;
     /**
      * <pre>
      *归属组织机构
      * </pre>
      *
-     * <code>optional string orgId = 5;</code>
+     * <code>optional int32 orgId = 5;</code>
      */
-    public String getOrgId() {
-      Object ref = orgId_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        orgId_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     *归属组织机构
-     * </pre>
-     *
-     * <code>optional string orgId = 5;</code>
-     */
-    public com.google.protobuf.ByteString
-        getOrgIdBytes() {
-      Object ref = orgId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        orgId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public int getOrgId() {
+      return orgId_;
     }
 
     public static final int MAXNUM_FIELD_NUMBER = 6;
@@ -409,8 +370,8 @@ public final class GroupProto {
       if (groupType_ != GroupType.GROUP_TYPE_UNKNOW.getNumber()) {
         output.writeEnum(4, groupType_);
       }
-      if (!getOrgIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, orgId_);
+      if (orgId_ != 0) {
+        output.writeInt32(5, orgId_);
       }
       if (maxNum_ != 0L) {
         output.writeInt64(6, maxNum_);
@@ -436,8 +397,9 @@ public final class GroupProto {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(4, groupType_);
       }
-      if (!getOrgIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, orgId_);
+      if (orgId_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, orgId_);
       }
       if (maxNum_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
@@ -466,8 +428,8 @@ public final class GroupProto {
       result = result && getAvatar()
           .equals(other.getAvatar());
       result = result && groupType_ == other.groupType_;
-      result = result && getOrgId()
-          .equals(other.getOrgId());
+      result = result && (getOrgId()
+          == other.getOrgId());
       result = result && (getMaxNum()
           == other.getMaxNum());
       return result;
@@ -489,7 +451,7 @@ public final class GroupProto {
       hash = (37 * hash) + GROUPTYPE_FIELD_NUMBER;
       hash = (53 * hash) + groupType_;
       hash = (37 * hash) + ORGID_FIELD_NUMBER;
-      hash = (53 * hash) + getOrgId().hashCode();
+      hash = (53 * hash) + getOrgId();
       hash = (37 * hash) + MAXNUM_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getMaxNum());
@@ -619,7 +581,7 @@ public final class GroupProto {
 
         groupType_ = 0;
 
-        orgId_ = "";
+        orgId_ = 0;
 
         maxNum_ = 0L;
 
@@ -706,9 +668,8 @@ public final class GroupProto {
         if (other.groupType_ != 0) {
           setGroupTypeValue(other.getGroupTypeValue());
         }
-        if (!other.getOrgId().isEmpty()) {
-          orgId_ = other.orgId_;
-          onChanged();
+        if (other.getOrgId() != 0) {
+          setOrgId(other.getOrgId());
         }
         if (other.getMaxNum() != 0L) {
           setMaxNum(other.getMaxNum());
@@ -1019,59 +980,26 @@ public final class GroupProto {
         return this;
       }
 
-      private Object orgId_ = "";
+      private int orgId_ ;
       /**
        * <pre>
        *归属组织机构
        * </pre>
        *
-       * <code>optional string orgId = 5;</code>
+       * <code>optional int32 orgId = 5;</code>
        */
-      public String getOrgId() {
-        Object ref = orgId_;
-        if (!(ref instanceof String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
-          orgId_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
+      public int getOrgId() {
+        return orgId_;
       }
       /**
        * <pre>
        *归属组织机构
        * </pre>
        *
-       * <code>optional string orgId = 5;</code>
+       * <code>optional int32 orgId = 5;</code>
        */
-      public com.google.protobuf.ByteString
-          getOrgIdBytes() {
-        Object ref = orgId_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
-          orgId_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       *归属组织机构
-       * </pre>
-       *
-       * <code>optional string orgId = 5;</code>
-       */
-      public Builder setOrgId(
-          String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setOrgId(int value) {
+        
         orgId_ = value;
         onChanged();
         return this;
@@ -1081,29 +1009,11 @@ public final class GroupProto {
        *归属组织机构
        * </pre>
        *
-       * <code>optional string orgId = 5;</code>
+       * <code>optional int32 orgId = 5;</code>
        */
       public Builder clearOrgId() {
         
-        orgId_ = getDefaultInstance().getOrgId();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *归属组织机构
-       * </pre>
-       *
-       * <code>optional string orgId = 5;</code>
-       */
-      public Builder setOrgIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        orgId_ = value;
+        orgId_ = 0;
         onChanged();
         return this;
       }
@@ -1212,7 +1122,7 @@ public final class GroupProto {
       "ckets\032\nChat.proto\"y\n\005Group\022\017\n\007groupId\030\001 " +
       "\001(\005\022\021\n\tgroupName\030\002 \001(\t\022\016\n\006avatar\030\003 \001(\t\022\035" +
       "\n\tgroupType\030\004 \001(\0162\n.GroupType\022\r\n\005orgId\030\005" +
-      " \001(\t\022\016\n\006maxNum\030\006 \001(\003B.\n\036com.largehat.com" +
+      " \001(\005\022\016\n\006maxNum\030\006 \001(\003B.\n\036com.largehat.com" +
       "mon.im.packetsB\nGroupProtoH\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =

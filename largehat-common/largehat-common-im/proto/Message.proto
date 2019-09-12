@@ -18,24 +18,26 @@ message Message {
         JoinGroupReq joinGroupReq = 6;
         ExitGroupReq exitGroupReq = 7;
         CancelMsgReq cancelMsgReq = 8;
-        RespBody cancelMsgRes = 9;
-        AuthRes authRes = 10;
-        LoginRes loginRes = 11;
+        GroupNotice groupNotice = 9;
+        UserNotice UserNotice = 10;
+        RespBody cancelMsgRes = 11;
+        AuthRes authRes = 12;
+        LoginRes loginRes = 13;
     }
 }
 
 //鉴权请求
 message AuthReq {
-    string authcode = 1; //鉴权码
-    string userid = 2; //用户ID
+    string authCode = 1; //鉴权码
+    string userId = 2; //用户ID
     string passwd = 3; //用户密码
-    int32 orgid = 4; //组织机构代码
+    int32 orgId = 4; //组织机构代码
 }
 
 //登录请求
 message LoginReq {
     string tonken = 1; //令牌
-    string userid = 2; //用户ID
+    string userId = 2; //用户ID
     DeviceType deviceType = 3; //设备类型
     string deviceId = 4; //设备唯一标志
 }
@@ -74,7 +76,21 @@ message CancelMsgReq {
     string messageId = 3; //消息编码
 }
 
-//返回
+//群组通知
+message GroupNotice {
+    GroupNoticeType groupNoticeType = 1; //群组通知
+    string groupId = 2;   //通知的群组
+    User user = 3; //加入退出群组用户
+}
+
+//用户通知
+message UserNotice {
+    UserNoticeType userNoticeType = 1; //群组通知
+    string noticeUserId = 2;   //通知用户
+    User user = 3; //上线或下线的用户
+}
+
+//返回包
 message RespBody {
     uint32 code = 1; //返回信息 0成功1失败
     string msg = 2; //消息
@@ -82,10 +98,15 @@ message RespBody {
 
 //鉴权返回
 message AuthRes {
-    string tonken = 1; //令牌
+    uint32 code = 1; //返回信息 0成功1失败
+    string msg = 2; //消息
+    string tonken = 3; //令牌
 }
 
+//登录返回
 message LoginRes {
-    string tonken = 1; //令牌
-    User user = 2; //用户信息
+    uint32 code = 1; //返回信息 0成功1失败
+    string msg = 2; //消息
+    string tonken = 3; //令牌
+    User user = 4; //用户信息
 }

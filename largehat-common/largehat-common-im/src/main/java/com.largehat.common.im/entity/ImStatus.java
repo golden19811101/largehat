@@ -10,7 +10,7 @@ public enum ImStatus implements Status{
 	C10000(10000,"ok","发送成功"),
 	C10001(10001,"offline","用户不在线"),
 	C10019(10019,"online","用户在线"),
-	C10002(10002,"send failed","消息发送失败,数据格式不正确,请参考:{'from':来源ID,'to':目标ID,'cmd':'消息命令码','createTime':消息创建时间(Long型),'msgType':Integer消息类型,'content':内容}"),
+	C10002(10002,"send failed","消息发送失败,数据格式不正确"),
 	C10003(10003,"ok","获取用户信息成功!"),
 	C10004(10004,"get user failed !","获取用户信息失败!"),
 	C10005(10005,"ok","获取所有在线用户信息成功!"),

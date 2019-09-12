@@ -14,20 +14,20 @@ public enum JoinGroupResult
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
    * <pre>
-   *不允许进入，原因为其它
-   * </pre>
-   *
-   * <code>JOIN_GROUP_RESULT_UNKNOW = 0;</code>
-   */
-  JOIN_GROUP_RESULT_UNKNOW(0),
-  /**
-   * <pre>
    *允许进入
    * </pre>
    *
-   * <code>JOIN_GROUP_RESULT_OK = 1;</code>
+   * <code>JOIN_GROUP_RESULT_OK = 0;</code>
    */
-  JOIN_GROUP_RESULT_OK(1),
+  JOIN_GROUP_RESULT_OK(0),
+  /**
+   * <pre>
+   *不允许进入，原因为其它
+   * </pre>
+   *
+   * <code>JOIN_GROUP_RESULT_UNKNOW = 1;</code>
+   */
+  JOIN_GROUP_RESULT_UNKNOW(1),
   /**
    * <pre>
    *组不存在
@@ -65,20 +65,20 @@ public enum JoinGroupResult
 
   /**
    * <pre>
-   *不允许进入，原因为其它
-   * </pre>
-   *
-   * <code>JOIN_GROUP_RESULT_UNKNOW = 0;</code>
-   */
-  public static final int JOIN_GROUP_RESULT_UNKNOW_VALUE = 0;
-  /**
-   * <pre>
    *允许进入
    * </pre>
    *
-   * <code>JOIN_GROUP_RESULT_OK = 1;</code>
+   * <code>JOIN_GROUP_RESULT_OK = 0;</code>
    */
-  public static final int JOIN_GROUP_RESULT_OK_VALUE = 1;
+  public static final int JOIN_GROUP_RESULT_OK_VALUE = 0;
+  /**
+   * <pre>
+   *不允许进入，原因为其它
+   * </pre>
+   *
+   * <code>JOIN_GROUP_RESULT_UNKNOW = 1;</code>
+   */
+  public static final int JOIN_GROUP_RESULT_UNKNOW_VALUE = 1;
   /**
    * <pre>
    *组不存在
@@ -131,8 +131,8 @@ public enum JoinGroupResult
 
   public static JoinGroupResult forNumber(int value) {
     switch (value) {
-      case 0: return JOIN_GROUP_RESULT_UNKNOW;
-      case 1: return JOIN_GROUP_RESULT_OK;
+      case 0: return JOIN_GROUP_RESULT_OK;
+      case 1: return JOIN_GROUP_RESULT_UNKNOW;
       case 2: return JOIN_GROUP_RESULT_NOT_EXIST;
       case 3: return JOIN_GROUP_RESULT_GROUP_FULL;
       case 4: return JOIN_GROUP_RESULT_IN_BACKLIST;

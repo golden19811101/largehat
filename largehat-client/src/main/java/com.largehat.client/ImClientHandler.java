@@ -1,6 +1,9 @@
 package com.largehat.client;
 
 
+import com.largehat.common.im.packets.Message;
+import com.largehat.common.im.packets.MessageProto;
+import com.largehat.common.im.packets.command.Command;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.ReferenceCountUtil;
@@ -31,11 +34,11 @@ public class ImClientHandler extends ChannelInboundHandlerAdapter {
 	public void channelActive(ChannelHandlerContext ctx) throws Exception {
 		System.out.println("建立连接时：" + new Date());
 		executor.scheduleAtFixedRate(() -> {
-//			BaseReqProto.AuthReq authReq = BaseReqProto.AuthReq.newBuilder().setOrgid(100).setAuthcode("1111111").setUserid("1000000").setPasswd("1234567").build();
-//			BaseReqProto.BaseReq req = BaseReqProto.BaseReq.newBuilder().setVersion(1).setCommand(Command.COMMAND_AUTH_REQ).setAuthReq(authReq).build();
-//
-//			log.info("字节数组长度:" +  req.toByteArray().length);
-//			ctx.writeAndFlush(req);
+			MessageProto.AuthReq authReq = MessageProto.AuthReq.newBuilder().setOrgId(100).setAuthCode("1111111").setUserId("1000000").setPasswd("1234567").build();
+			MessageProto.Message req = MessageProto.Message.newBuilder().setVersion(1).setCommand(Command.COMMAND_AUTH_REQ).setAuthReq(authReq).build();
+
+			log.info("字节数组长度:" +  req.toByteArray().length);
+			ctx.writeAndFlush(req);
 
 			// 产生的pack类型
 ////			int packType = new Random().nextInt(3);
