@@ -44,7 +44,7 @@ public class ImServer {
                         @Override
                         public void operationComplete(ChannelFuture channelFuture) throws Exception {
                             if (channelFuture.isSuccess()) {
-                                //HandlerManager.initHandlers();
+                                HandlerManager.initHandlers();
                             } else {
                                 log.info("处理器启动失败!");
                             }

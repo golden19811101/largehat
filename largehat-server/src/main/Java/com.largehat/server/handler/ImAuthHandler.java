@@ -1,10 +1,9 @@
 package com.largehat.server.handler;
 
 
+import com.largehat.common.im.entity.session.IoSession;
 import com.largehat.common.im.packets.MessageProto;
-import com.largehat.common.im.packets.command.Command;
 import com.largehat.common.im.service.handler.IMHandler;
-import com.largehat.common.im.utils.Worker;
 import io.netty.channel.ChannelHandlerContext;
 import lombok.extern.slf4j.Slf4j;
 
@@ -15,15 +14,23 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ImAuthHandler extends IMHandler {
 
-
-    protected ImAuthHandler(Command cmd, MessageProto.Message msg, ChannelHandlerContext ctx) {
-        super(cmd, msg, ctx);
+    public ImAuthHandler(MessageProto.Message msg, IoSession session, ChannelHandlerContext ctx) {
+        super(msg, session, ctx);
     }
 
     @Override
-    protected void excute(Worker worker) throws Exception {
+    public void excute() throws Exception {
+         log.info("====================鉴权处理开始===========================>");
 
 
+
+
+
+
+
+
+
+        log.info("====================鉴权处理结束===========================>");
     }
 
 }

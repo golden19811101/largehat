@@ -1,5 +1,6 @@
 package com.largehat.server.handler.manager;
 
+import com.largehat.common.im.entity.session.IoSession;
 import com.largehat.common.im.packets.MessageProto;
 import com.largehat.common.im.packets.command.Command;
 import com.largehat.common.im.service.handler.IMHandler;
@@ -9,31 +10,64 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
 
 @Slf4j
 public class HandlerManager {
+
     private static final Map<Integer, Constructor<? extends IMHandler>> _handlers = new HashMap<>();
+
+    private static HandlerManager INSTANCE = null;
+
+    public static HandlerManager getInstance() {
+
+        if (INSTANCE == null) {
+            INSTANCE = new HandlerManager();
+        }
+        return INSTANCE;
+    }
+
+
+    public void exec(MessageProto.Message msg, IoSession session, ChannelHandlerContext ctx) {
+        if (msg == null) return;
+        try {
+            IMHandler imHandler = getHandler(msg, session, ctx);
+            Method m = imHandler.getClass().getMethod("excute");
+            m.invoke(imHandler);
+        } catch (NoSuchMethodException | SecurityException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public static void register(Command cmd, Class<? extends IMHandler> handler) {
         try {
-            Constructor<? extends IMHandler> constructor = handler.getConstructor(Command.class, MessageProto.Message.class, ChannelHandlerContext.class);
-            //Constructor<? extends IMHandler> constructor =  handler.newInstance(cmd, msg, ctx);
+            Constructor<? extends IMHandler> constructor = handler.getConstructor(MessageProto.Message.class, IoSession.class, ChannelHandlerContext.class);
             _handlers.put(cmd.getNumber(), constructor);
-        } catch (NoSuchMethodException e) {
+        }  catch (NoSuchMethodException e) {
+            e.printStackTrace();
             throw new RuntimeException(e);
         }
     }
 
-    public static IMHandler getHandler(Command cmd,  MessageProto.Message msg, ChannelHandlerContext ctx) throws IllegalAccessException, InvocationTargetException, InstantiationException {
-        Constructor<? extends IMHandler> constructor = _handlers.get(cmd.getNumber());
+    public static IMHandler getHandler(MessageProto.Message msg, IoSession session, ChannelHandlerContext ctx) throws IllegalAccessException, InvocationTargetException, InstantiationException {
+        Constructor<? extends IMHandler> constructor = _handlers.get(msg.getCommand().getNumber());
         if(constructor == null) {
-            log.error("handler not exist, Message Number: {}", cmd.getNumber());
+            log.error("handler not exist, Message Number: {}", msg.getCommand().getNumber());
             return null;
         }
-        return constructor.newInstance(cmd, msg, ctx);
+        return constructor.newInstance(msg, session, ctx);
     }
 
     /**
