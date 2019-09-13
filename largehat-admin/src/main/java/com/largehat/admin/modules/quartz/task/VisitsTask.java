@@ -1,6 +1,6 @@
 package com.largehat.admin.modules.quartz.task;
 
-import com.largehat.admin.modules.monitor.service.VisitsService;
+import com.largehat.admin.modules.monitor.service.SysVisitsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class VisitsTask {
 
     @Autowired
-    private VisitsService visitsService;
+    private SysVisitsService visitsService;
 
     public void run(){
         visitsService.save();

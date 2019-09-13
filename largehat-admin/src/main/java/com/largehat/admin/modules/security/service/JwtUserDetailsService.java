@@ -2,10 +2,10 @@ package com.largehat.admin.modules.security.service;
 
 import com.largehat.common.core.exception.BadRequestException;
 import com.largehat.admin.modules.security.security.JwtUser;
-import com.largehat.admin.modules.system.service.UserService;
-import com.largehat.admin.modules.system.service.dto.DeptSmallDTO;
-import com.largehat.admin.modules.system.service.dto.JobSmallDTO;
-import com.largehat.admin.modules.system.service.dto.UserDTO;
+import com.largehat.admin.modules.system.service.SysUserService;
+import com.largehat.admin.modules.system.service.dto.SysDeptSmallDTO;
+import com.largehat.admin.modules.system.service.dto.SysJobSmallDTO;
+import com.largehat.admin.modules.system.service.dto.SysUserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -23,7 +23,7 @@ import java.util.Optional;
 public class JwtUserDetailsService implements UserDetailsService {
 
     @Autowired
-    private UserService userService;
+    private SysUserService userService;
 
     @Autowired
     private JwtPermissionService permissionService;
@@ -31,7 +31,7 @@ public class JwtUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username){
 
-        UserDTO user = userService.findByName(username);
+        SysUserDTO user = userService.findByName(username);
         if (user == null) {
             throw new BadRequestException("账号不存在");
         } else {
@@ -39,7 +39,7 @@ public class JwtUserDetailsService implements UserDetailsService {
         }
     }
 
-    public UserDetails createJwtUser(UserDTO user) {
+    public UserDetails createJwtUser(SysUserDTO user) {
         return new JwtUser(
                 user.getId(),
                 user.getUsername(),
@@ -47,8 +47,8 @@ public class JwtUserDetailsService implements UserDetailsService {
                 user.getAvatar(),
                 user.getEmail(),
                 user.getPhone(),
-                Optional.ofNullable(user.getDept()).map(DeptSmallDTO::getName).orElse(null),
-                Optional.ofNullable(user.getJob()).map(JobSmallDTO::getName).orElse(null),
+                Optional.ofNullable(user.getDept()).map(SysDeptSmallDTO::getName).orElse(null),
+                Optional.ofNullable(user.getJob()).map(SysJobSmallDTO::getName).orElse(null),
                 permissionService.mapToGrantedAuthorities(user),
                 user.getEnabled(),
                 user.getCreateTime(),
