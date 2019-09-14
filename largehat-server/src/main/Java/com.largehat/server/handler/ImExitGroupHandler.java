@@ -2,6 +2,7 @@ package com.largehat.server.handler;
 
 import com.largehat.common.im.entity.session.IoSession;
 import com.largehat.common.im.packets.MessageProto;
+import com.largehat.common.im.packets.command.Command;
 import com.largehat.common.im.service.handler.IMHandler;
 import io.netty.channel.ChannelHandlerContext;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +19,9 @@ public class ImExitGroupHandler extends IMHandler {
 
     @Override
     public void excute() throws Exception {
-
+        if (this._msg.getCommand() != Command.COMMAND_JOIN_GROUP_REQ || this._msg.getJoinGroupReq() == null) {
+            return;
+        }
 
     }
 }

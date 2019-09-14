@@ -20,9 +20,9 @@ public class ImMessageHandler extends IMHandler {
 
     @Override
     public void excute() throws Exception {
-//        if (this._msg.getCommand() != Command.COMMAND_AUTH_REQ || this._msg.getMessageReq() == null) {
-//            return;
-//        }
+        if (this._msg.getCommand() != Command.COMMAND_AUTH_REQ || this._msg.getMessageReq() == null) {
+            return;
+        }
 
 
     }

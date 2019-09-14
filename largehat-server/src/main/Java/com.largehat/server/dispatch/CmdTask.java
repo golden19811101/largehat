@@ -2,7 +2,6 @@ package com.largehat.server.dispatch;
 
 
 import com.largehat.common.im.entity.session.IoSession;
-import com.largehat.common.im.packets.Message;
 import com.largehat.common.im.packets.MessageProto;
 import com.largehat.server.handler.manager.HandlerManager;
 import io.netty.channel.ChannelHandlerContext;
@@ -21,7 +20,7 @@ public class CmdTask extends DispatchTask {
 
 	private static Logger logger = LoggerFactory.getLogger(CmdTask.class);
 
-	private long userId;
+	private String userId;
 	private IoSession session;
 	private MessageProto.Message message;
 	private ChannelHandlerContext ctx;
@@ -35,7 +34,7 @@ public class CmdTask extends DispatchTask {
 		return msgTask;
 	}
 
-	public long getUserId() {
+	public String getUserId() {
 		return userId;
 	}
 

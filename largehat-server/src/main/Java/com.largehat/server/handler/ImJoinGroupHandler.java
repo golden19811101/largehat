@@ -4,7 +4,6 @@ import com.largehat.common.im.entity.session.IoSession;
 import com.largehat.common.im.packets.MessageProto;
 import com.largehat.common.im.packets.command.Command;
 import com.largehat.common.im.service.handler.IMHandler;
-import com.largehat.common.im.utils.Worker;
 import io.netty.channel.ChannelHandlerContext;
 
 /**
@@ -18,9 +17,9 @@ public class ImJoinGroupHandler extends IMHandler {
 
     @Override
     public void excute() throws Exception {
-//        if (this._msg.getCommand() != Command.COMMAND_JOIN_GROUP_REQ || this._msg.getJoinGroupReq() == null) {
-//            return;
-//        }
+        if (this._msg.getCommand() != Command.COMMAND_JOIN_GROUP_REQ || this._msg.getJoinGroupReq() == null) {
+            return;
+        }
 
 
     }
