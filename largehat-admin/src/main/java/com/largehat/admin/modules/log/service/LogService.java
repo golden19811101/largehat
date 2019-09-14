@@ -2,7 +2,7 @@ package com.largehat.admin.modules.log.service;
 
 
 
-import com.largehat.admin.modules.log.domain.Log;
+import com.largehat.admin.modules.log.domain.SysLog;
 import com.largehat.admin.modules.log.service.dto.LogQueryCriteria;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.springframework.data.domain.Pageable;
@@ -38,7 +38,7 @@ public interface LogService {
      * @param log
      */
     @Async
-    void save(String username, String ip, ProceedingJoinPoint joinPoint, Log log);
+    void save(String username, String ip, ProceedingJoinPoint joinPoint, SysLog log);
 
     /**
      * 查询异常详情

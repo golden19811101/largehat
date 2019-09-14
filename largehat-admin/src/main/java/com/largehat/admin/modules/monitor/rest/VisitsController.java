@@ -1,6 +1,6 @@
 package com.largehat.admin.modules.monitor.rest;
 
-import com.largehat.admin.modules.monitor.service.VisitsService;
+import com.largehat.admin.modules.monitor.service.SysVisitsService;
 import com.largehat.common.core.utils.RequestHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class VisitsController {
 
     @Autowired
-    private VisitsService visitsService;
+    private SysVisitsService visitsService;
 
     @PostMapping(value = "/visits")
     public ResponseEntity create(){

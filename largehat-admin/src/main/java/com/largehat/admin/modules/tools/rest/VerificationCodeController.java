@@ -4,7 +4,7 @@ package com.largehat.admin.modules.tools.rest;
 import com.largehat.common.core.constant.LargehatConstant;
 import com.largehat.admin.modules.tools.domain.VerificationCode;
 import com.largehat.admin.modules.tools.domain.vo.EmailVo;
-import com.largehat.admin.modules.tools.service.EmailService;
+import com.largehat.admin.modules.tools.service.SysEmailService;
 import com.largehat.admin.modules.tools.service.VerificationCodeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -29,7 +29,7 @@ public class VerificationCodeController {
     private UserDetailsService userDetailsService;
 
     @Autowired
-    private EmailService emailService;
+    private SysEmailService emailService;
 
     @PostMapping(value = "/code/resetEmail")
     public ResponseEntity resetEmail(@RequestBody VerificationCode code) throws Exception {

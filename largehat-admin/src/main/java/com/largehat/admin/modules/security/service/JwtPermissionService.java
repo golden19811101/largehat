@@ -1,8 +1,8 @@
 package com.largehat.admin.modules.security.service;
 
-import com.largehat.admin.modules.system.domain.Role;
-import com.largehat.admin.modules.system.repository.RoleRepository;
-import com.largehat.admin.modules.system.service.dto.UserDTO;
+import com.largehat.admin.modules.system.domain.SysRole;
+import com.largehat.admin.modules.system.repository.SysRoleRepository;
+import com.largehat.admin.modules.system.service.dto.SysUserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 public class JwtPermissionService {
 
     @Autowired
-    private RoleRepository roleRepository;
+    private SysRoleRepository roleRepository;
 
     /**
      * key的名称如有修改，请同步修改 UserServiceImpl 中的 update 方法
@@ -26,11 +26,11 @@ public class JwtPermissionService {
      * @return
      */
     @Cacheable(key = "'loadPermissionByUser:' + #p0.username")
-    public Collection<GrantedAuthority> mapToGrantedAuthorities(UserDTO user) {
+    public Collection<GrantedAuthority> mapToGrantedAuthorities(SysUserDTO user) {
 
         System.out.println("--------------------loadPermissionByUser:" + user.getUsername() + "---------------------");
 
-        Set<Role> roles = roleRepository.findByUsers_Id(user.getId());
+        Set<SysRole> roles = roleRepository.findByUsers_Id(user.getId());
 
         return roles.stream().flatMap(role -> role.getPermissions().stream())
                 .map(permission -> new SimpleGrantedAuthority(permission.getName()))

@@ -14,7 +14,7 @@ import java.sql.Timestamp;
  */
 @Data
 @Entity
-@Table(name = "qiniu_content")
+//@Table(name = "qiniu_content")
 public class QiniuContent implements Serializable {
 
     @Id

@@ -16,7 +16,7 @@ import java.io.Serializable;
  */
 @Data
 @Entity
-@Table(name = "alipay_config")
+//@Table(name = "alipay_config")
 public class AlipayConfig implements Serializable {
 
     @Id

@@ -1,6 +1,6 @@
 package com.largehat.admin.aspect;
 
-import com.largehat.admin.modules.log.domain.Log;
+import com.largehat.admin.modules.log.domain.SysLog;
 import com.largehat.admin.modules.log.service.LogService;
 import com.largehat.common.core.utils.RequestHolder;
 import com.largehat.common.core.utils.SecurityUtils;
@@ -48,7 +48,7 @@ public class LogAspect {
         Object result = null;
         currentTime = System.currentTimeMillis();
         result = joinPoint.proceed();
-        Log log = new Log("INFO",System.currentTimeMillis() - currentTime);
+        SysLog log = new SysLog("INFO",System.currentTimeMillis() - currentTime);
         logService.save(getUsername(), StringUtils.getIP(RequestHolder.getHttpServletRequest()),joinPoint, log);
         return result;
     }
@@ -61,7 +61,7 @@ public class LogAspect {
      */
     @AfterThrowing(pointcut = "logPointcut()", throwing = "e")
     public void logAfterThrowing(JoinPoint joinPoint, Throwable e) {
-        Log log = new Log("ERROR",System.currentTimeMillis() - currentTime);
+        SysLog log = new SysLog("ERROR",System.currentTimeMillis() - currentTime);
         log.setExceptionDetail(ThrowableUtil.getStackTrace(e).getBytes());
         logService.save(getUsername(), StringUtils.getIP(RequestHolder.getHttpServletRequest()), (ProceedingJoinPoint)joinPoint, log);
     }

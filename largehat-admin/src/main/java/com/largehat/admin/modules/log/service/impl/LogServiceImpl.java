@@ -3,7 +3,7 @@ package com.largehat.admin.modules.log.service.impl;
 import cn.hutool.core.lang.Dict;
 import cn.hutool.json.JSONObject;
 
-import com.largehat.admin.modules.log.domain.Log;
+import com.largehat.admin.modules.log.domain.SysLog;
 import com.largehat.admin.modules.log.repository.LogRepository;
 import com.largehat.common.core.utils.PageUtil;
 import com.largehat.common.core.utils.QueryHelp;
@@ -43,7 +43,7 @@ public class LogServiceImpl implements LogService {
 
     @Override
     public Object queryAll(LogQueryCriteria criteria, Pageable pageable){
-        Page<Log> page = logRepository.findAll(((root, criteriaQuery, cb) -> QueryHelp.getPredicate(root, criteria, cb)),pageable);
+        Page<SysLog> page = logRepository.findAll(((root, criteriaQuery, cb) -> QueryHelp.getPredicate(root, criteria, cb)),pageable);
         if ("ERROR".equals(criteria.getLogType())) {
             return PageUtil.toPage(page.map(logErrorMapper::toDto));
         }
@@ -52,13 +52,13 @@ public class LogServiceImpl implements LogService {
 
     @Override
     public Object queryAllByUser(LogQueryCriteria criteria, Pageable pageable) {
-        Page<Log> page = logRepository.findAll(((root, criteriaQuery, cb) -> QueryHelp.getPredicate(root, criteria, cb)),pageable);
+        Page<SysLog> page = logRepository.findAll(((root, criteriaQuery, cb) -> QueryHelp.getPredicate(root, criteria, cb)),pageable);
         return PageUtil.toPage(page.map(logSmallMapper::toDto));
     }
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void save(String username, String ip, ProceedingJoinPoint joinPoint, Log log){
+    public void save(String username, String ip, ProceedingJoinPoint joinPoint, SysLog log){
 
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method method = signature.getMethod();
