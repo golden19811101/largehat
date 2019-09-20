@@ -27,7 +27,7 @@ public class ImAuthHandler extends IMHandler {
         }
 
         //判断鉴权是否正确
-        // _msg.getAuthReq().get
+
 
 
         //
