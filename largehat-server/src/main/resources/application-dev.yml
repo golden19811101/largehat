@@ -5,8 +5,8 @@ spring:
       type: com.alibaba.druid.pool.DruidDataSource
       driverClassName: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
       url: jdbc:log4jdbc:mysql://rm-j6c607d99soj2b0219o.mysql.rds.aliyuncs.com:3306/xinbo_im?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useSSL=false
-      username: root
-      password: 71Pwd2019!
+      username: system
+      password: xDl%%6*&YF3YFgT&
 
       # 初始化配置
       initial-size: 3
