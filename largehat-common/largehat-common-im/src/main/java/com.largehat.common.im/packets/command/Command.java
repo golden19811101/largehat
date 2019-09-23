@@ -84,116 +84,164 @@ public enum Command
   COMMAND_JOIN_GROUP_RESP(8),
   /**
    * <pre>
-   *进入群组通知
+   *申请退出群组
    * </pre>
    *
-   * <code>COMMAND_JOIN_GROUP_NOTIFY_RESP = 9;</code>
+   * <code>COMMAND_EXIT_GROUP_REQ = 10;</code>
    */
-  COMMAND_JOIN_GROUP_NOTIFY_RESP(9),
+  COMMAND_EXIT_GROUP_REQ(10),
   /**
    * <pre>
-   *退出群组通知
+   *申请退出群组响应
    * </pre>
    *
-   * <code>COMMAND_EXIT_GROUP_NOTIFY_RESP = 10;</code>
+   * <code>COMMAND_EXIT_GROUP_RESP = 11;</code>
    */
-  COMMAND_EXIT_GROUP_NOTIFY_RESP(10),
+  COMMAND_EXIT_GROUP_RESP(11),
+  /**
+   * <pre>
+   *群组通知
+   * </pre>
+   *
+   * <code>COMMAND_GROUP_NOTIFY_REQ = 12;</code>
+   */
+  COMMAND_GROUP_NOTIFY_REQ(12),
+  /**
+   * <pre>
+   *群组通知响应
+   * </pre>
+   *
+   * <code>COMMAND_GROUP_NOTIFY_RESP = 13;</code>
+   */
+  COMMAND_GROUP_NOTIFY_RESP(13),
+  /**
+   * <pre>
+   *用户通知
+   * </pre>
+   *
+   * <code>COMMAND_USER_NOTIFY_REQ = 14;</code>
+   */
+  COMMAND_USER_NOTIFY_REQ(14),
+  /**
+   * <pre>
+   *用户通知响应
+   * </pre>
+   *
+   * <code>COMMAND_USER_NOTIFY_RESP = 15;</code>
+   */
+  COMMAND_USER_NOTIFY_RESP(15),
   /**
    * <pre>
    *聊天请求
    * </pre>
    *
-   * <code>COMMAND_CHAT_REQ = 11;</code>
+   * <code>COMMAND_CHAT_REQ = 16;</code>
    */
-  COMMAND_CHAT_REQ(11),
+  COMMAND_CHAT_REQ(16),
   /**
    * <pre>
    *聊天响应
    * </pre>
    *
-   * <code>COMMAND_CHAT_RESP = 12;</code>
+   * <code>COMMAND_CHAT_RESP = 17;</code>
    */
-  COMMAND_CHAT_RESP(12),
+  COMMAND_CHAT_RESP(17),
   /**
    * <pre>
    *心跳请求
    * </pre>
    *
-   * <code>COMMAND_HEARTBEAT_REQ = 13;</code>
+   * <code>COMMAND_HEARTBEAT_REQ = 18;</code>
    */
-  COMMAND_HEARTBEAT_REQ(13),
+  COMMAND_HEARTBEAT_REQ(18),
   /**
    * <pre>
    *关闭请求
    * </pre>
    *
-   * <code>COMMAND_CLOSE_REQ = 14;</code>
+   * <code>COMMAND_CLOSE_REQ = 19;</code>
    */
-  COMMAND_CLOSE_REQ(14),
+  COMMAND_CLOSE_REQ(19),
   /**
    * <pre>
    *发出撤消消息指令
    * </pre>
    *
-   * <code>COMMAND_CANCEL_MSG_REQ = 15;</code>
+   * <code>COMMAND_CANCEL_MSG_REQ = 20;</code>
    */
-  COMMAND_CANCEL_MSG_REQ(15),
+  COMMAND_CANCEL_MSG_REQ(20),
   /**
    * <pre>
-   *收到撤消消息指令
+   *撤消消息指令返回
    * </pre>
    *
-   * <code>COMMAND_CANCEL_MSG_RESP = 16;</code>
+   * <code>COMMAND_CANCEL_MSG_RESP = 21;</code>
    */
-  COMMAND_CANCEL_MSG_RESP(16),
+  COMMAND_CANCEL_MSG_RESP(21),
   /**
    * <pre>
-   *用户上线通知
+   *添加好友请求
    * </pre>
    *
-   * <code>COMMAND_USER_ONLINE_NOTIFY_RESP = 17;</code>
+   * <code>COMMAND_ADD_FRIENDS_REQ = 22;</code>
    */
-  COMMAND_USER_ONLINE_NOTIFY_RESP(17),
+  COMMAND_ADD_FRIENDS_REQ(22),
   /**
    * <pre>
-   *用户下线通知
+   *添加好友响应
    * </pre>
    *
-   * <code>COMMAND_USER_OFFLINE_NOTIFY_RESP = 18;</code>
+   * <code>COMMAND_ADD_FRIENDS_RESP = 23;</code>
    */
-  COMMAND_USER_OFFLINE_NOTIFY_RESP(18),
+  COMMAND_ADD_FRIENDS_RESP(23),
   /**
    * <pre>
-   *获取用户信息; 暂不实现
+   *好友加入黑名单请求
    * </pre>
    *
-   * <code>COMMAND_GET_USER_REQ = 19;</code>
+   * <code>COMMAND_ADD_BLACK_REQ = 24;</code>
    */
-  COMMAND_GET_USER_REQ(19),
+  COMMAND_ADD_BLACK_REQ(24),
   /**
    * <pre>
-   *获取用户信息响应; 暂不实现
+   *好友加入黑名单响应
    * </pre>
    *
-   * <code>COMMAND_GET_USER_RESP = 20;</code>
+   * <code>COMMAND_ADD_BLACK_RESP = 25;</code>
    */
-  COMMAND_GET_USER_RESP(20),
+  COMMAND_ADD_BLACK_RESP(25),
   /**
    * <pre>
-   *获取离线信息; 暂不实现
+   *取消好友请求
    * </pre>
    *
-   * <code>COMMAND_OFFLINE_MESSAGE_REQ = 21;</code>
+   * <code>COMMAND_CANCEL_FRIENDS_REQ = 26;</code>
    */
-  COMMAND_OFFLINE_MESSAGE_REQ(21),
+  COMMAND_CANCEL_FRIENDS_REQ(26),
   /**
    * <pre>
-   *获取离线信息响应; 暂不实现
+   *取消好友响应
    * </pre>
    *
-   * <code>COMMAND_OFFLINE_MESSAGE_RESP = 22;</code>
+   * <code>COMMAND_CANCEL_FRIENDS_RESP = 27;</code>
    */
-  COMMAND_OFFLINE_MESSAGE_RESP(22),
+  COMMAND_CANCEL_FRIENDS_RESP(27),
+  /**
+   * <pre>
+   *取消黑名单请求
+   * </pre>
+   *
+   * <code>COMMAND_CANCEL_BLACK_REQ = 28;</code>
+   */
+  COMMAND_CANCEL_BLACK_REQ(28),
+  /**
+   * <pre>
+   *取消黑名单响应
+   * </pre>
+   *
+   * <code>COMMAND_CANCEL_BLACK_RESP = 29;</code>
+   */
+  COMMAND_CANCEL_BLACK_RESP(29),
   UNRECOGNIZED(-1),
   ;
 
@@ -267,116 +315,164 @@ public enum Command
   public static final int COMMAND_JOIN_GROUP_RESP_VALUE = 8;
   /**
    * <pre>
-   *进入群组通知
+   *申请退出群组
    * </pre>
    *
-   * <code>COMMAND_JOIN_GROUP_NOTIFY_RESP = 9;</code>
+   * <code>COMMAND_EXIT_GROUP_REQ = 10;</code>
    */
-  public static final int COMMAND_JOIN_GROUP_NOTIFY_RESP_VALUE = 9;
+  public static final int COMMAND_EXIT_GROUP_REQ_VALUE = 10;
   /**
    * <pre>
-   *退出群组通知
+   *申请退出群组响应
    * </pre>
    *
-   * <code>COMMAND_EXIT_GROUP_NOTIFY_RESP = 10;</code>
+   * <code>COMMAND_EXIT_GROUP_RESP = 11;</code>
    */
-  public static final int COMMAND_EXIT_GROUP_NOTIFY_RESP_VALUE = 10;
+  public static final int COMMAND_EXIT_GROUP_RESP_VALUE = 11;
+  /**
+   * <pre>
+   *群组通知
+   * </pre>
+   *
+   * <code>COMMAND_GROUP_NOTIFY_REQ = 12;</code>
+   */
+  public static final int COMMAND_GROUP_NOTIFY_REQ_VALUE = 12;
+  /**
+   * <pre>
+   *群组通知响应
+   * </pre>
+   *
+   * <code>COMMAND_GROUP_NOTIFY_RESP = 13;</code>
+   */
+  public static final int COMMAND_GROUP_NOTIFY_RESP_VALUE = 13;
+  /**
+   * <pre>
+   *用户通知
+   * </pre>
+   *
+   * <code>COMMAND_USER_NOTIFY_REQ = 14;</code>
+   */
+  public static final int COMMAND_USER_NOTIFY_REQ_VALUE = 14;
+  /**
+   * <pre>
+   *用户通知响应
+   * </pre>
+   *
+   * <code>COMMAND_USER_NOTIFY_RESP = 15;</code>
+   */
+  public static final int COMMAND_USER_NOTIFY_RESP_VALUE = 15;
   /**
    * <pre>
    *聊天请求
    * </pre>
    *
-   * <code>COMMAND_CHAT_REQ = 11;</code>
+   * <code>COMMAND_CHAT_REQ = 16;</code>
    */
-  public static final int COMMAND_CHAT_REQ_VALUE = 11;
+  public static final int COMMAND_CHAT_REQ_VALUE = 16;
   /**
    * <pre>
    *聊天响应
    * </pre>
    *
-   * <code>COMMAND_CHAT_RESP = 12;</code>
+   * <code>COMMAND_CHAT_RESP = 17;</code>
    */
-  public static final int COMMAND_CHAT_RESP_VALUE = 12;
+  public static final int COMMAND_CHAT_RESP_VALUE = 17;
   /**
    * <pre>
    *心跳请求
    * </pre>
    *
-   * <code>COMMAND_HEARTBEAT_REQ = 13;</code>
+   * <code>COMMAND_HEARTBEAT_REQ = 18;</code>
    */
-  public static final int COMMAND_HEARTBEAT_REQ_VALUE = 13;
+  public static final int COMMAND_HEARTBEAT_REQ_VALUE = 18;
   /**
    * <pre>
    *关闭请求
    * </pre>
    *
-   * <code>COMMAND_CLOSE_REQ = 14;</code>
+   * <code>COMMAND_CLOSE_REQ = 19;</code>
    */
-  public static final int COMMAND_CLOSE_REQ_VALUE = 14;
+  public static final int COMMAND_CLOSE_REQ_VALUE = 19;
   /**
    * <pre>
    *发出撤消消息指令
    * </pre>
    *
-   * <code>COMMAND_CANCEL_MSG_REQ = 15;</code>
+   * <code>COMMAND_CANCEL_MSG_REQ = 20;</code>
    */
-  public static final int COMMAND_CANCEL_MSG_REQ_VALUE = 15;
+  public static final int COMMAND_CANCEL_MSG_REQ_VALUE = 20;
   /**
    * <pre>
-   *收到撤消消息指令
+   *撤消消息指令返回
    * </pre>
    *
-   * <code>COMMAND_CANCEL_MSG_RESP = 16;</code>
+   * <code>COMMAND_CANCEL_MSG_RESP = 21;</code>
    */
-  public static final int COMMAND_CANCEL_MSG_RESP_VALUE = 16;
+  public static final int COMMAND_CANCEL_MSG_RESP_VALUE = 21;
   /**
    * <pre>
-   *用户上线通知
+   *添加好友请求
    * </pre>
    *
-   * <code>COMMAND_USER_ONLINE_NOTIFY_RESP = 17;</code>
+   * <code>COMMAND_ADD_FRIENDS_REQ = 22;</code>
    */
-  public static final int COMMAND_USER_ONLINE_NOTIFY_RESP_VALUE = 17;
+  public static final int COMMAND_ADD_FRIENDS_REQ_VALUE = 22;
   /**
    * <pre>
-   *用户下线通知
+   *添加好友响应
    * </pre>
    *
-   * <code>COMMAND_USER_OFFLINE_NOTIFY_RESP = 18;</code>
+   * <code>COMMAND_ADD_FRIENDS_RESP = 23;</code>
    */
-  public static final int COMMAND_USER_OFFLINE_NOTIFY_RESP_VALUE = 18;
+  public static final int COMMAND_ADD_FRIENDS_RESP_VALUE = 23;
   /**
    * <pre>
-   *获取用户信息; 暂不实现
+   *好友加入黑名单请求
    * </pre>
    *
-   * <code>COMMAND_GET_USER_REQ = 19;</code>
+   * <code>COMMAND_ADD_BLACK_REQ = 24;</code>
    */
-  public static final int COMMAND_GET_USER_REQ_VALUE = 19;
+  public static final int COMMAND_ADD_BLACK_REQ_VALUE = 24;
   /**
    * <pre>
-   *获取用户信息响应; 暂不实现
+   *好友加入黑名单响应
    * </pre>
    *
-   * <code>COMMAND_GET_USER_RESP = 20;</code>
+   * <code>COMMAND_ADD_BLACK_RESP = 25;</code>
    */
-  public static final int COMMAND_GET_USER_RESP_VALUE = 20;
+  public static final int COMMAND_ADD_BLACK_RESP_VALUE = 25;
   /**
    * <pre>
-   *获取离线信息; 暂不实现
+   *取消好友请求
    * </pre>
    *
-   * <code>COMMAND_OFFLINE_MESSAGE_REQ = 21;</code>
+   * <code>COMMAND_CANCEL_FRIENDS_REQ = 26;</code>
    */
-  public static final int COMMAND_OFFLINE_MESSAGE_REQ_VALUE = 21;
+  public static final int COMMAND_CANCEL_FRIENDS_REQ_VALUE = 26;
   /**
    * <pre>
-   *获取离线信息响应; 暂不实现
+   *取消好友响应
    * </pre>
    *
-   * <code>COMMAND_OFFLINE_MESSAGE_RESP = 22;</code>
+   * <code>COMMAND_CANCEL_FRIENDS_RESP = 27;</code>
    */
-  public static final int COMMAND_OFFLINE_MESSAGE_RESP_VALUE = 22;
+  public static final int COMMAND_CANCEL_FRIENDS_RESP_VALUE = 27;
+  /**
+   * <pre>
+   *取消黑名单请求
+   * </pre>
+   *
+   * <code>COMMAND_CANCEL_BLACK_REQ = 28;</code>
+   */
+  public static final int COMMAND_CANCEL_BLACK_REQ_VALUE = 28;
+  /**
+   * <pre>
+   *取消黑名单响应
+   * </pre>
+   *
+   * <code>COMMAND_CANCEL_BLACK_RESP = 29;</code>
+   */
+  public static final int COMMAND_CANCEL_BLACK_RESP_VALUE = 29;
 
 
   public final int getNumber() {
@@ -406,20 +502,26 @@ public enum Command
       case 6: return COMMAND_LOGIN_RESP;
       case 7: return COMMAND_JOIN_GROUP_REQ;
       case 8: return COMMAND_JOIN_GROUP_RESP;
-      case 9: return COMMAND_JOIN_GROUP_NOTIFY_RESP;
-      case 10: return COMMAND_EXIT_GROUP_NOTIFY_RESP;
-      case 11: return COMMAND_CHAT_REQ;
-      case 12: return COMMAND_CHAT_RESP;
-      case 13: return COMMAND_HEARTBEAT_REQ;
-      case 14: return COMMAND_CLOSE_REQ;
-      case 15: return COMMAND_CANCEL_MSG_REQ;
-      case 16: return COMMAND_CANCEL_MSG_RESP;
-      case 17: return COMMAND_USER_ONLINE_NOTIFY_RESP;
-      case 18: return COMMAND_USER_OFFLINE_NOTIFY_RESP;
-      case 19: return COMMAND_GET_USER_REQ;
-      case 20: return COMMAND_GET_USER_RESP;
-      case 21: return COMMAND_OFFLINE_MESSAGE_REQ;
-      case 22: return COMMAND_OFFLINE_MESSAGE_RESP;
+      case 10: return COMMAND_EXIT_GROUP_REQ;
+      case 11: return COMMAND_EXIT_GROUP_RESP;
+      case 12: return COMMAND_GROUP_NOTIFY_REQ;
+      case 13: return COMMAND_GROUP_NOTIFY_RESP;
+      case 14: return COMMAND_USER_NOTIFY_REQ;
+      case 15: return COMMAND_USER_NOTIFY_RESP;
+      case 16: return COMMAND_CHAT_REQ;
+      case 17: return COMMAND_CHAT_RESP;
+      case 18: return COMMAND_HEARTBEAT_REQ;
+      case 19: return COMMAND_CLOSE_REQ;
+      case 20: return COMMAND_CANCEL_MSG_REQ;
+      case 21: return COMMAND_CANCEL_MSG_RESP;
+      case 22: return COMMAND_ADD_FRIENDS_REQ;
+      case 23: return COMMAND_ADD_FRIENDS_RESP;
+      case 24: return COMMAND_ADD_BLACK_REQ;
+      case 25: return COMMAND_ADD_BLACK_RESP;
+      case 26: return COMMAND_CANCEL_FRIENDS_REQ;
+      case 27: return COMMAND_CANCEL_FRIENDS_RESP;
+      case 28: return COMMAND_CANCEL_BLACK_REQ;
+      case 29: return COMMAND_CANCEL_BLACK_RESP;
       default: return null;
     }
   }

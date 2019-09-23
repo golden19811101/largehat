@@ -83,8 +83,20 @@ public class HandlerManager {
         //加入群组处理器
         HandlerManager.register(Command.COMMAND_JOIN_GROUP_REQ, ImJoinGroupHandler.class);
         //退出群组处理器
-        HandlerManager.register(Command.COMMAND_EXIT_GROUP_NOTIFY_RESP, ImExitGroupHandler.class);
+        HandlerManager.register(Command.COMMAND_EXIT_GROUP_REQ, ImExitGroupHandler.class);
         //撤销消息处理器
-        HandlerManager.register(Command.COMMAND_CANCEL_MSG_REQ, ImJoinGroupHandler.class);
+        HandlerManager.register(Command.COMMAND_CANCEL_MSG_REQ, ImCancelMessageHandler.class);
+        //添加好友
+        HandlerManager.register(Command.COMMAND_ADD_FRIENDS_REQ, ImAddFriendsHandler.class);
+        //添加黑名单
+        HandlerManager.register(Command.COMMAND_ADD_BLACK_REQ, ImAddBlackHandler.class);
+        //取消好友
+        HandlerManager.register(Command.COMMAND_CANCEL_FRIENDS_REQ, ImCancelFriendsHandler.class);
+        //取消黑名单
+        HandlerManager.register(Command.COMMAND_CANCEL_BLACK_REQ, ImCancelFriendsHandler.class);
+        //群组通知
+        HandlerManager.register(Command.COMMAND_GROUP_NOTIFY_REQ, ImGroupNotifyHandler.class);
+        //用户通知
+        HandlerManager.register(Command.COMMAND_USER_NOTIFY_REQ, ImUserNotifyHandler.class);
     }
 }

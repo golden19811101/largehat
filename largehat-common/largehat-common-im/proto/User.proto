@@ -8,6 +8,6 @@ message User {
     int32 userId = 1; //用户ID
     string nickName = 2; //用户昵称
     string avatar = 3; //头像
-    int32 orgId = 5; //归属组织机构
+    int32 orgId = 4; //归属组织机构
 }
  

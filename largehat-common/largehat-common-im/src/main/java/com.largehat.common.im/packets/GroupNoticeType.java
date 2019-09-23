@@ -14,7 +14,7 @@ public enum GroupNoticeType
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
    * <pre>
-   *进入
+   *用户进入
    * </pre>
    *
    * <code>GROUP_NOTICE_TYPE_JOIN = 0;</code>
@@ -22,18 +22,42 @@ public enum GroupNoticeType
   GROUP_NOTICE_TYPE_JOIN(0),
   /**
    * <pre>
-   *退出
+   *用户退出
    * </pre>
    *
    * <code>GROUP_NOTICE_TYPE_EXIT = 1;</code>
    */
   GROUP_NOTICE_TYPE_EXIT(1),
+  /**
+   * <pre>
+   *群组分享
+   * </pre>
+   *
+   * <code>GROUP_NOTICE_TYPE_SHARE = 2;</code>
+   */
+  GROUP_NOTICE_TYPE_SHARE(2),
+  /**
+   * <pre>
+   *群组跟投
+   * </pre>
+   *
+   * <code>GROUP_NOTICE_TYPE_BET = 3;</code>
+   */
+  GROUP_NOTICE_TYPE_BET(3),
+  /**
+   * <pre>
+   *群组红包
+   * </pre>
+   *
+   * <code>GROUP_NOTICE_TYPE_REDPACKAGE = 4;</code>
+   */
+  GROUP_NOTICE_TYPE_REDPACKAGE(4),
   UNRECOGNIZED(-1),
   ;
 
   /**
    * <pre>
-   *进入
+   *用户进入
    * </pre>
    *
    * <code>GROUP_NOTICE_TYPE_JOIN = 0;</code>
@@ -41,12 +65,36 @@ public enum GroupNoticeType
   public static final int GROUP_NOTICE_TYPE_JOIN_VALUE = 0;
   /**
    * <pre>
-   *退出
+   *用户退出
    * </pre>
    *
    * <code>GROUP_NOTICE_TYPE_EXIT = 1;</code>
    */
   public static final int GROUP_NOTICE_TYPE_EXIT_VALUE = 1;
+  /**
+   * <pre>
+   *群组分享
+   * </pre>
+   *
+   * <code>GROUP_NOTICE_TYPE_SHARE = 2;</code>
+   */
+  public static final int GROUP_NOTICE_TYPE_SHARE_VALUE = 2;
+  /**
+   * <pre>
+   *群组跟投
+   * </pre>
+   *
+   * <code>GROUP_NOTICE_TYPE_BET = 3;</code>
+   */
+  public static final int GROUP_NOTICE_TYPE_BET_VALUE = 3;
+  /**
+   * <pre>
+   *群组红包
+   * </pre>
+   *
+   * <code>GROUP_NOTICE_TYPE_REDPACKAGE = 4;</code>
+   */
+  public static final int GROUP_NOTICE_TYPE_REDPACKAGE_VALUE = 4;
 
 
   public final int getNumber() {
@@ -69,6 +117,9 @@ public enum GroupNoticeType
     switch (value) {
       case 0: return GROUP_NOTICE_TYPE_JOIN;
       case 1: return GROUP_NOTICE_TYPE_EXIT;
+      case 2: return GROUP_NOTICE_TYPE_SHARE;
+      case 3: return GROUP_NOTICE_TYPE_BET;
+      case 4: return GROUP_NOTICE_TYPE_REDPACKAGE;
       default: return null;
     }
   }

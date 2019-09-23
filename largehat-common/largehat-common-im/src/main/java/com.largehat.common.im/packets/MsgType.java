@@ -30,7 +30,7 @@ public enum MsgType
   MSG_TYPE_IMG(1),
   /**
    * <pre>
-   *语音
+   *语音  暂不支持
    * </pre>
    *
    * <code>MSG_TYPE_VOICE = 2;</code>
@@ -38,7 +38,7 @@ public enum MsgType
   MSG_TYPE_VOICE(2),
   /**
    * <pre>
-   *视频
+   *视频  暂不支持
    * </pre>
    *
    * <code>MSG_TYPE_VIDEO = 3;</code>
@@ -46,7 +46,7 @@ public enum MsgType
   MSG_TYPE_VIDEO(3),
   /**
    * <pre>
-   *音乐
+   *音乐 暂不支持
    * </pre>
    *
    * <code>MSG_TYPE_MUSIC = 4;</code>
@@ -54,7 +54,7 @@ public enum MsgType
   MSG_TYPE_MUSIC(4),
   /**
    * <pre>
-   *图文
+   *图文 暂不支持
    * </pre>
    *
    * <code>MSG_TYPE_NEWS = 5;</code>
@@ -81,7 +81,7 @@ public enum MsgType
   public static final int MSG_TYPE_IMG_VALUE = 1;
   /**
    * <pre>
-   *语音
+   *语音  暂不支持
    * </pre>
    *
    * <code>MSG_TYPE_VOICE = 2;</code>
@@ -89,7 +89,7 @@ public enum MsgType
   public static final int MSG_TYPE_VOICE_VALUE = 2;
   /**
    * <pre>
-   *视频
+   *视频  暂不支持
    * </pre>
    *
    * <code>MSG_TYPE_VIDEO = 3;</code>
@@ -97,7 +97,7 @@ public enum MsgType
   public static final int MSG_TYPE_VIDEO_VALUE = 3;
   /**
    * <pre>
-   *音乐
+   *音乐 暂不支持
    * </pre>
    *
    * <code>MSG_TYPE_MUSIC = 4;</code>
@@ -105,7 +105,7 @@ public enum MsgType
   public static final int MSG_TYPE_MUSIC_VALUE = 4;
   /**
    * <pre>
-   *图文
+   *图文 暂不支持
    * </pre>
    *
    * <code>MSG_TYPE_NEWS = 5;</code>

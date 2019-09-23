@@ -37,25 +37,34 @@ enum Command {
 
 	COMMAND_JOIN_GROUP_REQ = 7; //申请进入群组
 	COMMAND_JOIN_GROUP_RESP = 8; //申请进入群组响应
-	COMMAND_JOIN_GROUP_NOTIFY_RESP = 9; //进入群组通知
 
-	COMMAND_EXIT_GROUP_NOTIFY_RESP = 10; //退出群组通知
-	COMMAND_CHAT_REQ = 11; //聊天请求
-	COMMAND_CHAT_RESP = 12; //聊天响应
+	COMMAND_EXIT_GROUP_REQ = 10; //申请退出群组
+	COMMAND_EXIT_GROUP_RESP = 11; //申请退出群组响应
+	COMMAND_GROUP_NOTIFY_REQ= 12; //群组通知
 
-	COMMAND_HEARTBEAT_REQ = 13; //心跳请求
-	COMMAND_CLOSE_REQ = 14;  //关闭请求
-	COMMAND_CANCEL_MSG_REQ = 15; //发出撤消消息指令
+	COMMAND_GROUP_NOTIFY_RESP= 13; //群组通知响应
+	COMMAND_USER_NOTIFY_REQ = 14; //用户通知
+	COMMAND_USER_NOTIFY_RESP = 15; //用户通知响应
 
-	COMMAND_CANCEL_MSG_RESP = 16; //收到撤消消息指令
-	COMMAND_USER_ONLINE_NOTIFY_RESP = 17; //用户上线通知
-	COMMAND_USER_OFFLINE_NOTIFY_RESP = 18; //用户下线通知
+	COMMAND_CHAT_REQ = 16; //聊天请求
+	COMMAND_CHAT_RESP = 17; //聊天响应
 
-	COMMAND_GET_USER_REQ = 19;//获取用户信息; 暂不实现
-	COMMAND_GET_USER_RESP = 20;//获取用户信息响应; 暂不实现
+	COMMAND_HEARTBEAT_REQ = 18; //心跳请求
+	COMMAND_CLOSE_REQ = 19;  //关闭请求
+	COMMAND_CANCEL_MSG_REQ = 20; //发出撤消消息指令
 
-	COMMAND_OFFLINE_MESSAGE_REQ = 21;//获取离线信息; 暂不实现
-	COMMAND_OFFLINE_MESSAGE_RESP = 22;//获取离线信息响应; 暂不实现
+	COMMAND_CANCEL_MSG_RESP = 21; //撤消消息指令返回
+	COMMAND_ADD_FRIENDS_REQ = 22;//添加好友请求
+	COMMAND_ADD_FRIENDS_RESP = 23;//添加好友响应
+
+	COMMAND_ADD_BLACK_REQ = 24;//好友加入黑名单请求
+	COMMAND_ADD_BLACK_RESP = 25;//好友加入黑名单响应
+
+    COMMAND_CANCEL_FRIENDS_REQ = 26;//取消好友请求
+    COMMAND_CANCEL_FRIENDS_RESP = 27;//取消好友响应
+
+    COMMAND_CANCEL_BLACK_REQ = 28;//取消黑名单请求
+    COMMAND_CANCEL_BLACK_RESP = 29;//取消黑名单响应
 }
 //加入群组申请的结果
 enum JoinGroupResult {
@@ -86,18 +95,29 @@ enum SessionCloseReason {
 enum MsgType {
 	MSG_TYPE_TEXT = 0;//文本
 	MSG_TYPE_IMG = 1;//图片
-	MSG_TYPE_VOICE= 2;//语音
-	MSG_TYPE_VIDEO = 3;//视频
-	MSG_TYPE_MUSIC = 4;//音乐
-	MSG_TYPE_NEWS = 5;//图文
+	MSG_TYPE_VOICE= 2;//语音  暂不支持
+	MSG_TYPE_VIDEO = 3;//视频  暂不支持
+	MSG_TYPE_MUSIC = 4;//音乐 暂不支持
+	MSG_TYPE_NEWS = 5;//图文 暂不支持
 }
 //群通知类型
 enum GroupNoticeType {
-	GROUP_NOTICE_TYPE_JOIN = 0; //进入
-	GROUP_NOTICE_TYPE_EXIT = 1; //退出
+	GROUP_NOTICE_TYPE_JOIN = 0; //用户进入
+	GROUP_NOTICE_TYPE_EXIT = 1; //用户退出
+	GROUP_NOTICE_TYPE_SHARE = 2; //群组分享
+	GROUP_NOTICE_TYPE_BET = 3; //群组跟投
+	GROUP_NOTICE_TYPE_REDPACKAGE  = 4; //群组红包
 }
 //用户通知类型
 enum UserNoticeType {
 	USER_NOTICE_TYPE_ONLINE = 0; //上线
 	USER_NOTICE_TYPE_OFFLINE = 1; //下线
+    USER_NOTICE_TYPE_SHARE = 2; //分享
+    USER_NOTICE_TYPE_BET = 3; //跟投
+    USER_NOTICE_TYPE_REDPACKAGE  = 4; //红包
+}
+//协议类型
+enum AgreementType {
+	AGREEMENT_TYPE_SOCKET = 0; //socket
+	AGREEMENT_TYPE_WEBSOCKET = 1; //webSocket
 }

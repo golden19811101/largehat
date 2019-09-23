@@ -50,8 +50,8 @@ public class ProToBufBuild {
      * @param msg
      * @return
      */
-    public static final MessageProto.RespBody buidRespBody(Integer code, String msg) {
-        return MessageProto.RespBody.newBuilder().setCode(code).setMsg(msg).build();
+    public static final MessageProto.ResBody buidRespBody(Integer code, String msg) {
+        return MessageProto.ResBody.newBuilder().setCode(code).setMsg(msg).build();
     }
 
     /**
@@ -110,9 +110,11 @@ public class ProToBufBuild {
      * @return
      */
     public static final MessageProto.MessageReq buidMessageReq(String messageId, UserProto.User from, String to, Integer groupId, Integer msgType, Integer chatType, String content, Integer sendTime) {
-        return  MessageProto.MessageReq.newBuilder().
-                setMessageId(messageId).setFrom(from).setTo(to).setGroupId(groupId).
-                setMsgTypeValue(msgType).setChatTypeValue(chatType).setContent(content).setSendTime(sendTime).build();
+//        return  MessageProto.MessageReq.newBuilder().
+//                setMessageId(messageId).setFrom(from).setTo(to).setGroupId(groupId).
+//                setMsgTypeValue(msgType).setChatTypeValue(chatType).setContent(content).setSendTime(sendTime).build();
+
+        return  null;
     }
 
     /**
@@ -122,10 +124,10 @@ public class ProToBufBuild {
      * @param note
      * @return
      */
-    public static final MessageProto.JoinGroupReq buidJoinGroupReq(String userId, String groupId, String note) {
-        return  MessageProto.JoinGroupReq.newBuilder().
-                setUserId(userId).setGroupId(groupId).setNote(note).build();
-    }
+//    public static final MessageProto.JoinGroupReq buidJoinGroupReq(String userId, String groupId, String note) {
+//        return  MessageProto.JoinGroupReq.newBuilder().
+//                setUserId(userId).setGroupId(groupId).setNote(note).build();
+//    }
 
 
     /**
@@ -135,10 +137,10 @@ public class ProToBufBuild {
      * @param note
      * @return
      */
-    public static final MessageProto.ExitGroupReq buidExitGroupReq(String userId, String groupId, String note) {
-        return  MessageProto.ExitGroupReq.newBuilder().
-                setUserId(userId).setGroupId(groupId).setNote(note).build();
-    }
+//    public static final MessageProto.ExitGroupReq buidExitGroupReq(String userId, String groupId, String note) {
+//        return  MessageProto.ExitGroupReq.newBuilder().
+//                setUserId(userId).setGroupId(groupId).setNote(note).build();
+//    }
 
     /**
      * <B>消息撤销</B>
@@ -158,8 +160,8 @@ public class ProToBufBuild {
      * @param groupNoticeType
      * @return
      */
-    public static final MessageProto.GroupNotice buidGroupNotice(UserProto.User user, String groupId, Integer groupNoticeType) {
-        return  MessageProto.GroupNotice.newBuilder().setUser(user).setGroupId(groupId).setGroupNoticeTypeValue(groupNoticeType).build();
+    public static final MessageProto.GroupNoticeReq buidGroupNotice(UserProto.User user, String groupId, Integer groupNoticeType) {
+        return  MessageProto.GroupNoticeReq.newBuilder().setUser(user).setGroupId(groupId).setGroupNoticeTypeValue(groupNoticeType).build();
     }
 
     /**
@@ -169,8 +171,8 @@ public class ProToBufBuild {
      * @param userNoticeType
      * @return
      */
-    public static final MessageProto.UserNotice buidUserNotice(UserProto.User user, String userId, Integer userNoticeType) {
-        return  MessageProto.UserNotice.newBuilder().setUser(user).setNoticeUserId(userId).setUserNoticeTypeValue(userNoticeType).build();
+    public static final MessageProto.UserNoticeReq buidUserNotice(UserProto.User user, String userId, Integer userNoticeType) {
+        return  MessageProto.UserNoticeReq.newBuilder().setUser(user).setNoticeUserId(userId).setUserNoticeTypeValue(userNoticeType).build();
     }
 
 }

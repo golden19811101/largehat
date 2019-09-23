@@ -26,8 +26,7 @@ public class ImAuthHandler extends IMHandler {
             return;
         }
 
-        //判断鉴权是否正确
-
+        //判断鉴权码是否正确
 
 
         //

@@ -2,6 +2,7 @@ syntax = "proto3";
 package com.largehat.common.im.packets;
 import "Chat.proto";
 import "User.proto";
+import "Content.proto";
 option optimize_for = SPEED;
 option java_package="com.largehat.common.im.packets";
 option java_outer_classname = "MessageProto";
@@ -10,19 +11,20 @@ option java_outer_classname = "MessageProto";
 message Message {
     int32 version = 1; //协议版本号
     Command command = 2; //命令号
+    int32 synSeq = 3; //同步序列号0MMDD99999确保唯一
 
     oneof pack {
-        AuthReq authReq = 3;
-        LoginReq loginReq = 4;
-        MessageReq messageReq = 5;
-        JoinGroupReq joinGroupReq = 6;
-        ExitGroupReq exitGroupReq = 7;
-        CancelMsgReq cancelMsgReq = 8;
-        GroupNotice groupNotice = 9;
-        UserNotice UserNotice = 10;
-        RespBody cancelMsgRes = 11;
-        AuthRes authRes = 12;
-        LoginRes loginRes = 13;
+        AuthReq authReq = 4;
+        LoginReq loginReq = 5;
+        MessageReq messageReq = 6;
+        GroupReq groupReq = 7;
+        UserReq userReq = 8;
+        CancelMsgReq cancelMsgReq = 9;
+        GroupNoticeReq groupNoticeReq = 10;
+        UserNoticeReq UserNoticeReq = 11;
+        ResBody cancelMsgRes = 12;
+        AuthRes authRes = 13;
+        LoginRes loginRes = 14;
     }
 }
 
@@ -51,22 +53,24 @@ message MessageReq {
 
     MsgType msgType = 5; //消息类型
     ChatType chatType = 6; //公聊、私聊
-    string content = 7; //消息内容
+    Content content = 7; //消息内容
     int64 sendTime = 8; //发送时间
 }
 
 //加入群组请求
-message JoinGroupReq {
+message GroupReq {
     string userId = 1; //加入群组用户
-    string groupId = 2; //加入群组编号
-    string note = 3; //备注
+    uint32 type = 2; //返回信息 0加入群组，1退出群组
+    string groupId = 3; //加入群组编号
+    string note = 4; //备注
 }
 
-//退出群组请求
-message ExitGroupReq {
-    string userId = 1; //退出群组用户
-    string groupId = 2; //退出群组编号
-    string note = 3; //备注
+//加好友请求
+message UserReq {
+    string userId = 1; //请求的用户
+    uint32 type = 2; //返回信息 0添加好友，1加入黑名单， 2取消好友， 3取消黑名单
+    string toUserId = 3; //要添加的好友,要加入黑名单的用户
+    string note = 4; //备注
 }
 
 //消息撤回请求
@@ -77,23 +81,26 @@ message CancelMsgReq {
 }
 
 //群组通知
-message GroupNotice {
-    GroupNoticeType groupNoticeType = 1; //群组通知
+message GroupNoticeReq {
+    GroupNoticeType groupNoticeType = 1; //群组通知  分享， 跟投， 红包
     string groupId = 2;   //通知的群组
-    User user = 3; //加入退出群组用户
+    User user = 3; //加入退出群组用户，分享的用户
+    string noticeContent = 4;   //json数据包
 }
 
 //用户通知
-message UserNotice {
-    UserNoticeType userNoticeType = 1; //群组通知
+message UserNoticeReq {
+    UserNoticeType userNoticeType = 1; //用户通知
     string noticeUserId = 2;   //通知用户
     User user = 3; //上线或下线的用户
+    string noticeContent = 4;   //json数据包
 }
 
 //返回包
-message RespBody {
-    uint32 code = 1; //返回信息 0成功1失败
-    string msg = 2; //消息
+message ResBody {
+    int32 synSeq = 1;
+    uint32 code = 2; //返回信息 0成功1失败
+    string msg = 3; //消息
 }
 
 //鉴权返回

@@ -1,0 +1,12 @@
+syntax = "proto3";
+package com.largehat.common.im.packets;
+option optimize_for = SPEED;
+option java_package="com.largehat.common.im.packets";
+option java_outer_classname = "ContentProto";
+
+message Content {
+    string text = 1;  //内容信息,如果是MSG_TYPE_TEXT直接读取显示， 如果是MSG_TYPE_IMG, text是地址信息
+    int32 width = 2; //宽度
+    int32 higth = 3; //高度
+}
+ 

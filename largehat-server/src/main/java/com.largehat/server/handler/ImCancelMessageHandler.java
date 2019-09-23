@@ -22,6 +22,8 @@ public class ImCancelMessageHandler extends IMHandler {
             return;
         }
 
+        //判断
+
     }
 
 }

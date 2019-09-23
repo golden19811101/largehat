@@ -19,9 +19,10 @@ public class ImExitGroupHandler extends IMHandler {
 
     @Override
     public void excute() throws Exception {
-        if (this._msg.getCommand() != Command.COMMAND_JOIN_GROUP_REQ || this._msg.getJoinGroupReq() == null) {
+        if (this._msg.getCommand() != Command.COMMAND_JOIN_GROUP_REQ || this._msg.getGroupReq() == null) {
             return;
         }
-
     }
+
+
 }

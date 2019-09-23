@@ -28,6 +28,30 @@ public enum UserNoticeType
    * <code>USER_NOTICE_TYPE_OFFLINE = 1;</code>
    */
   USER_NOTICE_TYPE_OFFLINE(1),
+  /**
+   * <pre>
+   *分享
+   * </pre>
+   *
+   * <code>USER_NOTICE_TYPE_SHARE = 2;</code>
+   */
+  USER_NOTICE_TYPE_SHARE(2),
+  /**
+   * <pre>
+   *跟投
+   * </pre>
+   *
+   * <code>USER_NOTICE_TYPE_BET = 3;</code>
+   */
+  USER_NOTICE_TYPE_BET(3),
+  /**
+   * <pre>
+   *红包
+   * </pre>
+   *
+   * <code>USER_NOTICE_TYPE_REDPACKAGE = 4;</code>
+   */
+  USER_NOTICE_TYPE_REDPACKAGE(4),
   UNRECOGNIZED(-1),
   ;
 
@@ -47,6 +71,30 @@ public enum UserNoticeType
    * <code>USER_NOTICE_TYPE_OFFLINE = 1;</code>
    */
   public static final int USER_NOTICE_TYPE_OFFLINE_VALUE = 1;
+  /**
+   * <pre>
+   *分享
+   * </pre>
+   *
+   * <code>USER_NOTICE_TYPE_SHARE = 2;</code>
+   */
+  public static final int USER_NOTICE_TYPE_SHARE_VALUE = 2;
+  /**
+   * <pre>
+   *跟投
+   * </pre>
+   *
+   * <code>USER_NOTICE_TYPE_BET = 3;</code>
+   */
+  public static final int USER_NOTICE_TYPE_BET_VALUE = 3;
+  /**
+   * <pre>
+   *红包
+   * </pre>
+   *
+   * <code>USER_NOTICE_TYPE_REDPACKAGE = 4;</code>
+   */
+  public static final int USER_NOTICE_TYPE_REDPACKAGE_VALUE = 4;
 
 
   public final int getNumber() {
@@ -69,6 +117,9 @@ public enum UserNoticeType
     switch (value) {
       case 0: return USER_NOTICE_TYPE_ONLINE;
       case 1: return USER_NOTICE_TYPE_OFFLINE;
+      case 2: return USER_NOTICE_TYPE_SHARE;
+      case 3: return USER_NOTICE_TYPE_BET;
+      case 4: return USER_NOTICE_TYPE_REDPACKAGE;
       default: return null;
     }
   }

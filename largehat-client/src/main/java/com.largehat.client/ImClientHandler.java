@@ -34,8 +34,8 @@ public class ImClientHandler extends ChannelInboundHandlerAdapter {
 	public void channelActive(ChannelHandlerContext ctx) throws Exception {
 		System.out.println("建立连接时：" + new Date());
 		executor.scheduleAtFixedRate(() -> {
-			MessageProto.AuthReq authReq = MessageProto.AuthReq.newBuilder().setOrgId(100).setAuthCode("1111111").setUserId("1000000").setPasswd("1234567").build();
-			MessageProto.Message req = MessageProto.Message.newBuilder().setVersion(1).setCommand(Command.COMMAND_AUTH_REQ).setAuthReq(authReq).build();
+			MessageProto.GroupNoticeReq groupNoticeReq = MessageProto.GroupNoticeReq.newBuilder().setGroupId("1111111").setGroupNoticeTypeValue(1).setNoticeContent("{test: 3333}").build();
+			MessageProto.Message req = MessageProto.Message.newBuilder().setVersion(1).setCommand(Command.COMMAND_GROUP_NOTIFY_REQ).setGroupNoticeReq(groupNoticeReq).build();
 
 			log.info("字节数组长度:" +  req.toByteArray().length);
 			ctx.writeAndFlush(req);
