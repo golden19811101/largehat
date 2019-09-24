@@ -33,7 +33,21 @@ public interface ImConst {
 	public static final String USER = "user";
 
 	public static final String FRIEND = "friend";
-	
+
+
+	/*****************************添加缓存标识定义Start****************************/
+
+	public static final String  USERCACHE = "user_user";
+
+	//public static final String
+
+
+
+
+
+
+	/**************************添加缓存标识定义End*******************************/
+
 	public static final String TERMINAL = "terminal";
 	
 	public static final String INFO = "info";

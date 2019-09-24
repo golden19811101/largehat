@@ -100,7 +100,7 @@ public class ImClientHandler extends ChannelInboundHandlerAdapter {
 //			BaseReqProto.AuthReq authReq = BaseReqProto.AuthReq.newBuilder().setOrgid(100).setAuthcode("1111111").setUserid("1000000").setPasswd("1234567").build();
 //			BaseReqProto.BaseReq req = BaseReqProto.BaseReq.newBuilder().setCommand(Command.COMMAND_AUTH_REQ).setAuthReq(authReq).build();
 //			ctx.writeAndFlush(req);
-			System.out.println("成功发送给服务端!");
+			log.info("收到服务端的消息:" + msg.toString());
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

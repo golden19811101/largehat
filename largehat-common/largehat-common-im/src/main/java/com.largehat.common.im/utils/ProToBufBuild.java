@@ -50,7 +50,7 @@ public class ProToBufBuild {
      * @param msg
      * @return
      */
-    public static final MessageProto.ResBody buidRespBody(Integer code, String msg) {
+    public static final MessageProto.ResBody buidResBody(Integer code, String msg) {
         return MessageProto.ResBody.newBuilder().setCode(code).setMsg(msg).build();
     }
 

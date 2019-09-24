@@ -4,6 +4,7 @@ import com.largehat.common.im.entity.session.IoSession;
 import com.largehat.common.im.packets.MessageProto;
 import com.largehat.common.im.packets.command.Command;
 import com.largehat.common.im.service.handler.IMHandler;
+import com.largehat.common.im.utils.ProToBufBuild;
 import io.netty.channel.ChannelHandlerContext;
 
 
@@ -23,7 +24,8 @@ public class ImCancelMessageHandler extends IMHandler {
         }
 
         //判断
-
+        MessageProto.ResBody body = ProToBufBuild.buidResBody(0, "接受到你的消息了");
+        this._ctx.channel().writeAndFlush(MessageProto.Message.newBuilder().setCommand(this._msg.getCommand()).setSynSeq(this._msg.getSynSeq()).setVersion(1).setCancelMsgRes(body));
     }
 
 }

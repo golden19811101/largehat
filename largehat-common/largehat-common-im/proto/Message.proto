@@ -22,7 +22,7 @@ message Message {
         CancelMsgReq cancelMsgReq = 9;
         GroupNoticeReq groupNoticeReq = 10;
         UserNoticeReq UserNoticeReq = 11;
-        ResBody cancelMsgRes = 12;
+        BodyRes  bodyRes  = 12;
         AuthRes authRes = 13;
         LoginRes loginRes = 14;
     }
@@ -97,10 +97,9 @@ message UserNoticeReq {
 }
 
 //返回包
-message ResBody {
-    int32 synSeq = 1;
-    uint32 code = 2; //返回信息 0成功1失败
-    string msg = 3; //消息
+message BodyRes {
+    uint32 code = 1; //返回信息 0成功1失败
+    string msg = 2; //消息
 }
 
 //鉴权返回
