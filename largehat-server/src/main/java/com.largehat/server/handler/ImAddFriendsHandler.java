@@ -26,9 +26,8 @@ public class ImAddFriendsHandler extends IMHandler {
             return;
         }
 
-
-        MessageProto.ResBody body = ProToBufBuild.buidResBody(0, "接受到你的消息了");
-        this._ctx.channel().writeAndFlush(MessageProto.Message.newBuilder().setCommand(this._msg.getCommand()).setSynSeq(this._msg.getSynSeq()).setVersion(1).setCancelMsgRes(body));
+        MessageProto.BodyRes body = ProToBufBuild.buidBodyRes(0, "接受到你的消息了");
+        this._ctx.channel().writeAndFlush(MessageProto.Message.newBuilder().setCommand(this._msg.getCommand()).setSynSeq(this._msg.getSynSeq()).setVersion(1).setBodyRes(body));
     }
 
 }

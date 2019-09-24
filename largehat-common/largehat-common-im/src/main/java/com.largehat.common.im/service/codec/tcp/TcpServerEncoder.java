@@ -2,8 +2,8 @@ package com.largehat.common.im.service.codec.tcp;
 
 
 import com.google.protobuf.Message;
+import com.largehat.common.im.constant.Protocol;
 import com.largehat.common.im.entity.ImPacket;
-import com.largehat.common.im.entity.Protocol;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;

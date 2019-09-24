@@ -1,4 +1,4 @@
-package com.largehat.common.im.entity;
+package com.largehat.common.im.constant;
 
 /**
  * 版本: [1.0]

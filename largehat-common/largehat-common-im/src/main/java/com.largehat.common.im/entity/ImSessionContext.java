@@ -5,7 +5,7 @@ import com.largehat.common.im.packets.Client;
 
 /**
  */
-public class ImSessionContext extends SessionContext {
+public class ImSessionContext {
     /**
      * 消息请求频率控制器
      */

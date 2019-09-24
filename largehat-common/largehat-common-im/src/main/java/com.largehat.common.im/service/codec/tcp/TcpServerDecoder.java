@@ -1,9 +1,9 @@
 package com.largehat.common.im.service.codec.tcp;
 
 
+import com.largehat.common.im.constant.Protocol;
 import com.largehat.common.im.entity.ImPacket;
 import com.largehat.common.im.entity.ImStatus;
-import com.largehat.common.im.entity.Protocol;
 import com.largehat.common.im.packets.command.Command;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;

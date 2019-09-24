@@ -1,6 +1,8 @@
 package com.largehat.common.im.entity;
 
 
+import com.largehat.common.im.constant.Protocol;
+import com.largehat.common.im.constant.Status;
 import com.largehat.common.im.packets.command.Command;
 
 import java.io.Serializable;

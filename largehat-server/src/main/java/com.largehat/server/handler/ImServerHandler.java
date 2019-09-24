@@ -1,8 +1,8 @@
 package com.largehat.server.handler;
 
 
+import com.largehat.common.im.constant.Protocol;
 import com.largehat.common.im.entity.ImStatus;
-import com.largehat.common.im.entity.Protocol;
 import com.largehat.common.im.entity.session.IoSession;
 import com.largehat.common.im.exception.ImException;
 import com.largehat.common.im.packets.MessageProto;
@@ -10,6 +10,7 @@ import com.largehat.common.im.utils.ChannelUtils;
 import com.largehat.server.base.SpringContext;
 import com.largehat.server.dispatch.CmdTask;
 import io.netty.channel.Channel;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
@@ -18,6 +19,7 @@ import java.io.IOException;
 
 
 @Slf4j
+@ChannelHandler.Sharable
 public class ImServerHandler extends SimpleChannelInboundHandler<MessageProto.Message> {
 
     private static ImServerHandler INSTANCE = null;

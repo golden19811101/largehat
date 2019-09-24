@@ -2,9 +2,9 @@ package com.largehat.common.im.service.codec.tcp;
 
 
 
+import com.largehat.common.im.constant.Protocol;
 import com.largehat.common.im.entity.ImPacket;
 import com.largehat.common.im.entity.ImSessionContext;
-import com.largehat.common.im.entity.Protocol;
 import com.largehat.common.im.protocol.AbProtocol;
 import com.largehat.common.im.protocol.IConvertProtocolPacket;
 import com.largehat.common.im.utils.ImUtils;

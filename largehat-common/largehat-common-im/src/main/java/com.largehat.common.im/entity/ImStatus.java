@@ -1,11 +1,13 @@
 package com.largehat.common.im.entity;
 
+import com.largehat.common.im.constant.Status;
+
 /**
  * 版本: [1.0]
  * 功能说明: 
  * 作者: Lion
  */
-public enum ImStatus implements Status{
+public enum ImStatus implements Status {
 	
 	C10000(10000,"ok","发送成功"),
 	C10001(10001,"offline","用户不在线"),

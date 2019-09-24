@@ -40,11 +40,12 @@ public class ImServer {
             .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 2000)
             .handler(new LoggingHandler(LogLevel.TRACE));
             b.childHandler(filter);
+            //Channel ch = b.bind(configuration.getBindIp(), configuration.getBindPort()).addListener(new ChannelFutureListener() {
             Channel ch = b.bind(configuration.getBindPort()).addListener(new ChannelFutureListener() {
                         @Override
                         public void operationComplete(ChannelFuture channelFuture) throws Exception {
                             if (channelFuture.isSuccess()) {
-                                HandlerManager.initHandlers();
+                                HandlerManager.getInstance().initHandlers();
                             } else {
                                 log.info("处理器启动失败!");
                             }

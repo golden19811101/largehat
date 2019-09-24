@@ -18,8 +18,13 @@ spring:
     database: 1
     host: localhost
     port: 6379
-    password:      # 密码（默认为空）
-    timeout: 6000ms  # 连接超时时长（毫秒）
+    password:        # 密码（默认为空）
+    timeout: 6000   # 连接超时时长（毫秒）
+    maxActive: 100   # 最大激活
+    maxWait: 1000
+    maxIdle: 100
+    minIdle: 100
+
 
   #配置 Jpa
   jpa:
@@ -31,7 +36,7 @@ spring:
 #定义服务器启动信息
 im:
   config:
-    bindIp: 127.0.0.1
+    bindIp: 172.16.120.120
     bindPort: 11111
     heartbeatTimeout: 60
     isStore: true

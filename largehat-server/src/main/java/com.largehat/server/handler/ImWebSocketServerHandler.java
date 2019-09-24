@@ -1,7 +1,7 @@
 package com.largehat.server.handler;
 
+import com.largehat.common.im.constant.Protocol;
 import com.largehat.common.im.entity.ImStatus;
-import com.largehat.common.im.entity.Protocol;
 import com.largehat.common.im.entity.session.IoSession;
 import com.largehat.common.im.exception.ImException;
 import com.largehat.common.im.packets.MessageProto;

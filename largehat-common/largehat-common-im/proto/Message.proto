@@ -22,7 +22,7 @@ message Message {
         CancelMsgReq cancelMsgReq = 9;
         GroupNoticeReq groupNoticeReq = 10;
         UserNoticeReq UserNoticeReq = 11;
-        BodyRes  bodyRes  = 12;
+        BodyRes bodyRes  = 12;
         AuthRes authRes = 13;
         LoginRes loginRes = 14;
     }

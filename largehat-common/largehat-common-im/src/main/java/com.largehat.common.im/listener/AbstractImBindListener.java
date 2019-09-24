@@ -2,7 +2,8 @@ package com.largehat.common.im.listener;
 
 
 import com.largehat.common.im.config.ImConfig;
-import com.largehat.common.im.entity.ImConst;
+import com.largehat.common.im.constant.ImConst;
+
 
 /**
  * @author Lion
