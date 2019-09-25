@@ -18,6 +18,8 @@
         <module>largehat-common</module>
         <!--后台模块-->
         <module>largehat-admin</module>
+        <!--网关模块-->
+        <module>largehat-gate</module>
         <!--IM服务器模块-->
         <module>largehat-server</module>
         <!--客户端模拟测试-->

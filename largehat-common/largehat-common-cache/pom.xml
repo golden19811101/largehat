@@ -9,12 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>largehat-common</artifactId>
+    <artifactId>largehat-common-cache</artifactId>
 
-    <modules>
-        <module>largehat-common-core</module>
-        <module>largehat-common-im</module>
-        <module>largehat-common-cache</module>
-        <module>largehat-common-executor</module>
-    </modules>
+
+
 </project>

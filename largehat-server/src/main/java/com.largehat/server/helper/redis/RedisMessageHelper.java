@@ -1,9 +1,9 @@
 package com.largehat.server.helper.redis;
 
 import com.alibaba.fastjson.JSONObject;
-import com.largehat.common.im.cache.redis.JedisTemplate;
-import com.largehat.common.im.cache.redis.RedisCache;
-import com.largehat.common.im.cache.redis.RedisCacheManager;
+import com.largehat.common.cache.redis.JedisTemplate;
+import com.largehat.common.cache.redis.RedisCache;
+import com.largehat.common.cache.redis.RedisCacheManager;
 import com.largehat.common.im.config.Config;
 import com.largehat.common.im.entity.message.AbstractMessageHelper;
 import com.largehat.common.im.listener.ImBindListener;

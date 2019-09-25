@@ -9,7 +9,7 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>largehat-server</artifactId>
+    <artifactId>largehat-gate</artifactId>
     <packaging>jar</packaging>
 
     <properties>
@@ -22,7 +22,7 @@
     <dependencies>
         <dependency>
             <groupId>com.largehat</groupId>
-            <artifactId>largehat-common-cache</artifactId>
+            <artifactId>largehat-common-core</artifactId>
             <version>1.0.0</version>
         </dependency>
         <dependency>

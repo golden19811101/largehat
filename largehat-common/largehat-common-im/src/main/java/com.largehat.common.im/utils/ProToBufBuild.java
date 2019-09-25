@@ -94,7 +94,8 @@ public class ProToBufBuild {
      * @return
      */
     public static final MessageProto.LoginReq buidLoginReq(String tonken, String userId, Integer deviceType, String deviceId) {
-        return  MessageProto.LoginReq.newBuilder().setTonken(tonken).setUserId(userId).setDeviceTypeValue(deviceType).setDeviceId(deviceId).build();
+        //return  MessageProto.LoginReq.newBuilder().setTonken(tonken).setUserId(userId).setDeviceTypeValue(deviceType).setDeviceId(deviceId).build();
+        return null;
     }
 
     /**

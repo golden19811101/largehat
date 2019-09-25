@@ -25,7 +25,6 @@ spring:
     maxIdle: 100
     minIdle: 100
 
-
   #配置 Jpa
   jpa:
     properties:
