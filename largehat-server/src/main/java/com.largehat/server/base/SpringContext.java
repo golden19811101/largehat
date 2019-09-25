@@ -2,7 +2,7 @@ package com.largehat.server.base;
 
 
 import com.largehat.server.dispatch.MessageDispatcher;
-import javafx.event.EventDispatcher;
+import com.largehat.server.listener.EventDispatcher;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -124,14 +124,14 @@ public class SpringContext implements ApplicationContextAware {
 		return messageDispatcher;
 	}
 
-//	@Resource
-//	public void setEventDispatcher(EventDispatcher eventDispatcher) {
-//		SpringContext.eventDispatcher = eventDispatcher;
-//	}
-//
-//	public final static EventDispatcher getEventDispatcher() {
-//		return eventDispatcher;
-//	}
+	@Resource
+	public void setEventDispatcher(EventDispatcher eventDispatcher) {
+		SpringContext.eventDispatcher = eventDispatcher;
+	}
+
+	public final static EventDispatcher getEventDispatcher() {
+		return eventDispatcher;
+	}
 
 
 //	@Resource

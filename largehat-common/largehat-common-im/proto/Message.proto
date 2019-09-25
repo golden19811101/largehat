@@ -32,16 +32,19 @@ message Message {
 message AuthReq {
     string authCode = 1; //鉴权码
     string userId = 2; //用户ID
-    string passwd = 3; //用户密码
-    int32 orgId = 4; //组织机构代码
+    string userName = 3; //用户名
+    string passwd = 4; //用户密码
+    int32 orgId = 5; //组织机构代码
 }
 
 //登录请求
 message LoginReq {
-    string tonken = 1; //令牌
+    string orgId = 1; //组织机构编码
     string userId = 2; //用户ID
-    DeviceType deviceType = 3; //设备类型
-    string deviceId = 4; //设备唯一标志
+    string userName = 3; //用户名
+    string password = 4; //密码
+    DeviceType deviceType = 5; //设备类型
+    string deviceId = 6; //设备唯一标志
 }
 
 //消息请求
@@ -107,6 +110,7 @@ message AuthRes {
     uint32 code = 1; //返回信息 0成功1失败
     string msg = 2; //消息
     string tonken = 3; //令牌
+    User user = 4; //用户信息
 }
 
 //登录返回

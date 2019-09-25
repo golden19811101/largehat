@@ -5,7 +5,7 @@ package com.largehat.common.im.config;
 /**
  * @author Lion
  */
-public class ImConfig {
+public class Config {
 	/**
 	 * IP地址
 	 */
@@ -39,6 +39,6 @@ public class ImConfig {
 		 * @return
 		 * @throws Exception
 		 */
-        ImConfig build() throws Exception;
+		Config build() throws Exception;
     }
 }

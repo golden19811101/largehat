@@ -29,7 +29,7 @@ public class ImServerFilter extends ChannelInitializer<Channel> {
                 .addLast(new ProtobufEncoder())
 
                  //读超时时间、写超时时间、所有类型的超时时间、时间格式
-                .addLast(new IdleStateHandler(60*5, 0, 0, TimeUnit.SECONDS))
+                .addLast(new IdleStateHandler(60*5, 60*5, 0, TimeUnit.SECONDS))
                 .addLast(new ImHeartBeatServerHandler())
                 .addLast(ImServerHandler.getInstance());
 

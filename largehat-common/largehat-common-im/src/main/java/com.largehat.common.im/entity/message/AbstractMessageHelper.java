@@ -1,7 +1,7 @@
 package com.largehat.common.im.entity.message;
 
 
-import com.largehat.common.im.config.ImConfig;
+import com.largehat.common.im.config.Config;
 import com.largehat.common.im.constant.ImConst;
 
 
@@ -11,13 +11,13 @@ import com.largehat.common.im.constant.ImConst;
  */
 public abstract class AbstractMessageHelper implements MessageHelper, ImConst {
 
-	protected ImConfig imConfig;
+	protected Config imConfig;
 
-	public ImConfig getImConfig() {
+	public Config getImConfig() {
 		return imConfig;
 	}
 
-	public void setImConfig(ImConfig imConfig) {
+	public void setImConfig(Config imConfig) {
 		this.imConfig = imConfig;
 	}
 }

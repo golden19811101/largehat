@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.largehat.common.im.cache.redis.JedisTemplate;
 import com.largehat.common.im.cache.redis.RedisCache;
 import com.largehat.common.im.cache.redis.RedisCacheManager;
-import com.largehat.common.im.config.ImConfig;
+import com.largehat.common.im.config.Config;
 import com.largehat.common.im.entity.message.AbstractMessageHelper;
 import com.largehat.common.im.listener.ImBindListener;
 import com.largehat.common.im.packets.ChatBody;
@@ -47,7 +47,7 @@ public class RedisMessageHelper extends AbstractMessageHelper {
         this(null);
     }
 
-    public RedisMessageHelper(ImConfig imConfig) {
+    public RedisMessageHelper(Config imConfig) {
         this.groupCache = RedisCacheManager.getCache(GROUP);
         this.pushCache = RedisCacheManager.getCache(PUSH);
         this.storeCache = RedisCacheManager.getCache(STORE);

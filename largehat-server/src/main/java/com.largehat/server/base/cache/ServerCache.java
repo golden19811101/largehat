@@ -16,7 +16,7 @@ import java.util.List;
 //@Component
 public class ServerCache {
 
-    @Autowired
+    //@Autowired
     private RedisUtil redisUtil;
 
     /**

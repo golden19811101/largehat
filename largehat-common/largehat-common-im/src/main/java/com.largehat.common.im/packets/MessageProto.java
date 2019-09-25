@@ -3007,10 +3007,28 @@ public final class MessageProto {
 
     /**
      * <pre>
+     *用户名
+     * </pre>
+     *
+     * <code>optional string userName = 3;</code>
+     */
+    String getUserName();
+    /**
+     * <pre>
+     *用户名
+     * </pre>
+     *
+     * <code>optional string userName = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getUserNameBytes();
+
+    /**
+     * <pre>
      *用户密码
      * </pre>
      *
-     * <code>optional string passwd = 3;</code>
+     * <code>optional string passwd = 4;</code>
      */
     String getPasswd();
     /**
@@ -3018,7 +3036,7 @@ public final class MessageProto {
      *用户密码
      * </pre>
      *
-     * <code>optional string passwd = 3;</code>
+     * <code>optional string passwd = 4;</code>
      */
     com.google.protobuf.ByteString
         getPasswdBytes();
@@ -3028,7 +3046,7 @@ public final class MessageProto {
      *组织机构代码
      * </pre>
      *
-     * <code>optional int32 orgId = 4;</code>
+     * <code>optional int32 orgId = 5;</code>
      */
     int getOrgId();
   }
@@ -3050,6 +3068,7 @@ public final class MessageProto {
     private AuthReq() {
       authCode_ = "";
       userId_ = "";
+      userName_ = "";
       passwd_ = "";
       orgId_ = 0;
     }
@@ -3094,10 +3113,16 @@ public final class MessageProto {
             case 26: {
               String s = input.readStringRequireUtf8();
 
+              userName_ = s;
+              break;
+            }
+            case 34: {
+              String s = input.readStringRequireUtf8();
+
               passwd_ = s;
               break;
             }
-            case 32: {
+            case 40: {
 
               orgId_ = input.readInt32();
               break;
@@ -3209,14 +3234,56 @@ public final class MessageProto {
       }
     }
 
-    public static final int PASSWD_FIELD_NUMBER = 3;
+    public static final int USERNAME_FIELD_NUMBER = 3;
+    private volatile Object userName_;
+    /**
+     * <pre>
+     *用户名
+     * </pre>
+     *
+     * <code>optional string userName = 3;</code>
+     */
+    public String getUserName() {
+      Object ref = userName_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        userName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *用户名
+     * </pre>
+     *
+     * <code>optional string userName = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUserNameBytes() {
+      Object ref = userName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        userName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PASSWD_FIELD_NUMBER = 4;
     private volatile Object passwd_;
     /**
      * <pre>
      *用户密码
      * </pre>
      *
-     * <code>optional string passwd = 3;</code>
+     * <code>optional string passwd = 4;</code>
      */
     public String getPasswd() {
       Object ref = passwd_;
@@ -3235,7 +3302,7 @@ public final class MessageProto {
      *用户密码
      * </pre>
      *
-     * <code>optional string passwd = 3;</code>
+     * <code>optional string passwd = 4;</code>
      */
     public com.google.protobuf.ByteString
         getPasswdBytes() {
@@ -3251,14 +3318,14 @@ public final class MessageProto {
       }
     }
 
-    public static final int ORGID_FIELD_NUMBER = 4;
+    public static final int ORGID_FIELD_NUMBER = 5;
     private int orgId_;
     /**
      * <pre>
      *组织机构代码
      * </pre>
      *
-     * <code>optional int32 orgId = 4;</code>
+     * <code>optional int32 orgId = 5;</code>
      */
     public int getOrgId() {
       return orgId_;
@@ -3282,11 +3349,14 @@ public final class MessageProto {
       if (!getUserIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, userId_);
       }
+      if (!getUserNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, userName_);
+      }
       if (!getPasswdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, passwd_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, passwd_);
       }
       if (orgId_ != 0) {
-        output.writeInt32(4, orgId_);
+        output.writeInt32(5, orgId_);
       }
     }
 
@@ -3301,12 +3371,15 @@ public final class MessageProto {
       if (!getUserIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, userId_);
       }
+      if (!getUserNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, userName_);
+      }
       if (!getPasswdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, passwd_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, passwd_);
       }
       if (orgId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, orgId_);
+          .computeInt32Size(5, orgId_);
       }
       memoizedSize = size;
       return size;
@@ -3328,6 +3401,8 @@ public final class MessageProto {
           .equals(other.getAuthCode());
       result = result && getUserId()
           .equals(other.getUserId());
+      result = result && getUserName()
+          .equals(other.getUserName());
       result = result && getPasswd()
           .equals(other.getPasswd());
       result = result && (getOrgId()
@@ -3346,6 +3421,8 @@ public final class MessageProto {
       hash = (53 * hash) + getAuthCode().hashCode();
       hash = (37 * hash) + USERID_FIELD_NUMBER;
       hash = (53 * hash) + getUserId().hashCode();
+      hash = (37 * hash) + USERNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getUserName().hashCode();
       hash = (37 * hash) + PASSWD_FIELD_NUMBER;
       hash = (53 * hash) + getPasswd().hashCode();
       hash = (37 * hash) + ORGID_FIELD_NUMBER;
@@ -3476,6 +3553,8 @@ public final class MessageProto {
 
         userId_ = "";
 
+        userName_ = "";
+
         passwd_ = "";
 
         orgId_ = 0;
@@ -3504,6 +3583,7 @@ public final class MessageProto {
         AuthReq result = new AuthReq(this);
         result.authCode_ = authCode_;
         result.userId_ = userId_;
+        result.userName_ = userName_;
         result.passwd_ = passwd_;
         result.orgId_ = orgId_;
         onBuilt();
@@ -3553,6 +3633,10 @@ public final class MessageProto {
         }
         if (!other.getUserId().isEmpty()) {
           userId_ = other.userId_;
+          onChanged();
+        }
+        if (!other.getUserName().isEmpty()) {
+          userName_ = other.userName_;
           onChanged();
         }
         if (!other.getPasswd().isEmpty()) {
@@ -3766,13 +3850,102 @@ public final class MessageProto {
         return this;
       }
 
+      private Object userName_ = "";
+      /**
+       * <pre>
+       *用户名
+       * </pre>
+       *
+       * <code>optional string userName = 3;</code>
+       */
+      public String getUserName() {
+        Object ref = userName_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          userName_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *用户名
+       * </pre>
+       *
+       * <code>optional string userName = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUserNameBytes() {
+        Object ref = userName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          userName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *用户名
+       * </pre>
+       *
+       * <code>optional string userName = 3;</code>
+       */
+      public Builder setUserName(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        userName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *用户名
+       * </pre>
+       *
+       * <code>optional string userName = 3;</code>
+       */
+      public Builder clearUserName() {
+        
+        userName_ = getDefaultInstance().getUserName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *用户名
+       * </pre>
+       *
+       * <code>optional string userName = 3;</code>
+       */
+      public Builder setUserNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        userName_ = value;
+        onChanged();
+        return this;
+      }
+
       private Object passwd_ = "";
       /**
        * <pre>
        *用户密码
        * </pre>
        *
-       * <code>optional string passwd = 3;</code>
+       * <code>optional string passwd = 4;</code>
        */
       public String getPasswd() {
         Object ref = passwd_;
@@ -3791,7 +3964,7 @@ public final class MessageProto {
        *用户密码
        * </pre>
        *
-       * <code>optional string passwd = 3;</code>
+       * <code>optional string passwd = 4;</code>
        */
       public com.google.protobuf.ByteString
           getPasswdBytes() {
@@ -3811,7 +3984,7 @@ public final class MessageProto {
        *用户密码
        * </pre>
        *
-       * <code>optional string passwd = 3;</code>
+       * <code>optional string passwd = 4;</code>
        */
       public Builder setPasswd(
           String value) {
@@ -3828,7 +4001,7 @@ public final class MessageProto {
        *用户密码
        * </pre>
        *
-       * <code>optional string passwd = 3;</code>
+       * <code>optional string passwd = 4;</code>
        */
       public Builder clearPasswd() {
         
@@ -3841,7 +4014,7 @@ public final class MessageProto {
        *用户密码
        * </pre>
        *
-       * <code>optional string passwd = 3;</code>
+       * <code>optional string passwd = 4;</code>
        */
       public Builder setPasswdBytes(
           com.google.protobuf.ByteString value) {
@@ -3861,7 +4034,7 @@ public final class MessageProto {
        *组织机构代码
        * </pre>
        *
-       * <code>optional int32 orgId = 4;</code>
+       * <code>optional int32 orgId = 5;</code>
        */
       public int getOrgId() {
         return orgId_;
@@ -3871,7 +4044,7 @@ public final class MessageProto {
        *组织机构代码
        * </pre>
        *
-       * <code>optional int32 orgId = 4;</code>
+       * <code>optional int32 orgId = 5;</code>
        */
       public Builder setOrgId(int value) {
         
@@ -3884,7 +4057,7 @@ public final class MessageProto {
        *组织机构代码
        * </pre>
        *
-       * <code>optional int32 orgId = 4;</code>
+       * <code>optional int32 orgId = 5;</code>
        */
       public Builder clearOrgId() {
         
@@ -3947,21 +4120,21 @@ public final class MessageProto {
 
     /**
      * <pre>
-     *令牌
+     *组织机构编码
      * </pre>
      *
-     * <code>optional string tonken = 1;</code>
+     * <code>optional string orgId = 1;</code>
      */
-    String getTonken();
+    String getOrgId();
     /**
      * <pre>
-     *令牌
+     *组织机构编码
      * </pre>
      *
-     * <code>optional string tonken = 1;</code>
+     * <code>optional string orgId = 1;</code>
      */
     com.google.protobuf.ByteString
-        getTonkenBytes();
+        getOrgIdBytes();
 
     /**
      * <pre>
@@ -3983,10 +4156,46 @@ public final class MessageProto {
 
     /**
      * <pre>
+     *用户名
+     * </pre>
+     *
+     * <code>optional string userName = 3;</code>
+     */
+    String getUserName();
+    /**
+     * <pre>
+     *用户名
+     * </pre>
+     *
+     * <code>optional string userName = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getUserNameBytes();
+
+    /**
+     * <pre>
+     *密码
+     * </pre>
+     *
+     * <code>optional string password = 4;</code>
+     */
+    String getPassword();
+    /**
+     * <pre>
+     *密码
+     * </pre>
+     *
+     * <code>optional string password = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getPasswordBytes();
+
+    /**
+     * <pre>
      *设备类型
      * </pre>
      *
-     * <code>optional .DeviceType deviceType = 3;</code>
+     * <code>optional .DeviceType deviceType = 5;</code>
      */
     int getDeviceTypeValue();
     /**
@@ -3994,7 +4203,7 @@ public final class MessageProto {
      *设备类型
      * </pre>
      *
-     * <code>optional .DeviceType deviceType = 3;</code>
+     * <code>optional .DeviceType deviceType = 5;</code>
      */
     DeviceType getDeviceType();
 
@@ -4003,7 +4212,7 @@ public final class MessageProto {
      *设备唯一标志
      * </pre>
      *
-     * <code>optional string deviceId = 4;</code>
+     * <code>optional string deviceId = 6;</code>
      */
     String getDeviceId();
     /**
@@ -4011,7 +4220,7 @@ public final class MessageProto {
      *设备唯一标志
      * </pre>
      *
-     * <code>optional string deviceId = 4;</code>
+     * <code>optional string deviceId = 6;</code>
      */
     com.google.protobuf.ByteString
         getDeviceIdBytes();
@@ -4032,8 +4241,10 @@ public final class MessageProto {
       super(builder);
     }
     private LoginReq() {
-      tonken_ = "";
+      orgId_ = "";
       userId_ = "";
+      userName_ = "";
+      password_ = "";
       deviceType_ = 0;
       deviceId_ = "";
     }
@@ -4066,7 +4277,7 @@ public final class MessageProto {
             case 10: {
               String s = input.readStringRequireUtf8();
 
-              tonken_ = s;
+              orgId_ = s;
               break;
             }
             case 18: {
@@ -4075,13 +4286,25 @@ public final class MessageProto {
               userId_ = s;
               break;
             }
-            case 24: {
+            case 26: {
+              String s = input.readStringRequireUtf8();
+
+              userName_ = s;
+              break;
+            }
+            case 34: {
+              String s = input.readStringRequireUtf8();
+
+              password_ = s;
+              break;
+            }
+            case 40: {
               int rawValue = input.readEnum();
 
               deviceType_ = rawValue;
               break;
             }
-            case 34: {
+            case 50: {
               String s = input.readStringRequireUtf8();
 
               deviceId_ = s;
@@ -4110,42 +4333,42 @@ public final class MessageProto {
               LoginReq.class, Builder.class);
     }
 
-    public static final int TONKEN_FIELD_NUMBER = 1;
-    private volatile Object tonken_;
+    public static final int ORGID_FIELD_NUMBER = 1;
+    private volatile Object orgId_;
     /**
      * <pre>
-     *令牌
+     *组织机构编码
      * </pre>
      *
-     * <code>optional string tonken = 1;</code>
+     * <code>optional string orgId = 1;</code>
      */
-    public String getTonken() {
-      Object ref = tonken_;
+    public String getOrgId() {
+      Object ref = orgId_;
       if (ref instanceof String) {
         return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         String s = bs.toStringUtf8();
-        tonken_ = s;
+        orgId_ = s;
         return s;
       }
     }
     /**
      * <pre>
-     *令牌
+     *组织机构编码
      * </pre>
      *
-     * <code>optional string tonken = 1;</code>
+     * <code>optional string orgId = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getTonkenBytes() {
-      Object ref = tonken_;
+        getOrgIdBytes() {
+      Object ref = orgId_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
-        tonken_ = b;
+        orgId_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -4194,14 +4417,98 @@ public final class MessageProto {
       }
     }
 
-    public static final int DEVICETYPE_FIELD_NUMBER = 3;
+    public static final int USERNAME_FIELD_NUMBER = 3;
+    private volatile Object userName_;
+    /**
+     * <pre>
+     *用户名
+     * </pre>
+     *
+     * <code>optional string userName = 3;</code>
+     */
+    public String getUserName() {
+      Object ref = userName_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        userName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *用户名
+     * </pre>
+     *
+     * <code>optional string userName = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUserNameBytes() {
+      Object ref = userName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        userName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PASSWORD_FIELD_NUMBER = 4;
+    private volatile Object password_;
+    /**
+     * <pre>
+     *密码
+     * </pre>
+     *
+     * <code>optional string password = 4;</code>
+     */
+    public String getPassword() {
+      Object ref = password_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        password_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *密码
+     * </pre>
+     *
+     * <code>optional string password = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPasswordBytes() {
+      Object ref = password_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        password_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DEVICETYPE_FIELD_NUMBER = 5;
     private int deviceType_;
     /**
      * <pre>
      *设备类型
      * </pre>
      *
-     * <code>optional .DeviceType deviceType = 3;</code>
+     * <code>optional .DeviceType deviceType = 5;</code>
      */
     public int getDeviceTypeValue() {
       return deviceType_;
@@ -4211,21 +4518,21 @@ public final class MessageProto {
      *设备类型
      * </pre>
      *
-     * <code>optional .DeviceType deviceType = 3;</code>
+     * <code>optional .DeviceType deviceType = 5;</code>
      */
     public DeviceType getDeviceType() {
       DeviceType result = DeviceType.valueOf(deviceType_);
       return result == null ? DeviceType.UNRECOGNIZED : result;
     }
 
-    public static final int DEVICEID_FIELD_NUMBER = 4;
+    public static final int DEVICEID_FIELD_NUMBER = 6;
     private volatile Object deviceId_;
     /**
      * <pre>
      *设备唯一标志
      * </pre>
      *
-     * <code>optional string deviceId = 4;</code>
+     * <code>optional string deviceId = 6;</code>
      */
     public String getDeviceId() {
       Object ref = deviceId_;
@@ -4244,7 +4551,7 @@ public final class MessageProto {
      *设备唯一标志
      * </pre>
      *
-     * <code>optional string deviceId = 4;</code>
+     * <code>optional string deviceId = 6;</code>
      */
     public com.google.protobuf.ByteString
         getDeviceIdBytes() {
@@ -4272,17 +4579,23 @@ public final class MessageProto {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getTonkenBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, tonken_);
+      if (!getOrgIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, orgId_);
       }
       if (!getUserIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, userId_);
       }
+      if (!getUserNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, userName_);
+      }
+      if (!getPasswordBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, password_);
+      }
       if (deviceType_ != DeviceType.DEVICE_TYPE_UNKNOW.getNumber()) {
-        output.writeEnum(3, deviceType_);
+        output.writeEnum(5, deviceType_);
       }
       if (!getDeviceIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, deviceId_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, deviceId_);
       }
     }
 
@@ -4291,18 +4604,24 @@ public final class MessageProto {
       if (size != -1) return size;
 
       size = 0;
-      if (!getTonkenBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, tonken_);
+      if (!getOrgIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, orgId_);
       }
       if (!getUserIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, userId_);
       }
+      if (!getUserNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, userName_);
+      }
+      if (!getPasswordBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, password_);
+      }
       if (deviceType_ != DeviceType.DEVICE_TYPE_UNKNOW.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(3, deviceType_);
+          .computeEnumSize(5, deviceType_);
       }
       if (!getDeviceIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, deviceId_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, deviceId_);
       }
       memoizedSize = size;
       return size;
@@ -4320,10 +4639,14 @@ public final class MessageProto {
       LoginReq other = (LoginReq) obj;
 
       boolean result = true;
-      result = result && getTonken()
-          .equals(other.getTonken());
+      result = result && getOrgId()
+          .equals(other.getOrgId());
       result = result && getUserId()
           .equals(other.getUserId());
+      result = result && getUserName()
+          .equals(other.getUserName());
+      result = result && getPassword()
+          .equals(other.getPassword());
       result = result && deviceType_ == other.deviceType_;
       result = result && getDeviceId()
           .equals(other.getDeviceId());
@@ -4337,10 +4660,14 @@ public final class MessageProto {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptorForType().hashCode();
-      hash = (37 * hash) + TONKEN_FIELD_NUMBER;
-      hash = (53 * hash) + getTonken().hashCode();
+      hash = (37 * hash) + ORGID_FIELD_NUMBER;
+      hash = (53 * hash) + getOrgId().hashCode();
       hash = (37 * hash) + USERID_FIELD_NUMBER;
       hash = (53 * hash) + getUserId().hashCode();
+      hash = (37 * hash) + USERNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getUserName().hashCode();
+      hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
+      hash = (53 * hash) + getPassword().hashCode();
       hash = (37 * hash) + DEVICETYPE_FIELD_NUMBER;
       hash = (53 * hash) + deviceType_;
       hash = (37 * hash) + DEVICEID_FIELD_NUMBER;
@@ -4467,9 +4794,13 @@ public final class MessageProto {
       }
       public Builder clear() {
         super.clear();
-        tonken_ = "";
+        orgId_ = "";
 
         userId_ = "";
+
+        userName_ = "";
+
+        password_ = "";
 
         deviceType_ = 0;
 
@@ -4497,8 +4828,10 @@ public final class MessageProto {
 
       public LoginReq buildPartial() {
         LoginReq result = new LoginReq(this);
-        result.tonken_ = tonken_;
+        result.orgId_ = orgId_;
         result.userId_ = userId_;
+        result.userName_ = userName_;
+        result.password_ = password_;
         result.deviceType_ = deviceType_;
         result.deviceId_ = deviceId_;
         onBuilt();
@@ -4542,12 +4875,20 @@ public final class MessageProto {
 
       public Builder mergeFrom(LoginReq other) {
         if (other == LoginReq.getDefaultInstance()) return this;
-        if (!other.getTonken().isEmpty()) {
-          tonken_ = other.tonken_;
+        if (!other.getOrgId().isEmpty()) {
+          orgId_ = other.orgId_;
           onChanged();
         }
         if (!other.getUserId().isEmpty()) {
           userId_ = other.userId_;
+          onChanged();
+        }
+        if (!other.getUserName().isEmpty()) {
+          userName_ = other.userName_;
+          onChanged();
+        }
+        if (!other.getPassword().isEmpty()) {
+          password_ = other.password_;
           onChanged();
         }
         if (other.deviceType_ != 0) {
@@ -4583,21 +4924,21 @@ public final class MessageProto {
         return this;
       }
 
-      private Object tonken_ = "";
+      private Object orgId_ = "";
       /**
        * <pre>
-       *令牌
+       *组织机构编码
        * </pre>
        *
-       * <code>optional string tonken = 1;</code>
+       * <code>optional string orgId = 1;</code>
        */
-      public String getTonken() {
-        Object ref = tonken_;
+      public String getOrgId() {
+        Object ref = orgId_;
         if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           String s = bs.toStringUtf8();
-          tonken_ = s;
+          orgId_ = s;
           return s;
         } else {
           return (String) ref;
@@ -4605,19 +4946,19 @@ public final class MessageProto {
       }
       /**
        * <pre>
-       *令牌
+       *组织机构编码
        * </pre>
        *
-       * <code>optional string tonken = 1;</code>
+       * <code>optional string orgId = 1;</code>
        */
       public com.google.protobuf.ByteString
-          getTonkenBytes() {
-        Object ref = tonken_;
+          getOrgIdBytes() {
+        Object ref = orgId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (String) ref);
-          tonken_ = b;
+          orgId_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -4625,49 +4966,49 @@ public final class MessageProto {
       }
       /**
        * <pre>
-       *令牌
+       *组织机构编码
        * </pre>
        *
-       * <code>optional string tonken = 1;</code>
+       * <code>optional string orgId = 1;</code>
        */
-      public Builder setTonken(
+      public Builder setOrgId(
           String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        tonken_ = value;
+        orgId_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       *令牌
+       *组织机构编码
        * </pre>
        *
-       * <code>optional string tonken = 1;</code>
+       * <code>optional string orgId = 1;</code>
        */
-      public Builder clearTonken() {
+      public Builder clearOrgId() {
         
-        tonken_ = getDefaultInstance().getTonken();
+        orgId_ = getDefaultInstance().getOrgId();
         onChanged();
         return this;
       }
       /**
        * <pre>
-       *令牌
+       *组织机构编码
        * </pre>
        *
-       * <code>optional string tonken = 1;</code>
+       * <code>optional string orgId = 1;</code>
        */
-      public Builder setTonkenBytes(
+      public Builder setOrgIdBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        tonken_ = value;
+        orgId_ = value;
         onChanged();
         return this;
       }
@@ -4761,13 +5102,191 @@ public final class MessageProto {
         return this;
       }
 
+      private Object userName_ = "";
+      /**
+       * <pre>
+       *用户名
+       * </pre>
+       *
+       * <code>optional string userName = 3;</code>
+       */
+      public String getUserName() {
+        Object ref = userName_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          userName_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *用户名
+       * </pre>
+       *
+       * <code>optional string userName = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUserNameBytes() {
+        Object ref = userName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          userName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *用户名
+       * </pre>
+       *
+       * <code>optional string userName = 3;</code>
+       */
+      public Builder setUserName(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        userName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *用户名
+       * </pre>
+       *
+       * <code>optional string userName = 3;</code>
+       */
+      public Builder clearUserName() {
+        
+        userName_ = getDefaultInstance().getUserName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *用户名
+       * </pre>
+       *
+       * <code>optional string userName = 3;</code>
+       */
+      public Builder setUserNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        userName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private Object password_ = "";
+      /**
+       * <pre>
+       *密码
+       * </pre>
+       *
+       * <code>optional string password = 4;</code>
+       */
+      public String getPassword() {
+        Object ref = password_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          password_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *密码
+       * </pre>
+       *
+       * <code>optional string password = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPasswordBytes() {
+        Object ref = password_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          password_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *密码
+       * </pre>
+       *
+       * <code>optional string password = 4;</code>
+       */
+      public Builder setPassword(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        password_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *密码
+       * </pre>
+       *
+       * <code>optional string password = 4;</code>
+       */
+      public Builder clearPassword() {
+        
+        password_ = getDefaultInstance().getPassword();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *密码
+       * </pre>
+       *
+       * <code>optional string password = 4;</code>
+       */
+      public Builder setPasswordBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        password_ = value;
+        onChanged();
+        return this;
+      }
+
       private int deviceType_ = 0;
       /**
        * <pre>
        *设备类型
        * </pre>
        *
-       * <code>optional .DeviceType deviceType = 3;</code>
+       * <code>optional .DeviceType deviceType = 5;</code>
        */
       public int getDeviceTypeValue() {
         return deviceType_;
@@ -4777,7 +5296,7 @@ public final class MessageProto {
        *设备类型
        * </pre>
        *
-       * <code>optional .DeviceType deviceType = 3;</code>
+       * <code>optional .DeviceType deviceType = 5;</code>
        */
       public Builder setDeviceTypeValue(int value) {
         deviceType_ = value;
@@ -4789,7 +5308,7 @@ public final class MessageProto {
        *设备类型
        * </pre>
        *
-       * <code>optional .DeviceType deviceType = 3;</code>
+       * <code>optional .DeviceType deviceType = 5;</code>
        */
       public DeviceType getDeviceType() {
         DeviceType result = DeviceType.valueOf(deviceType_);
@@ -4800,7 +5319,7 @@ public final class MessageProto {
        *设备类型
        * </pre>
        *
-       * <code>optional .DeviceType deviceType = 3;</code>
+       * <code>optional .DeviceType deviceType = 5;</code>
        */
       public Builder setDeviceType(DeviceType value) {
         if (value == null) {
@@ -4816,7 +5335,7 @@ public final class MessageProto {
        *设备类型
        * </pre>
        *
-       * <code>optional .DeviceType deviceType = 3;</code>
+       * <code>optional .DeviceType deviceType = 5;</code>
        */
       public Builder clearDeviceType() {
         
@@ -4831,7 +5350,7 @@ public final class MessageProto {
        *设备唯一标志
        * </pre>
        *
-       * <code>optional string deviceId = 4;</code>
+       * <code>optional string deviceId = 6;</code>
        */
       public String getDeviceId() {
         Object ref = deviceId_;
@@ -4850,7 +5369,7 @@ public final class MessageProto {
        *设备唯一标志
        * </pre>
        *
-       * <code>optional string deviceId = 4;</code>
+       * <code>optional string deviceId = 6;</code>
        */
       public com.google.protobuf.ByteString
           getDeviceIdBytes() {
@@ -4870,7 +5389,7 @@ public final class MessageProto {
        *设备唯一标志
        * </pre>
        *
-       * <code>optional string deviceId = 4;</code>
+       * <code>optional string deviceId = 6;</code>
        */
       public Builder setDeviceId(
           String value) {
@@ -4887,7 +5406,7 @@ public final class MessageProto {
        *设备唯一标志
        * </pre>
        *
-       * <code>optional string deviceId = 4;</code>
+       * <code>optional string deviceId = 6;</code>
        */
       public Builder clearDeviceId() {
         
@@ -4900,7 +5419,7 @@ public final class MessageProto {
        *设备唯一标志
        * </pre>
        *
-       * <code>optional string deviceId = 4;</code>
+       * <code>optional string deviceId = 6;</code>
        */
       public Builder setDeviceIdBytes(
           com.google.protobuf.ByteString value) {
@@ -12341,6 +12860,31 @@ public final class MessageProto {
      */
     com.google.protobuf.ByteString
         getTonkenBytes();
+
+    /**
+     * <pre>
+     *用户信息
+     * </pre>
+     *
+     * <code>optional .com.largehat.common.im.packets.User user = 4;</code>
+     */
+    boolean hasUser();
+    /**
+     * <pre>
+     *用户信息
+     * </pre>
+     *
+     * <code>optional .com.largehat.common.im.packets.User user = 4;</code>
+     */
+    UserProto.User getUser();
+    /**
+     * <pre>
+     *用户信息
+     * </pre>
+     *
+     * <code>optional .com.largehat.common.im.packets.User user = 4;</code>
+     */
+    UserProto.UserOrBuilder getUserOrBuilder();
   }
   /**
    * <pre>
@@ -12403,6 +12947,19 @@ public final class MessageProto {
               String s = input.readStringRequireUtf8();
 
               tonken_ = s;
+              break;
+            }
+            case 34: {
+              UserProto.User.Builder subBuilder = null;
+              if (user_ != null) {
+                subBuilder = user_.toBuilder();
+              }
+              user_ = input.readMessage(UserProto.User.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(user_);
+                user_ = subBuilder.buildPartial();
+              }
+
               break;
             }
           }
@@ -12525,6 +13082,39 @@ public final class MessageProto {
       }
     }
 
+    public static final int USER_FIELD_NUMBER = 4;
+    private UserProto.User user_;
+    /**
+     * <pre>
+     *用户信息
+     * </pre>
+     *
+     * <code>optional .com.largehat.common.im.packets.User user = 4;</code>
+     */
+    public boolean hasUser() {
+      return user_ != null;
+    }
+    /**
+     * <pre>
+     *用户信息
+     * </pre>
+     *
+     * <code>optional .com.largehat.common.im.packets.User user = 4;</code>
+     */
+    public UserProto.User getUser() {
+      return user_ == null ? UserProto.User.getDefaultInstance() : user_;
+    }
+    /**
+     * <pre>
+     *用户信息
+     * </pre>
+     *
+     * <code>optional .com.largehat.common.im.packets.User user = 4;</code>
+     */
+    public UserProto.UserOrBuilder getUserOrBuilder() {
+      return getUser();
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -12546,6 +13136,9 @@ public final class MessageProto {
       if (!getTonkenBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, tonken_);
       }
+      if (user_ != null) {
+        output.writeMessage(4, getUser());
+      }
     }
 
     public int getSerializedSize() {
@@ -12562,6 +13155,10 @@ public final class MessageProto {
       }
       if (!getTonkenBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, tonken_);
+      }
+      if (user_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getUser());
       }
       memoizedSize = size;
       return size;
@@ -12585,6 +13182,11 @@ public final class MessageProto {
           .equals(other.getMsg());
       result = result && getTonken()
           .equals(other.getTonken());
+      result = result && (hasUser() == other.hasUser());
+      if (hasUser()) {
+        result = result && getUser()
+            .equals(other.getUser());
+      }
       return result;
     }
 
@@ -12601,6 +13203,10 @@ public final class MessageProto {
       hash = (53 * hash) + getMsg().hashCode();
       hash = (37 * hash) + TONKEN_FIELD_NUMBER;
       hash = (53 * hash) + getTonken().hashCode();
+      if (hasUser()) {
+        hash = (37 * hash) + USER_FIELD_NUMBER;
+        hash = (53 * hash) + getUser().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -12729,6 +13335,12 @@ public final class MessageProto {
 
         tonken_ = "";
 
+        if (userBuilder_ == null) {
+          user_ = null;
+        } else {
+          user_ = null;
+          userBuilder_ = null;
+        }
         return this;
       }
 
@@ -12754,6 +13366,11 @@ public final class MessageProto {
         result.code_ = code_;
         result.msg_ = msg_;
         result.tonken_ = tonken_;
+        if (userBuilder_ == null) {
+          result.user_ = user_;
+        } else {
+          result.user_ = userBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -12805,6 +13422,9 @@ public final class MessageProto {
         if (!other.getTonken().isEmpty()) {
           tonken_ = other.tonken_;
           onChanged();
+        }
+        if (other.hasUser()) {
+          mergeUser(other.getUser());
         }
         onChanged();
         return this;
@@ -13046,6 +13666,159 @@ public final class MessageProto {
         tonken_ = value;
         onChanged();
         return this;
+      }
+
+      private UserProto.User user_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          UserProto.User, UserProto.User.Builder, UserProto.UserOrBuilder> userBuilder_;
+      /**
+       * <pre>
+       *用户信息
+       * </pre>
+       *
+       * <code>optional .com.largehat.common.im.packets.User user = 4;</code>
+       */
+      public boolean hasUser() {
+        return userBuilder_ != null || user_ != null;
+      }
+      /**
+       * <pre>
+       *用户信息
+       * </pre>
+       *
+       * <code>optional .com.largehat.common.im.packets.User user = 4;</code>
+       */
+      public UserProto.User getUser() {
+        if (userBuilder_ == null) {
+          return user_ == null ? UserProto.User.getDefaultInstance() : user_;
+        } else {
+          return userBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       *用户信息
+       * </pre>
+       *
+       * <code>optional .com.largehat.common.im.packets.User user = 4;</code>
+       */
+      public Builder setUser(UserProto.User value) {
+        if (userBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          user_ = value;
+          onChanged();
+        } else {
+          userBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *用户信息
+       * </pre>
+       *
+       * <code>optional .com.largehat.common.im.packets.User user = 4;</code>
+       */
+      public Builder setUser(
+          UserProto.User.Builder builderForValue) {
+        if (userBuilder_ == null) {
+          user_ = builderForValue.build();
+          onChanged();
+        } else {
+          userBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *用户信息
+       * </pre>
+       *
+       * <code>optional .com.largehat.common.im.packets.User user = 4;</code>
+       */
+      public Builder mergeUser(UserProto.User value) {
+        if (userBuilder_ == null) {
+          if (user_ != null) {
+            user_ =
+              UserProto.User.newBuilder(user_).mergeFrom(value).buildPartial();
+          } else {
+            user_ = value;
+          }
+          onChanged();
+        } else {
+          userBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *用户信息
+       * </pre>
+       *
+       * <code>optional .com.largehat.common.im.packets.User user = 4;</code>
+       */
+      public Builder clearUser() {
+        if (userBuilder_ == null) {
+          user_ = null;
+          onChanged();
+        } else {
+          user_ = null;
+          userBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *用户信息
+       * </pre>
+       *
+       * <code>optional .com.largehat.common.im.packets.User user = 4;</code>
+       */
+      public UserProto.User.Builder getUserBuilder() {
+        
+        onChanged();
+        return getUserFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       *用户信息
+       * </pre>
+       *
+       * <code>optional .com.largehat.common.im.packets.User user = 4;</code>
+       */
+      public UserProto.UserOrBuilder getUserOrBuilder() {
+        if (userBuilder_ != null) {
+          return userBuilder_.getMessageOrBuilder();
+        } else {
+          return user_ == null ?
+              UserProto.User.getDefaultInstance() : user_;
+        }
+      }
+      /**
+       * <pre>
+       *用户信息
+       * </pre>
+       *
+       * <code>optional .com.largehat.common.im.packets.User user = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          UserProto.User, UserProto.User.Builder, UserProto.UserOrBuilder>
+          getUserFieldBuilder() {
+        if (userBuilder_ == null) {
+          userBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              UserProto.User, UserProto.User.Builder, UserProto.UserOrBuilder>(
+                  getUser(),
+                  getParentForChildren(),
+                  isClean());
+          user_ = null;
+        }
+        return userBuilder_;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -14243,37 +15016,40 @@ public final class MessageProto {
       "mon.im.packets.BodyResH\000\022:\n\007authRes\030\r \001(" +
       "\0132\'.com.largehat.common.im.packets.AuthR",
       "esH\000\022<\n\010loginRes\030\016 \001(\0132(.com.largehat.co" +
-      "mmon.im.packets.LoginResH\000B\006\n\004pack\"J\n\007Au" +
+      "mmon.im.packets.LoginResH\000B\006\n\004pack\"\\\n\007Au" +
       "thReq\022\020\n\010authCode\030\001 \001(\t\022\016\n\006userId\030\002 \001(\t\022" +
-      "\016\n\006passwd\030\003 \001(\t\022\r\n\005orgId\030\004 \001(\005\"]\n\010LoginR" +
-      "eq\022\016\n\006tonken\030\001 \001(\t\022\016\n\006userId\030\002 \001(\t\022\037\n\nde" +
-      "viceType\030\003 \001(\0162\013.DeviceType\022\020\n\010deviceId\030" +
-      "\004 \001(\t\"\364\001\n\nMessageReq\022\021\n\tmessageId\030\001 \001(\t\022" +
-      "2\n\004from\030\002 \001(\0132$.com.largehat.common.im.p" +
-      "ackets.User\022\n\n\002to\030\003 \001(\t\022\017\n\007groupId\030\004 \001(\003" +
-      "\022\031\n\007msgType\030\005 \001(\0162\010.MsgType\022\033\n\010chatType\030",
-      "\006 \001(\0162\t.ChatType\0228\n\007content\030\007 \001(\0132\'.com." +
-      "largehat.common.im.packets.Content\022\020\n\010se" +
-      "ndTime\030\010 \001(\003\"G\n\010GroupReq\022\016\n\006userId\030\001 \001(\t" +
-      "\022\014\n\004type\030\002 \001(\r\022\017\n\007groupId\030\003 \001(\t\022\014\n\004note\030" +
-      "\004 \001(\t\"G\n\007UserReq\022\016\n\006userId\030\001 \001(\t\022\014\n\004type" +
-      "\030\002 \001(\r\022\020\n\010toUserId\030\003 \001(\t\022\014\n\004note\030\004 \001(\t\"B" +
-      "\n\014CancelMsgReq\022\016\n\006userId\030\001 \001(\t\022\017\n\007groupI" +
-      "d\030\002 \001(\t\022\021\n\tmessageId\030\003 \001(\t\"\227\001\n\016GroupNoti" +
-      "ceReq\022)\n\017groupNoticeType\030\001 \001(\0162\020.GroupNo" +
-      "ticeType\022\017\n\007groupId\030\002 \001(\t\0222\n\004user\030\003 \001(\0132",
-      "$.com.largehat.common.im.packets.User\022\025\n" +
-      "\rnoticeContent\030\004 \001(\t\"\231\001\n\rUserNoticeReq\022\'" +
-      "\n\016userNoticeType\030\001 \001(\0162\017.UserNoticeType\022" +
-      "\024\n\014noticeUserId\030\002 \001(\t\0222\n\004user\030\003 \001(\0132$.co" +
-      "m.largehat.common.im.packets.User\022\025\n\rnot" +
-      "iceContent\030\004 \001(\t\"$\n\007BodyRes\022\014\n\004code\030\001 \001(" +
-      "\r\022\013\n\003msg\030\002 \001(\t\"4\n\007AuthRes\022\014\n\004code\030\001 \001(\r\022" +
-      "\013\n\003msg\030\002 \001(\t\022\016\n\006tonken\030\003 \001(\t\"i\n\010LoginRes" +
-      "\022\014\n\004code\030\001 \001(\r\022\013\n\003msg\030\002 \001(\t\022\016\n\006tonken\030\003 " +
-      "\001(\t\0222\n\004user\030\004 \001(\0132$.com.largehat.common.",
-      "im.packets.UserB0\n\036com.largehat.common.i" +
-      "m.packetsB\014MessageProtoH\001b\006proto3"
+      "\020\n\010userName\030\003 \001(\t\022\016\n\006passwd\030\004 \001(\t\022\r\n\005org" +
+      "Id\030\005 \001(\005\"\200\001\n\010LoginReq\022\r\n\005orgId\030\001 \001(\t\022\016\n\006" +
+      "userId\030\002 \001(\t\022\020\n\010userName\030\003 \001(\t\022\020\n\010passwo" +
+      "rd\030\004 \001(\t\022\037\n\ndeviceType\030\005 \001(\0162\013.DeviceTyp" +
+      "e\022\020\n\010deviceId\030\006 \001(\t\"\364\001\n\nMessageReq\022\021\n\tme" +
+      "ssageId\030\001 \001(\t\0222\n\004from\030\002 \001(\0132$.com.largeh" +
+      "at.common.im.packets.User\022\n\n\002to\030\003 \001(\t\022\017\n",
+      "\007groupId\030\004 \001(\003\022\031\n\007msgType\030\005 \001(\0162\010.MsgTyp" +
+      "e\022\033\n\010chatType\030\006 \001(\0162\t.ChatType\0228\n\007conten" +
+      "t\030\007 \001(\0132\'.com.largehat.common.im.packets" +
+      ".Content\022\020\n\010sendTime\030\010 \001(\003\"G\n\010GroupReq\022\016" +
+      "\n\006userId\030\001 \001(\t\022\014\n\004type\030\002 \001(\r\022\017\n\007groupId\030" +
+      "\003 \001(\t\022\014\n\004note\030\004 \001(\t\"G\n\007UserReq\022\016\n\006userId" +
+      "\030\001 \001(\t\022\014\n\004type\030\002 \001(\r\022\020\n\010toUserId\030\003 \001(\t\022\014" +
+      "\n\004note\030\004 \001(\t\"B\n\014CancelMsgReq\022\016\n\006userId\030\001" +
+      " \001(\t\022\017\n\007groupId\030\002 \001(\t\022\021\n\tmessageId\030\003 \001(\t" +
+      "\"\227\001\n\016GroupNoticeReq\022)\n\017groupNoticeType\030\001",
+      " \001(\0162\020.GroupNoticeType\022\017\n\007groupId\030\002 \001(\t\022" +
+      "2\n\004user\030\003 \001(\0132$.com.largehat.common.im.p" +
+      "ackets.User\022\025\n\rnoticeContent\030\004 \001(\t\"\231\001\n\rU" +
+      "serNoticeReq\022\'\n\016userNoticeType\030\001 \001(\0162\017.U" +
+      "serNoticeType\022\024\n\014noticeUserId\030\002 \001(\t\0222\n\004u" +
+      "ser\030\003 \001(\0132$.com.largehat.common.im.packe" +
+      "ts.User\022\025\n\rnoticeContent\030\004 \001(\t\"$\n\007BodyRe" +
+      "s\022\014\n\004code\030\001 \001(\r\022\013\n\003msg\030\002 \001(\t\"h\n\007AuthRes\022" +
+      "\014\n\004code\030\001 \001(\r\022\013\n\003msg\030\002 \001(\t\022\016\n\006tonken\030\003 \001" +
+      "(\t\0222\n\004user\030\004 \001(\0132$.com.largehat.common.i",
+      "m.packets.User\"i\n\010LoginRes\022\014\n\004code\030\001 \001(\r" +
+      "\022\013\n\003msg\030\002 \001(\t\022\016\n\006tonken\030\003 \001(\t\0222\n\004user\030\004 " +
+      "\001(\0132$.com.largehat.common.im.packets.Use" +
+      "rB0\n\036com.largehat.common.im.packetsB\014Mes" +
+      "sageProtoH\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -14301,13 +15077,13 @@ public final class MessageProto {
     internal_static_com_largehat_common_im_packets_AuthReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_largehat_common_im_packets_AuthReq_descriptor,
-        new String[] { "AuthCode", "UserId", "Passwd", "OrgId", });
+        new String[] { "AuthCode", "UserId", "UserName", "Passwd", "OrgId", });
     internal_static_com_largehat_common_im_packets_LoginReq_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_com_largehat_common_im_packets_LoginReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_largehat_common_im_packets_LoginReq_descriptor,
-        new String[] { "Tonken", "UserId", "DeviceType", "DeviceId", });
+        new String[] { "OrgId", "UserId", "UserName", "Password", "DeviceType", "DeviceId", });
     internal_static_com_largehat_common_im_packets_MessageReq_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_com_largehat_common_im_packets_MessageReq_fieldAccessorTable = new
@@ -14355,7 +15131,7 @@ public final class MessageProto {
     internal_static_com_largehat_common_im_packets_AuthRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_largehat_common_im_packets_AuthRes_descriptor,
-        new String[] { "Code", "Msg", "Tonken", });
+        new String[] { "Code", "Msg", "Tonken", "User", });
     internal_static_com_largehat_common_im_packets_LoginRes_descriptor =
       getDescriptor().getMessageTypes().get(11);
     internal_static_com_largehat_common_im_packets_LoginRes_fieldAccessorTable = new

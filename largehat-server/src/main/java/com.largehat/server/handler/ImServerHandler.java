@@ -7,6 +7,7 @@ import com.largehat.common.im.entity.session.IoSession;
 import com.largehat.common.im.exception.ImException;
 import com.largehat.common.im.packets.MessageProto;
 import com.largehat.common.im.utils.ChannelUtils;
+import com.largehat.common.im.utils.ProToBufBuild;
 import com.largehat.server.base.SpringContext;
 import com.largehat.server.dispatch.CmdTask;
 import io.netty.channel.Channel;
@@ -43,6 +44,8 @@ public class ImServerHandler extends SimpleChannelInboundHandler<MessageProto.Me
             ctx.channel().close();
             log.error("Duplicate session,IP=[{}]",ChannelUtils.getIp(ctx.channel()));
         }
+//        MessageProto.BodyRes body = ProToBufBuild.buidBodyRes(0, "接受到你的消息了");
+//        ctx.channel().writeAndFlush(MessageProto.Message.newBuilder().setCommandValue(12).setSynSeq(1000000000).setVersion(1).setBodyRes(body));
     }
 
     /**
