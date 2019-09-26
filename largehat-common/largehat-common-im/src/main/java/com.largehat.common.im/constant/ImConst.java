@@ -32,6 +32,8 @@ public interface ImConst {
 	
 	public static final String USER = "user";
 
+	public static final String ORG = "org";
+
 	public static final String FRIEND = "friend";
 
 
