@@ -1,11 +1,11 @@
 package com.largehat.admin.modules.quartz.rest;
 
+import com.largehat.api.modules.quartz.domain.QuartzJob;
+import com.largehat.api.modules.quartz.dto.JobQueryCriteria;
+import com.largehat.api.modules.quartz.service.QuartzJobService;
 import lombok.extern.slf4j.Slf4j;
 import com.largehat.common.core.annotation.Log;
 import com.largehat.common.core.exception.BadRequestException;
-import com.largehat.admin.modules.quartz.domain.QuartzJob;
-import com.largehat.admin.modules.quartz.service.QuartzJobService;
-import com.largehat.admin.modules.quartz.service.dto.JobQueryCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;

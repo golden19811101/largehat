@@ -1,18 +1,19 @@
 package com.largehat.admin.modules.system.service.impl;
 
-import com.largehat.admin.modules.system.domain.SysRole;
-import com.largehat.admin.modules.system.service.dto.SysRoleDTO;
+
+import com.largehat.api.modules.system.domain.SysMenu;
+import com.largehat.api.modules.system.domain.SysRole;
+import com.largehat.api.modules.system.dto.SysCommonQueryCriteria;
+import com.largehat.api.modules.system.dto.SysRoleDTO;
+import com.largehat.api.modules.system.dto.SysRoleSmallDTO;
+import com.largehat.api.modules.system.service.SysRoleService;
 import com.largehat.common.core.exception.EntityExistException;
 import com.largehat.admin.modules.system.service.mapper.SysRoleMapper;
 import com.largehat.admin.modules.system.service.mapper.SysRoleSmallMapper;
 import com.largehat.common.core.utils.PageUtil;
 import com.largehat.common.core.utils.QueryHelp;
 import com.largehat.common.core.utils.ValidationUtil;
-import com.largehat.admin.modules.system.domain.SysMenu;
 import com.largehat.admin.modules.system.repository.SysRoleRepository;
-import com.largehat.admin.modules.system.service.SysRoleService;
-import com.largehat.admin.modules.system.service.dto.SysCommonQueryCriteria;
-import com.largehat.admin.modules.system.service.dto.SysRoleSmallDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

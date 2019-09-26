@@ -1,17 +1,18 @@
 package com.largehat.admin.modules.system.service.impl;
 
-import com.largehat.admin.modules.system.domain.SysUser;
-import com.largehat.admin.modules.system.service.dto.SysUserDTO;
+
+import com.largehat.api.modules.monitor.service.RedisService;
+import com.largehat.api.modules.system.domain.SysUser;
+import com.largehat.api.modules.system.dto.SysUserDTO;
+import com.largehat.api.modules.system.dto.SysUserQueryCriteria;
+import com.largehat.api.modules.system.service.SysUserService;
 import com.largehat.common.core.exception.EntityExistException;
 import com.largehat.common.core.exception.EntityNotFoundException;
-import com.largehat.admin.modules.monitor.service.RedisService;
 import com.largehat.admin.modules.system.service.mapper.SysUserMapper;
 import com.largehat.common.core.utils.PageUtil;
 import com.largehat.common.core.utils.QueryHelp;
 import com.largehat.common.core.utils.ValidationUtil;
 import com.largehat.admin.modules.system.repository.SysUserRepository;
-import com.largehat.admin.modules.system.service.SysUserService;
-import com.largehat.admin.modules.system.service.dto.SysUserQueryCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

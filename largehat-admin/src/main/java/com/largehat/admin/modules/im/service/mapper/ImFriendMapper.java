@@ -1,8 +1,9 @@
 package com.largehat.admin.modules.im.service.mapper;
 
 
-import com.largehat.admin.modules.im.domain.ImFriend;
-import com.largehat.admin.modules.im.service.dto.ImFriendDTO;
+
+import com.largehat.api.modules.im.domain.ImFriend;
+import com.largehat.api.modules.im.dto.ImFriendDTO;
 import com.largehat.common.core.mapper.EntityMapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;

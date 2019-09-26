@@ -1,10 +1,10 @@
 package com.largehat.admin.modules.tools.rest;
 
+import com.largehat.api.modules.tools.domain.AlipayConfig;
+import com.largehat.api.modules.tools.domain.vo.TradeVo;
+import com.largehat.api.modules.tools.service.AlipayService;
 import lombok.extern.slf4j.Slf4j;
 import com.largehat.common.core.annotation.Log;
-import com.largehat.admin.modules.tools.domain.AlipayConfig;
-import com.largehat.admin.modules.tools.domain.vo.TradeVo;
-import com.largehat.admin.modules.tools.service.AlipayService;
 import com.largehat.admin.modules.tools.utils.AliPayStatusEnum;
 import com.largehat.admin.modules.tools.utils.AlipayUtils;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,7 @@
 package com.largehat.admin.modules.tools.repository;
 
 
-import com.largehat.admin.modules.tools.domain.SysEmailConfig;
+import com.largehat.api.modules.tools.domain.SysEmailConfig;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

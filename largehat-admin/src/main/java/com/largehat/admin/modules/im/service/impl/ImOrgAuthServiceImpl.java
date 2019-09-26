@@ -1,12 +1,12 @@
 package com.largehat.admin.modules.im.service.impl;
 
 
-import com.largehat.admin.modules.im.domain.ImOrgAuth;
 import com.largehat.admin.modules.im.repository.ImOrgAuthRepository;
-import com.largehat.admin.modules.im.service.ImOrgAuthService;
-import com.largehat.admin.modules.im.service.dto.ImOrgAuthDTO;
-import com.largehat.admin.modules.im.service.dto.ImOrgAuthQueryCriteria;
 import com.largehat.admin.modules.im.service.mapper.ImOrgAuthMapper;
+import com.largehat.api.modules.im.domain.ImOrgAuth;
+import com.largehat.api.modules.im.dto.ImOrgAuthDTO;
+import com.largehat.api.modules.im.dto.ImOrgAuthQueryCriteria;
+import com.largehat.api.modules.im.service.ImOrgAuthService;
 import com.largehat.common.core.utils.PageUtil;
 import com.largehat.common.core.utils.QueryHelp;
 import com.largehat.common.core.utils.ValidationUtil;

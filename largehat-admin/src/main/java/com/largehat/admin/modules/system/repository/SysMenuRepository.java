@@ -1,6 +1,7 @@
 package com.largehat.admin.modules.system.repository;
 
-import com.largehat.admin.modules.system.domain.SysMenu;
+
+import com.largehat.api.modules.system.domain.SysMenu;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
@@ -19,7 +20,6 @@ public interface SysMenuRepository extends JpaRepository<SysMenu, Long>, JpaSpec
      * @return
      */
     SysMenu findByName(String name);
-
     /**
      * findByPid
      * @param pid

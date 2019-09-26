@@ -1,12 +1,12 @@
 package com.largehat.admin.modules.system.rest;
 
 import cn.hutool.core.lang.Dict;
-import com.largehat.admin.modules.system.domain.SysRole;
+import com.largehat.api.modules.system.domain.SysRole;
+import com.largehat.api.modules.system.dto.SysCommonQueryCriteria;
+import com.largehat.api.modules.system.dto.SysRoleSmallDTO;
+import com.largehat.api.modules.system.service.SysRoleService;
 import com.largehat.common.core.annotation.Log;
 import com.largehat.common.core.exception.BadRequestException;
-import com.largehat.admin.modules.system.service.SysRoleService;
-import com.largehat.admin.modules.system.service.dto.SysCommonQueryCriteria;
-import com.largehat.admin.modules.system.service.dto.SysRoleSmallDTO;
 import com.largehat.common.core.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;

@@ -1,12 +1,12 @@
 package com.largehat.admin.modules.im.service.impl;
 
 
-import com.largehat.admin.modules.im.domain.ImTagRelation;
 import com.largehat.admin.modules.im.repository.ImTagRelationRepository;
-import com.largehat.admin.modules.im.service.ImTagRelationService;
-import com.largehat.admin.modules.im.service.dto.ImTagRelationDTO;
-import com.largehat.admin.modules.im.service.dto.ImTagRelationQueryCriteria;
 import com.largehat.admin.modules.im.service.mapper.ImTagRelationMapper;
+import com.largehat.api.modules.im.domain.ImTagRelation;
+import com.largehat.api.modules.im.dto.ImTagRelationDTO;
+import com.largehat.api.modules.im.dto.ImTagRelationQueryCriteria;
+import com.largehat.api.modules.im.service.ImTagRelationService;
 import com.largehat.common.core.utils.PageUtil;
 import com.largehat.common.core.utils.QueryHelp;
 import com.largehat.common.core.utils.ValidationUtil;

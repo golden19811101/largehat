@@ -1,11 +1,11 @@
 package com.largehat.admin.modules.tools.rest;
 
 
+import com.largehat.api.modules.tools.domain.VerificationCode;
+import com.largehat.api.modules.tools.domain.vo.EmailVo;
+import com.largehat.api.modules.tools.service.SysEmailService;
+import com.largehat.api.modules.tools.service.VerificationCodeService;
 import com.largehat.common.core.constant.LargehatConstant;
-import com.largehat.admin.modules.tools.domain.VerificationCode;
-import com.largehat.admin.modules.tools.domain.vo.EmailVo;
-import com.largehat.admin.modules.tools.service.SysEmailService;
-import com.largehat.admin.modules.tools.service.VerificationCodeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;

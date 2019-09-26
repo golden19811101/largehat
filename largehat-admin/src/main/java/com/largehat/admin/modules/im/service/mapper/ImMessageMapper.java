@@ -2,8 +2,9 @@ package com.largehat.admin.modules.im.service.mapper;
 
 
 
-import com.largehat.admin.modules.im.domain.ImMessage;
-import com.largehat.admin.modules.im.service.dto.ImMessageDTO;
+
+import com.largehat.api.modules.im.domain.ImMessage;
+import com.largehat.api.modules.im.dto.ImMessageDTO;
 import com.largehat.common.core.mapper.EntityMapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;

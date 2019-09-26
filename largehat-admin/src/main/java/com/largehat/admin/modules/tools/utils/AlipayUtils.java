@@ -3,7 +3,7 @@ package com.largehat.admin.modules.tools.utils;
 import cn.hutool.core.util.StrUtil;
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.internal.util.AlipaySignature;
-import com.largehat.admin.modules.tools.domain.AlipayConfig;
+import com.largehat.api.modules.tools.domain.AlipayConfig;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;

@@ -1,8 +1,8 @@
 package com.largehat.admin.modules.quartz.utils;
 
+import com.largehat.api.modules.quartz.domain.QuartzJob;
 import lombok.extern.slf4j.Slf4j;
 import com.largehat.common.core.exception.BadRequestException;
-import com.largehat.admin.modules.quartz.domain.QuartzJob;
 import org.quartz.*;
 import org.quartz.impl.triggers.CronTriggerImpl;
 import org.springframework.stereotype.Component;

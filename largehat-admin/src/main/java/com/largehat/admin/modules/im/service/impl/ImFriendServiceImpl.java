@@ -1,12 +1,13 @@
 package com.largehat.admin.modules.im.service.impl;
 
 
-import com.largehat.admin.modules.im.domain.ImFriend;
+
 import com.largehat.admin.modules.im.repository.ImFriendRepository;
-import com.largehat.admin.modules.im.service.ImFriendService;
-import com.largehat.admin.modules.im.service.dto.ImFriendDTO;
-import com.largehat.admin.modules.im.service.dto.ImFriendQueryCriteria;
 import com.largehat.admin.modules.im.service.mapper.ImFriendMapper;
+import com.largehat.api.modules.im.domain.ImFriend;
+import com.largehat.api.modules.im.dto.ImFriendDTO;
+import com.largehat.api.modules.im.dto.ImFriendQueryCriteria;
+import com.largehat.api.modules.im.service.ImFriendService;
 import com.largehat.common.core.utils.PageUtil;
 import com.largehat.common.core.utils.QueryHelp;
 import com.largehat.common.core.utils.ValidationUtil;

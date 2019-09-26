@@ -1,11 +1,11 @@
 package com.largehat.admin.modules.tools.rest;
 
+import com.largehat.api.modules.tools.domain.QiniuConfig;
+import com.largehat.api.modules.tools.domain.QiniuContent;
+import com.largehat.api.modules.tools.dto.QiniuQueryCriteria;
+import com.largehat.api.modules.tools.service.QiNiuService;
 import lombok.extern.slf4j.Slf4j;
 import com.largehat.common.core.annotation.Log;
-import com.largehat.admin.modules.tools.domain.QiniuConfig;
-import com.largehat.admin.modules.tools.domain.QiniuContent;
-import com.largehat.admin.modules.tools.service.QiNiuService;
-import com.largehat.admin.modules.tools.service.dto.QiniuQueryCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;

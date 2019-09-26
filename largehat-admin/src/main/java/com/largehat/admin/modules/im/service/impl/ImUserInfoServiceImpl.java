@@ -1,12 +1,12 @@
 package com.largehat.admin.modules.im.service.impl;
 
 
-import com.largehat.admin.modules.im.domain.ImUserInfo;
 import com.largehat.admin.modules.im.repository.ImUserInfoRepository;
-import com.largehat.admin.modules.im.service.ImUserInfoService;
-import com.largehat.admin.modules.im.service.dto.ImUserInfoDTO;
-import com.largehat.admin.modules.im.service.dto.ImUserInfoQueryCriteria;
 import com.largehat.admin.modules.im.service.mapper.ImUserInfoMapper;
+import com.largehat.api.modules.im.domain.ImUserInfo;
+import com.largehat.api.modules.im.dto.ImUserInfoDTO;
+import com.largehat.api.modules.im.dto.ImUserInfoQueryCriteria;
+import com.largehat.api.modules.im.service.ImUserInfoService;
 import com.largehat.common.core.utils.PageUtil;
 import com.largehat.common.core.utils.QueryHelp;
 import com.largehat.common.core.utils.ValidationUtil;

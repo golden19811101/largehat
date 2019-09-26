@@ -1,7 +1,8 @@
 package com.largehat.admin.modules.tools.repository;
 
 
-import com.largehat.admin.modules.tools.domain.QiniuContent;
+
+import com.largehat.api.modules.tools.domain.QiniuContent;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 

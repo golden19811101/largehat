@@ -1,9 +1,9 @@
 package com.largehat.admin.modules.im.rest;
 
 
-import com.largehat.admin.modules.im.domain.ImFriend;
-import com.largehat.admin.modules.im.service.ImFriendService;
-import com.largehat.admin.modules.im.service.dto.ImFriendQueryCriteria;
+import com.largehat.api.modules.im.domain.ImFriend;
+import com.largehat.api.modules.im.dto.ImFriendQueryCriteria;
+import com.largehat.api.modules.im.service.ImFriendService;
 import com.largehat.common.core.annotation.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;

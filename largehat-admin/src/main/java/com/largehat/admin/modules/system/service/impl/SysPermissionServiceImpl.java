@@ -1,15 +1,16 @@
 package com.largehat.admin.modules.system.service.impl;
 
-import com.largehat.admin.modules.system.domain.SysPermission;
-import com.largehat.admin.modules.system.service.dto.SysPermissionDTO;
+
 import com.largehat.admin.modules.system.service.mapper.SysPermissionMapper;
+import com.largehat.api.modules.system.domain.SysPermission;
+import com.largehat.api.modules.system.dto.SysCommonQueryCriteria;
+import com.largehat.api.modules.system.dto.SysPermissionDTO;
+import com.largehat.api.modules.system.service.SysPermissionService;
 import com.largehat.common.core.exception.BadRequestException;
 import com.largehat.common.core.exception.EntityExistException;
 import com.largehat.common.core.utils.QueryHelp;
 import com.largehat.common.core.utils.ValidationUtil;
 import com.largehat.admin.modules.system.repository.SysPermissionRepository;
-import com.largehat.admin.modules.system.service.SysPermissionService;
-import com.largehat.admin.modules.system.service.dto.SysCommonQueryCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;

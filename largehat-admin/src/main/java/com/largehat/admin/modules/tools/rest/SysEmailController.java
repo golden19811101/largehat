@@ -1,10 +1,10 @@
 package com.largehat.admin.modules.tools.rest;
 
+import com.largehat.api.modules.tools.domain.SysEmailConfig;
+import com.largehat.api.modules.tools.domain.vo.EmailVo;
+import com.largehat.api.modules.tools.service.SysEmailService;
 import lombok.extern.slf4j.Slf4j;
 import com.largehat.common.core.annotation.Log;
-import com.largehat.admin.modules.tools.domain.SysEmailConfig;
-import com.largehat.admin.modules.tools.domain.vo.EmailVo;
-import com.largehat.admin.modules.tools.service.SysEmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

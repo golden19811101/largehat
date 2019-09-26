@@ -1,6 +1,7 @@
 package com.largehat.admin.modules.monitor.repository;
 
-import com.largehat.admin.modules.monitor.domain.SysVisits;
+
+import com.largehat.api.modules.monitor.domain.SysVisits;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

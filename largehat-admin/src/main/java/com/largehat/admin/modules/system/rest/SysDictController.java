@@ -1,10 +1,11 @@
 package com.largehat.admin.modules.system.rest;
 
-import com.largehat.admin.modules.system.domain.SysDict;
-import com.largehat.admin.modules.system.service.dto.SysDictDTO;
+
+import com.largehat.api.modules.system.domain.SysDict;
+import com.largehat.api.modules.system.dto.SysDictDTO;
+import com.largehat.api.modules.system.service.SysDictService;
 import com.largehat.common.core.annotation.Log;
 import com.largehat.common.core.exception.BadRequestException;
-import com.largehat.admin.modules.system.service.SysDictService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;

@@ -1,8 +1,11 @@
 package com.largehat.admin.modules.tools.service.impl;
 
 import com.google.gson.Gson;
+import com.largehat.api.modules.tools.domain.QiniuConfig;
+import com.largehat.api.modules.tools.domain.QiniuContent;
+import com.largehat.api.modules.tools.dto.QiniuQueryCriteria;
+import com.largehat.api.modules.tools.service.QiNiuService;
 import com.largehat.common.core.exception.BadRequestException;
-import com.largehat.admin.modules.tools.service.dto.QiniuQueryCriteria;
 import com.largehat.common.core.utils.FileUtil;
 import com.largehat.common.core.utils.PageUtil;
 import com.largehat.common.core.utils.QueryHelp;
@@ -15,11 +18,8 @@ import com.qiniu.storage.UploadManager;
 import com.qiniu.storage.model.DefaultPutRet;
 import com.qiniu.storage.model.FileInfo;
 import com.qiniu.util.Auth;
-import com.largehat.admin.modules.tools.domain.QiniuConfig;
-import com.largehat.admin.modules.tools.domain.QiniuContent;
 import com.largehat.admin.modules.tools.repository.QiNiuConfigRepository;
 import com.largehat.admin.modules.tools.repository.QiniuContentRepository;
-import com.largehat.admin.modules.tools.service.QiNiuService;
 import com.largehat.admin.modules.tools.utils.QiNiuUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

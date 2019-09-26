@@ -1,7 +1,8 @@
 package com.largehat.admin.aspect;
 
-import com.largehat.admin.modules.log.domain.SysLog;
-import com.largehat.admin.modules.log.service.LogService;
+
+import com.largehat.api.modules.log.domain.SysLog;
+import com.largehat.api.modules.log.service.LogService;
 import com.largehat.common.core.utils.RequestHolder;
 import com.largehat.common.core.utils.SecurityUtils;
 import com.largehat.common.core.utils.StringUtils;

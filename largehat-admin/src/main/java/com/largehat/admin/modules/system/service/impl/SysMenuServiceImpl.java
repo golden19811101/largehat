@@ -1,19 +1,19 @@
 package com.largehat.admin.modules.system.service.impl;
 
 import cn.hutool.core.util.StrUtil;
-import com.largehat.admin.modules.system.domain.SysMenu;
-import com.largehat.admin.modules.system.service.dto.SysMenuDTO;
-import com.largehat.admin.modules.system.service.dto.SysRoleSmallDTO;
+import com.largehat.api.modules.system.domain.SysMenu;
+import com.largehat.api.modules.system.dto.SysCommonQueryCriteria;
+import com.largehat.api.modules.system.dto.SysMenuDTO;
+import com.largehat.api.modules.system.dto.SysRoleSmallDTO;
+import com.largehat.api.modules.system.service.SysMenuService;
+import com.largehat.api.modules.system.vo.SysMenuMetaVo;
+import com.largehat.api.modules.system.vo.SysMenuVo;
 import com.largehat.common.core.exception.BadRequestException;
 import com.largehat.common.core.exception.EntityExistException;
 import com.largehat.admin.modules.system.service.mapper.SysMenuMapper;
 import com.largehat.common.core.utils.QueryHelp;
 import com.largehat.common.core.utils.ValidationUtil;
-import com.largehat.admin.modules.system.domain.vo.SysMenuMetaVo;
-import com.largehat.admin.modules.system.domain.vo.SysMenuVo;
 import com.largehat.admin.modules.system.repository.SysMenuRepository;
-import com.largehat.admin.modules.system.service.SysMenuService;
-import com.largehat.admin.modules.system.service.dto.SysCommonQueryCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;

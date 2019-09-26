@@ -1,9 +1,9 @@
 package com.largehat.admin.modules.log.rest;
 
 
+import com.largehat.api.modules.log.dto.LogQueryCriteria;
+import com.largehat.api.modules.log.service.LogService;
 import com.largehat.common.core.utils.SecurityUtils;
-import com.largehat.admin.modules.log.service.LogService;
-import com.largehat.admin.modules.log.service.dto.LogQueryCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;

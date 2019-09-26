@@ -1,10 +1,11 @@
 package com.largehat.admin.modules.system.rest;
 
-import com.largehat.admin.modules.system.domain.SysDictDetail;
+
+import com.largehat.api.modules.system.domain.SysDictDetail;
+import com.largehat.api.modules.system.dto.SysDictDetailQueryCriteria;
+import com.largehat.api.modules.system.service.SysDictDetailService;
 import com.largehat.common.core.annotation.Log;
 import com.largehat.common.core.exception.BadRequestException;
-import com.largehat.admin.modules.system.service.SysDictDetailService;
-import com.largehat.admin.modules.system.service.dto.SysDictDetailQueryCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;

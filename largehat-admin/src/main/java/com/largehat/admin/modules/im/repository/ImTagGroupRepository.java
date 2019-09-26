@@ -1,7 +1,8 @@
 package com.largehat.admin.modules.im.repository;
 
 
-import com.largehat.admin.modules.im.domain.ImTagGroup;
+
+import com.largehat.api.modules.im.domain.ImTagGroup;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 

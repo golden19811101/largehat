@@ -1,17 +1,19 @@
 package com.largehat.admin.modules.system.rest;
 
 import com.largehat.admin.config.DataScope;
-import com.largehat.admin.modules.system.domain.SysUser;
-import com.largehat.admin.modules.system.domain.vo.SysUserPassVo;
-import com.largehat.admin.modules.system.service.SysDeptService;
-import com.largehat.admin.modules.system.service.SysRoleService;
-import com.largehat.admin.modules.system.service.SysUserService;
-import com.largehat.admin.modules.system.service.dto.SysRoleSmallDTO;
-import com.largehat.admin.modules.system.service.dto.SysUserQueryCriteria;
-import com.largehat.admin.modules.tools.domain.SysPicture;
-import com.largehat.admin.modules.tools.domain.VerificationCode;
-import com.largehat.admin.modules.tools.service.SysPictureService;
-import com.largehat.admin.modules.tools.service.VerificationCodeService;
+
+
+import com.largehat.api.modules.system.domain.SysUser;
+import com.largehat.api.modules.system.dto.SysRoleSmallDTO;
+import com.largehat.api.modules.system.dto.SysUserQueryCriteria;
+import com.largehat.api.modules.system.service.SysDeptService;
+import com.largehat.api.modules.system.service.SysRoleService;
+import com.largehat.api.modules.system.service.SysUserService;
+import com.largehat.api.modules.system.vo.SysUserPassVo;
+import com.largehat.api.modules.tools.domain.SysPicture;
+import com.largehat.api.modules.tools.domain.VerificationCode;
+import com.largehat.api.modules.tools.service.SysPictureService;
+import com.largehat.api.modules.tools.service.VerificationCodeService;
 import com.largehat.common.core.annotation.Log;
 import com.largehat.common.core.exception.BadRequestException;
 import com.largehat.common.core.constant.LargehatConstant;

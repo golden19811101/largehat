@@ -1,12 +1,12 @@
 package com.largehat.admin.modules.im.service.impl;
 
 
-import com.largehat.admin.modules.im.domain.ImMessage;
 import com.largehat.admin.modules.im.repository.ImMessageRepository;
-import com.largehat.admin.modules.im.service.ImMessageService;
-import com.largehat.admin.modules.im.service.dto.ImMessageDTO;
-import com.largehat.admin.modules.im.service.dto.ImMessageQueryCriteria;
 import com.largehat.admin.modules.im.service.mapper.ImMessageMapper;
+import com.largehat.api.modules.im.domain.ImMessage;
+import com.largehat.api.modules.im.dto.ImMessageDTO;
+import com.largehat.api.modules.im.dto.ImMessageQueryCriteria;
+import com.largehat.api.modules.im.service.ImMessageService;
 import com.largehat.common.core.utils.PageUtil;
 import com.largehat.common.core.utils.QueryHelp;
 import com.largehat.common.core.utils.ValidationUtil;

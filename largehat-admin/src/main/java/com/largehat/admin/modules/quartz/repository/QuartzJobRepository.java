@@ -1,6 +1,7 @@
 package com.largehat.admin.modules.quartz.repository;
 
-import com.largehat.admin.modules.quartz.domain.QuartzJob;
+
+import com.largehat.api.modules.quartz.domain.QuartzJob;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import java.util.List;

@@ -2,10 +2,10 @@ package com.largehat.admin.modules.monitor.service.impl;
 
 import com.largehat.admin.modules.log.repository.LogRepository;
 import com.largehat.admin.modules.monitor.repository.SysVisitsRepository;
+import com.largehat.api.modules.monitor.domain.SysVisits;
+import com.largehat.api.modules.monitor.service.SysVisitsService;
 import com.largehat.common.core.utils.StringUtils;
 import lombok.extern.slf4j.Slf4j;
-import com.largehat.admin.modules.monitor.domain.SysVisits;
-import com.largehat.admin.modules.monitor.service.SysVisitsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;

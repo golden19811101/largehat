@@ -1,8 +1,9 @@
 package com.largehat.admin.modules.security.service;
 
-import com.largehat.admin.modules.system.domain.SysRole;
+
 import com.largehat.admin.modules.system.repository.SysRoleRepository;
-import com.largehat.admin.modules.system.service.dto.SysUserDTO;
+import com.largehat.api.modules.system.domain.SysRole;
+import com.largehat.api.modules.system.dto.SysUserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;

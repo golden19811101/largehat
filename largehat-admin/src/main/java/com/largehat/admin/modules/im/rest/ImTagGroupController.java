@@ -1,9 +1,9 @@
 package com.largehat.admin.modules.im.rest;
 
 
-import com.largehat.admin.modules.im.domain.ImTagGroup;
-import com.largehat.admin.modules.im.service.ImTagGroupService;
-import com.largehat.admin.modules.im.service.dto.ImTagGroupQueryCriteria;
+import com.largehat.api.modules.im.domain.ImTagGroup;
+import com.largehat.api.modules.im.dto.ImTagGroupQueryCriteria;
+import com.largehat.api.modules.im.service.ImTagGroupService;
 import com.largehat.common.core.annotation.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;

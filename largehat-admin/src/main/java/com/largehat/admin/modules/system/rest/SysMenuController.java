@@ -1,14 +1,15 @@
 package com.largehat.admin.modules.system.rest;
 
-import com.largehat.admin.modules.system.domain.SysMenu;
+
+import com.largehat.api.modules.system.domain.SysMenu;
+import com.largehat.api.modules.system.dto.SysCommonQueryCriteria;
+import com.largehat.api.modules.system.dto.SysMenuDTO;
+import com.largehat.api.modules.system.dto.SysUserDTO;
+import com.largehat.api.modules.system.service.SysMenuService;
+import com.largehat.api.modules.system.service.SysRoleService;
+import com.largehat.api.modules.system.service.SysUserService;
 import com.largehat.common.core.annotation.Log;
 import com.largehat.common.core.exception.BadRequestException;
-import com.largehat.admin.modules.system.service.SysMenuService;
-import com.largehat.admin.modules.system.service.SysRoleService;
-import com.largehat.admin.modules.system.service.SysUserService;
-import com.largehat.admin.modules.system.service.dto.SysCommonQueryCriteria;
-import com.largehat.admin.modules.system.service.dto.SysMenuDTO;
-import com.largehat.admin.modules.system.service.dto.SysUserDTO;
 import com.largehat.common.core.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

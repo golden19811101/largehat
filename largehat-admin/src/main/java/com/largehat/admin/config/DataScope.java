@@ -1,11 +1,12 @@
 package com.largehat.admin.config;
 
-import com.largehat.admin.modules.system.domain.SysDept;
-import com.largehat.admin.modules.system.service.SysDeptService;
-import com.largehat.admin.modules.system.service.SysRoleService;
-import com.largehat.admin.modules.system.service.SysUserService;
-import com.largehat.admin.modules.system.service.dto.SysRoleSmallDTO;
-import com.largehat.admin.modules.system.service.dto.SysUserDTO;
+
+import com.largehat.api.modules.system.domain.SysDept;
+import com.largehat.api.modules.system.dto.SysRoleSmallDTO;
+import com.largehat.api.modules.system.dto.SysUserDTO;
+import com.largehat.api.modules.system.service.SysDeptService;
+import com.largehat.api.modules.system.service.SysRoleService;
+import com.largehat.api.modules.system.service.SysUserService;
 import com.largehat.common.core.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

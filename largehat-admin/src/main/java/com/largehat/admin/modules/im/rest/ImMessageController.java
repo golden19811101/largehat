@@ -1,9 +1,9 @@
 package com.largehat.admin.modules.im.rest;
 
 
-import com.largehat.admin.modules.im.domain.ImMessage;
-import com.largehat.admin.modules.im.service.ImMessageService;
-import com.largehat.admin.modules.im.service.dto.ImMessageQueryCriteria;
+import com.largehat.api.modules.im.domain.ImMessage;
+import com.largehat.api.modules.im.dto.ImMessageQueryCriteria;
+import com.largehat.api.modules.im.service.ImMessageService;
 import com.largehat.common.core.annotation.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;

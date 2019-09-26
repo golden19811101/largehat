@@ -2,8 +2,8 @@ package com.largehat.admin.modules.im.service.mapper;
 
 
 
-import com.largehat.admin.modules.im.domain.ImGroup;
-import com.largehat.admin.modules.im.service.dto.ImGroupDTO;
+import com.largehat.api.modules.im.domain.ImGroup;
+import com.largehat.api.modules.im.dto.ImGroupDTO;
 import com.largehat.common.core.mapper.EntityMapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;

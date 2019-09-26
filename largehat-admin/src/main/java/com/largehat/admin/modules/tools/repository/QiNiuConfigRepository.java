@@ -1,7 +1,8 @@
 package com.largehat.admin.modules.tools.repository;
 
 
-import com.largehat.admin.modules.tools.domain.QiniuConfig;
+
+import com.largehat.api.modules.tools.domain.QiniuConfig;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

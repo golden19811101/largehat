@@ -1,9 +1,9 @@
 package com.largehat.admin.modules.im.rest;
 
 
-import com.largehat.admin.modules.im.domain.ImTagRelation;
-import com.largehat.admin.modules.im.service.ImTagRelationService;
-import com.largehat.admin.modules.im.service.dto.ImTagRelationQueryCriteria;
+import com.largehat.api.modules.im.domain.ImTagRelation;
+import com.largehat.api.modules.im.dto.ImTagRelationQueryCriteria;
+import com.largehat.api.modules.im.service.ImTagRelationService;
 import com.largehat.common.core.annotation.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;

@@ -1,7 +1,8 @@
 package com.largehat.admin.modules.tools.repository;
 
 
-import com.largehat.admin.modules.tools.domain.VerificationCode;
+
+import com.largehat.api.modules.tools.domain.VerificationCode;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

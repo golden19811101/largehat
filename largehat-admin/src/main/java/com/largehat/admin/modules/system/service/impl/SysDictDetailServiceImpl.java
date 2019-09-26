@@ -1,14 +1,14 @@
 package com.largehat.admin.modules.system.service.impl;
 
 import com.largehat.admin.modules.system.service.mapper.SysDictDetailMapper;
+import com.largehat.api.modules.system.domain.SysDictDetail;
+import com.largehat.api.modules.system.dto.SysDictDetailDTO;
+import com.largehat.api.modules.system.dto.SysDictDetailQueryCriteria;
+import com.largehat.api.modules.system.service.SysDictDetailService;
 import com.largehat.common.core.utils.PageUtil;
 import com.largehat.common.core.utils.QueryHelp;
 import com.largehat.common.core.utils.ValidationUtil;
-import com.largehat.admin.modules.system.domain.SysDictDetail;
-import com.largehat.admin.modules.system.service.dto.SysDictDetailQueryCriteria;
 import com.largehat.admin.modules.system.repository.SysDictDetailRepository;
-import com.largehat.admin.modules.system.service.SysDictDetailService;
-import com.largehat.admin.modules.system.service.dto.SysDictDetailDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

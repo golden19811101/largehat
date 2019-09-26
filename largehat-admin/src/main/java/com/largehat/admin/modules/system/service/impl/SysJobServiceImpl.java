@@ -1,15 +1,16 @@
 package com.largehat.admin.modules.system.service.impl;
 
-import com.largehat.admin.modules.system.domain.SysJob;
-import com.largehat.admin.modules.system.service.dto.SysJobDTO;
+
 import com.largehat.admin.modules.system.service.mapper.SysJobMapper;
+import com.largehat.api.modules.system.domain.SysJob;
+import com.largehat.api.modules.system.dto.SysJobDTO;
+import com.largehat.api.modules.system.dto.SysJobQueryCriteria;
+import com.largehat.api.modules.system.service.SysJobService;
 import com.largehat.common.core.utils.PageUtil;
 import com.largehat.common.core.utils.QueryHelp;
 import com.largehat.common.core.utils.ValidationUtil;
 import com.largehat.admin.modules.system.repository.SysDeptRepository;
-import com.largehat.admin.modules.system.service.dto.SysJobQueryCriteria;
 import com.largehat.admin.modules.system.repository.SysJobRepository;
-import com.largehat.admin.modules.system.service.SysJobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

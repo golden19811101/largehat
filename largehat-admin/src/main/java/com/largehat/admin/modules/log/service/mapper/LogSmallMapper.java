@@ -1,10 +1,9 @@
 package com.largehat.admin.modules.log.service.mapper;
 
 
-import com.largehat.admin.modules.log.domain.SysLog;
+import com.largehat.api.modules.log.domain.SysLog;
+import com.largehat.api.modules.log.dto.LogSmallDTO;
 import com.largehat.common.core.mapper.EntityMapper;
-
-import com.largehat.admin.modules.log.service.dto.LogSmallDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 

@@ -1,6 +1,7 @@
 package com.largehat.admin.modules.system.repository;
 
-import com.largehat.admin.modules.system.domain.SysPermission;
+
+import com.largehat.api.modules.system.domain.SysPermission;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 

@@ -1,9 +1,10 @@
 package com.largehat.admin.modules.quartz.utils;
 
-import com.largehat.admin.modules.quartz.domain.QuartzJob;
-import com.largehat.admin.modules.quartz.domain.QuartzLog;
+
 import com.largehat.admin.modules.quartz.repository.QuartzLogRepository;
-import com.largehat.admin.modules.quartz.service.QuartzJobService;
+import com.largehat.api.modules.quartz.domain.QuartzJob;
+import com.largehat.api.modules.quartz.domain.QuartzLog;
+import com.largehat.api.modules.quartz.service.QuartzJobService;
 import com.largehat.common.core.utils.SpringContextHolder;
 import com.largehat.common.core.utils.ThrowableUtil;
 import org.quartz.JobExecutionContext;

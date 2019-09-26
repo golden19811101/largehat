@@ -1,6 +1,7 @@
 package com.largehat.admin.modules.monitor.rest;
 
-import com.largehat.admin.modules.monitor.service.SysVisitsService;
+
+import com.largehat.api.modules.monitor.service.SysVisitsService;
 import com.largehat.common.core.utils.RequestHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

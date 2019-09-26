@@ -1,11 +1,11 @@
 package com.largehat.admin.modules.security.service;
 
+import com.largehat.api.modules.system.dto.SysDeptSmallDTO;
+import com.largehat.api.modules.system.dto.SysJobSmallDTO;
+import com.largehat.api.modules.system.dto.SysUserDTO;
+import com.largehat.api.modules.system.service.SysUserService;
 import com.largehat.common.core.exception.BadRequestException;
 import com.largehat.admin.modules.security.security.JwtUser;
-import com.largehat.admin.modules.system.service.SysUserService;
-import com.largehat.admin.modules.system.service.dto.SysDeptSmallDTO;
-import com.largehat.admin.modules.system.service.dto.SysJobSmallDTO;
-import com.largehat.admin.modules.system.service.dto.SysUserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

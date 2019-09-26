@@ -1,14 +1,15 @@
 package com.largehat.admin.modules.system.service.impl;
 
-import com.largehat.admin.modules.system.domain.SysDept;
-import com.largehat.admin.modules.system.service.dto.SysDeptDTO;
+
+import com.largehat.api.modules.system.domain.SysDept;
+import com.largehat.api.modules.system.dto.SysDeptDTO;
+import com.largehat.api.modules.system.dto.SysDeptQueryCriteria;
+import com.largehat.api.modules.system.service.SysDeptService;
 import com.largehat.common.core.exception.BadRequestException;
 import com.largehat.admin.modules.system.repository.SysDeptRepository;
-import com.largehat.admin.modules.system.service.SysDeptService;
 import com.largehat.admin.modules.system.service.mapper.SysDeptMapper;
 import com.largehat.common.core.utils.QueryHelp;
 import com.largehat.common.core.utils.ValidationUtil;
-import com.largehat.admin.modules.system.service.dto.SysDeptQueryCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;

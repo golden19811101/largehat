@@ -3,12 +3,12 @@ package com.largehat.admin.modules.log.service.impl;
 import cn.hutool.core.lang.Dict;
 import cn.hutool.json.JSONObject;
 
-import com.largehat.admin.modules.log.domain.SysLog;
 import com.largehat.admin.modules.log.repository.LogRepository;
+import com.largehat.api.modules.log.domain.SysLog;
+import com.largehat.api.modules.log.dto.LogQueryCriteria;
+import com.largehat.api.modules.log.service.LogService;
 import com.largehat.common.core.utils.PageUtil;
 import com.largehat.common.core.utils.QueryHelp;
-import com.largehat.admin.modules.log.service.LogService;
-import com.largehat.admin.modules.log.service.dto.LogQueryCriteria;
 import com.largehat.admin.modules.log.service.mapper.LogErrorMapper;
 import com.largehat.admin.modules.log.service.mapper.LogSmallMapper;
 import org.aspectj.lang.ProceedingJoinPoint;

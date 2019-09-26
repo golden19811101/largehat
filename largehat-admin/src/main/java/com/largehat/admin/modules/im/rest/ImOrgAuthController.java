@@ -1,9 +1,9 @@
 package com.largehat.admin.modules.im.rest;
 
 
-import com.largehat.admin.modules.im.domain.ImOrgAuth;
-import com.largehat.admin.modules.im.service.ImOrgAuthService;
-import com.largehat.admin.modules.im.service.dto.ImOrgAuthQueryCriteria;
+import com.largehat.api.modules.im.domain.ImOrgAuth;
+import com.largehat.api.modules.im.dto.ImOrgAuthQueryCriteria;
+import com.largehat.api.modules.im.service.ImOrgAuthService;
 import com.largehat.common.core.annotation.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;

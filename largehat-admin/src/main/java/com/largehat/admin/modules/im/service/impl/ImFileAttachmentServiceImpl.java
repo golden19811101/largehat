@@ -1,12 +1,13 @@
 package com.largehat.admin.modules.im.service.impl;
 
 
-import com.largehat.admin.modules.im.domain.ImFileAttachment;
+
 import com.largehat.admin.modules.im.repository.ImFileAttachmentRepository;
-import com.largehat.admin.modules.im.service.ImFileAttachmentService;
-import com.largehat.admin.modules.im.service.dto.ImFileAttachmentDTO;
-import com.largehat.admin.modules.im.service.dto.ImFileAttachmentQueryCriteria;
 import com.largehat.admin.modules.im.service.mapper.ImFileAttachmentMapper;
+import com.largehat.api.modules.im.domain.ImFileAttachment;
+import com.largehat.api.modules.im.dto.ImFileAttachmentDTO;
+import com.largehat.api.modules.im.dto.ImFileAttachmentQueryCriteria;
+import com.largehat.api.modules.im.service.ImFileAttachmentService;
 import com.largehat.common.core.utils.PageUtil;
 import com.largehat.common.core.utils.QueryHelp;
 import com.largehat.common.core.utils.ValidationUtil;

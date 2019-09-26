@@ -1,12 +1,13 @@
 package com.largehat.admin.modules.system.rest;
 
-import com.largehat.admin.modules.system.service.dto.SysDeptDTO;
+
+import com.largehat.api.modules.system.domain.SysDept;
+import com.largehat.api.modules.system.dto.SysDeptDTO;
+import com.largehat.api.modules.system.dto.SysDeptQueryCriteria;
+import com.largehat.api.modules.system.service.SysDeptService;
 import com.largehat.common.core.annotation.Log;
 import com.largehat.admin.config.DataScope;
 import com.largehat.common.core.exception.BadRequestException;
-import com.largehat.admin.modules.system.domain.SysDept;
-import com.largehat.admin.modules.system.service.SysDeptService;
-import com.largehat.admin.modules.system.service.dto.SysDeptQueryCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

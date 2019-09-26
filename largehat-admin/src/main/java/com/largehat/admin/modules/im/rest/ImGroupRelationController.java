@@ -1,9 +1,10 @@
 package com.largehat.admin.modules.im.rest;
 
 
-import com.largehat.admin.modules.im.domain.ImGroupRelation;
-import com.largehat.admin.modules.im.service.ImGroupRelationService;
-import com.largehat.admin.modules.im.service.dto.ImGroupRelationQueryCriteria;
+
+import com.largehat.api.modules.im.domain.ImGroupRelation;
+import com.largehat.api.modules.im.dto.ImGroupRelationQueryCriteria;
+import com.largehat.api.modules.im.service.ImGroupRelationService;
 import com.largehat.common.core.annotation.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;

@@ -2,12 +2,12 @@ package com.largehat.admin.modules.tools.service.impl;
 
 import cn.hutool.extra.mail.Mail;
 import cn.hutool.extra.mail.MailAccount;
+import com.largehat.api.modules.tools.domain.SysEmailConfig;
+import com.largehat.api.modules.tools.domain.vo.EmailVo;
+import com.largehat.api.modules.tools.service.SysEmailService;
 import com.largehat.common.core.exception.BadRequestException;
 import com.largehat.common.core.utils.EncryptUtils;
-import com.largehat.admin.modules.tools.domain.SysEmailConfig;
-import com.largehat.admin.modules.tools.domain.vo.EmailVo;
 import com.largehat.admin.modules.tools.repository.SysEmailRepository;
-import com.largehat.admin.modules.tools.service.SysEmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;

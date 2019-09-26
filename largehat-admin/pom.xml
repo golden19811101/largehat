@@ -19,9 +19,17 @@
     </properties>
 
     <dependencies>
+        <!--
         <dependency>
             <groupId>com.largehat</groupId>
             <artifactId>largehat-common-core</artifactId>
+            <version>1.0.0</version>
+        </dependency>-->
+
+        <!-- 引入api -->
+        <dependency>
+            <groupId>com.largehat</groupId>
+            <artifactId>largehat-api</artifactId>
             <version>1.0.0</version>
         </dependency>
 

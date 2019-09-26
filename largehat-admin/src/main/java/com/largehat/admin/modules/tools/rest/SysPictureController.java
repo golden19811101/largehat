@@ -1,10 +1,10 @@
 package com.largehat.admin.modules.tools.rest;
 
+import com.largehat.api.modules.tools.domain.SysPicture;
+import com.largehat.api.modules.tools.dto.PictureQueryCriteria;
+import com.largehat.api.modules.tools.service.SysPictureService;
 import com.largehat.common.core.utils.SecurityUtils;
 import com.largehat.common.core.annotation.Log;
-import com.largehat.admin.modules.tools.domain.SysPicture;
-import com.largehat.admin.modules.tools.service.SysPictureService;
-import com.largehat.admin.modules.tools.service.dto.PictureQueryCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
