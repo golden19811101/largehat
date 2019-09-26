@@ -1,7 +1,9 @@
 package com.largehat.server;
 
 
+import com.largehat.common.im.ImConfig;
 import com.largehat.server.config.ImConfiguration;
+import com.largehat.server.helper.redis.RedisMessageHelper;
 import com.largehat.server.server.ImServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
