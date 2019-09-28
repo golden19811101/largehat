@@ -42,3 +42,28 @@ im:
     isCluster: true
     readBufferSize: 2048
 
+api:
+  service:
+    version: 1.0.0
+    timeout: 30000
+
+dubbo:
+  scan:
+    base-packages: com.largehat.server.helper.db.*
+  application:
+    id: largehat-server
+    name: largehat-server
+    qos-enable: true
+    qos-accept-foreign-ip: false
+    qos-port: 33334
+  registry:
+    id: registry-largehat
+    address: zookeeper://localhost:2181
+    check: false
+    client: curator
+  protocol:
+    name: dubbo
+    id: dubbo
+    serialization: kryo
+    optimizer: com.channel.api.kryo.SerializationOptimizerImpl
+

@@ -17,6 +17,7 @@ import java.util.List;
  */
 public class MysqlMessageHelper implements MessageHelper {
 
+
 	@Override
 	public ImBindListener getBindListener() {
 		return null;

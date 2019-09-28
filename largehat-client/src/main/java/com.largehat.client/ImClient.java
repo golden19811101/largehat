@@ -38,7 +38,7 @@ public class ImClient {
                     // I/O 处理逻辑
                     .handler(clientFilter);
 
-            ChannelFuture future = bootstrap.connect("172.16.12.120", 8888).sync();
+            ChannelFuture future = bootstrap.connect("172.16.12.120", 11111).sync();
             future.channel().closeFuture().sync();
 
         } catch (Exception e) {
