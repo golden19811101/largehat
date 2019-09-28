@@ -20,11 +20,19 @@
     </properties>
 
     <dependencies>
+        <!--添加服务接口-->
+        <dependency>
+            <groupId>com.largehat</groupId>
+            <artifactId>largehat-api</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <!--添加缓存模块-->
         <dependency>
             <groupId>com.largehat</groupId>
             <artifactId>largehat-common-cache</artifactId>
             <version>1.0.0</version>
         </dependency>
+        <!--添加im工具类模块-->
         <dependency>
             <groupId>com.largehat</groupId>
             <artifactId>largehat-common-im</artifactId>
