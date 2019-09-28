@@ -20,6 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * @date 2018/11/15 9:20:19
  */
 @SpringBootApplication
+@EnableAsync
 public class ServerApplication implements CommandLineRunner {
 
     //注入配置信息

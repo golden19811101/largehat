@@ -42,11 +42,13 @@ dubbo:
     check: false
     client: curator
   protocol:
-    optimizer: com.largehat.api.kryo.SerializationOptimizerImpl
     name: dubbo
     port: 20008
     id: dubbo
-    serialization: kryo
+  metadata-report:
+    address: zookeeper://localhost:2181
+#    serialization: kryo
+#    optimizer: com.largehat.api.kryo.SerializationOptimizerImpl
 
 #定义服务版本信息
 api:

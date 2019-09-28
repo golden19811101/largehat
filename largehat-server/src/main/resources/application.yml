@@ -64,6 +64,9 @@ dubbo:
   protocol:
     name: dubbo
     id: dubbo
-    serialization: kryo
-    optimizer: com.channel.api.kryo.SerializationOptimizerImpl
+    port: 20008
+  metadata-report:
+    address: zookeeper://localhost:2181
+ #   serialization: kryo
+ #   optimizer: com.channel.api.kryo.SerializationOptimizerImpl
 
