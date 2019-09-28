@@ -2,8 +2,11 @@ package com.largehat.server.base;
 
 
 import com.largehat.server.dispatch.MessageDispatcher;
+import com.largehat.server.helper.db.MysqlMessageHelper;
+import com.largehat.server.helper.redis.RedisMessageHelper;
 import com.largehat.server.listener.EventDispatcher;
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
@@ -25,24 +28,17 @@ public class SpringContext implements ApplicationContextAware {
 		self = this;
 	}
 
-	//private static UserService userService;
+	//定义持reids持久化服务
+	@Autowired
+	private static RedisMessageHelper redisMessageHelper;
 
-	//private static FriendService friendService;
-
-	//private static SearchService searchService;
-
-	/** 异步持久化服务 */
-	//private static AysncDbService aysncDbService;
-
-	//private static ChatService chatService;
-
-	//private static IdService idService;
+    //定义mysql持久化服务
+	@Autowired
+	private static MysqlMessageHelper mysqlMessageHelper;
 
 	private static MessageDispatcher messageDispatcher;
 
 	private static EventDispatcher eventDispatcher;
-
-	//private static ServerConfigs serverConfigs;
 
 	@Override
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
@@ -61,60 +57,6 @@ public class SpringContext implements ApplicationContextAware {
 		return applicationContext.getBean(name, requiredType);
 	}
 
-//	@Resource
-//	public void setUserService(UserService userService) {
-//		SpringContext.userService = userService;
-//	}
-
-//	public final static UserService getUserService() {
-//		return userService;
-//	}
-
-//	@Resource
-//	public void setFriendService(FriendService friendService) {
-//		SpringContext.friendService = friendService;
-//	}
-
-//	public final static FriendService getFriendService() {
-//		return friendService;
-//	}
-
-//	@Resource
-//	public void setSearchService(SearchService searchService) {
-//		SpringContext.searchService = searchService;
-//	}
-
-//	public final static SearchService getSearchService() {
-//		return searchService;
-//	}
-
-//	@Resource
-//	public void setIdService(IdService idService) {
-//		SpringContext.idService = idService;
-//	}
-
-//	public final static IdService getIdService() {
-//		return idService;
-//	}
-
-//	@Resource
-//	public void setAysncDbService(AysncDbService aysncDbService) {
-//		SpringContext.aysncDbService = aysncDbService;
-//	}
-
-//	public static AysncDbService getAysncDbService() {
-//		return aysncDbService;
-//	}
-
-//	@Resource
-//	public void setChatService(ChatService chatService) {
-//		SpringContext.chatService = chatService;
-//	}
-
-//	public final static ChatService getChatService() {
-//		return chatService;
-//	}
-
 	@Resource
 	public void setMessageDispatcher(MessageDispatcher messageDispatcher) {
 		SpringContext.messageDispatcher = messageDispatcher;
@@ -132,15 +74,5 @@ public class SpringContext implements ApplicationContextAware {
 	public final static EventDispatcher getEventDispatcher() {
 		return eventDispatcher;
 	}
-
-
-//	@Resource
-//	public void setServerConfigs(ServerConfigs serverConfigs) {
-//		SpringContext.serverConfigs = serverConfigs;
-//	}
-//
-//	public final static ServerConfigs getServerConfigs() {
-//		return SpringContext.serverConfigs;
-//	}
 
 }

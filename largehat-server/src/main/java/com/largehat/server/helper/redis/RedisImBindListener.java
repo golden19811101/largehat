@@ -43,7 +43,7 @@ public class RedisImBindListener extends AbstractImBindListener {
 		if(!isStore()) {
 			return;
 		}
-		initGroupUsers(group,channelContext);
+		initGroupUsers(group, channelContext);
 	}
 
 	@Override

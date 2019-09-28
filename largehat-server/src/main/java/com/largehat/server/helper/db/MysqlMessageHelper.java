@@ -2,12 +2,15 @@ package com.largehat.server.helper.db;
 
 
 
+import com.largehat.api.modules.im.service.ImUserInfoService;
 import com.largehat.common.im.entity.message.MessageHelper;
 import com.largehat.common.im.listener.ImBindListener;
 import com.largehat.common.im.packets.ChatBody;
 import com.largehat.common.im.packets.Group;
 import com.largehat.common.im.packets.User;
 import com.largehat.common.im.packets.UserMessageData;
+import org.apache.dubbo.config.annotation.Reference;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -15,7 +18,11 @@ import java.util.List;
  * Mysql获取持久化+同步消息助手;
  * @author lion
  */
+@Component
 public class MysqlMessageHelper implements MessageHelper {
+
+	@Reference(version = "${api.service.version}", check = true)
+	private ImUserInfoService imUserInfoService;
 
 
 	@Override

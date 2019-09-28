@@ -13,9 +13,11 @@ import com.largehat.common.im.packets.User;
 import com.largehat.common.im.packets.UserMessageData;
 import com.largehat.common.im.utils.ChatKit;
 import com.largehat.common.im.utils.JsonKit;
+import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
@@ -26,32 +28,135 @@ import java.util.Set;
 /**
  * Redis获取持久化+同步消息助手;
  */
+@Component
+@Data
 public class RedisMessageHelper extends AbstractMessageHelper {
-
-    private RedisCache groupCache = null;
-    private RedisCache pushCache = null;
-    private RedisCache storeCache = null;
-    private RedisCache userCache = null;
-
-    private final String SUBFIX = ":";
     private Logger log = LoggerFactory.getLogger(RedisMessageHelper.class);
 
+    private RedisCache orgCache = null;
+    private RedisCache orgAuthCache = null;
+    private RedisCache tonKenCache = null;
+    private RedisCache userCache = null;
+
+    private RedisCache groupCache = null;
+    private RedisCache storeCache = null;
+    private RedisCache pushCache = null;
+    private RedisCache friendCache = null;
+
+    private RedisCache messageCache = null;
+    private RedisCache noticeCache = null;
+    private RedisCache requestCache = null;
+    private RedisCache offlineNoticeCache = null;
+
+    private RedisCache offlineMessageCache = null;
+    private RedisCache offlineRequestCache = null;
+    private RedisCache orgSpecialCache = null;
+    private RedisCache groupSpecialCache = null;
+
+    private RedisCache groupProhibitCache = null;
+    private RedisCache groupBlackCache = null;
+    private RedisCache groupManageCache = null;
+    private RedisCache userBlackCache = null;
+
+    private final String SUBFIX = ":";
+
     static {
+        //组织机构信息
+        RedisCacheManager.register(ORG, Integer.MAX_VALUE, Integer.MAX_VALUE);
+        //组织机构鉴权信息
+        RedisCacheManager.register(ORG_AUTH, Integer.MAX_VALUE, Integer.MAX_VALUE);
+        //用户鉴权TOKEN信息
+        RedisCacheManager.register(TONKEN, Integer.MAX_VALUE, Integer.MAX_VALUE);
+        //用户信息
         RedisCacheManager.register(USER, Integer.MAX_VALUE, Integer.MAX_VALUE);
+        //群组信息
         RedisCacheManager.register(GROUP, Integer.MAX_VALUE, Integer.MAX_VALUE);
+
         RedisCacheManager.register(STORE, Integer.MAX_VALUE, Integer.MAX_VALUE);
         RedisCacheManager.register(PUSH, Integer.MAX_VALUE, Integer.MAX_VALUE);
+
+        //朋友信息
+        RedisCacheManager.register(FRIEND, Integer.MAX_VALUE, Integer.MAX_VALUE);
+        //消息信息
+        RedisCacheManager.register(MESSAGE, Integer.MAX_VALUE, Integer.MAX_VALUE);
+        //通知信息
+        RedisCacheManager.register(NOTICE, Integer.MAX_VALUE, Integer.MAX_VALUE);
+        //请求信息
+        RedisCacheManager.register(REQUEST, Integer.MAX_VALUE, Integer.MAX_VALUE);
+
+        //离线通知
+        RedisCacheManager.register(OFFLINE_NOTICE, Integer.MAX_VALUE, Integer.MAX_VALUE);
+        //消息信息
+        RedisCacheManager.register(OFFLINE_MESSAGE, Integer.MAX_VALUE, Integer.MAX_VALUE);
+        //离线请求
+        RedisCacheManager.register(OFFLINE_REQUEST, Integer.MAX_VALUE, Integer.MAX_VALUE);
+        //特殊符号
+        RedisCacheManager.register(ORG_SPECIAL, Integer.MAX_VALUE, Integer.MAX_VALUE);
+        //群组特殊符号
+        RedisCacheManager.register(GROUP_SPECIAL, Integer.MAX_VALUE, Integer.MAX_VALUE);
+
+        //群组禁言列表
+        RedisCacheManager.register(GROUP_PROHIBIT, Integer.MAX_VALUE, Integer.MAX_VALUE);
+        //群组黑名单
+        RedisCacheManager.register(GROUP_BLACK, Integer.MAX_VALUE, Integer.MAX_VALUE);
+        //群组管理员
+        RedisCacheManager.register(GROUP_MANAGE, Integer.MAX_VALUE, Integer.MAX_VALUE);
+        //用户黑名单
+        RedisCacheManager.register(USER_BLACK, Integer.MAX_VALUE, Integer.MAX_VALUE);
     }
 
     public RedisMessageHelper() {
-        this(null);
+        this.orgCache = RedisCacheManager.getCache(ORG);
+        this.orgAuthCache = RedisCacheManager.getCache(ORG_AUTH);
+        this.tonKenCache = RedisCacheManager.getCache(TONKEN);
+        this.userCache = RedisCacheManager.getCache(USER);
+
+        this.groupCache = RedisCacheManager.getCache(GROUP);
+        this.storeCache = RedisCacheManager.getCache(STORE);
+        this.pushCache = RedisCacheManager.getCache(PUSH);
+        this.friendCache = RedisCacheManager.getCache(FRIEND);
+
+        this.messageCache = RedisCacheManager.getCache(MESSAGE);
+        this.noticeCache = RedisCacheManager.getCache(NOTICE);
+        this.requestCache = RedisCacheManager.getCache(REQUEST);
+        this.offlineNoticeCache = RedisCacheManager.getCache(OFFLINE_NOTICE);
+
+        this.offlineMessageCache = RedisCacheManager.getCache(OFFLINE_MESSAGE);
+        this.offlineRequestCache = RedisCacheManager.getCache(OFFLINE_REQUEST);
+        this.orgSpecialCache = RedisCacheManager.getCache(ORG_SPECIAL);
+        this.groupSpecialCache = RedisCacheManager.getCache(ORG_SPECIAL);
+
+        this.groupProhibitCache = RedisCacheManager.getCache(GROUP_PROHIBIT);
+        this.groupBlackCache = RedisCacheManager.getCache(GROUP_BLACK);
+        this.groupManageCache = RedisCacheManager.getCache(GROUP_MANAGE);
+        this.userBlackCache = RedisCacheManager.getCache(USER_BLACK);
     }
 
     public RedisMessageHelper(Config imConfig) {
-        this.groupCache = RedisCacheManager.getCache(GROUP);
-        this.pushCache = RedisCacheManager.getCache(PUSH);
-        this.storeCache = RedisCacheManager.getCache(STORE);
+        this.orgCache = RedisCacheManager.getCache(ORG);
+        this.orgAuthCache = RedisCacheManager.getCache(ORG_AUTH);
+        this.tonKenCache = RedisCacheManager.getCache(TONKEN);
         this.userCache = RedisCacheManager.getCache(USER);
+
+        this.groupCache = RedisCacheManager.getCache(GROUP);
+        this.storeCache = RedisCacheManager.getCache(STORE);
+        this.pushCache = RedisCacheManager.getCache(PUSH);
+        this.friendCache = RedisCacheManager.getCache(FRIEND);
+
+        this.messageCache = RedisCacheManager.getCache(MESSAGE);
+        this.noticeCache = RedisCacheManager.getCache(NOTICE);
+        this.requestCache = RedisCacheManager.getCache(REQUEST);
+        this.offlineNoticeCache = RedisCacheManager.getCache(OFFLINE_NOTICE);
+
+        this.offlineMessageCache = RedisCacheManager.getCache(OFFLINE_MESSAGE);
+        this.offlineRequestCache = RedisCacheManager.getCache(OFFLINE_REQUEST);
+        this.orgSpecialCache = RedisCacheManager.getCache(ORG_SPECIAL);
+        this.groupSpecialCache = RedisCacheManager.getCache(ORG_SPECIAL);
+
+        this.groupProhibitCache = RedisCacheManager.getCache(GROUP_PROHIBIT);
+        this.groupBlackCache = RedisCacheManager.getCache(GROUP_BLACK);
+        this.groupManageCache = RedisCacheManager.getCache(GROUP_MANAGE);
+        this.userBlackCache = RedisCacheManager.getCache(USER_BLACK);
         this.imConfig = imConfig;
     }
 

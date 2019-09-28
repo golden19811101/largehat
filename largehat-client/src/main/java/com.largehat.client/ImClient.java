@@ -38,18 +38,18 @@ public class ImClient {
                     // I/O 处理逻辑
                     .handler(clientFilter);
 
-            ChannelFuture future = bootstrap.connect("172.16.12.120", 11111).sync();
+            ChannelFuture future = bootstrap.connect("172.16.11.175", 11111).sync();
             future.channel().closeFuture().sync();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 //        startConnection(bootstrap, 0);
-
 //        for(int i = 1; i <= 10000; i++) {
 //            //startConnection(bootstrap, i);
 //        }
     }
+
 
     private static void startConnection(Bootstrap b, int index) {
         b.connect(HOST, PORT)
@@ -57,8 +57,6 @@ public class ImClient {
                     @Override
                     public void operationComplete(ChannelFuture future) throws Exception {
                         if (future.isSuccess()) {
-                            //init registry
-                            //ParseRegistryMap.initRegistry();
                             log.info("Client[{}] connected Gate Successed...", index);
                         } else {
                             log.error("Client[{}] connected Gate Failed", index);

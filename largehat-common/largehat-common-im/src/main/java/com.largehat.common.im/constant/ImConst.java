@@ -27,28 +27,46 @@ public interface ImConst {
 	public static final String PUSH = "push";
 	
 	public static final String CHAT = "chat";
-	
-	public static final String GROUP = "group";
-	
-	public static final String USER = "user";
 
+    /*************************************************************************添加缓存标识定义Start*********************************************************************************/
+	//组织机构信息
 	public static final String ORG = "org";
-
+	//组织机构鉴权信息
+    public static final String ORG_AUTH = "org_auth";
+    //用户tonken信息
+    public static final String TONKEN = "tonken";
+    //群组信息
+    public static final String GROUP = "group";
+    //用户信息
+    public static final String USER = "user";
+	//朋友信息
 	public static final String FRIEND = "friend";
+    //消息信息
+	public static final String MESSAGE = "message";
+    //通知
+	public static final String NOTICE = "notice";
+	//请求信息
+	public static final String REQUEST = "request";
+    //离线通知
+	public static final String OFFLINE_NOTICE = "offline_notice";
+    //离线消息
+	public static final String OFFLINE_MESSAGE = "offline_message";
+	//离线请求
+	public static final String OFFLINE_REQUEST = "offline_request";
+    //特殊符号列表
+    public static final String ORG_SPECIAL = "org_special";
+    //群组特殊符号
+    public static final String GROUP_SPECIAL = "group_special";
+    //群组禁言列表
+    public static final String GROUP_PROHIBIT = "group_prohibit";
+    //群组黑名单列表
+    public static final String GROUP_BLACK= "group_bliack";
+    //群组管理员列表
+    public static final String GROUP_MANAGE= "group_manage";
+    //用户黑名单列表
+    public static final String USER_BLACK= "user_black";
 
-
-	/*****************************添加缓存标识定义Start****************************/
-
-	public static final String  USERCACHE = "user_user";
-
-	//public static final String
-
-
-
-
-
-
-	/**************************添加缓存标识定义End*******************************/
+    /*********************************************************************添加缓存标识定义End***************************************************************************************/
 
 	public static final String TERMINAL = "terminal";
 	

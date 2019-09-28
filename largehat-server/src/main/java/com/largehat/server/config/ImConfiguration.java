@@ -1,13 +1,14 @@
 package com.largehat.server.config;
 
 
+import com.largehat.common.im.config.Config;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 @Data
-public class ImConfiguration {
+public class ImConfiguration extends Config {
 
     /**
      * IP地址
