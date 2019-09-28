@@ -16,7 +16,7 @@
         <module>largehat-ai</module>
         <!--工具类-->
         <module>largehat-common</module>
-        <!--后台模块-->
+        <!--后台前端模块-->
         <module>largehat-admin</module>
         <!--网关模块-->
         <module>largehat-gate</module>
@@ -77,6 +77,10 @@
         <aliyun.oss.version>2.8.3</aliyun.oss.version>
         <!--表情包-->
         <emoji.version>5.0.0</emoji.version>
+        <!--dubbo rpc-->
+        <dubbo.version>2.7.3</dubbo.version>
+        <!--如果curator版本与zookeeper不对应-->
+        <curator.version>2.13.0</curator.version>
     </properties>
 
     <dependencies>
@@ -191,6 +195,29 @@
             <groupId>com.vdurmont</groupId>
             <artifactId>emoji-java</artifactId>
             <version>${emoji.version}</version>
+        </dependency>
+
+        <!--dubbo-->
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo</artifactId>
+            <version>${dubbo.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-spring-boot-starter</artifactId>
+            <version>${dubbo.version}</version>
+        </dependency>
+        <!--curator-->
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+            <version>${curator.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-recipes</artifactId>
+            <version>${curator.version}</version>
         </dependency>
 
         <!--lombok插件-->

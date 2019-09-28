@@ -1,0 +1,68 @@
+server:
+  port: 7999
+
+spring:
+  profiles:
+    active: dev
+  jackson:
+    time-zone: GMT+8
+  data:
+    redis:
+      repositories:
+        enabled: false
+
+  #配置 Jpa
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    open-in-view: true
+
+  redis:
+    #数据库索引
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password:
+    #连接超时时间
+    timeout: 5000
+
+dubbo:
+  scan:
+    base-packages: com.largehat.service.modules.*.service
+  application:
+    id: largehat-service
+    name: largehat-service
+    qos-enable: true
+    qos-accept-foreign-ip: false
+    qos-port: 12345
+  registry:
+    id: registry-largehat
+    address: zookeeper://localhost:2181
+    check: false
+    client: curator
+  protocol:
+    optimizer: com.largehat.api.kryo.SerializationOptimizerImpl
+    name: dubbo
+    port: 20008
+    id: dubbo
+    serialization: kryo
+
+#定义服务版本信息
+api:
+  service:
+    version: 1.0.0
+    timeout: 30000
+
+#七牛云
+qiniu:
+  # 文件大小 /M
+  max-size: 15
+
+#邮箱验证码有效时间/分钟
+code:
+  expiration: 5
+
+#登录图形验证码有效时间/分钟
+loginCode:
+  expiration: 2

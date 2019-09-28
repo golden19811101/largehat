@@ -8,13 +8,13 @@ import com.largehat.common.core.utils.SecurityUtils;
 import com.largehat.common.core.utils.StringUtils;
 import com.largehat.common.core.utils.ThrowableUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.dubbo.config.annotation.Reference;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -26,7 +26,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class LogAspect {
 
-    @Autowired
+    @Reference(version = "${api.service.version}", timeout = 30000, check = true)
     private LogService logService;
 
     private long currentTime = 0L;

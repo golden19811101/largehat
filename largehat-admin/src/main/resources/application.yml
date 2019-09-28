@@ -1,0 +1,49 @@
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+      enabled: true
+  profiles:
+    active: dev
+  freemarker:
+    suffix:  .html
+    request-context-attribute: request
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 30
+  port: 8000
+  servlet:
+    context-path: /largehat-admin
+
+
+dubbo:
+  scan:
+    base-packages: com.largehat.admin.modules.*.controller.*
+  application:
+    id: largehat-admin
+    name: largehat-admin
+    qos-enable: true
+    qos-accept-foreign-ip: false
+    qos-port: 33333
+  registry:
+    id: registry-largehat
+    address: zookeeper://localhost:2181
+    check: false
+    client: curator
+  protocol:
+    name: dubbo
+    id: dubbo
+    serialization: kryo
+    optimizer: com.channel.api.kryo.SerializationOptimizerImpl
+
+#定义服务版本信息
+api:
+  service:
+    version: 1.0.0
+    timeout: 30000

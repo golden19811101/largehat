@@ -34,10 +34,19 @@ public class ImClientHandler extends ChannelInboundHandlerAdapter {
 	public void channelActive(ChannelHandlerContext ctx) throws Exception {
 		System.out.println("建立连接时：" + new Date());
 		executor.scheduleAtFixedRate(() -> {
-			MessageProto.GroupNoticeReq groupNoticeReq = MessageProto.GroupNoticeReq.newBuilder().setGroupId("1111111").setGroupNoticeTypeValue(1).setNoticeContent("{test: 3333}").build();
+			MessageProto.GroupNoticeReq groupNoticeReq = MessageProto.GroupNoticeReq.newBuilder().setGroupId("1111111").setGroupNoticeTypeValue(1)
+					.setNoticeContent("{test: 一堆中文中文案件发生立即分解落实到飞机撒发生建安费经理开始打发时间了阿萨德飞洒发斯蒂芬是否" +
+							"舒服撒发生啦开发撒酒疯撒娇发送卡了房间爱上几分技术打法就是大房间卡萨飞机撒酒疯山东矿机按时发顺丰士大夫士大夫撒飞洒发撒飞洒发沙发舒服撒飞洒发萨芬撒飞洒" +
+							"爱的疯狂就类似的飞机速度快拉法卡时间飞机撒飞机撒杰弗里斯建安费举案说法经历了解放军拉斯加福利卡是否健康了" +
+							"按时付款了的萨芬就是大家快来发送即可拉法基阿双方家里卡死了加快分解拉萨附近路口见拉法基拉时间开房间卡士大夫" +
+							"撒开飞机撒娇了弗利萨解放军拉双方了解撒垃圾分类举案说法垃圾啊垃圾分类静安寺龙卷风的几率是打飞机啊数据库房间卡萨积分}").build();
 			MessageProto.Message req = MessageProto.Message.newBuilder().setVersion(1).setCommand(Command.COMMAND_GROUP_NOTIFY_REQ).setGroupNoticeReq(groupNoticeReq).build();
 
 			log.info("字节数组长度:" +  req.toByteArray().length);
+
+
+			byte[] b = req.toByteArray();
+			log.info("字节数组内容:" +  b);
 			ctx.writeAndFlush(req);
 
 			// 产生的pack类型

@@ -33,7 +33,6 @@ public class ImWebSocketServerHandler  extends SimpleChannelInboundHandler<Messa
     /**
      * <B>刚开始的时候添加session</B>
      * @param ctx
-     * @throws Exception
      */
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {

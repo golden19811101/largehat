@@ -1,19 +1,10 @@
 package com.largehat.admin.config;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.module.SimpleModule;
-import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.http.converter.StringHttpMessageConverter;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import java.math.BigInteger;
-import java.nio.charset.Charset;
-import java.util.List;
 
 /**
  * WebMvcConfigurer
@@ -36,7 +27,6 @@ public class ConfigurerAdapter implements WebMvcConfigurer {
     }
 
 // 可解决Long 类型在 前端精度丢失的问题， 如不想全局 直接添加注解 @JsonSerialize(using= ToStringSerializer.class) 到相应的字段
-
 //    @Override
 //    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
 //
