@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * @author Lion
  * @date 2018/11/15 9:20:19
  */
-@SpringBootApplication
+@SpringBootApplication(exclude={DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
 @EnableAsync
 public class ServerApplication implements CommandLineRunner {
 

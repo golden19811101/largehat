@@ -26,8 +26,8 @@ public class LoadRedisCache implements ApplicationRunner {
             long start = System.currentTimeMillis();
             Thread.sleep(1000);
             long end = System.currentTimeMillis();
-            imUserInfoService.delete(1);
-            System.out.println(11111111);
+            ImUserInfoDTO dto = imUserInfoService.findById(1);
+            System.out.println(dto);
         } catch (Exception e) {
             e.printStackTrace();
         }

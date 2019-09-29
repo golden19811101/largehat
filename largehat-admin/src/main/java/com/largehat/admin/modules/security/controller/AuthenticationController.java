@@ -48,7 +48,7 @@ public class AuthenticationController {
     @Reference(version = "${api.service.version}", timeout = 30000, check = true)
     private RedisService redisService;
 
-    @Qualifier("jwtUserDetailsService")
+    @Reference(version = "${api.service.version}", timeout = 30000, check = true)
     private UserDetailsService userDetailsService;
 
     /**

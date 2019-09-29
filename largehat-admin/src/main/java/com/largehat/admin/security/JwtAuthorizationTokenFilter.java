@@ -1,13 +1,15 @@
 package com.largehat.admin.security;
 
+import com.largehat.admin.security.utils.JwtTokenUtil;
 import com.largehat.api.modules.quartz.service.JwtUserDetailsService;
 import com.largehat.api.modules.security.domain.JwtUser;
-import com.largehat.admin.security.utils.JwtTokenUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.Reference;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -22,14 +24,15 @@ import java.io.IOException;
 @Component
 public class JwtAuthorizationTokenFilter extends OncePerRequestFilter {
 
-    @Reference(version = "${api.service.version}", timeout = 30000, check = true)
-    private final JwtUserDetailsService jwtUserDetailsService;
-    private final JwtTokenUtil jwtTokenUtil;
+    @Reference(version = "${api.service.version}", check = true)
+    private UserDetailsService userDetailsService;
+
+    @Autowired
+    private JwtTokenUtil jwtTokenUtil;
+
     private final String tokenHeader;
 
-    public JwtAuthorizationTokenFilter(JwtUserDetailsService jwtUserDetailsService, JwtTokenUtil jwtTokenUtil, @Value("${jwt.header}") String tokenHeader) {
-        this.jwtUserDetailsService = jwtUserDetailsService;
-        this.jwtTokenUtil = jwtTokenUtil;
+    public JwtAuthorizationTokenFilter(@Value("${jwt.header}") String tokenHeader) {
         this.tokenHeader = tokenHeader;
     }
 
@@ -49,12 +52,12 @@ public class JwtAuthorizationTokenFilter extends OncePerRequestFilter {
         }
 
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-            JwtUser userDetails = (JwtUser)this.jwtUserDetailsService.loadUserByUsername(username);
-            if (jwtTokenUtil.validateToken(authToken, userDetails)) {
-                UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
-                authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                SecurityContextHolder.getContext().setAuthentication(authentication);
-            }
+            //JwtUser userDetails = (JwtUser)this.jwtUserDetailsService.loadUserByUsername(username);
+//            if (jwtTokenUtil.validateToken(authToken, userDetails)) {
+//                UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+//                authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+//                SecurityContextHolder.getContext().setAuthentication(authentication);
+//            }
         }
         chain.doFilter(request, response);
     }

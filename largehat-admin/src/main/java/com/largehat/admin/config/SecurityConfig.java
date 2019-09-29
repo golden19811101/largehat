@@ -1,7 +1,6 @@
 package com.largehat.admin.config;
 
 
-import com.largehat.api.modules.quartz.service.JwtUserDetailsService;
 import com.largehat.admin.security.JwtAuthenticationEntryPoint;
 import com.largehat.admin.security.JwtAuthorizationTokenFilter;
 import org.apache.dubbo.config.annotation.Reference;
@@ -18,6 +17,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.core.GrantedAuthorityDefaults;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
@@ -31,7 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private JwtAuthenticationEntryPoint unauthorizedHandler;
 
     @Reference(version = "${api.service.version}", timeout = 30000, check = true)
-    private JwtUserDetailsService jwtUserDetailsService;
+    private UserDetailsService jwtUserDetailsService;
 
     /**
      * 自定义基于JWT的安全过滤器
@@ -47,8 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(jwtUserDetailsService)
-                .passwordEncoder(passwordEncoderBean());
+        auth.userDetailsService(jwtUserDetailsService).passwordEncoder(passwordEncoderBean());
     }
 
     @Bean

@@ -4,8 +4,6 @@ server:
     uri-encoding: utf-8
 
 spring:
-  profiles:
-    active: dev
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
@@ -48,8 +46,6 @@ api:
     timeout: 30000
 
 dubbo:
-  scan:
-    base-packages: com.largehat.server.helper.db.*
   application:
     id: largehat-server
     name: largehat-server
