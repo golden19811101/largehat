@@ -2,6 +2,7 @@ package com.largehat.server.base.cache;
 
 
 import com.largehat.api.modules.im.dto.ImUserInfoDTO;
+import com.largehat.api.modules.im.service.ImOrgAuthService;
 import com.largehat.api.modules.im.service.ImUserInfoService;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.boot.ApplicationArguments;
@@ -19,6 +20,9 @@ public class LoadRedisCache implements ApplicationRunner {
     @Reference(version = "${api.service.version}", check = true)
     private ImUserInfoService imUserInfoService;
 
+    @Reference(version = "${api.service.version}", check = true)
+    private ImOrgAuthService imOrgAuthService;
+
     //开一个线程执行数据的加载
     @Async
     public void loadUserInfo() {
@@ -26,6 +30,10 @@ public class LoadRedisCache implements ApplicationRunner {
             long start = System.currentTimeMillis();
             Thread.sleep(1000);
             long end = System.currentTimeMillis();
+            imOrgAuthService.queryAll(null);
+
+
+
             ImUserInfoDTO dto = imUserInfoService.findById(1);
             System.out.println(dto);
         } catch (Exception e) {

@@ -1,5 +1,5 @@
 server:
-  port: 8989
+  port: 8001
   tomcat:
     uri-encoding: utf-8
 
@@ -22,7 +22,6 @@ spring:
     maxWait: 1000
     maxIdle: 100
     minIdle: 100
-
 
 #定义服务器启动信息
 im:
