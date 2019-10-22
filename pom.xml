@@ -62,7 +62,7 @@
         <!--实体映射工具-->
         <mapstruct.version>1.2.0.Final</mapstruct.version>
         <!--netty nio通信-->
-        <netty.version>4.1.21.Final</netty.version>
+        <netty.version>4.1.42.Final</netty.version>
         <!--protobuf 解码-->
         <protobuf.version>3.7.1</protobuf.version>
         <!--google json-->
