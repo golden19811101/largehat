@@ -78,7 +78,7 @@
         <!--表情包-->
         <emoji.version>5.0.0</emoji.version>
         <!--dubbo rpc-->
-        <dubbo.version>2.7.3</dubbo.version>
+        <dubbo.version>2.7.13</dubbo.version>
         <!--如果curator版本与zookeeper不对应-->
         <curator.version>2.13.0</curator.version>
     </properties>
